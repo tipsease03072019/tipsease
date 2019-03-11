@@ -14,6 +14,7 @@ server.use(express.json());
 
 server.get("/", (req, res) => {
   res.send("Server running.");
+  res.render("Tipsease", { html: html });
 });
 
 module.exports = server;
