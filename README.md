@@ -10,3 +10,135 @@ Worker Page - Loads information about the worker, thumbnail photo, how long they
 Stretch: Implement a payment feature that actually allows money exchange with a service like, paypal or stripe or venmo.
 
 ## Endpoints
+
+https://tipsease.herokuapp.com/
+
+// Customer //
+
+// Register
+const newUser = {
+username: "", // (Unique) required
+password: "", // required
+email: "", // (Unique) optional
+img_url: "" // optional
+};
+
+axios
+.post("https://tipsease.herokuapp.com/auth/register", newUser)
+.then(res => {
+console.log(res.data)
+})
+.catch(err => {
+console.log(err)
+});
+
+-returned
+[
+{
+id: "",
+token: ""
+}
+]
+
+// Login
+const creds = {
+username: "" // required
+password: "" // required
+};
+
+axios
+.post("https://tipsease.herokuapp.com/auth/register", creds)
+.then(res => {
+console.log(res.data)
+})
+.catch(err => {
+console.log(err)
+});
+
+-returned
+[
+{
+message: "Logged In";
+id: "",
+token: ""
+}
+]
+
+// Customer by ID
+
+const headersObj = {
+headers: {
+authorization: token
+}
+};
+
+axios
+.get("https://tipsease.herokuapp.com/${}", headersObj)
+.then(res => {
+console.log(res.data)
+})
+.catch(err => {
+console.log(err)
+});
+
+-returned
+[
+{
+"id": "",
+"username": "",
+"email": "",
+"img_url": ""
+}
+]
+
+/////////
+
+// Employee //
+
+// Register
+const newUser = {
+username: "", // (Unique) required
+password: "", // required
+email: "", // (Unique) optional
+img_url: "" // optional
+};
+
+axios
+.post("https://tipsease.herokuapp.com/auth/register", newUser)
+.then(res => {
+console.log(res.data)
+})
+.catch(err => {
+console.log(err)
+});
+
+-returned
+[
+{
+id: "",
+token: ""
+}
+]
+
+// Login
+const creds = {
+username: "" // required
+password: "" // required
+};
+
+axios
+.post("https://tipsease.herokuapp.com/auth/register", creds)
+.then(res => {
+console.log(res.data)
+})
+.catch(err => {
+console.log(err)
+});
+
+-returned
+[
+{
+message: "Logged In";
+token: ""
+}
+]
