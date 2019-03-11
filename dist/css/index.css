@@ -129,32 +129,61 @@ table {
 }
 
 .container {
-  background-color: #f9f9f9;
+  background-color: #28333F;
+}
+
+.nav {
+  background-color: #67DA8C;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 .top-content {
+  color: white;
   display: flex;
   flex-flow: column wrap;
-  border: 1px solid red;
-  margin: 3rem 0 3rem 0;
+  margin: 0 0 3rem 0;
+}
+.top-content p {
+  padding: 15px;
 }
 .top-content h2 {
   text-align: center;
   margin: 2rem 0 2rem 0;
 }
 .top-content img {
+  margin-top: 1rem;
+  clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%);
   height: 300px;
-  border: 1px solid red;
+}
+
+.profile-top .profiles-header {
+  background-color: #2a3642;
+  width: 100%;
+}
+
+.profile-main-text h2 {
+  padding-top: 10px;
+  background-color: #2a3642;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
 }
 
 .profiles {
+  background-color: #2a3642;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
 }
+.profiles .hide-profile {
+  display: none;
+}
 .profiles .text {
-  color: #28333F;
+  line-height: 2;
+  color: white;
   margin-top: 1rem;
   text-align: center;
 }
@@ -163,8 +192,7 @@ table {
   border-radius: 50%;
 }
 .profiles .profile-img:hover {
-  transition: 0.5s ease;
-  border: 2px solid #67DA8C;
+  border: 1px solid #67DA8C;
   opacity: 0.8;
 }
 
@@ -173,10 +201,17 @@ table {
   justify-content: center;
   align-items: center;
 }
-.content-holder .profile-content {
-  width: 50%;
+.content-holder .profile-content .profile-items {
+  margin-right: -100px;
+  padding: 2rem;
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 1rem;
+  z-index: 1;
+  width: 400px;
+  height: 200px;
   background-color: #67DA8C;
-  border: 3px solid #1352DD;
   border-radius: 20px;
 }
 .content-holder .profile-content .icons {
@@ -187,11 +222,8 @@ table {
 .content-holder .profile-content .icons:hover {
   color: #1352DD;
 }
-.content-holder .profile-content .content-hide {
-  display: none;
-}
-.content-holder .profile-content .profile-items {
-  margin: 2rem;
+.content-holder .profile-content .content-selected {
+  display: block;
 }
 
 /*# sourceMappingURL=index.css.map */
