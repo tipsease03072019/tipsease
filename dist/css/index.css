@@ -128,15 +128,21 @@ table {
   border-spacing: 0;
 }
 
-.container {
-  background-color: #28333f;
+nav {
+  background: #67DA8C;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav a {
+  background-color: unset;
+  color: white;
+  text-decoration: none;
 }
 
-.nav {
-  background-color: #67da8c;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
+.container {
+  background-color: #28333F;
 }
 
 .top-content {
@@ -152,9 +158,9 @@ table {
   height: 300px;
 }
 .top-content .top-content-info {
-  color: #28333f;
+  color: #28333F;
   margin-top: 2rem;
-  background-color: #67da8c;
+  background-color: #67DA8C;
   border-radius: 11px;
 }
 .top-content .top-content-info p {
@@ -171,7 +177,7 @@ table {
 }
 
 .profile-main-text h2 {
-  color: #67da8c;
+  color: #67DA8C;
   padding-top: 10px;
   background-color: #2a3642;
   text-align: center;
@@ -199,7 +205,7 @@ table {
   border-radius: 50%;
 }
 .profiles .profile-img:hover {
-  border: 1px solid #67da8c;
+  border: 1px solid #67DA8C;
   opacity: 0.8;
 }
 
@@ -218,7 +224,7 @@ table {
   z-index: 1;
   width: 400px;
   height: 200px;
-  background-color: #67da8c;
+  background-color: #67DA8C;
   border-radius: 20px;
 }
 .content-holder .profile-content .icons {
@@ -227,10 +233,14 @@ table {
   align-items: center;
 }
 .content-holder .profile-content .icons:hover {
-  color: #1352dd;
+  color: #1352DD;
 }
 .content-holder .profile-content .content-selected {
   display: block;
+}
+
+footer {
+  text-align: center;
 }
 
 /*# sourceMappingURL=index.css.map */
