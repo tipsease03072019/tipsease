@@ -85,12 +85,22 @@ header section a {
   display: block;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 main #info {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   width: 90%;
   justify-content: space-around;
+}
+@media screen and (min-width: 800px) {
+  main #info {
+    flex-direction: row;
+  }
 }
 main #info .info-card {
   background: #1352dd;
@@ -100,8 +110,11 @@ main #info .info-card {
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
 }
-main a {
-  margin: 0 auto;
+@media screen and (min-width: 800px) {
+  main #info .info-card {
+    width: 35%;
+    justify-content: space-around;
+  }
 }
 
 footer {
@@ -129,4 +142,4 @@ a {
   text-decoration: none;
 }
 
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=landing.css.map */
