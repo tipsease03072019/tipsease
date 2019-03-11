@@ -1,0 +1,61 @@
+.container
+  background-color: $background-color
+
+.top-content
+  display: flex
+  flex-flow: column wrap
+  border: 1px solid red
+  margin: 3rem 0 3rem 0
+
+  h2
+    text-align: center
+    margin: 2rem 0 2rem 0
+
+  img
+    height: 300px
+    border: 1px solid red
+
+
+.profiles
+  display: flex
+  flex-flow: row wrap
+  justify-content: center
+  align-items: center
+
+  .text
+    color: $dark-text-color
+    margin-top: 1rem
+    text-align: center
+
+  .profile-img
+    margin: 4rem 4rem 0 4rem
+    border-radius: 50%
+
+    &:hover
+      transition: .5s ease
+      border: 2px solid $primary-color
+      opacity: 0.8
+.content-holder
+  display: flex
+  justify-content: center
+  align-items: center
+
+  .profile-content
+    width: 50%
+    background-color: $primary-color
+    border: 3px solid $secondary-color
+    border-radius: 20px
+
+    .icons
+      display: flex
+      justify-content: center
+      align-items: center
+
+      &:hover
+        color: $secondary-color
+
+    .content-hide
+      display: none
+
+    .profile-items
+      margin: 2rem
