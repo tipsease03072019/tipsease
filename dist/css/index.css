@@ -228,6 +228,7 @@ nav a {
   border-radius: 20px;
 }
 .content-holder .profile-content .icons {
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -240,8 +241,14 @@ nav a {
 }
 
 footer {
+  background-color: #28333F;
   text-align: center;
-  margin: 2rem;
+  padding: 2rem;
+  color: white;
+}
+
+html {
+  font-family: proxima-nova, sans-serif;
 }
 
 /*# sourceMappingURL=index.css.map */
