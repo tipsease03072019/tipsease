@@ -129,11 +129,11 @@ table {
 }
 
 .container {
-  background-color: #28333F;
+  background-color: #28333f;
 }
 
 .nav {
-  background-color: #67DA8C;
+  background-color: #67da8c;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -152,9 +152,9 @@ table {
   height: 300px;
 }
 .top-content .top-content-info {
-  color: #28333F;
+  color: #28333f;
   margin-top: 2rem;
-  background-color: #67DA8C;
+  background-color: #67da8c;
   border-radius: 11px;
 }
 .top-content .top-content-info p {
@@ -171,7 +171,7 @@ table {
 }
 
 .profile-main-text h2 {
-  color: #67DA8C;
+  color: #67da8c;
   padding-top: 10px;
   background-color: #2a3642;
   text-align: center;
@@ -199,7 +199,7 @@ table {
   border-radius: 50%;
 }
 .profiles .profile-img:hover {
-  border: 1px solid #67DA8C;
+  border: 1px solid #67da8c;
   opacity: 0.8;
 }
 
@@ -218,7 +218,7 @@ table {
   z-index: 1;
   width: 400px;
   height: 200px;
-  background-color: #67DA8C;
+  background-color: #67da8c;
   border-radius: 20px;
 }
 .content-holder .profile-content .icons {
@@ -227,7 +227,7 @@ table {
   align-items: center;
 }
 .content-holder .profile-content .icons:hover {
-  color: #1352DD;
+  color: #1352dd;
 }
 .content-holder .profile-content .content-selected {
   display: block;
