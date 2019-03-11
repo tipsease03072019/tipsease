@@ -41,8 +41,9 @@ console.log(response.data)
 const newUser = {
 username: "", // (Unique) required
 password: "", // required
+account_type: "", // required (Customer or Employee)
 email: "", // (Unique) optional
-img_url: "" // optional
+img_url: "" // optional,
 };
 
 axios
@@ -121,6 +122,7 @@ console.log(err)
 const newUser = {
 username: "", // (Unique) required
 password: "", // required
+account_type: "", // required (Customer or Employee)
 email: "", // (Unique) optional
 img_url: "" // optional
 };
