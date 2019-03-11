@@ -6,15 +6,21 @@
 
 
 //General Styles
-.container {
-    color: $dark-text-color;
+body {
+    background: $dark-text-color;
 
+}
+.container {
+    color: white;
 }
 .logo {
     height: 100px;
     width: 100px;
 }
 
+a {
+    color: white;
+}
 h1 {
     font-size: 30px;
 }

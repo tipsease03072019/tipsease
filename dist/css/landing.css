@@ -119,15 +119,24 @@ main #info .info-card {
 
 footer {
   text-align: center;
+  margin: 20px;
+}
+
+body {
+  background: #28333f;
 }
 
 .container {
-  color: #28333f;
+  color: white;
 }
 
 .logo {
   height: 100px;
   width: 100px;
+}
+
+a {
+  color: white;
 }
 
 h1 {
