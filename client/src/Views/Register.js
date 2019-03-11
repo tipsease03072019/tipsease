@@ -1,9 +1,9 @@
 import React from 'react';
 
-const LoginInSignUp = () => {
+const Register = () => {
     return (
         <div></div>
     );
 }
 
-export default LoginInSignUp;
+export default Register;
