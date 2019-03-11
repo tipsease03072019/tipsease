@@ -13,16 +13,12 @@ Stretch: Implement a payment feature that actually allows money exchange with a 
 
 https://tipsease.herokuapp.com/
 
-## // List of Employees // x
+## // Users //
 
-(user does not have to be logged in or register to send tips to employees)
-
-const headersObj = {
-headers: { authorization: token }
-};
+## Get Users x
 
 axios
-.get("https://tipsease.herokuapp.com/employees", headersObject)
+.get("https://tipsease.herokuapp.com/api/users", headersObject)
 .then(response => {
 console.log(response.data)
 })
@@ -31,12 +27,14 @@ console.log(response.data)
 -returned
 [
 {
-"id": "",
-"username": ""
+"id": "1",
+"username": "employee",
+"email": "employee@email.com",
+"img_url": "https://www.fillmurray.com/640/360",
+"account_type": "Employee",
+"created_at": "2019-03-11 23:33:02"
 }
 ]
-
-## // Customer //
 
 ## // Register x
 
@@ -49,7 +47,7 @@ img_url: "" // optional,
 };
 
 axios
-.post("https://tipsease.herokuapp.com/api/customers/register", newUser)
+.post("https://tipsease.herokuapp.com/api/users", newUser)
 .then(res => {
 console.log(res.data)
 })
@@ -74,7 +72,7 @@ password: "" // required
 };
 
 axios
-.post("https://tipsease.herokuapp.com/auth/register", creds)
+.post("https://tipsease.herokuapp.com/api/register", creds)
 .then(res => {
 console.log(res.data)
 })
@@ -91,7 +89,7 @@ token: ""
 }
 ]
 
-## // Customer by ID
+## // Users by ID
 
 const headersObj = {
 headers: {
@@ -101,91 +99,6 @@ authorization: token
 
 axios
 .get("https://tipsease.herokuapp.com/customers/${}", headersObj)
-.then(res => {
-console.log(res.data)
-})
-.catch(err => {
-console.log(err)
-});
-
--returned
-[
-{
-"id": "",
-"username": "",
-"email": "",
-"img_url": ""
-}
-]
-
-/////////
-
-## // Employee //
-
-## // Register x
-
-const newUser = {
-username: "", // (Unique) required
-password: "", // required
-account_type: "", // required (Customer or Employee)
-email: "", // (Unique) optional
-img_url: "" // optional
-};
-
-axios
-.post("https://tipsease.herokuapp.com/api/employees/register", newUser)
-.then(res => {
-console.log(res.data)
-})
-.catch(err => {
-console.log(err)
-});
-
--returned
-[
-{
-id: "",
-token: ""
-}
-]
-
-## // Login
-
-const creds = {
-username: "", // required
-password: "", // required
-
-<!-- account_type: "" // required -->
-
-};
-
-axios
-.post("https://tipsease.herokuapp.com/auth/register", creds)
-.then(res => {
-console.log(res.data)
-})
-.catch(err => {
-console.log(err)
-});
-
--returned
-[
-{
-message: "Logged In";
-token: ""
-}
-]
-
-## // Employee by ID
-
-const headersObj = {
-headers: {
-authorization: token
-}
-};
-
-axios
-.get("https://tipsease.herokuapp.com/${}", headersObj)
 .then(res => {
 console.log(res.data)
 })
