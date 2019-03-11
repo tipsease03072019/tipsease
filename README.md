@@ -13,6 +13,28 @@ Stretch: Implement a payment feature that actually allows money exchange with a 
 
 https://tipsease.herokuapp.com/
 
+// List of Employees //
+(user does not have to be logged in or register to send tips to employees)
+
+const headersObj = {
+headers: { authorization: token }
+};
+
+axios
+.get("https://tipsease.herokuapp.com/employees", headersObject)
+.then(response => {
+console.log(response.data)
+})
+.catch(err => console.log(err));
+
+-returned
+[
+{
+"id": "",
+"username": ""
+}
+]
+
 // Customer //
 
 // Register
