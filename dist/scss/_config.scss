@@ -54,3 +54,48 @@ $secondary-color: #1352dd;
 $dark-text-color: #28333f;
 
 //Mixins
+
+@mixin btn {
+	background-color: white;
+	box-shadow: 0 8px 25px 0 rgba(40, 51, 63, .11);
+	border-radius: 10px;
+	font-size: 18px;
+	line-height: 18px;
+	font-weight: semi-bold;
+	color: $dark-text-color;
+}
+
+@mixin btnHover {
+	opacity: .8;
+	box-shadow: 0 6px 10px 0 rgba(40, 51, 63, .11);
+}
+
+@mixin primaryBtn {
+	background-color: #67DA8C;
+	color: white;
+}
+
+@mixin textBtn {
+	background-color: unset;
+	color: white;
+	text-decoration: none;
+}
+
+@mixin card {
+	box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
+	border-radius: 6px;
+}
+
+//Media Mixins
+
+@mixin tablet {
+	@media screen and (min-width: 800px) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media screen and (min-width: 1000px) {
+		@content;
+	}
+}

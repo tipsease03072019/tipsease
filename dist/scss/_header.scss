@@ -1,0 +1,20 @@
+header {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    section {
+        text-align: center;
+
+        .slogan {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        a {
+            display: block;
+        }
+    }
+
+}
