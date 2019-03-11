@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-im
+import {Switch, Route} from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        Hello World
-      </div>
+      <Switch>
+        <Route />
+        <Route />
+        <Route />
+      </Switch>
     );
   }
 }
