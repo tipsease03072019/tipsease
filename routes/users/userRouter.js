@@ -22,10 +22,10 @@ router.post("/register", (req, res) => {
   creds.password = hash;
   db("users")
     .insert(creds)
-    .then(ids => {
+    .then(id => {
       const token = generateToken(creds);
       res.status(201).json({
-        ids,
+        id: id[0],
         message: "registered",
         token
       });
