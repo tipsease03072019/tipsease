@@ -142,3 +142,30 @@ message: "Logged In";
 token: ""
 }
 ]
+
+// Employee by ID
+
+const headersObj = {
+headers: {
+authorization: token
+}
+};
+
+axios
+.get("https://tipsease.herokuapp.com/${}", headersObj)
+.then(res => {
+console.log(res.data)
+})
+.catch(err => {
+console.log(err)
+});
+
+-returned
+[
+{
+"id": "",
+"username": "",
+"email": "",
+"img_url": ""
+}
+]
