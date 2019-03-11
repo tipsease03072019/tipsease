@@ -6,9 +6,13 @@ const helmet = require("helmet");
 
 const server = express();
 
+const customersRouter = require("../routes/customers/customersRouter");
+
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
+
+server.use("/customers", customersRouter);
 
 // configureRoutes(server);
 

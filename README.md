@@ -56,12 +56,13 @@ console.log(err)
 });
 
 -returned
-[
 {
-id: "",
-token: ""
+"ids": [
+4
+],
+"message": "Registered",
+"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE1NTIzMzg2NDUsImV4cCI6MTU1MjQyNTA0NX0.wDHsSTyHq2Uzi0x8PyJUi7iGA37stGH2-S9OyArsKb4"
 }
-]
 
 // Login
 const creds = {
