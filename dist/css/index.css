@@ -140,22 +140,29 @@ table {
 }
 
 .top-content {
+  padding: 2rem;
   color: white;
   display: flex;
   flex-flow: column wrap;
   margin: 0 0 3rem 0;
 }
-.top-content p {
-  padding: 15px;
-}
-.top-content h2 {
-  text-align: center;
-  margin: 2rem 0 2rem 0;
-}
 .top-content img {
   margin-top: 1rem;
   clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%);
   height: 300px;
+}
+.top-content .top-content-info {
+  color: #28333F;
+  margin-top: 2rem;
+  background-color: #67DA8C;
+  border-radius: 10px;
+}
+.top-content .top-content-info p {
+  padding: 15px;
+}
+.top-content .top-content-info h2 {
+  text-align: center;
+  margin: 2rem 0 2rem 0;
 }
 
 .profile-top .profiles-header {
@@ -164,10 +171,10 @@ table {
 }
 
 .profile-main-text h2 {
+  color: #67DA8C;
   padding-top: 10px;
   background-color: #2a3642;
   text-align: center;
-  color: white;
   font-size: 2rem;
 }
 
