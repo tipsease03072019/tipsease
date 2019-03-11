@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
     table.string("email", 128).unique();
     table.string("img_url", 128);
     table.string("account_type", 128).notNullable();
+    table.timestamp(true);
   });
 };
 

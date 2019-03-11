@@ -9,11 +9,12 @@ Worker Page - Loads information about the worker, thumbnail photo, how long they
 
 Stretch: Implement a payment feature that actually allows money exchange with a service like, paypal or stripe or venmo.
 
-## Endpoints
+# Endpoints
 
 https://tipsease.herokuapp.com/
 
-// List of Employees //
+## // List of Employees // x
+
 (user does not have to be logged in or register to send tips to employees)
 
 const headersObj = {
@@ -35,9 +36,10 @@ console.log(response.data)
 }
 ]
 
-// Customer //
+## // Customer //
 
-// Register
+## // Register x
+
 const newUser = {
 username: "", // (Unique) required
 password: "", // required
@@ -47,7 +49,7 @@ img_url: "" // optional,
 };
 
 axios
-.post("https://tipsease.herokuapp.com/auth/register", newUser)
+.post("https://tipsease.herokuapp.com/api/customers/register", newUser)
 .then(res => {
 console.log(res.data)
 })
@@ -64,7 +66,8 @@ console.log(err)
 "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE1NTIzMzg2NDUsImV4cCI6MTU1MjQyNTA0NX0.wDHsSTyHq2Uzi0x8PyJUi7iGA37stGH2-S9OyArsKb4"
 }
 
-// Login
+## // Login
+
 const creds = {
 username: "" // required
 password: "" // required
@@ -88,7 +91,7 @@ token: ""
 }
 ]
 
-// Customer by ID
+## // Customer by ID
 
 const headersObj = {
 headers: {
@@ -97,7 +100,7 @@ authorization: token
 };
 
 axios
-.get("https://tipsease.herokuapp.com/${}", headersObj)
+.get("https://tipsease.herokuapp.com/customers/${}", headersObj)
 .then(res => {
 console.log(res.data)
 })
@@ -117,9 +120,10 @@ console.log(err)
 
 /////////
 
-// Employee //
+## // Employee //
 
-// Register
+## // Register x
+
 const newUser = {
 username: "", // (Unique) required
 password: "", // required
@@ -129,7 +133,7 @@ img_url: "" // optional
 };
 
 axios
-.post("https://tipsease.herokuapp.com/auth/register", newUser)
+.post("https://tipsease.herokuapp.com/api/employees/register", newUser)
 .then(res => {
 console.log(res.data)
 })
@@ -145,10 +149,14 @@ token: ""
 }
 ]
 
-// Login
+## // Login
+
 const creds = {
-username: "" // required
-password: "" // required
+username: "", // required
+password: "", // required
+
+<!-- account_type: "" // required -->
+
 };
 
 axios
@@ -168,7 +176,7 @@ token: ""
 }
 ]
 
-// Employee by ID
+## // Employee by ID
 
 const headersObj = {
 headers: {
