@@ -32,4 +32,26 @@ router.post("/register", (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+router.post("/login", (req, res) => {
+  const creds = req.body;
+  db("customers")
+    .where({ username: creds.username })
+    .first()
+    .then(customer => {
+      if (customer && bcrypt.compareSync(creds.password, customer.password)) {
+        const token = generateToken(customer);
+        res.status(200).json({
+          message: `Welcome ${
+            customer.username
+          }! Successfully loggin in, here's a cookie and a token`,
+          token,
+          account_type: customer.account_type
+        });
+      } else {
+        res.status(401).json({ message: "You shall not pass!" });
+      }
+    })
+    .catch(err => console.log(err));
+});
+
 module.exports = router;
