@@ -14,7 +14,7 @@ const TipPage = () => {
       <button onClick={() => tipHandler()}>Next</button>
       <button onClick={() => selectTipHandler()}>5</button>
       <button onClick={() => selectTipHandler()}>10</button>
-      <button onClick={() => selectTipHandler()}>1500000000000000</button>
+      <button onClick={() => selectTipHandler()}>15</button>
       <button onClick={() => selectTipHandler()}>20</button>
     </>
   );

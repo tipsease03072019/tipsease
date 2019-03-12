@@ -14,7 +14,7 @@ const LoginPage = () => {
         <input type="text" placeholder="Username" />
         <input type="text" placeholder="Password" />
         <button onClick={() => clickHandler()}> Login</button>
-        <Link to="/register">Register</Link>
+        <Link to="/signup">Sign Up</Link>
       </form>
     </>
   );
