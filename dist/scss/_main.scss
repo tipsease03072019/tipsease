@@ -40,16 +40,9 @@ main {
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
-                grid-area: half;
 
                 &:nth-child(2) {
                     background-image: url('../img/illustrations/card-bg-2.svg');
-                    grid-area: half;
-                }
-
-                &:nth-child(3) {
-                    background-image: url('../img/illustrations/card-bg-2.svg');
-                    grid-area: full;
                 }
             }
 
