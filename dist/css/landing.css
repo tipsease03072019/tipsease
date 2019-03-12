@@ -128,6 +128,7 @@ header a:hover {
 @media screen and (min-width: 1000px) {
   header a {
     width: 40%;
+    margin-bottom: 0;
   }
 }
 header .cta {
@@ -135,12 +136,16 @@ header .cta {
 }
 header .cta strong {
   color: #67DA8C;
-  font-size: 6rem;
+  font-size: 7.5rem;
+  font-weight: bold;
+  margin-bottom: 18px;
   font-weight: bold;
 }
 header .cta .slogan {
   color: white;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
+  font-weight: semi-bold;
+  margin-bottom: 10px;
 }
 
 main {
@@ -272,16 +277,34 @@ main .bottom-bg a:hover {
 }
 
 footer {
-  text-align: center;
   margin: 30px 0 20px 0;
   color: #67DA8C;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+footer a {
+  background-color: unset;
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: semi-bold;
+  text-decoration: underline;
+  margin-right: 20px;
+  color: #67DA8C;
+  padding: 3px;
+}
+footer a:hover {
+  opacity: 0.8;
 }
 
 body {
   background: #28333f;
 }
 body p {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
+  font-weight: regular;
+  line-height: 2.8rem;
 }
 
 .logo {

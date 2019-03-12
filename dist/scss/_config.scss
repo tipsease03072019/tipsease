@@ -85,7 +85,6 @@ $xl-padding: 89px;
 
 	&:hover {
 		opacity: .8;
-
 	}
 }
 
@@ -119,14 +118,14 @@ $xl-padding: 89px;
 	margin-bottom: $md-margin;
 }
 
-@mixin subheading {
+@mixin subHeading {
 	font-size: 2.5rem;
 	font-weight: semi-bold;
 	margin-bottom: $sm-margin;
 }
 
 @mixin bodyText {
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 	font-weight: regular;
 	line-height: 2.8rem;
 }

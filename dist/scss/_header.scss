@@ -54,6 +54,7 @@ header {
 
         @include desktop {
             width: 40%;
+            margin-bottom: 0;
         }
     }
     .cta {
@@ -65,13 +66,13 @@ header {
 
         strong {
             color: $primary-color;
-            font-size: 6rem;
+            @include heroHeading;
             font-weight: bold;
         }
 
         .slogan {
             color: white;
-            font-size: 3.5rem;
+            @include subHeading;
         }
 
     }

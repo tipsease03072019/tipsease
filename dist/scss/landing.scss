@@ -9,7 +9,7 @@
 body {
     background: $dark-text-color;
     p {
-        font-size: 1.7rem;
+        @include bodyText;
     }
 
 }
