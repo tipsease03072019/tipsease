@@ -66,10 +66,11 @@ table {
 .hamburger .line {
   height: 15%;
   width: 100%;
-  background: red;
+  background: #1352dd;
 }
 
 .nav-display {
+  visibility: hidden;
   position: fixed;
   top: 0;
   background: white;
@@ -82,7 +83,18 @@ table {
   background: url("../img/illustrations/nav-bg.svg");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.nav-display a {
+  width: 40%;
+  padding: 5px;
+  color: #67DA8C;
+  text-align: center;
+  margin-top: 150px;
+  padding: 5px 0 5px 0;
 }
 .nav-display.display {
   visibility: visible;
