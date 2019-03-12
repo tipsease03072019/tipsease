@@ -1,26 +1,50 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-// Custom Components
-import PrivateRoute from './HOC/PrivateRoute'
+// HOC Imports
+import PrivateRoute from "./HOC/PrivateRoute";
 
-// Views
-import LoginPage from './Views/LoginPage';
-import SignUpPage from './Views/SignUpPage';
+// View imports
+import LoginPage from "./Views/LoginPage";
+import SignUpPage from "./Views/SignUpPage";
 
 class App extends Component {
   state = {
     loggedIn: false,
     accountType: null,
-  }
+    userId: null,
+  };
+
+  // Handle updating top level state on login we need redux
+  loginHandler = data => {
+    localStorage.setItem("token", data.token);
+    this.setState({
+      loggedIn: true,
+      accountType: data.account_type,
+      userId: data.id
+    });
+  };
 
   render() {
     return (
       <Switch>
-        <Route exact path="/login" render={props => <LoginPage {...props} />}  />
-        <Route exact path="/signup" render={props => <SignUpPage {...props} />} />
-        <PrivateRoute />
-        <Route />
+        <Route
+          exact
+          path="/login"
+          render={props => (
+            <LoginPage {...props} loginHandler={this.loginHandler} />
+          )}
+        />
+        <Route
+          exact
+          path="/signup"
+          render={props => (
+            <SignUpPage {...props} loginHandler={this.loginHandler} />
+          )}
+        />
+        <Route exact path="/wallet" />
+        <PrivateRoute exact path />
+        <Route  />
       </Switch>
     );
   }
