@@ -68,11 +68,19 @@ nav a {
   text-decoration: none;
 }
 
+.bg {
+  width: 90%;
+  margin: 0 auto;
+}
+
 header {
   height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+header img {
+  margin: 15px;
 }
 header section {
   text-align: center;
@@ -83,6 +91,7 @@ header section .slogan {
 }
 header section a {
   display: block;
+  color: #28333f;
 }
 
 main {
@@ -91,11 +100,10 @@ main {
   align-items: center;
 }
 main #info {
+  width: 90%;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  width: 90%;
-  justify-content: space-around;
+  border-radius: 10px;
 }
 @media screen and (min-width: 800px) {
   main #info {
@@ -103,12 +111,26 @@ main #info {
   }
 }
 main #info .info-card {
-  background: #1352dd;
-  color: #67DA8C;
-  padding: 50px;
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  background: #67DA8C;
+  color: white;
+  height: 150px;
+  margin-bottom: 10px;
+  padding: 10px;
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
+}
+main #info .info-card div {
+  width: 200%;
+  height: 100%;
+  background-image: url("../img/illustrations/card-bg-1.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+main #info .info-card div:nth-child(2) {
+  background-image: url("../img/illustrations/card-bg-2.svg");
 }
 @media screen and (min-width: 800px) {
   main #info .info-card {
@@ -122,6 +144,9 @@ footer {
   margin: 20px;
 }
 
+body {
+  background: #28333f;
+}
 body p {
   font-size: 1.7rem;
 }

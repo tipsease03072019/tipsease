@@ -1,9 +1,17 @@
+.bg {
+    width: 90%;
+    margin: 0 auto;
+}
+
 header {
     height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 
+    img {
+        margin: 15px;
+    }
     section {
         text-align: center;
 
@@ -14,6 +22,7 @@ header {
 
         a {
             display: block;
+            color: $dark-text-color;
         }
     }
 
