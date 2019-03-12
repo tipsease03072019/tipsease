@@ -7,7 +7,8 @@ import PrivateRoute from "./HOC/PrivateRoute";
 // View imports
 import LoginPage from "./Views/LoginPage";
 import SignUpPage from "./Views/SignUpPage";
-import WalletPage from './Views/ServiceProviderViews/WalletPage'
+import WalletPage from './Views/ServiceProviderViews/WalletPage';
+import ShowCodePage from './Views/ServiceProviderViews/ShowCodePage';
 
 class App extends Component {
   state = {
@@ -69,7 +70,12 @@ class App extends Component {
             <WalletPage {...props} user={this.state.employeeUser}  />
           )}/>
         <PrivateRoute exact path />
-        <Route  />
+        <Route 
+          path="/wallet/employee_code"
+          render={props => (
+            <ShowCodePage {...props} user={this.state.employeeUser} />
+          )}
+        />
       </Switch>
     );
   }

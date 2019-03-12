@@ -19,7 +19,7 @@ class WalletPage extends Component {
 
   showCodeHandler = () => {
     console.log("Taking you to the code! ('/employee_code')")
-    this.props.history.push("/employee_code")
+    this.props.history.push("wallet/employee_code")
   }
 
   
