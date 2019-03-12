@@ -116,6 +116,13 @@ class App extends Component {
           )}
         />
         <Route exact path="/profile" render={props => <Profile {...props} />} />
+        <Route 
+          exact
+          path="/find-provider"
+          render={props => (
+            <SearchServiceProviderPage {...props} user={this.state.normalUser}/>
+          )}
+        />
       </Switch>
     );
   }
