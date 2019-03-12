@@ -1,5 +1,6 @@
 import React,{ Component } from "react";
 import PropTypes from 'prop-types';
+import * as moment from 'moment';
 
 class WalletPage extends Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class WalletPage extends Component {
           {transactions.map((transaction, idx) => 
           <div key={idx}>
             <p className="transaction">{transaction.receivedOrSent} ${transaction.amount} from {transaction.sender}</p>
-            <p className="transaction-timestamp">At {transaction.timeStamp}</p>
+            <p className="transaction-timestamp">- {moment().subtract(4912, 'minutes').calendar()}</p>
           </div>
           )}
 
