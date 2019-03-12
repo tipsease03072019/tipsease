@@ -17,28 +17,29 @@
     background: rgb(19,82,221)
     background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 70%)
     width: 100%
-    margin-top: 1rem
-    clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%)
+    // margin-top: 1rem
+    //clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%)
     height: 300px
 
     @include desktop
       background: none
-      height: 350px
-      width: 50%
+      height: 500px
+      width: 75%
 
   .top-content-info
+    box-shadow: 0 6px 10px 0 rgba(40,51,63,0.08)
     opacity: 0.8
     color: $light-text-color
     margin-top: 2rem
     background-color: $primary-color
-    border-radius: 10px
+    border-radius: 5px
     display: flex
     flex-flow: column
     justify-content: center
     align-items: center
 
     @include desktop
-      width: 45%
+      width: 25%
       height: 300px
 
     @include tablet
@@ -55,7 +56,7 @@
 .profile-top
   background: rgb(19,82,221)
   background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 55%)
-  
+
   @include desktop
     background: none
     display: flex
@@ -151,9 +152,10 @@
         left: 2.5rem
 
       @include desktop
-        height: 300px
-        width: 50%
-        left: 25rem
+        height: 90%
+        top: 1rem
+        width: 90%
+        left: 3.5rem
 
     .icons
       margin-top: 1rem
