@@ -1,6 +1,7 @@
 .bg {
     width: 90%;
     margin: 0 auto;
+
 }
 
 header {
@@ -8,21 +9,27 @@ header {
     display: flex;
     flex-direction: column;
     text-align: center;
-    img {
-        margin: 15px;
-    }
+    align-items: center;
+    justify-content: space-around;
 
     a {
-        color: $primary-color;
-        margin-top: 35px;
         @include btn;
+        width: 50%;
+        margin-bottom: 40px;
     }
-    section {
-        text-align: center;
+    .cta {
+        margin-top: 50px;
+
+        strong {
+            color: $primary-color;
+            font-size: 6rem;
+            font-weight: bold;
+        }
 
         .slogan {
-            width: 60%;
-            margin: 0 auto;
+            color: white;
+            font-size: 3.5rem;
         }
+
     }
 }

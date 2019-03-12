@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  line-height: 1;
+  line-height: 1.3;
 }
 
 ol, ul {
@@ -75,13 +75,10 @@ header {
   display: flex;
   flex-direction: column;
   text-align: center;
-}
-header img {
-  margin: 15px;
+  align-items: center;
+  justify-content: space-around;
 }
 header a {
-  color: #67DA8C;
-  margin-top: 35px;
   background-color: white;
   box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
   border-radius: 10px;
@@ -89,13 +86,20 @@ header a {
   padding: 18px;
   font-weight: semi-bold;
   color: #28333f;
+  width: 50%;
+  margin-bottom: 40px;
 }
-header section {
-  text-align: center;
+header .cta {
+  margin-top: 50px;
 }
-header section .slogan {
-  width: 60%;
-  margin: 0 auto;
+header .cta strong {
+  color: #67DA8C;
+  font-size: 6rem;
+  font-weight: bold;
+}
+header .cta .slogan {
+  color: white;
+  font-size: 3.5rem;
 }
 
 main {
@@ -121,7 +125,7 @@ main #info .info-card {
   background: #67DA8C;
   color: white;
   height: 150px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 10px;
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
@@ -144,9 +148,10 @@ main #info .info-card div:nth-child(2) {
   }
 }
 main .bottom-bg {
-  margin: 20px;
   height: 300px;
   width: 80%;
+  display: flex;
+  flex-direction: column-reverse;
   text-align: center;
   background-image: url("../img/illustrations/bottom-bg.svg");
   background-position: center;
@@ -161,12 +166,15 @@ main .bottom-bg a {
   padding: 18px;
   font-weight: semi-bold;
   color: #28333f;
+  background: #67DA8C;
   padding: 15px;
+  margin-bottom: 30px;
+  width: 50%;
 }
 
 footer {
   text-align: center;
-  margin: 20px;
+  margin: 30px 0 20px 0;
   color: #67DA8C;
 }
 
