@@ -98,7 +98,7 @@ authorization: token
 };
 
 axios
-.get("https://tipsease.herokuapp.com/users/:id", headersObj)
+.get("https://tipsease.herokuapp.com/api/users/:id", headersObj)
 .then(res => {
 console.log(res.data)
 })
@@ -131,8 +131,19 @@ img_url: ""
 }
 
 axios
-.put("https://tipsease.herokuapp.com/users/:id", headersObj)
+.put("https://tipsease.herokuapp.com/api/users/:id", headersObj)
 .then(response => {
 console.log(response.data)
 })
 .catch(err => console.log(err));
+
+-returned
+
+{
+users {
+"username": "",
+"password": "",
+"email":"",
+"img_url": ""
+}
+}

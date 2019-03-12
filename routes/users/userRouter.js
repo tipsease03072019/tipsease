@@ -27,6 +27,12 @@ router.get("/", (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.get("/u", (req, res) => {
+  db("users")
+    .then(users => res.status(200).send(users))
+    .catch(err => console.log(err));
+});
+
 router.post("/register", (req, res) => {
   const creds = req.body;
   const hash = bcrypt.hashSync(creds.password, 10);
@@ -101,7 +107,9 @@ router.put("/:id", authenticate, (req, res) => {
       ["username", "password", "email", "img_url"]
     )
     .then(user => {
-      res.status(200).json(user);
+      res.status(200).json({
+        user: changes
+      });
     })
     .catch(err => res.status(500).json(err));
 });
