@@ -48,7 +48,8 @@ router.post("/login", (req, res) => {
           message: `Welcome ${
             user.username
           }! Successfully logged in, here's a token`,
-          token
+          token,
+          account_type: user.account_type
         });
       } else {
         res.status(401).json({ message: "You shall not pass!" });
