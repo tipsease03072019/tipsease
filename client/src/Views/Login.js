@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import loginIllustrations from '../assets/login.svg';
 
 const Login = () => {
     const clickHandler = () => {
@@ -7,9 +10,11 @@ const Login = () => {
     return (
         <div>
             <form>
-                <input type="text" />
-                <input type="text" />
-                <button onClick={()=>clickHandler()}></button>
+                <img src={loginIllustrations} alt=""/>
+                <input type="text" placeholder="Username" />
+                <input type="text" placeholder="Password" />
+                <button onClick={()=>clickHandler()}> Login</button>
+                <Link to="/register">Register</Link>
             </form>
         </div>
     );
