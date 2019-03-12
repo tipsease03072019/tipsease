@@ -11,7 +11,7 @@ const {
 
 router.get("/", (req, res) => {
   db("users")
-    .select("id", "username", "email", "img_url", "account_type", "created_at")
+    .select("id", "username", "img_url", "account_type", "created_at")
     .where({
       account_type: "employee"
     })
