@@ -13,10 +13,12 @@ class WalletPage extends Component {
 
   tipHandler = () => {
     console.log("Taking you to the TipPage")
+    this.props.history.push("/tip")
   }
 
   showCodeHandler = () => {
     console.log("Taking you to the code! ('/employee_code')")
+    this.props.history.push("/employee_code")
   }
 
   
@@ -29,17 +31,17 @@ class WalletPage extends Component {
     return (
       <>
         {/* Upper Half, containing balance */}
-        <div className="wallet-top">
+        <section className="wallet-top">
           <p>Your Current TipTease Balance is:</p>
           <div className="balance-container">
             {this.props.user.balance}
           </div>
 
           <button onClick={this.tipHandler}>Tip Someone</button>
-        </div>
+        </section>
 
         {/* Lower Half, containing latest transactions and an absolute-positioned button to show the code */}
-        <div className="wallet-bottom">
+        <section className="wallet-bottom">
           <p>Latest Transactions:</p>
           {transactions.map((transaction, idx) => 
           <div key={idx}>
@@ -50,7 +52,7 @@ class WalletPage extends Component {
 
           {/* Button positioned absolutely */}
           <button onClick={this.showCodeHandler}>Show Your Code</button>
-        </div>
+        </section>
       </>
     );
   }
