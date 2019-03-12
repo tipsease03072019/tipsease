@@ -13,6 +13,7 @@ class LoginPage extends Component {
   };
 
   // Handle updating state on typing
+  // TODO: Check Login Handler
   typeHandler = e => {
     this.setState({
       inputs: {
@@ -25,10 +26,12 @@ class LoginPage extends Component {
   // Handle form submit
   submitHandler = e => {
     e.preventDefault();
+    console.log(this.state.inputs)
     axios
-      .post("https://tipsease.herokuapp.com/api/login", this.state.inputs)
+      .post("https://tipsease.herokuapp.com/api/users/login", this.state.inputs)
       .then(arr => {
         console.log(arr.data);
+        this.props.loginHandler(arr.data);
         // this.props.loginHandler(arr.data);
         // // Redirect after login
         // if(arr.data.account_type === "employee"){
@@ -39,7 +42,7 @@ class LoginPage extends Component {
         // }
       })
       .catch(err => {
-        console.log(err);
+        console.log(err.response.data.message)
       });
   }
 

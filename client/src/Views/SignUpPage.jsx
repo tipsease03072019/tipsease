@@ -1,19 +1,16 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class SignUpPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputs: {
-        username: "",
-        password: "",
-        isServiceProvider: false,
-        email: ""
-      }
-    };
-  }
+  state = {
+    inputs: {
+      username: "",
+      password: "",
+      isServiceProvider: false,
+      email: "",
+    }
+  };
 
   // Handle updating state on typing
   typeHandler = e => {
@@ -43,18 +40,19 @@ class SignUpPage extends Component {
       username: this.state.inputs.username,
       password: this.state.inputs.password,
       email: this.state.inputs.email,
-      account_type: this.state.inputs.isServiceProvider ? "employee" : "customer"
+      account_type: this.state.inputs.isServiceProvider
+        ? "employee"
+        : "customer"
     };
     axios
       .post("https://tipsease.herokuapp.com/api/users/register", data)
       .then(arr => {
         this.props.loginHandler(arr.data);
         // Redirect after login
-        if(arr.data.account_type === "employee"){
-          this.props.history.push("/wallet")
-        }
-        else{
-          this.props.history.push("/pay")
+        if (arr.data.account_type === "employee") {
+          this.props.history.push("/wallet");
+        } else {
+          this.props.history.push("/pay");
         }
       })
       .catch(err => {
@@ -63,10 +61,15 @@ class SignUpPage extends Component {
   };
 
   render() {
+    console.log(this.props);
     // Issue with props
-    if(localStorage.getItem("token")){
+    if (localStorage.getItem("token")) {
       // <Redirect to />
-      return(<div></div>);
+      console.log(this.props)
+      // if(this.props.accountType === 'employee'){
+      //   return <Redirect to="/wallet" />
+      // }
+      // return <Redirect to="/pay" />
     }
     return (
       <>
