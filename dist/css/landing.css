@@ -61,12 +61,32 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  z-index: 3;
 }
 .hamburger .line {
-  z-index: 3;
   height: 15%;
   width: 100%;
   background: red;
+}
+
+.nav-display {
+  position: fixed;
+  top: 0;
+  background: white;
+  width: 100%;
+}
+.nav-display .nav-bg {
+  margin: 0 auto;
+  height: 90%;
+  width: 90%;
+  background: url("../img/illustrations/nav-bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.nav-display.display {
+  visibility: visible;
+  height: 100vh;
 }
 
 .bg {
