@@ -167,7 +167,7 @@ nav a {
   height: 300px;
 }
 .top-content .top-content-info {
-  color: #28333F;
+  color: white;
   margin-top: 2rem;
   background-color: #67DA8C;
   border-radius: 10px;
@@ -300,10 +300,10 @@ nav a {
 }
 
 footer {
+  color: #67DA8C;
   background-color: #28333F;
   text-align: center;
   padding: 2rem;
-  color: white;
 }
 
 html {
