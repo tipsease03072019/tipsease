@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
   db("users")
     .select("id", "username", "email", "img_url", "account_type", "created_at")
     .where({
-      account_type: "Employee"
+      account_type: "employee"
     })
     .then(users => res.status(200).send(users))
     .catch(err => console.log(err));
@@ -56,7 +56,10 @@ router.post("/login", (req, res) => {
           account_type: user.account_type
         });
       } else {
-        res.status(401).json({ message: "You shall not pass!" });
+        res.status(401).json({
+          message:
+            "You shall not pass! Please provide a valid username and password."
+        });
       }
     })
     .catch(err => console.log(err));

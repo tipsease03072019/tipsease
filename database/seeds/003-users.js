@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
           password: "pass",
           email: "employee@email.com",
           img_url: "https://www.fillmurray.com/640/360",
-          account_type: "Employee"
+          account_type: "employee"
         },
         {
           id: 2,
@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
           password: "pie",
           email: "cherrypie@email.com",
           img_url: "https://loremflickr.com/640/360",
-          account_type: "Costumer"
+          account_type: "costumer"
         },
         {
           id: 3,
@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
           password: "user",
           email: "fulluser@email.com",
           img_url: "http://via.placeholder.com/640x360",
-          account_type: "Employee"
+          account_type: "employee"
         }
       ]);
     });
