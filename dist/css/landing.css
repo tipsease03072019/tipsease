@@ -20,7 +20,7 @@ time, mark, audio, video {
   border: 0;
   font: inherit;
   font-size: 62.5%;
-  vertical-align: baseline;
+  font-family: proxima-nova, sans-serif;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -122,6 +122,9 @@ header a {
   width: 50%;
   margin-bottom: 40px;
 }
+header a:hover {
+  opacity: 0.8;
+}
 @media screen and (min-width: 1000px) {
   header a {
     width: 40%;
@@ -169,7 +172,7 @@ main #info .info-card {
   background: #67DA8C;
   color: white;
   height: 150px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   padding: 10px;
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
@@ -254,10 +257,13 @@ main .bottom-bg a {
   font-weight: semi-bold;
   color: #28333f;
   background: white;
-  color: #1352dd;
+  color: #28333f;
   padding: 15px;
   margin-bottom: 30px;
   width: 50%;
+}
+main .bottom-bg a:hover {
+  opacity: 0.8;
 }
 @media screen and (min-width: 800px) {
   main .bottom-bg a {
@@ -295,7 +301,6 @@ a {
 }
 a:hover {
   opacity: 0.8;
-  box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.11);
 }
 
 h1 {

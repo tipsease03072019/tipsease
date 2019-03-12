@@ -25,9 +25,6 @@ body {
 a {
     font-size: 1.7rem;
     @include btn;
-    &:hover {
-        @include btnHover;
-    }
 }
 h1 {
     font-size: 3rem;

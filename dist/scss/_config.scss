@@ -21,8 +21,7 @@ time, mark, audio, video {
 	border: 0;
 	font: inherit;
 	font-size: 62.5%;
-
-	vertical-align: baseline;
+	font-family: proxima-nova, sans-serif
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -70,6 +69,9 @@ $md-padding: 34px;
 $lg-padding: 55px;
 $xl-padding: 89px;
 
+// Text Sizing
+
+
 //Mixins
 
 @mixin btn {
@@ -80,12 +82,13 @@ $xl-padding: 89px;
 	padding: 18px;
 	font-weight: semi-bold;
 	color: $dark-text-color;
+
+	&:hover {
+		opacity: .8;
+
+	}
 }
 
-@mixin btnHover {
-	opacity: .8;
-	box-shadow: 0 6px 10px 0 rgba(40, 51, 63, .11);
-}
 
 @mixin primaryBtn {
 	background-color: #67DA8C;
@@ -103,6 +106,46 @@ $xl-padding: 89px;
 	border-radius: 6px;
 }
 
+//Text mixins
+@mixin heroHeading {
+	font-size: 7.5rem;
+	font-weight: bold;
+	margin-bottom: $normal-margin;
+}
+
+@mixin heading {
+	font-size: 5.5rem;
+	font-weight: semi-bold;
+	margin-bottom: $md-margin;
+}
+
+@mixin subheading {
+	font-size: 2.5rem;
+	font-weight: semi-bold;
+	margin-bottom: $sm-margin;
+}
+
+@mixin bodyText {
+	font-size: 1.8rem;
+	font-weight: regular;
+	line-height: 2.8rem;
+}
+
+@mixin footnoteText {
+	font-size: 1.2rem;
+	font-weight: regular;
+	margin-bottom: $md-margin;
+}
+
+@mixin link {
+	font-size: 1.8rem;
+	font-weight: semi-bold;
+	text-decoration: underline;
+
+	&:hover {
+		opacity: .8;
+	}
+}
 //Media Mixins
 
 @mixin tablet {
