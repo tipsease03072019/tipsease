@@ -47,7 +47,7 @@ img_url: "" // optional,
 };
 
 axios
-.post("https://tipsease.herokuapp.com/api/users", newUser)
+.post("https://tipsease.herokuapp.com/api/users/register", newUser)
 .then(res => {
 console.log(res.data)
 })
@@ -72,7 +72,7 @@ password: "" // required
 };
 
 axios
-.post("https://tipsease.herokuapp.com/api/register", creds)
+.post("https://tipsease.herokuapp.com/api/login", creds)
 .then(res => {
 console.log(res.data)
 })
@@ -98,7 +98,7 @@ authorization: token
 };
 
 axios
-.get("https://tipsease.herokuapp.com/customers/${}", headersObj)
+.get("https://tipsease.herokuapp.com/users/:id", headersObj)
 .then(res => {
 console.log(res.data)
 })
@@ -115,3 +115,24 @@ console.log(err)
 "img_url": ""
 }
 ]
+
+## Update User Info
+
+const headersObj = {
+headers: {
+Authorization: token
+},
+changes: {
+username: "",
+password: "",
+email: "",
+img_url: ""
+}
+}
+
+axios
+.put("https://tipsease.herokuapp.com/users/:id", headersObj)
+.then(response => {
+console.log(response.data)
+})
+.catch(err => console.log(err));
