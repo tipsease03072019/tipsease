@@ -10,6 +10,7 @@ import SignUpPage from "./Views/SignUpPage";
 import WalletPage from './Views/ServiceProviderViews/WalletPage';
 import ShowCodePage from './Views/ServiceProviderViews/ShowCodePage';
 import TipPage from './Views/CustomerProviderViews/TipPage';
+import SearchServiceProviderPage from './Views/CustomerProviderViews/SearchServiceProviderPage';
 
 class App extends Component {
   state = {
@@ -91,6 +92,13 @@ class App extends Component {
           path="/tip"
           render={props => (
             <TipPage {...props} user={this.state.normalUser} tip={this.state.tip} setTip={this.setTip}/>
+          )}
+        />
+        <Route 
+          exact
+          path="/find-provider"
+          render={props => (
+            <SearchServiceProviderPage {...props} user={this.state.normalUser}/>
           )}
         />
       </Switch>

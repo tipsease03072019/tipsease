@@ -1,4 +1,5 @@
 import React,{ Component } from "react";
+import PropTypes from 'prop-types';
 
 class TipPage extends Component {  
   constructor(props) {
@@ -12,7 +13,7 @@ class TipPage extends Component {
   // Fires when someone clicks 'Next'
   tipHandler = () => {
     this.props.setTip(this.state.tipAmount);
-    this.props.history.push('./find')
+    this.props.history.push('./find-provider')
   };
 
   // Fires when someone types in the input
@@ -40,6 +41,16 @@ class TipPage extends Component {
     );
   }
 };
+
+
+TipPage.propTypes = {
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  tip: PropTypes.number.isRequired,
+  setTip: PropTypes.func.isRequired,
+}
 
 
 export default TipPage;

@@ -1,16 +1,21 @@
-import React from "react";
+import React,{ Component } from "react";
 
-const SearchServiceProviderPage = () => {
-  const clickHandler = () => {
-    console.log("Going to Payment Details");
+class SearchServiceProviderPage extends Component {
+
+  clickHandler = () => {
+    this.props.history.push('./select-payment-method');
+    
   };
-  return (
-    <>
-      <p>Select the Worker</p>
-      <input type="text" />
-      <button onClick={() => clickHandler()}>next</button>
-    </>
-  );
-};
+
+  render() {
+    return (
+      <>
+        <p>Type in the worker's 4-digit TipsEase ID</p>
+        <input type="text" placeholder="####"/>
+        <button onClick={this.clickHandler}>next</button>
+      </>
+    );
+  }
+}
 
 export default SearchServiceProviderPage;
