@@ -12,6 +12,9 @@ const {
 router.get("/", (req, res) => {
   db("users")
     .select("id", "username", "email", "img_url", "account_type", "created_at")
+    .where({
+      account_type: "Employee"
+    })
     .then(users => res.status(200).send(users))
     .catch(err => console.log(err));
 });
@@ -27,7 +30,8 @@ router.post("/register", (req, res) => {
       res.status(201).json({
         id: id[0],
         message: "registered",
-        token
+        token,
+        account_type: req.body.account_type
       });
     })
     .catch(err => {
