@@ -73,4 +73,25 @@ router.post("/login", (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.get("/:id", authenticate, (req, res) => {
+  db("users")
+    .where({
+      id: req.params.id
+    })
+    .select(
+      "id",
+      "username",
+      "password",
+      "email",
+      "img_url",
+      "account_type",
+      "balance",
+      "created_at"
+    )
+    .then(user => {
+      res.status(200).json(user);
+    })
+    .catch(err => res.status(500).json(err));
+});
+
 module.exports = router;
