@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: $base-font-size;
+  color: $tipsease-dark;
+  background-color: $tipsease-light;
+}
+
+h1 {
+  font-size: 7.5rem;
+  font-weight: bold;
+  margin-bottom: $normal-space;
+}
+
+h2 {
+  font-size: 5.5rem;
+  font-weight: 600;
+  margin-bottom: $normal-space;
+}
+
+h3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: $normal-space;
+}
+
+h4 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: $normal-space;
+}
+
+h5 {
+  font-size: $base-font-size;
+  font-weight: 600;
+  margin-bottom: $normal-space;
+}
+
+p {
+  font-size: $base-font-size;
+  line-height: 2.8rem;
+  margin-bottom: $normal-space;
+}
+
+a {
+  font-weight: 600;
+  cursor: pointer;
+  color: inherit;
+  transition: all 250ms ease-in-out;
+
+  &:hover, &:active {
+    opacity: 0.8;
+  }
+}
+
+.heading {
+  margin-bottom: $medium-space;
+}
+
+.subheading {
+  margin-bottom: $small-space;
+}
+
+.small-text {
+  font-size: 1rem;
+  margin-bottom: $normal-space;
+}
+
+button {
+  min-height: 5rem;
+  padding: $normal-space $large-space;
+  font-size: inherit;
+  font-weight: 600;
+  background-color: $white;
+  border: none;
+  outline: none;
+  margin-bottom: $normal-space;
+  border-radius: $small-space;
+  box-shadow: 0 .8rem 2.5rem 0 rgba(40, 51, 63, .11);
+  transition: all 100ms ease-in-out;
+
+  &:active {
+    opacity: .8;
+    box-shadow: 0 6px 10px 0 rgba(40, 51, 63, .11);
+  }
+
+  &.primary {
+    background-color: #67DA8C;
+    color: $white;
+  }
+
+  &.transparent {
+    background-color: unset;
+    box-shadow: unset;
+    padding: $normal-space;
+  }
+
+  &.icon-btn {
+    max-height: 3rem;
+    padding: $small-space;
+  }
+
+  &.small {
+    padding: $small-space $medium-space;
+    font-size: 1.4rem;
+    min-height: unset;
+  }
+}
+
+input {
+  appearance: none;
+  display: block;
+  padding: $normal-space;
+  padding-right: $extra-large-space;
+  margin-bottom: $normal-space;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 2px solid rgba(40, 51,63, .4);
+  background-color: unset;
+  outline: none;
+  transition: all 200ms ease-in-out;
+
+  &::placeholder {
+    color: rgba(40, 51,63, .4);
+    opacity: 1;
+  }
+
+  &:focus, &:checked {
+    border: 2px solid #1352DD;
+    box-shadow: 0 0 6px 0 rgba(19,82,221,0.37);
+  }
+}
+
+input[type="checkbox"], input[type="radio"] {
+  display: inline-block;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  @include flexbox(row, center, center);
+}
+
+input[type="checkbox"]:checked::before {
+  content: url('./assets/img/checkbox-tick.svg');
+}
+input[type="radio"] {
+  border-radius: 100%;
+
+  &:checked::before {
+    margin-bottom: 2px;
+    height: 13px;
+    width: 13px;
+    content: url('./assets/img/radio-circle.svg');
+  }
+}
+
+.card {
+  display: inline-block;
+  padding: $medium-space $normal-space;
+  background-color: $white;
+  box-shadow: 0 6px 10px 0 rgba(40,51,63,0.08);
+  border-radius: 6px;
+}
+
+select {
+  position: relative;
+  appearance: none;
+  outline: none;
+  border: none;
+  padding: $normal-space;
+  box-shadow: 0 6px 10px 0 rgba(40,51,63,0.08);
+  border-radius: 10px;
+  min-width: 250px;
+  background-color: $white;
+  font-weight: 600;
+  cursor: pointer;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+label.select {
+  position: relative;
+
+  &::after {
+    content: "▼";
+    position: absolute;
+    height: 100%;
+    right: $normal-space;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.no-margin {
+  margin: 0;
+}
