@@ -1,8 +1,15 @@
 const icon = document.querySelector('.hamburger');
 const navDisplay = document.querySelector('.nav-display');
 
-let toggleClass = function () {
+let toggleDisplay = function () {
     navDisplay.classList.toggle('display');
 }
 
-icon.addEventListener('click', toggleClass)
+//toggle close class on hamburget icon to morph into an X
+let toggleX = function() {
+    icon.classList.toggle('close');
+}
+
+
+icon.addEventListener('click', toggleDisplay)
+icon.addEventListener('click', toggleX)
