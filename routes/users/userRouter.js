@@ -12,6 +12,9 @@ const {
 router.get("/", (req, res) => {
   db("users")
     .select("id", "username", "email", "img_url", "account_type", "created_at")
+    .where({
+      account_type: "Employee"
+    })
     .then(users => res.status(200).send(users))
     .catch(err => console.log(err));
 });
