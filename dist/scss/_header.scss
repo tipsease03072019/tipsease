@@ -7,10 +7,15 @@ header {
     height: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
+    text-align: center;
     img {
         margin: 15px;
+    }
+
+    a {
+        color: $primary-color;
+        margin-top: 35px;
+        @include btn;
     }
     section {
         text-align: center;
@@ -19,11 +24,5 @@ header {
             width: 60%;
             margin: 0 auto;
         }
-
-        a {
-            display: block;
-            color: $dark-text-color;
-        }
     }
-
 }

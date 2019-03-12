@@ -59,9 +59,6 @@ nav {
   justify-content: space-around;
   align-items: center;
 }
-nav img {
-  display: none;
-}
 nav a {
   background-color: unset;
   color: white;
@@ -77,10 +74,21 @@ header {
   height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  text-align: center;
 }
 header img {
   margin: 15px;
+}
+header a {
+  color: #67DA8C;
+  margin-top: 35px;
+  background-color: white;
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 18px;
+  font-weight: semi-bold;
+  color: #28333f;
 }
 header section {
   text-align: center;
@@ -89,15 +97,12 @@ header section .slogan {
   width: 60%;
   margin: 0 auto;
 }
-header section a {
-  display: block;
-  color: #28333f;
-}
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 500px;
 }
 main #info {
   width: 90%;
@@ -138,10 +143,31 @@ main #info .info-card div:nth-child(2) {
     justify-content: space-around;
   }
 }
+main .bottom-bg {
+  margin: 20px;
+  height: 300px;
+  width: 80%;
+  text-align: center;
+  background-image: url("../img/illustrations/bottom-bg.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+main .bottom-bg a {
+  background-color: white;
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 18px;
+  font-weight: semi-bold;
+  color: #28333f;
+  padding: 15px;
+}
 
 footer {
   text-align: center;
   margin: 20px;
+  color: #67DA8C;
 }
 
 body {
