@@ -128,6 +128,14 @@ table {
   border-spacing: 0;
 }
 
+@keyframes popout {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 nav {
   background: #67DA8C;
   height: 30px;
@@ -153,6 +161,7 @@ nav a {
   margin: 0 0 3rem 0;
 }
 .top-content img {
+  width: 100%;
   margin-top: 1rem;
   clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%);
   height: 300px;
@@ -161,7 +170,21 @@ nav a {
   color: #28333F;
   margin-top: 2rem;
   background-color: #67DA8C;
-  border-radius: 11px;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1000px) {
+  .top-content .top-content-info {
+    height: 200px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .top-content .top-content-info {
+    padding-bottom: 2rem;
+  }
 }
 .top-content .top-content-info p {
   padding: 15px;
@@ -171,9 +194,21 @@ nav a {
   margin: 2rem 0 2rem 0;
 }
 
+@media screen and (min-width: 1000px) {
+  .profile-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .profile-top .profiles-header {
   background-color: #2a3642;
   width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .profile-top .profiles-header {
+    width: 50%;
+  }
 }
 
 .profile-main-text h2 {
@@ -215,6 +250,9 @@ nav a {
   align-items: center;
 }
 .content-holder .profile-content .profile-items {
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
   margin-right: -100px;
   padding: 2rem;
   display: none;
@@ -222,10 +260,25 @@ nav a {
   top: 30%;
   left: 1rem;
   z-index: 1;
-  width: 400px;
-  height: 200px;
+  width: 80%;
+  height: 250px;
   background-color: #67DA8C;
   border-radius: 20px;
+  opacity: 0.9;
+  animation: popout 1s ease;
+  -webkit-animation: popout 1s ease;
+}
+@media screen and (min-width: 800px) {
+  .content-holder .profile-content .profile-items {
+    left: 2.5rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .profile-items {
+    height: 300px;
+    width: 50%;
+    left: 25rem;
+  }
 }
 .content-holder .profile-content .icons {
   margin-top: 1rem;
@@ -237,7 +290,7 @@ nav a {
   color: #1352DD;
 }
 .content-holder .profile-content .content-selected {
-  display: block;
+  display: flex;
 }
 
 footer {
