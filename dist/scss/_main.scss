@@ -12,10 +12,16 @@ main {
         flex-direction: column;
         border-radius: 10px;
 
+
+        .info-card.hide {
+            display: none;
+        }
         @include tablet {
             flex-direction: row;
             justify-content: space-around;
         }
+
+
 
         .info-card {
             display: flex;
@@ -25,16 +31,25 @@ main {
             height: 150px;
             margin-bottom: $main-margin;
             padding: 10px;
+
             div {
+
                 width: 200%;
                 height: 100%;
                 background-image: url('../img/illustrations/card-bg-1.svg');
                 background-position: center;
                 background-size: contain;
                 background-repeat: no-repeat;
+                grid-area: half;
 
                 &:nth-child(2) {
                     background-image: url('../img/illustrations/card-bg-2.svg');
+                    grid-area: half;
+                }
+
+                &:nth-child(3) {
+                    background-image: url('../img/illustrations/card-bg-2.svg');
+                    grid-area: full;
                 }
             }
 
@@ -64,6 +79,10 @@ main {
             padding: 15px;
             margin-bottom: 30px;
             width: 50%;
+
+            @include tablet {
+                margin-bottom: 0;
+            }
         }
     }
 }

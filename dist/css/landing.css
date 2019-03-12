@@ -114,6 +114,9 @@ main #info {
   flex-direction: column;
   border-radius: 10px;
 }
+main #info .info-card.hide {
+  display: none;
+}
 @media screen and (min-width: 800px) {
   main #info {
     flex-direction: row;
@@ -138,9 +141,15 @@ main #info .info-card div {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  grid-area: half;
 }
 main #info .info-card div:nth-child(2) {
   background-image: url("../img/illustrations/card-bg-2.svg");
+  grid-area: half;
+}
+main #info .info-card div:nth-child(3) {
+  background-image: url("../img/illustrations/card-bg-2.svg");
+  grid-area: full;
 }
 @media screen and (min-width: 800px) {
   main #info .info-card {
@@ -171,6 +180,11 @@ main .bottom-bg a {
   padding: 15px;
   margin-bottom: 30px;
   width: 50%;
+}
+@media screen and (min-width: 800px) {
+  main .bottom-bg a {
+    margin-bottom: 0;
+  }
 }
 
 footer {
