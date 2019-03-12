@@ -92,7 +92,7 @@ class App extends Component {
             <WalletPage {...props} user={this.state.employeeUser} />
           )}
         />
-        <PrivateRoute exact path />
+        {/* <PrivateRoute exact path /> */}
         <Route
           exact
           path="/wallet/code"
