@@ -35,6 +35,7 @@ class App extends Component {
       balance: 50,
       created_at: "2019-03-12 01:06:39"
       },
+    tip: null,
   };
 
   // Handle updating top level state on login we need redux
@@ -46,6 +47,13 @@ class App extends Component {
       userId: data.id
     });
   };
+
+  setTip = tip => {
+    this.setState({
+      ...this.state,
+      tip: tip
+    })
+  }
 
   render() {
     return (
@@ -80,9 +88,9 @@ class App extends Component {
         />
         <Route 
           exact
-          path="tip"
+          path="/tip"
           render={props => (
-            <TipPage {...props} user={this.state.normalUser}/>
+            <TipPage {...props} user={this.state.normalUser} tip={this.state.tip} setTip={this.setTip}/>
           )}
         />
       </Switch>

@@ -8,17 +8,23 @@ class TipPage extends Component {
       tipAmount: 5,
     }
   }
+
+  // Fires when someone clicks 'Next'
   tipHandler = () => {
-    console.log("amount selected, on to searching for provider");
+    this.props.setTip(this.state.tipAmount);
+    this.props.history.push('./find')
   };
+
+  // Fires when someone types in the input
   changeHandler = (event) => {
     this.setState({tipAmount: event.target.value})
   }
+
+  // Fires when someone selects one of the buttons.
   selectTipHandler = (amount) => {
     this.setState({tipAmount: amount});
   };
   render() {
-    console.log(this.state)
     return (
       <>
         <h2>Select Amount</h2>
@@ -33,7 +39,7 @@ class TipPage extends Component {
       </>
     );
   }
-}
+};
 
 
 export default TipPage;
