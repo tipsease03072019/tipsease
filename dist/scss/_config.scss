@@ -49,11 +49,26 @@ table {
 }
 
 //Variables
+
+//COLORS
 $background-color: #F9F9F9;
 $primary-color: #67DA8C;
 $secondary-color: #1352dd;
 $dark-text-color: #28333f;
+
+//Padding and margins
 $main-margin: 20px;
+$sm-margin: 10px;
+$normal-margin: 18px;
+$md-margin: 34px;
+$lg-margin: 55px;
+$xl-margin: 89px;
+
+$sm-padding: 10px;
+$normal-padding: 18px;
+$md-padding: 34px;
+$lg-padding: 55px;
+$xl-padding: 89px;
 
 //Mixins
 
