@@ -62,11 +62,11 @@ class App extends Component {
             <SignUpPage {...props} loginHandler={this.loginHandler} />
           )}
         />
-        <PrivateRoute 
+        <Route 
           exact 
           path="/wallet" 
           render={props => (
-            <WalletPage {...props} />
+            <WalletPage {...props} user={this.state.employeeUser}  />
           )}/>
         <PrivateRoute exact path />
         <Route  />
