@@ -17,160 +17,226 @@ https://tipsease.herokuapp.com/
 
 ## Get Users x
 
+```
 axios
-.get("https://tipsease.herokuapp.com/api/users", headersObject)
-.then(response => {
-console.log(response.data)
-})
-.catch(err => console.log(err));
+    .get("https://tipsease.herokuapp.com/api/users")
+    .then(response => {
+        console.log(response.data)
+    })
+    .catch(err => console.log(err));
 
--returned
+-Returned
 [
-{
-"id": "1",
-"username": "employee",
-"email": "employee@email.com",
-"img_url": "https://www.fillmurray.com/640/360",
-"account_type": "Employee",
-"created_at": "2019-03-11 23:33:02"
-}
+    {
+        "id": "1",
+        "username": "employee",
+        "email": "employee@email.com",
+        "img_url": "https://www.fillmurray.com/640/360",
+        "account_type": "Employee",
+        "created_at": "2019-03-11 23:33:02"
+    }
 ]
+```
 
 ## // Register x
 
+```
 const newUser = {
-username: "", // (Unique) required
-password: "", // required
-account_type: "", // required (Customer or Employee)
-email: "", // (Unique) optional
-img_url: "" // optional,
+    username: "", // (Unique) required
+    password: "", // required
+    account_type: "", // required (Customer or Employee)
+    email: "", // (Unique) optional
+    img_url: "" // optional,
 };
 
 axios
-.post("https://tipsease.herokuapp.com/api/users/register", newUser)
-.then(res => {
-console.log(res.data)
-})
-.catch(err => {
-console.log(err)
-});
+    .post("https://tipsease.herokuapp.com/api/users/register", newUser)
+    .then(res => {
+        console.log(res.data)
+    })
+    .catch(err => {
+        console.log(err)
+    });
 
--returned
+-Returned
+
 {
-"ids": [
-4
-],
-"message": "Registered",
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE1NTIzMzg2NDUsImV4cCI6MTU1MjQyNTA0NX0.wDHsSTyHq2Uzi0x8PyJUi7iGA37stGH2-S9OyArsKb4"
+    "ids": [
+    4
+    ],
+    "message": "Registered",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE1NTIzMzg2NDUsImV4cCI6MTU1MjQyNTA0NX0.wDHsSTyHq2Uzi0x8PyJUi7iGA37stGH2-S9OyArsKb4"
 }
+```
 
 ## // Login
 
+```
 const creds = {
-username: "" // required
-password: "" // required
+    username: "" // required
+    password: "" // required
 };
 
 axios
-.post("https://tipsease.herokuapp.com/api/login", creds)
-.then(res => {
-console.log(res.data)
-})
-.catch(err => {
-console.log(err)
-});
+    .post("https://tipsease.herokuapp.com/api/login", creds)
+    .then(res => {
+        console.log(res.data)
+    })
+    .catch(err => {
+        console.log(err)
+    });
 
--returned
+-Returned
+
 [
-{
-message: "Logged In";
-id: "",
-token: ""
-}
+    {
+        message: "Logged In";
+        id: "",
+        token: ""
+    }
 ]
+```
 
 ## // Users by ID
 
+```
 const headersObj = {
-headers: {
-authorization: token
-}
+    headers: {
+        authorization: token
+    }
 };
 
 axios
-.get("https://tipsease.herokuapp.com/api/users/:id", headersObj)
-.then(res => {
-console.log(res.data)
-})
-.catch(err => {
-console.log(err)
-});
+    .get("https://tipsease.herokuapp.com/api/users/:id", headersObj)
+    .then(res => {
+        console.log(res.data)
+    })
+    .catch(err => {
+        console.log(err)
+    });
 
--returned
+-Returned
+
 [
-{
-"id": "",
-"username": "",
-"email": "",
-"img_url": ""
-}
+    {
+        "id": "",
+        "username": "",
+        "email": "",
+        "img_url": ""
+    }
 ]
+```
 
 ## Update User Info
 
+```
 const headersObj = {
-headers: {
-Authorization: token
-},
-changes: {
-username: "",
-password: "",
-email: "",
-img_url: ""
-}
+    headers: {
+        Authorization: token
+    },
+    changes: {
+        username: "",
+        password: "",
+        email: "",
+        img_url: ""
+    }
 }
 
 axios
-.put("https://tipsease.herokuapp.com/api/users/:id", headersObj)
-.then(response => {
-console.log(response.data)
-})
-.catch(err => console.log(err));
+    .put("https://tipsease.herokuapp.com/api/users/:id", headersObj)
+    .then(response => {
+        console.log(response.data)
+    })
+    .catch(err => console.log(err));
 
--returned
+-Returned
 
 {
-users {
-"username": "",
-"password": "",
-"email":"",
-"img_url": ""
+    users {
+        "username": "",
+        "password": "",
+        "email":"",
+        "img_url": ""
+    }
 }
-}
+```
 
 ## Delete User by ID
 
+```
 const headersObj = {
-Authorization: token
+    Authorization: token
 }
 
 axios
-.delete("https://tipsease.herokuapp.com/api/users/:id", headersObj)
-.then(response => {
-console.log(response.data)
-})
-.catch(err => console.log(err));
+    .delete("https://tipsease.herokuapp.com/api/users/:id", headersObj)
+    .then(response => {
+        console.log(response.data)
+    })
+    .catch(err => console.log(err));
 
--returned
+-Returned
 
 {
-"User Deleted: [
-{
-"username": "",
-"password": "",
-"email":"",
-"img_url": ""
+    "User Deleted: [
+    {
+    "username": "",
+    "password": "",
+    "email":"",
+    "img_url": ""
+    }
+    ],
+    "message": "User was successfully deleted."
 }
-],
-"message": "User was successfully deleted."
+```
+
+## Transactions
+
+```
+# Get Transactions by ID
+
+const headersObj = {
+    Authorization: token
 }
+
+axios
+    .get("https://tipsease.herokuapp.com/api/transactions/:id", headersObj)
+    .then(response => {
+        console.log(response.data)
+    })
+    .catch(err => console.log(err));
+
+-Returned
+
+[
+    {
+    "id": 6,
+    "users_id": 5,
+    "user_balance": 0,
+    "tip": 10,
+    "created_at": "2019-03-12 21:14:07"
+    }
+]
+```
+
+# Create Transaction / Update Employee Balance
+
+```
+const pay = {
+    "users_id": 5,
+	"user_balance": 0,
+	"tip": 10
+}
+
+axios
+    .post("https://tipsease.herokuapp.com/api/transactions/:id", headersObj)
+    .then(response => {
+        console.log(response.data)
+    })
+    .catch(err => console.log(err));
+
+-Returned
+
+1
+
+```

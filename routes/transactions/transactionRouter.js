@@ -15,7 +15,7 @@ const {
 //     .catch(err => console.log(err));
 // });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", authenticate, (req, res) => {
   const id = req.params.id;
   db("transactions")
     .where("users_id", "=", id)
