@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ServiceProvider = () => {
+const SearchServiceProviderPage = () => {
     const clickHandler = () => {
         console.log('Going to Payment Details')
     }
@@ -13,4 +13,4 @@ const ServiceProvider = () => {
     );
 }
 
-export default ServiceProvider;
+export default SearchServiceProviderPage;

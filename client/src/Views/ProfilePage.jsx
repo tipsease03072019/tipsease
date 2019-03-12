@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Profile = () => {
+const ProfilePage = () => {
     const clickHandler = () => {
         console.log('Editing User Details')
     }
@@ -18,4 +18,4 @@ const Profile = () => {
     );
 }
 
-export default Profile;
+export default ProfilePage;

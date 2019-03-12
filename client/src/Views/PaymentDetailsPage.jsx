@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PaymentDetails = () => {
+const PaymentDetailsPage = () => {
     const clickHandler = () => {
         console.log('Payment method added, moving on to `payment success`!');
     }
@@ -16,4 +16,4 @@ const PaymentDetails = () => {
     );
 }
 
-export default PaymentDetails;
+export default PaymentDetailsPage;

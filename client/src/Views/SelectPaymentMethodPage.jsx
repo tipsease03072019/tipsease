@@ -1,10 +1,10 @@
 import React from 'react';
 
-const PaymentMethod = () => {
+const SelectPaymentMethodPage = () => {
     const onClickHandler = e => {
         console.log('Payment Method Button Clicked!')
     }
-    
+
     return (
         <div>
             <p>Select Your Payment Method Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus </p>
@@ -18,4 +18,4 @@ const PaymentMethod = () => {
     );
 }
 
-export default PaymentMethod;
+export default SelectPaymentMethodPage;

@@ -4,7 +4,7 @@ import React, {
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-class Register extends Component {
+class SignUpPage extends Component {
   state = {
     inputs: {
       username: "",
@@ -41,7 +41,7 @@ class Register extends Component {
       account_type: (this.state.inputs.accountType) ? "employee": "customer",
     }
     axios
-      .post("http://localhost:3300/api/users/register", data)
+      .post("http://tipsease.herokuapp.com/api/users/register", data)
       .then(arr => {
         console.log(arr);
       })
@@ -68,4 +68,4 @@ class Register extends Component {
 
 }
 
-export default Register;
+export default SignUpPage;

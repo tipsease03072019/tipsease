@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import loginIllustrations from '../assets/login.svg';
 
-const Login = () => {
+const LoginPage = () => {
     const clickHandler = () => {
         console.log('Logging In');
     }
@@ -20,4 +20,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default LoginPage;
