@@ -9,10 +9,15 @@
     flex-direction: column;
     justify-content: space-around;
     z-index: 3;
+
     .line {
         height: 15%;
         width: 100%;
         background: $secondary-color;
+
+        @include tablet {
+            background: $primary-color;
+        }
     }
 }
 
@@ -23,8 +28,15 @@
     visibility: hidden;
     position: fixed;
     top: 0;
+    right: 0;
     background: white;
     width: 100%;
+
+    @include desktop {
+
+        width: 15%;
+        height: 150px;
+    }
     .nav-bg {
         margin: 0 auto;
         height: 90%;
@@ -34,8 +46,15 @@
         background-repeat: no-repeat;
         background-position: bottom;
         display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        @include tablet {
+            align-items: flex-end;
+        }
+        @include desktop {
+            align-items: center;
+        }
     }
 
     a {
@@ -43,13 +62,29 @@
         padding: 5px;
         color: $primary-color;
         text-align: center;
-        margin-top: 150px;
+        margin-top: 50px;
         padding: 5px 0 5px 0;
+        @include tablet {
+            width: 30%;
+        }
+        @include desktop {
+            width: 100%;
+            margin-top: $normal-margin;
+
+            &:hover {
+                background: $dark-text-color;
+            }
+        }
     }
 
     &.display {
         visibility: visible;
         height: 100vh;
-
+        @include desktop {
+            height: 300px;
+            border-radius: 10px;
+            right: 20px;
+            top: 50px;
+        }
     }
 }
