@@ -13,6 +13,10 @@ import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
 import TipPage from "./Views/CustomerProviderViews/TipPage";
 import Profile from "./Views/ProfilePage";
 
+// CSS imports
+import 'axios-progress-bar/dist/nprogress.css'
+
+
 class App extends Component {
   //! Data does not pursist on reloads
   state = {
