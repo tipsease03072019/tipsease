@@ -177,7 +177,7 @@ nav a {
   .top-content img {
     background: none;
     height: 500px;
-    width: 75%;
+    width: 60%;
   }
 }
 .top-content .top-content-info {
@@ -194,6 +194,8 @@ nav a {
 }
 @media screen and (min-width: 1000px) {
   .top-content .top-content-info {
+    margin-top: 9rem;
+    margin-left: 10rem;
     width: 25%;
     height: 300px;
   }
