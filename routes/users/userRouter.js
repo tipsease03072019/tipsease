@@ -78,7 +78,7 @@ router.get("/:id", authenticate, (req, res) => {
       id: req.params.id
     })
     .then(user => {
-      res.status(200).json(user);
+      res.status(200).json(user[0]);
     })
     .catch(err => res.status(500).json(err));
 });
