@@ -12,6 +12,7 @@ import WalletPage from "./Views/ServiceProviderViews/WalletPage";
 import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
 import TipPage from "./Views/CustomerProviderViews/TipPage";
 import Profile from "./Views/ProfilePage";
+import SearchServiceProviderPage from './Views/CustomerProviderViews/SearchServiceProviderPage'
 
 // CSS imports
 import 'axios-progress-bar/dist/nprogress.css'
