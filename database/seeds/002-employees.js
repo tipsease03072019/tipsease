@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
           password: "user",
           email: "fulluser@email.com",
           img_url: "http://via.placeholder.com/640x360",
-          account_type: "Employee"
+          account_type: "Customer"
         }
       ]);
     });
