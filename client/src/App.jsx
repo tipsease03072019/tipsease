@@ -71,9 +71,10 @@ class App extends Component {
           )}/>
         <PrivateRoute exact path />
         <Route 
-          path="/wallet/employee_code"
+          exact
+          path="/wallet/code"
           render={props => (
-            <ShowCodePage {...props} user={this.state.employeeUser} />
+            <ShowCodePage {...props} user={this.state.employeeUser} code={"AN18"}/>
           )}
         />
       </Switch>

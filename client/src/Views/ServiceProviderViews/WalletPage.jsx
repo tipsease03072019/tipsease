@@ -13,13 +13,11 @@ class WalletPage extends Component {
   }
 
   tipHandler = () => {
-    console.log("Taking you to the TipPage")
     this.props.history.push("/tip")
   }
 
   showCodeHandler = () => {
-    console.log("Taking you to the code! ('/employee_code')")
-    this.props.history.push("wallet/employee_code")
+    this.props.history.push("wallet/code")
   }
 
   

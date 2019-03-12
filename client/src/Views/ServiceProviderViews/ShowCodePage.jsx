@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class ShowCodePage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      // Placeholder value for generated Tip-Code
-      code: "AN32",
-    }
-  }
   onClose = () => {
     this.props.history.push("/wallet")
   }
@@ -24,7 +16,7 @@ class ShowCodePage extends Component {
 
         {/* Holder containing the 4-digit code which the service worker can hand out and receive tips from */}
         <div className="code-container">
-          {this.state.code.split("").map((char,idx) => 
+          {this.props.code.split("").map((char,idx) => 
             <div className="code-character-container" key={idx}>
               <h3 className="code-character">{char}</h3>
             </div>
