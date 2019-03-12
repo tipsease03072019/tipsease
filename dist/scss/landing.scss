@@ -9,6 +9,10 @@
 body {
     background: $dark-text-color;
 
+    p {
+        font-size: 1.7rem;
+    }
+
 }
 .container {
     color: white;
@@ -18,15 +22,17 @@ body {
     width: 100px;
 }
 
+
 a {
     color: white;
+    font-size: 1.7rem;
 }
 h1 {
-    font-size: 30px;
+    font-size: 3rem;
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 a {

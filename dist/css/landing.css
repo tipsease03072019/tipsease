@@ -18,8 +18,8 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 62.5%;
   vertical-align: baseline;
 }
 
@@ -125,6 +125,9 @@ footer {
 body {
   background: #28333f;
 }
+body p {
+  font-size: 1.7rem;
+}
 
 .container {
   color: white;
@@ -137,14 +140,15 @@ body {
 
 a {
   color: white;
+  font-size: 1.7rem;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 a {
