@@ -18,8 +18,8 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
+  font-size: 62.5%;
   vertical-align: baseline;
 }
 
@@ -30,7 +30,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-  line-height: 1;
+  line-height: 1.3;
 }
 
 ol, ul {
@@ -59,43 +59,60 @@ nav {
   justify-content: space-around;
   align-items: center;
 }
-nav img {
-  display: none;
-}
 nav a {
   background-color: unset;
   color: white;
   text-decoration: none;
 }
 
+.bg {
+  width: 90%;
+  margin: 0 auto;
+}
+
 header {
   height: 400px;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  align-items: center;
   justify-content: space-around;
 }
-header section {
-  text-align: center;
+header a {
+  background-color: white;
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 18px;
+  font-weight: semi-bold;
+  color: #28333f;
+  width: 50%;
+  margin-bottom: 40px;
 }
-header section .slogan {
-  width: 60%;
-  margin: 0 auto;
+header .cta {
+  margin-top: 50px;
 }
-header section a {
-  display: block;
+header .cta strong {
+  color: #67DA8C;
+  font-size: 6rem;
+  font-weight: bold;
+}
+header .cta .slogan {
+  color: white;
+  font-size: 3.5rem;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 500px;
 }
 main #info {
+  width: 90%;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  width: 90%;
-  justify-content: space-around;
+  border-radius: 10px;
 }
 @media screen and (min-width: 800px) {
   main #info {
@@ -103,12 +120,26 @@ main #info {
   }
 }
 main #info .info-card {
-  background: #1352dd;
-  color: #67DA8C;
-  padding: 50px;
+  display: flex;
+  align-items: center;
+  background: #67DA8C;
+  color: white;
+  height: 150px;
   margin-bottom: 20px;
+  padding: 10px;
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
+}
+main #info .info-card div {
+  width: 200%;
+  height: 100%;
+  background-image: url("../img/illustrations/card-bg-1.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+main #info .info-card div:nth-child(2) {
+  background-image: url("../img/illustrations/card-bg-2.svg");
 }
 @media screen and (min-width: 800px) {
   main #info .info-card {
@@ -116,18 +147,42 @@ main #info .info-card {
     justify-content: space-around;
   }
 }
+main .bottom-bg {
+  height: 300px;
+  width: 80%;
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  background-image: url("../img/illustrations/bottom-bg.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+main .bottom-bg a {
+  background-color: white;
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 18px;
+  font-weight: semi-bold;
+  color: #28333f;
+  background: #67DA8C;
+  padding: 15px;
+  margin-bottom: 30px;
+  width: 50%;
+}
 
 footer {
   text-align: center;
-  margin: 20px;
+  margin: 30px 0 20px 0;
+  color: #67DA8C;
 }
 
 body {
   background: #28333f;
 }
-
-.container {
-  color: white;
+body p {
+  font-size: 1.7rem;
 }
 
 .logo {
@@ -137,14 +192,15 @@ body {
 
 a {
   color: white;
+  font-size: 1.7rem;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 3rem;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 a {
