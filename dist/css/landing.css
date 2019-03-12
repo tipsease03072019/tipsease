@@ -292,13 +292,13 @@ main #info .info-card {
 main #info .info-card div {
   width: 200%;
   height: 100%;
-  background-image: url("../img/illustrations/card-bg-1.svg");
+  background-image: url("https://svgshare.com/i/Bje.svg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 main #info .info-card div:nth-child(2) {
-  background-image: url("../img/illustrations/card-bg-2.svg");
+  background-image: url("https://svgshare.com/i/BkP.svg");
 }
 @media screen and (min-width: 1000px) {
   main #info .info-card div {
