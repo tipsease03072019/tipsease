@@ -5,11 +5,11 @@ const SearchServiceProviderPage = () => {
         console.log('Going to Payment Details')
     }
     return (
-        <div>
+        <>
             <p>Select the Worker</p>
             <input type="text"/>
             <button onClick={() => clickHandler()}>next</button>
-        </div>
+        </>
     );
 }
 

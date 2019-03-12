@@ -8,7 +8,7 @@ const LoginPage = () => {
         console.log('Logging In');
     }
     return (
-        <div>
+        <>
             <form>
                 <img src={loginIllustrations} alt=""/>
                 <input type="text" placeholder="Username" />
@@ -16,7 +16,7 @@ const LoginPage = () => {
                 <button onClick={()=>clickHandler()}> Login</button>
                 <Link to="/register">Register</Link>
             </form>
-        </div>
+        </>
     );
 }
 

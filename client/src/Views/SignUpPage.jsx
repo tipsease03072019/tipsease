@@ -52,7 +52,7 @@ class SignUpPage extends Component {
 
   render() {
     return (
-    <div>
+    <>
       <form onSubmit={this.submitHandler}>
         <input type="text" placeholder="Username" required value={this.state.inputs.username} name="username" onChange={this.typeHandler}  />
         <input type="password" placeholder="Password" required value={this.state.inputs.password} name="password" onChange={this.typeHandler} />
@@ -62,7 +62,7 @@ class SignUpPage extends Component {
         <button type="submit">Create Account</button>
         <Link to="/login">Login</Link>
       </form>
-    </div>
+    </>
     );
   }
 

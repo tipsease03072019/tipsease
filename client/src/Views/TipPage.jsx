@@ -8,7 +8,7 @@ const TipPage = () => {
         console.log('this.setState({tipAmount: amount})')
     }
     return (
-        <div>
+        <>
             <h2>Select Amount</h2>
             <input type="number" />
             <button onClick={() => tipHandler()}>Next</button>
@@ -16,7 +16,7 @@ const TipPage = () => {
             <button onClick={() => selectTipHandler()}>10</button>
             <button onClick={() => selectTipHandler()}>15</button>
             <button onClick={() => selectTipHandler()}>20</button>
-        </div>
+        </>
     );
 }
 
