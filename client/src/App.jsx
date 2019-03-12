@@ -24,37 +24,35 @@ class App extends Component {
     loggedIn: false,
     accountType: null,
     userId: null,
-    employeeUser: {
-      id: 1,
-      username: "employee",
-      email: "employee@email.com",
-      img_url: "https://www.fillmurray.com/640/360",
-      account_type: "employee",
-      balance: 100,
-      created_at: "2019-03-12 01:06:39",
-    },
-    normalUser: {
-      id: 3,
-      username: "full",
-      email: "fulluser@email.com",
-      img_url: "http://via.placeholder.com/640x360",
-      account_type: "customer",
-      balance: 50,
-      created_at: "2019-03-12 01:06:39",
-    },
-    tip: null,
+    // employeeUser: {
+    //   id: 1,
+    //   username: "employee",
+    //   email: "employee@email.com",
+    //   img_url: "https://www.fillmurray.com/640/360",
+    //   account_type: "employee",
+    //   balance: 100,
+    //   created_at: "2019-03-12 01:06:39",
+    // },
+    // normalUser: {
+    //   id: 3,
+    //   username: "full",
+    //   email: "fulluser@email.com",
+    //   img_url: "http://via.placeholder.com/640x360",
+    //   account_type: "customer",
+    //   balance: 50,
+    //   created_at: "2019-03-12 01:06:39",
+    // },
+    payFlow: {
+      tip: 5,
+    }
   };
 
   componentDidMount() {
     if (localStorage.getItem("userId") && localStorage.getItem("token")) {
+      axios.defaults.headers.common['Authorization'] = localStorage.getItem("token");
       const userId = localStorage.getItem("userId");
-      const data = {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-        },
-      };
       axios
-        .get(`https://tipsease.herokuapp.com/api/users/${userId}`, data)
+        .get(`https://tipsease.herokuapp.com/api/users/${userId}`)
         .then(res => {
           this.setState({
             ...this.state,
@@ -127,7 +125,7 @@ class App extends Component {
             />
           )}
         />
-        <Route exact path="/profile" render={props => <Profile {...props} />} />
+        <PrivateRoute exact path="/profile" component={props => <Profile {...props} userId={this.state.userId} />} />
         <Route
           exact
           path="/find-provider"
