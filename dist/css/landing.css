@@ -122,15 +122,8 @@ footer {
   margin: 20px;
 }
 
-body {
-  background: #28333f;
-}
 body p {
   font-size: 1.7rem;
-}
-
-.container {
-  color: white;
 }
 
 .logo {
