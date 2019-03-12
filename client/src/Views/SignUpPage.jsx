@@ -46,10 +46,10 @@ class SignUpPage extends Component {
     };
     axios
       .post("https://tipsease.herokuapp.com/api/users/register", data)
-      .then(arr => {
-        this.props.loginHandler(arr.data);
+      .then(res => {
+        this.props.loginHandler(res.data);
         // Redirect after login
-        if (arr.data.account_type === "employee") {
+        if (res.data.account_type === "employee") {
           this.props.history.push("/wallet");
         } else {
           this.props.history.push("/pay");
@@ -61,7 +61,6 @@ class SignUpPage extends Component {
   };
 
   render() {
-    console.log(this.props);
     // Issue with props
     if (localStorage.getItem("token")) {
       // <Redirect to />

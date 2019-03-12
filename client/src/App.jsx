@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { loadProgressBar } from "axios-progress-bar";
+import axios from "axios";
 
 // HOC Imports
 import PrivateRoute from "./HOC/PrivateRoute";
@@ -10,9 +11,9 @@ import LoginPage from "./Views/LoginPage";
 import SignUpPage from "./Views/SignUpPage";
 import WalletPage from "./Views/ServiceProviderViews/WalletPage";
 import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
-import TipPage from "./Views/CustomerProviderViews/TipPage";
+import TipPage from "./Views/CustomerViews/TipPage";
 import Profile from "./Views/ProfilePage";
-import SearchServiceProviderPage from './Views/CustomerProviderViews/SearchServiceProviderPage'
+import SearchServiceProviderPage from './Views/CustomerViews/SearchServiceProviderPage'
 
 // CSS imports
 import 'axios-progress-bar/dist/nprogress.css'
@@ -44,6 +45,32 @@ class App extends Component {
     },
     tip: null
   };
+
+  componentDidMount(){
+    if(localStorage.getItem('userId') && localStorage.getItem('token')){
+      console.log(localStorage.getItem('token'))
+      const userId = localStorage.getItem('userId');
+      const data = {
+        headers: {
+          Authorization: localStorage.getItem('token')
+        }
+      }
+      axios
+        .get(`https://tipsease.herokuapp.com/api/users/${ userId }`, data)
+        .then(res => {
+          console.log(res.data)
+          this.setState({
+            ...this.state,
+            loggedIn: true,
+            accountType: res.data.account_type,
+            userId: res.data.id
+          })
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  }
 
   // Handle updating top level state on login we need redux
   loginHandler = data => {
