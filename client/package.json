@@ -10,6 +10,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-loading-skeleton": "^1.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8",
     "styled-components": "^4.1.3"
