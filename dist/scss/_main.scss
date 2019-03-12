@@ -12,13 +12,13 @@ main {
         flex-direction: column;
         border-radius: 10px;
 
-
-        .info-card.hide {
-            display: none;
-        }
         @include tablet {
             flex-direction: row;
             justify-content: space-around;
+        }
+
+        @include desktop {
+            height: 300px;
         }
 
 
@@ -32,6 +32,10 @@ main {
             margin-bottom: $main-margin;
             padding: 10px;
 
+            @include desktop {
+                height: 100%;
+            }
+
             div {
 
                 width: 200%;
@@ -43,6 +47,10 @@ main {
 
                 &:nth-child(2) {
                     background-image: url('../img/illustrations/card-bg-2.svg');
+                }
+
+                @include desktop {
+                    width: 160%;
                 }
             }
 
@@ -61,14 +69,24 @@ main {
         display: flex;
         flex-direction: column-reverse;
         text-align: center;
-        background-image: url('../img/illustrations/bottom-bg.svg');
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
+
+        div {
+            width: 100%;
+
+            img {
+                height: 90%;
+                width: 100%;
+            }
+        }
+
+        @include desktop {
+            margin-top: 50px;
+        }
 
         a {
             @include btn;
-            background: $primary-color;
+            background: white;
+            color: $secondary-color;
             padding: 15px;
             margin-bottom: 30px;
             width: 50%;

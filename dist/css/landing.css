@@ -147,13 +147,15 @@ main #info {
   flex-direction: column;
   border-radius: 10px;
 }
-main #info .info-card.hide {
-  display: none;
-}
 @media screen and (min-width: 800px) {
   main #info {
     flex-direction: row;
     justify-content: space-around;
+  }
+}
+@media screen and (min-width: 1000px) {
+  main #info {
+    height: 300px;
   }
 }
 main #info .info-card {
@@ -167,6 +169,11 @@ main #info .info-card {
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
 }
+@media screen and (min-width: 1000px) {
+  main #info .info-card {
+    height: 100%;
+  }
+}
 main #info .info-card div {
   width: 200%;
   height: 100%;
@@ -177,6 +184,11 @@ main #info .info-card div {
 }
 main #info .info-card div:nth-child(2) {
   background-image: url("../img/illustrations/card-bg-2.svg");
+}
+@media screen and (min-width: 1000px) {
+  main #info .info-card div {
+    width: 160%;
+  }
 }
 @media screen and (min-width: 800px) {
   main #info .info-card {
@@ -190,10 +202,18 @@ main .bottom-bg {
   display: flex;
   flex-direction: column-reverse;
   text-align: center;
-  background-image: url("../img/illustrations/bottom-bg.svg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+}
+main .bottom-bg div {
+  width: 100%;
+}
+main .bottom-bg div img {
+  height: 90%;
+  width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  main .bottom-bg {
+    margin-top: 50px;
+  }
 }
 main .bottom-bg a {
   background-color: white;
@@ -203,7 +223,8 @@ main .bottom-bg a {
   padding: 18px;
   font-weight: semi-bold;
   color: #28333f;
-  background: #67DA8C;
+  background: white;
+  color: #1352dd;
   padding: 15px;
   margin-bottom: 30px;
   width: 50%;
@@ -233,8 +254,18 @@ body p {
 }
 
 a {
-  color: white;
   font-size: 1.7rem;
+  background-color: white;
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 18px;
+  font-weight: semi-bold;
+  color: #28333f;
+}
+a:hover {
+  opacity: 0.8;
+  box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.11);
 }
 
 h1 {
