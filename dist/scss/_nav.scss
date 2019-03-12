@@ -1,7 +1,7 @@
 .hamburger {
 
     position: fixed;
-    top: 10px;
+    top: 30px;
     right: 25px;
     height: 30px;
     width: 40px;
@@ -9,6 +9,26 @@
     flex-direction: column;
     justify-content: space-around;
     z-index: 3;
+
+
+    &.close {
+        transform: rotate(180deg);
+
+        :nth-child(1){
+            transform: rotate(45deg) translate(8px , 7px);
+        }
+
+        .line-2 {
+            visibility: hidden;
+        }
+
+        :nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    }
+    &:hover {
+        cursor: pointer;
+    }
 
     .line {
         height: 15%;
@@ -84,7 +104,7 @@
             height: 300px;
             border-radius: 10px;
             right: 20px;
-            top: 50px;
+            top: 70px;
         }
     }
 }

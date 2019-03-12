@@ -54,7 +54,7 @@ table {
 
 .hamburger {
   position: fixed;
-  top: 10px;
+  top: 30px;
   right: 25px;
   height: 30px;
   width: 40px;
@@ -62,6 +62,21 @@ table {
   flex-direction: column;
   justify-content: space-around;
   z-index: 3;
+}
+.hamburger.close {
+  transform: rotate(180deg);
+}
+.hamburger.close :nth-child(1) {
+  transform: rotate(45deg) translate(8px, 7px);
+}
+.hamburger.close .line-2 {
+  visibility: hidden;
+}
+.hamburger.close :nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+.hamburger:hover {
+  cursor: pointer;
 }
 .hamburger .line {
   height: 15%;
@@ -142,7 +157,7 @@ table {
     height: 300px;
     border-radius: 10px;
     right: 20px;
-    top: 50px;
+    top: 70px;
   }
 }
 
@@ -180,6 +195,11 @@ header {
   text-align: center;
   align-items: center;
   justify-content: space-around;
+}
+@media screen and (min-width: 1000px) {
+  header {
+    width: 45%;
+  }
 }
 header .info-btn {
   display: none;
