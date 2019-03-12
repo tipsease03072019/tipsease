@@ -14,6 +14,7 @@ main {
 
         @include tablet {
             flex-direction: row;
+            justify-content: space-around;
         }
 
         .info-card {
@@ -40,7 +41,7 @@ main {
             @include card;
 
             @include tablet {
-                width: 35%;
+                width: 45%;
                 justify-content: space-around;
             }
         }
