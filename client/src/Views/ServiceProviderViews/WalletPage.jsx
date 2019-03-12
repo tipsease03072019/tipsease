@@ -17,7 +17,7 @@ class WalletPage extends Component {
   }
 
   showCodeHandler = () => {
-    this.props.history.push("wallet/code")
+    this.props.history.push("/wallet/code")
   }
 
   

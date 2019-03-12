@@ -1,9 +1,7 @@
 import React from "react";
 
 const ProfilePage = () => {
-  const clickHandler = () => {
-    console.log("Editing User Details");
-  };
+  state = {};
   return (
     <>
       <h2>Welcome *NAME*</h2>
