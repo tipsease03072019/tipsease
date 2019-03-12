@@ -27,7 +27,8 @@ router.post("/register", (req, res) => {
       res.status(201).json({
         id: id[0],
         message: "registered",
-        token
+        token,
+        account_type: req.body.account_type
       });
     })
     .catch(err => {
