@@ -7,22 +7,24 @@ class ProfilePage extends Component {
     isLoading: true,
     userId: this.props.userId,
     inputs: {
-      username: null,
-      password: null,
-      email: null,
-      profileImage: null,
+      username: "",
+      password: "",
+      email: "",
+      profileImage: "",
     },
   };
 
   componentDidMount() {
-    const userId = localStorage.getItem("userId");
     const data = {
       headers: {
         Authorization: localStorage.getItem("token"),
       },
     };
     axios
-      .get(`https://tipsease.herokuapp.com/api/users/${userId}`, data)
+      .get(
+        `https://tipsease.herokuapp.com/api/users/${this.props.userId}`,
+        data,
+      )
       .then(res => {
         this.setState({
           ...this.state,
@@ -52,9 +54,28 @@ class ProfilePage extends Component {
 
   submitHandler = e => {
     e.preventDefault();
+    const headers = {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    };
+    //! Yes please help us
+    const data = {
+      username: this.state.inputs.username,
+      password: this.state.inputs.password,
+      email: this.state.inputs.email,
+      img_url: this.state.inputs.profileImage
+    };
+    console.log(data);
     axios
-      .put(`https://tipsease.herokuapp.com/users/${ this.state.userId }`, )
-  }
+      .put(`https://tipsease.herokuapp.com/api/users/${this.state.userId}`, data, headers)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
   render() {
     if (this.state.isLoading) {
