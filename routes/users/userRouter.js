@@ -19,11 +19,11 @@ router.get("/", (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.get("/u", (req, res) => {
-  db("users")
-    .then(users => res.status(200).send(users))
-    .catch(err => console.log(err));
-});
+// router.get("/u", (req, res) => {
+//   db("users")
+//     .then(users => res.status(200).send(users))
+//     .catch(err => console.log(err));
+// });
 
 router.post("/register", (req, res) => {
   const creds = req.body;

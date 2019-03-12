@@ -15,7 +15,7 @@ exports.up = function(knex, Promise) {
       .references("balance")
       .inTable("users")
       .onDelete("CASCADE");
-    table.integer("newBalance");
+    table.integer("tip").defaultTo(0);
     table.timestamp("created_at").defaultTo(knex.fn.now());
   });
 };
