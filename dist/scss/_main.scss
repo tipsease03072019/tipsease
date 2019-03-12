@@ -3,30 +3,66 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 500px;
+
     #info {
+        // background: $primary-color;
+        width: 90%;
         display: flex;
         flex-direction: column;
-        margin: 0 auto;
-        width: 90%;
-        justify-content: space-around;
+        border-radius: 10px;
 
         @include tablet {
             flex-direction: row;
         }
 
         .info-card {
-            background: $secondary-color;
-            color: $primary-color;
-            padding: 50px;
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            background: $primary-color;
+            color: white;
+            height: 150px;
+            margin-bottom: $main-margin;
+            padding: 10px;
+            div {
+                width: 200%;
+                height: 100%;
+                background-image: url('../img/illustrations/card-bg-1.svg');
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                &:nth-child(2) {
+                    background-image: url('../img/illustrations/card-bg-2.svg');
+                }
+            }
+
             @include card;
 
             @include tablet {
                 width: 35%;
                 justify-content: space-around;
             }
+        }
+    }//info
 
+    .bottom-bg {
+        height: 300px;
+        width: 80%;
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+        background-image: url('../img/illustrations/bottom-bg.svg');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        a {
+            @include btn;
+            background: $primary-color;
+            padding: 15px;
+            margin-bottom: 30px;
+            width: 50%;
         }
     }
-
 }

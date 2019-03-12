@@ -1,20 +1,35 @@
+.bg {
+    width: 90%;
+    margin: 0 auto;
+
+}
+
 header {
     height: 400px;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
     justify-content: space-around;
 
-    section {
-        text-align: center;
+    a {
+        @include btn;
+        width: 50%;
+        margin-bottom: 40px;
+    }
+    .cta {
+        margin-top: 50px;
+
+        strong {
+            color: $primary-color;
+            font-size: 6rem;
+            font-weight: bold;
+        }
 
         .slogan {
-            width: 60%;
-            margin: 0 auto;
+            color: white;
+            font-size: 3.5rem;
         }
 
-        a {
-            display: block;
-        }
     }
-
 }
