@@ -1,7 +1,21 @@
-import React from "react";
+import React,{ Component } from "react";
 
-const WalletPage = () => {
-  return <>Wallet Page</>;
-};
+class WalletPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+    }
+  }
+
+  
+  render() {
+    console.log(this.props)
+    return (
+      <div>TESTING</div>
+    );
+  }
+}
 
 export default WalletPage;
