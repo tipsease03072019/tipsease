@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { loadProgressBar } from "axios-progress-bar";
+import React, {Component} from "react";
+import {Switch, Route} from "react-router-dom";
+import {loadProgressBar} from "axios-progress-bar";
+import axios from "axios";
 
 // HOC Imports
 import PrivateRoute from "./HOC/PrivateRoute";
@@ -10,13 +11,12 @@ import LoginPage from "./Views/LoginPage";
 import SignUpPage from "./Views/SignUpPage";
 import WalletPage from "./Views/ServiceProviderViews/WalletPage";
 import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
-import TipPage from "./Views/CustomerProviderViews/TipPage";
+import TipPage from "./Views/CustomerViews/TipPage";
 import Profile from "./Views/ProfilePage";
-import SearchServiceProviderPage from './Views/CustomerProviderViews/SearchServiceProviderPage'
+import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProviderPage";
 
 // CSS imports
-import 'axios-progress-bar/dist/nprogress.css'
-
+import "axios-progress-bar/dist/nprogress.css";
 
 class App extends Component {
   //! Data does not pursist on reloads
@@ -31,7 +31,7 @@ class App extends Component {
       img_url: "https://www.fillmurray.com/640/360",
       account_type: "employee",
       balance: 100,
-      created_at: "2019-03-12 01:06:39"
+      created_at: "2019-03-12 01:06:39",
     },
     normalUser: {
       id: 3,
@@ -40,26 +40,49 @@ class App extends Component {
       img_url: "http://via.placeholder.com/640x360",
       account_type: "customer",
       balance: 50,
-      created_at: "2019-03-12 01:06:39"
+      created_at: "2019-03-12 01:06:39",
     },
-    tip: null
+    tip: null,
   };
 
-  // Handle updating top level state on login we need redux
+  componentDidMount() {
+    if (localStorage.getItem("userId") && localStorage.getItem("token")) {
+      const userId = localStorage.getItem("userId");
+      const data = {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      };
+      axios
+        .get(`https://tipsease.herokuapp.com/api/users/${userId}`, data)
+        .then(res => {
+          this.setState({
+            ...this.state,
+            loggedIn: true,
+            accountType: res.data.account_type,
+            userId: res.data.id,
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
+
   loginHandler = data => {
     localStorage.setItem("token", data.token);
     localStorage.setItem("userId", data.id);
     this.setState({
       loggedIn: true,
       accountType: data.account_type,
-      userId: data.id
+      userId: data.id,
     });
   };
 
-  setTip = tip => {
+  setTipHelper = tip => {
     this.setState({
       ...this.state,
-      tip
+      tip,
     });
   };
 
@@ -81,7 +104,7 @@ class App extends Component {
             <SignUpPage
               {...props}
               loginHandler={this.loginHandler}
-              accountType={this.accountType}
+              accountType={this.state.accountType}
             />
           )}
         />
@@ -104,24 +127,25 @@ class App extends Component {
             />
           )}
         />
+        <Route exact path="/profile" render={props => <Profile {...props} />} />
         <Route
           exact
-          path="/tip"
+          path="/find-provider"
+          render={props => (
+            <SearchServiceProviderPage
+              {...props}
+              user={this.state.normalUser}
+            />
+          )}
+        />
+        <Route
           render={props => (
             <TipPage
               {...props}
               user={this.state.normalUser}
               tip={this.state.tip}
-              setTip={this.setTip}
+              setTipHelper={this.setTipHelper}
             />
-          )}
-        />
-        <Route exact path="/profile" render={props => <Profile {...props} />} />
-        <Route 
-          exact
-          path="/find-provider"
-          render={props => (
-            <SearchServiceProviderPage {...props} user={this.state.normalUser}/>
           )}
         />
       </Switch>

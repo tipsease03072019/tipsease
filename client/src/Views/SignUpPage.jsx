@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class SignUpPage extends Component {
   state = {
@@ -9,7 +9,7 @@ class SignUpPage extends Component {
       password: "",
       isServiceProvider: false,
       email: "",
-    }
+    },
   };
 
   // Handle updating state on typing
@@ -17,8 +17,8 @@ class SignUpPage extends Component {
     this.setState({
       inputs: {
         ...this.state.inputs,
-        [e.target.name]: e.target.value
-      }
+        [e.target.name]: e.target.value,
+      },
     });
   };
 
@@ -28,8 +28,8 @@ class SignUpPage extends Component {
     this.setState({
       inputs: {
         ...this.state.inputs,
-        isServiceProvider: !this.state.inputs.isServiceProvider
-      }
+        isServiceProvider: !this.state.inputs.isServiceProvider,
+      },
     });
   };
 
@@ -42,17 +42,17 @@ class SignUpPage extends Component {
       email: this.state.inputs.email,
       account_type: this.state.inputs.isServiceProvider
         ? "employee"
-        : "customer"
+        : "customer",
     };
     axios
       .post("https://tipsease.herokuapp.com/api/users/register", data)
-      .then(arr => {
-        this.props.loginHandler(arr.data);
+      .then(res => {
+        this.props.loginHandler(res.data);
         // Redirect after login
-        if (arr.data.account_type === "employee") {
+        if (res.data.account_type === "employee") {
           this.props.history.push("/wallet");
         } else {
-          this.props.history.push("/pay");
+          this.props.history.push("/tip");
         }
       })
       .catch(err => {
@@ -61,15 +61,13 @@ class SignUpPage extends Component {
   };
 
   render() {
-    console.log(this.props);
     // Issue with props
-    if (localStorage.getItem("token")) {
-      // <Redirect to />
-      console.log(this.props)
-      // if(this.props.accountType === 'employee'){
-      //   return <Redirect to="/wallet" />
-      // }
-      // return <Redirect to="/pay" />
+    if (localStorage.getItem("token") && localStorage.getItem("userId")) {
+      if (this.props.accountType === "employee") {
+        return <Redirect to="/wallet" />;
+      } else {
+        return <Redirect to="/tip" />;
+      }
     }
     return (
       <>
