@@ -52,17 +52,98 @@ table {
   border-spacing: 0;
 }
 
-nav {
-  background: #67DA8C;
+.hamburger {
+  position: fixed;
+  top: 10px;
+  right: 25px;
   height: 30px;
+  width: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  z-index: 3;
+}
+.hamburger .line {
+  height: 15%;
+  width: 100%;
+  background: #1352dd;
+}
+@media screen and (min-width: 800px) {
+  .hamburger .line {
+    background: #67DA8C;
+  }
+}
+
+.nav-display {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: white;
+  width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .nav-display {
+    width: 15%;
+    height: 150px;
+  }
+}
+.nav-display .nav-bg {
+  margin: 0 auto;
+  height: 90%;
+  width: 90%;
+  background: url("../img/illustrations/nav-bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }
-nav a {
-  background-color: unset;
-  color: white;
-  text-decoration: none;
+@media screen and (min-width: 800px) {
+  .nav-display .nav-bg {
+    align-items: flex-end;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .nav-display .nav-bg {
+    align-items: center;
+  }
+}
+.nav-display a {
+  width: 40%;
+  padding: 5px;
+  color: #67DA8C;
+  text-align: center;
+  margin-top: 50px;
+  padding: 5px 0 5px 0;
+}
+@media screen and (min-width: 800px) {
+  .nav-display a {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .nav-display a {
+    width: 100%;
+    margin-top: 18px;
+  }
+  .nav-display a:hover {
+    background: #28333f;
+  }
+}
+.nav-display.display {
+  visibility: visible;
+  height: 100vh;
+}
+@media screen and (min-width: 1000px) {
+  .nav-display.display {
+    height: 300px;
+    border-radius: 10px;
+    right: 20px;
+    top: 50px;
+  }
 }
 
 .bg {
@@ -238,6 +319,7 @@ main .bottom-bg .info-card {
   main .bottom-bg .info-card {
     clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
     background: #67DA8C;
+    z-index: -1;
   }
 }
 main .bottom-bg div {

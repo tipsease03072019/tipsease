@@ -87,7 +87,7 @@ main {
             @include desktop {
                 clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
                 background: $primary-color;
-
+                z-index: -1;
             }
             border-radius: 2%;
         }
