@@ -78,16 +78,6 @@ router.get("/:id", authenticate, (req, res) => {
     .where({
       id: req.params.id
     })
-    .select(
-      "id",
-      "username",
-      "password",
-      "email",
-      "img_url",
-      "account_type",
-      "balance",
-      "created_at"
-    )
     .then(user => {
       res.status(200).json(user);
     })
