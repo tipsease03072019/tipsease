@@ -11,7 +11,15 @@ const {
 
 router.get("/", (req, res) => {
   db("users")
-    .select("id", "username", "email", "img_url", "account_type", "created_at")
+    .select(
+      "id",
+      "username",
+      "email",
+      "img_url",
+      "account_type",
+      "balance",
+      "created_at"
+    )
     .where({
       account_type: "employee"
     })
@@ -29,7 +37,7 @@ router.post("/register", (req, res) => {
       const token = generateToken(creds);
       res.status(201).json({
         id: id[0],
-        message: "registered",
+        message: "Registered",
         token,
         account_type: req.body.account_type
       });
