@@ -235,6 +235,12 @@ nav a {
   margin-top: 1rem;
   text-align: center;
 }
+.profiles .text a {
+  color: #67DA8C;
+}
+.profiles .text a:hover {
+  color: #1352DD;
+}
 .profiles .profile-img {
   margin: 4rem 4rem 0 4rem;
   border-radius: 50%;
@@ -258,7 +264,7 @@ nav a {
   display: none;
   position: fixed;
   top: 30%;
-  left: 1rem;
+  left: 0.3rem;
   z-index: 1;
   width: 80%;
   height: 250px;
