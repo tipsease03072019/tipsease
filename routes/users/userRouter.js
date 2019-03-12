@@ -114,4 +114,25 @@ router.put("/:id", authenticate, (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
+router.delete("/:id", authenticate, (req, res) => {
+  db("users")
+    .where({
+      id: req.params.id
+    })
+    .del()
+    .then(count => {
+      if (count) {
+        res.status(201).json({
+          "User Deleted": count,
+          message: "User was successfully deleted."
+        });
+      } else {
+        res.status(404).json({
+          error: `User with ID ${req.params.id} not found.`
+        });
+      }
+    })
+    .catch(err => res.status(500).json(err));
+});
+
 module.exports = router;

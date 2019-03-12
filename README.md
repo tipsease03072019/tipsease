@@ -147,3 +147,30 @@ users {
 "img_url": ""
 }
 }
+
+## Delete User by ID
+
+const headersObj = {
+Authorization: token
+}
+
+axios
+.delete("https://tipsease.herokuapp.com/api/users/:id", headersObj)
+.then(response => {
+console.log(response.data)
+})
+.catch(err => console.log(err));
+
+-returned
+
+{
+"User Deleted: [
+{
+"username": "",
+"password": "",
+"email":"",
+"img_url": ""
+}
+],
+"message": "User was successfully deleted."
+}
