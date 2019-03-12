@@ -1,5 +1,23 @@
 //====== SPACING VARIABLES ======//
+$small-space: 10px;
+$normal-space: 18px;
+$medium-space: 34px;
+$large-space: 55px;
+$extra-large-space: 89px;
 
 //====== COLOR VARIABLES ======//
+$white: #FFFFFF;
+$tipsease-dark: #28333F;
+$tipsease-light: #F9F9F9;
+$tipsease-primary: #67DA8C;
+$tipsease-secondary: #1352DD;
+
 
 //====== MEDIA QUERY VARIABLES ======//
+$mobile-large-width: 600px;
+$tablet-width: 800px;
+$desktop-width: 980px;
+
+$mobile-large: 'screen and (min-width: #{$mobile-large-width})';
+$tablet: 'screen and (min-width: #{$tablet-width})';
+$desktop: 'screen and (min-width: #{$desktop-width})';
