@@ -5,15 +5,15 @@
     .header-bg {
         display: none;
     }
-    @include desktop {
+    @include tablet {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         height: 100vh;
 
         .header-bg {
-            width: 60%;
+            width: 50%;
             height: 100%;
             display: flex;
             align-items: center;
@@ -38,10 +38,11 @@ header {
         display: none;
 
         @include desktop {
-            // display: inherit;
-            // @include btn;
+            display: block;
+
         }
     }
+
     .header-bg {
         display: none;
     }

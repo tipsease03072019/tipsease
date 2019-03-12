@@ -70,12 +70,40 @@ main {
         flex-direction: column-reverse;
         text-align: center;
 
+        @include desktop {
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-around;
+            height: 500px;
+        }
+
+        .info-card {
+            @include card;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50px;
+
+            @include desktop {
+                clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
+                background: $primary-color;
+
+            }
+            border-radius: 2%;
+        }
+
         div {
+            max-height: 100%;
             width: 100%;
 
+            @include desktop {
+
+            }
+
             img {
-                height: 90%;
-                width: 100%;
+                max-height: 100%;
+                max-width: 100%;
             }
         }
 

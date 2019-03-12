@@ -72,16 +72,16 @@ nav a {
 .bg .header-bg {
   display: none;
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 800px) {
   .bg {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
   }
   .bg .header-bg {
-    width: 60%;
+    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -102,6 +102,11 @@ header {
 }
 header .info-btn {
   display: none;
+}
+@media screen and (min-width: 1000px) {
+  header .info-btn {
+    display: block;
+  }
 }
 header .header-bg {
   display: none;
@@ -203,12 +208,37 @@ main .bottom-bg {
   flex-direction: column-reverse;
   text-align: center;
 }
+@media screen and (min-width: 1000px) {
+  main .bottom-bg {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    height: 500px;
+  }
+}
+main .bottom-bg .info-card {
+  box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
+  border-radius: 6px;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  border-radius: 2%;
+}
+@media screen and (min-width: 1000px) {
+  main .bottom-bg .info-card {
+    clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
+    background: #67DA8C;
+  }
+}
 main .bottom-bg div {
+  max-height: 100%;
   width: 100%;
 }
 main .bottom-bg div img {
-  height: 90%;
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 @media screen and (min-width: 1000px) {
   main .bottom-bg {
