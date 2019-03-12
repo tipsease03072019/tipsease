@@ -11,15 +11,23 @@
     />
     <link rel="stylesheet" href="css/index.css" />
     <script defer="defer" src="./components/about-tabs.js"></script>
+    <script defer="defer" src="./components/nav.js"></script>
     <title>Tipsease | About</title>
   </head>
   <body>
     <div class="container">
       <header class="nav">
-        <nav>
-          <a href="landing.html"><h1>Tipsease</h1></a>
-          <a href="#" class="btn login">Login</a>
-        </nav>
+        <div class="hamburger">
+          <div class="line line-1"></div>
+          <div class="line line-2"></div>
+          <div class="line line-3"></div>
+        </div>
+
+        <div class="nav-display">
+          <div class="nav-bg">
+            <a href="landing.html">Tipsease</a> <a href="#">Login</a>
+          </div>
+        </div>
       </header>
       <section class="top-content">
         <img src="img/team-header.svg" alt="img goes here" />
@@ -266,6 +274,9 @@
         </div>
       </div>
     </div>
-    <footer><p>Copyright&copy TipsEase 2019</p></footer>
+    <footer>
+      <a href="">Login</a>
+      <p>Copyright&copy TipsEase 2019</p>
+    </footer>
   </body>
 </html>

@@ -136,21 +136,98 @@ table {
     transform: scale(1);
   }
 }
-nav {
-  background: #67DA8C;
+.hamburger {
+  position: fixed;
+  top: 10px;
+  right: 25px;
   height: 30px;
+  width: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  z-index: 3;
 }
-nav a {
-  background-color: unset;
-  color: white;
-  text-decoration: none;
+.hamburger .line {
+  height: 15%;
+  width: 100%;
+  background: #1352DD;
+}
+@media screen and (min-width: 800px) {
+  .hamburger .line {
+    background: #67DA8C;
+  }
 }
 
-.container {
-  background-color: #28333F;
+.nav-display {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: white;
+  width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .nav-display {
+    width: 15%;
+    height: 150px;
+  }
+}
+.nav-display .nav-bg {
+  margin: 0 auto;
+  height: 90%;
+  width: 90%;
+  background: url("../img/illustrations/nav-bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media screen and (min-width: 800px) {
+  .nav-display .nav-bg {
+    align-items: flex-end;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .nav-display .nav-bg {
+    align-items: center;
+  }
+}
+.nav-display .nav-bg a {
+  width: 40%;
+  padding: 5px;
+  color: #67DA8C;
+  text-align: center;
+  margin-top: 50px;
+  padding: 5px 0 5px 0;
+}
+@media screen and (min-width: 800px) {
+  .nav-display .nav-bg a {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .nav-display .nav-bg a {
+    width: 100%;
+    margin-top: 18px;
+  }
+}
+.nav-display .nav-bg a:hover {
+  background: #28333F;
+}
+.nav-display.display {
+  visibility: visible;
+  height: 100vh;
+}
+@media screen and (min-width: 1000px) {
+  .nav-display.display {
+    height: 300px;
+    border-radius: 10px;
+    right: 20px;
+    top: 50px;
+  }
 }
 
 .top-content {
@@ -253,6 +330,7 @@ nav a {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  padding-bottom: 2rem;
 }
 .profiles .hide-profile {
   display: none;
@@ -340,10 +418,29 @@ nav a {
 }
 
 footer {
-  color: #67DA8C;
   background-color: #28333F;
-  text-align: center;
-  padding: 2rem;
+  color: #67DA8C;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+footer a {
+  background-color: unset;
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: semi-bold;
+  text-decoration: underline;
+  margin-right: 20px;
+  color: #67DA8C;
+  padding: 3px;
+}
+footer a:hover {
+  opacity: 0.8;
+}
+
+.container {
+  background-color: #28333F;
 }
 
 html {
