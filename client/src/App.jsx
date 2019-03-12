@@ -9,6 +9,7 @@ import LoginPage from "./Views/LoginPage";
 import SignUpPage from "./Views/SignUpPage";
 import WalletPage from './Views/ServiceProviderViews/WalletPage';
 import ShowCodePage from './Views/ServiceProviderViews/ShowCodePage';
+import TipPage from './Views/CustomerProviderViews/TipPage';
 
 class App extends Component {
   state = {
@@ -34,6 +35,7 @@ class App extends Component {
       balance: 50,
       created_at: "2019-03-12 01:06:39"
       },
+    tip: null,
   };
 
   // Handle updating top level state on login we need redux
@@ -45,6 +47,13 @@ class App extends Component {
       userId: data.id
     });
   };
+
+  setTip = tip => {
+    this.setState({
+      ...this.state,
+      tip: tip
+    })
+  }
 
   render() {
     return (
@@ -75,6 +84,13 @@ class App extends Component {
           path="/wallet/code"
           render={props => (
             <ShowCodePage {...props} user={this.state.employeeUser} code={"AN18"}/>
+          )}
+        />
+        <Route 
+          exact
+          path="/tip"
+          render={props => (
+            <TipPage {...props} user={this.state.normalUser} tip={this.state.tip} setTip={this.setTip}/>
           )}
         />
       </Switch>
