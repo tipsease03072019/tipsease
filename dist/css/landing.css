@@ -69,6 +69,28 @@ nav a {
   width: 90%;
   margin: 0 auto;
 }
+.bg .header-bg {
+  display: none;
+}
+@media screen and (min-width: 1000px) {
+  .bg {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+  }
+  .bg .header-bg {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .bg .header-bg img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
 
 header {
   height: 400px;
@@ -77,6 +99,12 @@ header {
   text-align: center;
   align-items: center;
   justify-content: space-around;
+}
+header .info-btn {
+  display: none;
+}
+header .header-bg {
+  display: none;
 }
 header a {
   background-color: white;
@@ -88,6 +116,11 @@ header a {
   color: #28333f;
   width: 50%;
   margin-bottom: 40px;
+}
+@media screen and (min-width: 1000px) {
+  header a {
+    width: 40%;
+  }
 }
 header .cta {
   margin-top: 50px;
@@ -114,9 +147,13 @@ main #info {
   flex-direction: column;
   border-radius: 10px;
 }
+main #info .info-card.hide {
+  display: none;
+}
 @media screen and (min-width: 800px) {
   main #info {
     flex-direction: row;
+    justify-content: space-around;
   }
 }
 main #info .info-card {
@@ -143,7 +180,7 @@ main #info .info-card div:nth-child(2) {
 }
 @media screen and (min-width: 800px) {
   main #info .info-card {
-    width: 35%;
+    width: 45%;
     justify-content: space-around;
   }
 }
@@ -170,6 +207,11 @@ main .bottom-bg a {
   padding: 15px;
   margin-bottom: 30px;
   width: 50%;
+}
+@media screen and (min-width: 800px) {
+  main .bottom-bg a {
+    margin-bottom: 0;
+  }
 }
 
 footer {

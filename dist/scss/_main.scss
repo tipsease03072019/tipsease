@@ -12,9 +12,16 @@ main {
         flex-direction: column;
         border-radius: 10px;
 
+
+        .info-card.hide {
+            display: none;
+        }
         @include tablet {
             flex-direction: row;
+            justify-content: space-around;
         }
+
+
 
         .info-card {
             display: flex;
@@ -24,7 +31,9 @@ main {
             height: 150px;
             margin-bottom: $main-margin;
             padding: 10px;
+
             div {
+
                 width: 200%;
                 height: 100%;
                 background-image: url('../img/illustrations/card-bg-1.svg');
@@ -40,7 +49,7 @@ main {
             @include card;
 
             @include tablet {
-                width: 35%;
+                width: 45%;
                 justify-content: space-around;
             }
         }
@@ -63,6 +72,10 @@ main {
             padding: 15px;
             margin-bottom: 30px;
             width: 50%;
+
+            @include tablet {
+                margin-bottom: 0;
+            }
         }
     }
 }
