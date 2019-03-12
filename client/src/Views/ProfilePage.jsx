@@ -15,15 +15,9 @@ class ProfilePage extends Component {
   };
 
   componentDidMount() {
-    const data = {
-      headers: {
-        Authorization: localStorage.getItem("token"),
-      },
-    };
     axios
       .get(
-        `https://tipsease.herokuapp.com/api/users/${this.props.userId}`,
-        data,
+        `https://tipsease.herokuapp.com/api/users/${this.props.userId}`
       )
       .then(res => {
         this.setState({

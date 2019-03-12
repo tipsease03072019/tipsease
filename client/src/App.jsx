@@ -49,14 +49,10 @@ class App extends Component {
 
   componentDidMount() {
     if (localStorage.getItem("userId") && localStorage.getItem("token")) {
+      axios.defaults.headers.common['Authorization'] = localStorage.getItem("token");
       const userId = localStorage.getItem("userId");
-      const data = {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-        },
-      };
       axios
-        .get(`https://tipsease.herokuapp.com/api/users/${userId}`, data)
+        .get(`https://tipsease.herokuapp.com/api/users/${userId}`)
         .then(res => {
           this.setState({
             ...this.state,
