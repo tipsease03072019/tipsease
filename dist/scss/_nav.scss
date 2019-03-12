@@ -1,11 +1,23 @@
 nav {
-    background: $primary-color;
-    height: 30px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+
+    position: fixed;
+    top: 0;
+    right: 10px;
+    .hamburger {
+        height: 30px;
+        width: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .line {
+            height: 15%;
+            width: 100%;
+            background: $primary-color;
+        }
+    }
 
     a {
-        @include textBtn
+        @include textBtn;
     }
 }

@@ -53,11 +53,21 @@ table {
 }
 
 nav {
-  background: #67DA8C;
+  position: fixed;
+  top: 0;
+  right: 10px;
+}
+nav .hamburger {
   height: 30px;
+  width: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+}
+nav .hamburger .line {
+  height: 15%;
+  width: 100%;
+  background: #67DA8C;
 }
 nav a {
   background-color: unset;
