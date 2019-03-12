@@ -38,8 +38,8 @@ router.post("/register", (req, res) => {
       res.status(201).json({
         id: id[0],
         message: "Registered",
-        token,
-        account_type: req.body.account_type
+        account_type: req.body.account_type,
+        token
       });
     })
     .catch(err => {
@@ -60,8 +60,9 @@ router.post("/login", (req, res) => {
           message: `Welcome ${
             user.username
           }! Successfully logged in, here's a token`,
-          token,
-          account_type: user.account_type
+          account_type: user.account_type,
+          id: user.id,
+          token
         });
       } else {
         res.status(401).json({
@@ -78,6 +79,27 @@ router.get("/:id", authenticate, (req, res) => {
     .where({
       id: req.params.id
     })
+    .then(user => {
+      res.status(200).json(user);
+    })
+    .catch(err => res.status(500).json(err));
+});
+
+router.put("/:id", authenticate, (req, res) => {
+  let changes = req.body;
+  db("users")
+    .where({
+      id: req.params.id
+    })
+    .update(
+      {
+        username: changes.username,
+        password: changes.password,
+        email: changes.email,
+        img_url: changes.img_url
+      },
+      ["username", "password", "email", "img_url"]
+    )
     .then(user => {
       res.status(200).json(user);
     })
