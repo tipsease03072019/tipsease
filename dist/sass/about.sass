@@ -8,13 +8,26 @@
   flex-flow: column wrap
   margin: 0 0 3rem 0
 
+  @include desktop
+    margin: 3rem 0
+    flex-flow: row-reverse
+    justify-content: space-between
+
   img
+    background: rgb(19,82,221)
+    background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 70%)
     width: 100%
     margin-top: 1rem
     clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%)
     height: 300px
 
+    @include desktop
+      background: none
+      height: 350px
+      width: 50%
+
   .top-content-info
+    opacity: 0.8
     color: $light-text-color
     margin-top: 2rem
     background-color: $primary-color
@@ -25,7 +38,8 @@
     align-items: center
 
     @include desktop
-      height: 200px
+      width: 45%
+      height: 300px
 
     @include tablet
       padding-bottom: 2rem
@@ -39,17 +53,21 @@
       margin: 2rem 0 2rem 0
 
 .profile-top
+  background: rgb(19,82,221)
+  background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 55%)
+  
   @include desktop
+    background: none
     display: flex
     justify-content: center
     align-items: center
 
   .profiles-header
-    background-color: lighten($dark-text-color, 1%)
+    //background-color: lighten($dark-text-color, 1%)
     width: 100%
 
     @include desktop
-      width: 50%
+      width: 45%
 
 .profile-main-text
   h2
@@ -58,6 +76,9 @@
     background-color: lighten($dark-text-color, 1%)
     text-align: center
     font-size: 2rem
+
+    @include desktop
+      font-size: 5rem
 
 .profiles
   background-color: lighten($dark-text-color, 1%)
@@ -115,7 +136,16 @@
       animation: popout 1s ease
       -webkit-animation: popout 1s ease
 
+      .close-tab
 
+        img
+          position: absolute
+          right: 5px
+          top: 5px
+          width: 10%
+
+          @include desktop
+            width: 5%
 
       @include tablet
         left: 2.5rem

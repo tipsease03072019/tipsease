@@ -160,13 +160,30 @@ nav a {
   flex-flow: column wrap;
   margin: 0 0 3rem 0;
 }
+@media screen and (min-width: 1000px) {
+  .top-content {
+    margin: 3rem 0;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+  }
+}
 .top-content img {
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 70%);
   width: 100%;
   margin-top: 1rem;
   clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%);
   height: 300px;
 }
+@media screen and (min-width: 1000px) {
+  .top-content img {
+    background: none;
+    height: 350px;
+    width: 50%;
+  }
+}
 .top-content .top-content-info {
+  opacity: 0.8;
   color: white;
   margin-top: 2rem;
   background-color: #67DA8C;
@@ -178,7 +195,8 @@ nav a {
 }
 @media screen and (min-width: 1000px) {
   .top-content .top-content-info {
-    height: 200px;
+    width: 45%;
+    height: 300px;
   }
 }
 @media screen and (min-width: 800px) {
@@ -194,20 +212,24 @@ nav a {
   margin: 2rem 0 2rem 0;
 }
 
+.profile-top {
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 55%);
+}
 @media screen and (min-width: 1000px) {
   .profile-top {
+    background: none;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
 .profile-top .profiles-header {
-  background-color: #2a3642;
   width: 100%;
 }
 @media screen and (min-width: 1000px) {
   .profile-top .profiles-header {
-    width: 50%;
+    width: 45%;
   }
 }
 
@@ -217,6 +239,11 @@ nav a {
   background-color: #2a3642;
   text-align: center;
   font-size: 2rem;
+}
+@media screen and (min-width: 1000px) {
+  .profile-main-text h2 {
+    font-size: 5rem;
+  }
 }
 
 .profiles {
@@ -273,6 +300,17 @@ nav a {
   opacity: 0.9;
   animation: popout 1s ease;
   -webkit-animation: popout 1s ease;
+}
+.content-holder .profile-content .profile-items .close-tab img {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 10%;
+}
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .profile-items .close-tab img {
+    width: 5%;
+  }
 }
 @media screen and (min-width: 800px) {
   .content-holder .profile-content .profile-items {
