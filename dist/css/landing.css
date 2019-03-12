@@ -52,27 +52,21 @@ table {
   border-spacing: 0;
 }
 
-nav {
+.hamburger {
   position: fixed;
   top: 10px;
   right: 25px;
-}
-nav .hamburger {
   height: 30px;
   width: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-nav .hamburger .line {
+.hamburger .line {
+  z-index: 3;
   height: 15%;
   width: 100%;
-  background: white;
-}
-nav a {
-  background-color: unset;
-  color: white;
-  text-decoration: none;
+  background: red;
 }
 
 .bg {
