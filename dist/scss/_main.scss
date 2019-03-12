@@ -6,19 +6,18 @@ main {
     min-height: 500px;
 
     #info {
-        // background: $primary-color;
         width: 90%;
         display: flex;
         flex-direction: column;
         border-radius: 10px;
 
-
-        .info-card.hide {
-            display: none;
-        }
         @include tablet {
             flex-direction: row;
             justify-content: space-around;
+        }
+
+        @include desktop {
+            height: 300px;
         }
 
 
@@ -29,8 +28,12 @@ main {
             background: $primary-color;
             color: white;
             height: 150px;
-            margin-bottom: $main-margin;
+            margin-bottom: $normal-margin;
             padding: 10px;
+
+            @include desktop {
+                height: 100%;
+            }
 
             div {
 
@@ -43,6 +46,10 @@ main {
 
                 &:nth-child(2) {
                     background-image: url('../img/illustrations/card-bg-2.svg');
+                }
+
+                @include desktop {
+                    width: 160%;
                 }
             }
 
@@ -61,14 +68,52 @@ main {
         display: flex;
         flex-direction: column-reverse;
         text-align: center;
-        background-image: url('../img/illustrations/bottom-bg.svg');
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
+
+        @include desktop {
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-around;
+            height: 500px;
+        }
+
+        .info-card {
+            @include card;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50px;
+
+            @include desktop {
+                clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
+                background: $primary-color;
+
+            }
+            border-radius: 2%;
+        }
+
+        div {
+            max-height: 100%;
+            width: 100%;
+
+            @include desktop {
+
+            }
+
+            img {
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @include desktop {
+            margin-top: 50px;
+        }
 
         a {
             @include btn;
-            background: $primary-color;
+            background: white;
+            color: $dark-text-color;
             padding: 15px;
             margin-bottom: 30px;
             width: 50%;

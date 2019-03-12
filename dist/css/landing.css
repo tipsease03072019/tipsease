@@ -20,7 +20,7 @@ time, mark, audio, video {
   border: 0;
   font: inherit;
   font-size: 62.5%;
-  vertical-align: baseline;
+  font-family: proxima-nova, sans-serif;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -72,16 +72,16 @@ nav a {
 .bg .header-bg {
   display: none;
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 800px) {
   .bg {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
   }
   .bg .header-bg {
-    width: 60%;
+    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -103,6 +103,11 @@ header {
 header .info-btn {
   display: none;
 }
+@media screen and (min-width: 1000px) {
+  header .info-btn {
+    display: block;
+  }
+}
 header .header-bg {
   display: none;
 }
@@ -117,9 +122,13 @@ header a {
   width: 50%;
   margin-bottom: 40px;
 }
+header a:hover {
+  opacity: 0.8;
+}
 @media screen and (min-width: 1000px) {
   header a {
     width: 40%;
+    margin-bottom: 0;
   }
 }
 header .cta {
@@ -127,12 +136,16 @@ header .cta {
 }
 header .cta strong {
   color: #67DA8C;
-  font-size: 6rem;
+  font-size: 7.5rem;
+  font-weight: bold;
+  margin-bottom: 18px;
   font-weight: bold;
 }
 header .cta .slogan {
   color: white;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
+  font-weight: semi-bold;
+  margin-bottom: 10px;
 }
 
 main {
@@ -147,13 +160,15 @@ main #info {
   flex-direction: column;
   border-radius: 10px;
 }
-main #info .info-card.hide {
-  display: none;
-}
 @media screen and (min-width: 800px) {
   main #info {
     flex-direction: row;
     justify-content: space-around;
+  }
+}
+@media screen and (min-width: 1000px) {
+  main #info {
+    height: 300px;
   }
 }
 main #info .info-card {
@@ -162,10 +177,15 @@ main #info .info-card {
   background: #67DA8C;
   color: white;
   height: 150px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   padding: 10px;
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
+}
+@media screen and (min-width: 1000px) {
+  main #info .info-card {
+    height: 100%;
+  }
 }
 main #info .info-card div {
   width: 200%;
@@ -177,6 +197,11 @@ main #info .info-card div {
 }
 main #info .info-card div:nth-child(2) {
   background-image: url("../img/illustrations/card-bg-2.svg");
+}
+@media screen and (min-width: 1000px) {
+  main #info .info-card div {
+    width: 160%;
+  }
 }
 @media screen and (min-width: 800px) {
   main #info .info-card {
@@ -190,10 +215,43 @@ main .bottom-bg {
   display: flex;
   flex-direction: column-reverse;
   text-align: center;
-  background-image: url("../img/illustrations/bottom-bg.svg");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
+}
+@media screen and (min-width: 1000px) {
+  main .bottom-bg {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    height: 500px;
+  }
+}
+main .bottom-bg .info-card {
+  box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
+  border-radius: 6px;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  border-radius: 2%;
+}
+@media screen and (min-width: 1000px) {
+  main .bottom-bg .info-card {
+    clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
+    background: #67DA8C;
+  }
+}
+main .bottom-bg div {
+  max-height: 100%;
+  width: 100%;
+}
+main .bottom-bg div img {
+  max-height: 100%;
+  max-width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  main .bottom-bg {
+    margin-top: 50px;
+  }
 }
 main .bottom-bg a {
   background-color: white;
@@ -203,10 +261,14 @@ main .bottom-bg a {
   padding: 18px;
   font-weight: semi-bold;
   color: #28333f;
-  background: #67DA8C;
+  background: white;
+  color: #28333f;
   padding: 15px;
   margin-bottom: 30px;
   width: 50%;
+}
+main .bottom-bg a:hover {
+  opacity: 0.8;
 }
 @media screen and (min-width: 800px) {
   main .bottom-bg a {
@@ -215,16 +277,34 @@ main .bottom-bg a {
 }
 
 footer {
-  text-align: center;
   margin: 30px 0 20px 0;
   color: #67DA8C;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+footer a {
+  background-color: unset;
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: semi-bold;
+  text-decoration: underline;
+  margin-right: 20px;
+  color: #67DA8C;
+  padding: 3px;
+}
+footer a:hover {
+  opacity: 0.8;
 }
 
 body {
   background: #28333f;
 }
 body p {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
+  font-weight: regular;
+  line-height: 2.8rem;
 }
 
 .logo {
@@ -233,8 +313,17 @@ body p {
 }
 
 a {
-  color: white;
   font-size: 1.7rem;
+  background-color: white;
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 18px;
+  font-weight: semi-bold;
+  color: #28333f;
+}
+a:hover {
+  opacity: 0.8;
 }
 
 h1 {

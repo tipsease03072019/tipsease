@@ -9,7 +9,7 @@
 body {
     background: $dark-text-color;
     p {
-        font-size: 1.7rem;
+        @include bodyText;
     }
 
 }
@@ -23,8 +23,8 @@ body {
 
 
 a {
-    color: white;
     font-size: 1.7rem;
+    @include btn;
 }
 h1 {
     font-size: 3rem;
