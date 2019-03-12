@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
+import PropTypes from 'prop-types';
 
 import loginIllustrations from "../assets/login.svg";
 
@@ -36,7 +37,7 @@ class LoginPage extends Component {
           this.props.history.push("/wallet")
         }
         else{
-          this.props.history.push("/pay")
+          this.props.history.push("/tip")
         }
       })
       .catch(err => {
@@ -45,6 +46,14 @@ class LoginPage extends Component {
   }
 
   render() {
+    if (localStorage.getItem("token") && localStorage.getItem('userId')) {
+      if(this.props.accountType === "employee"){
+        return <Redirect to="/wallet" />
+      }
+      else {
+        return <Redirect to="/tip" />
+      }
+    }
     return (
       <>
         <form onSubmit={this.submitHandler}>
@@ -72,6 +81,10 @@ class LoginPage extends Component {
       </>
     );
   }
+}
+
+LoginPage.propTypes = {
+  setTipHelper: PropTypes.func.isRequired,
 }
 
 export default LoginPage;
