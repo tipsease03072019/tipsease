@@ -2,6 +2,28 @@
     width: 90%;
     margin: 0 auto;
 
+    .header-bg {
+        display: none;
+    }
+    @include desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+
+        .header-bg {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            img {
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+
+    }
 }
 
 header {
@@ -12,13 +34,33 @@ header {
     align-items: center;
     justify-content: space-around;
 
+    .info-btn {
+        display: none;
+
+        @include desktop {
+            // display: inherit;
+            // @include btn;
+        }
+    }
+    .header-bg {
+        display: none;
+    }
+
     a {
         @include btn;
         width: 50%;
         margin-bottom: 40px;
+
+        @include desktop {
+            width: 40%;
+        }
     }
     .cta {
         margin-top: 50px;
+
+        @include desktop {
+
+        }
 
         strong {
             color: $primary-color;
