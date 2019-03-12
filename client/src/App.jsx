@@ -9,6 +9,7 @@ import LoginPage from "./Views/LoginPage";
 import SignUpPage from "./Views/SignUpPage";
 import WalletPage from './Views/ServiceProviderViews/WalletPage';
 import ShowCodePage from './Views/ServiceProviderViews/ShowCodePage';
+import TipPage from './Views/CustomerProviderViews/TipPage';
 
 class App extends Component {
   state = {
@@ -75,6 +76,13 @@ class App extends Component {
           path="/wallet/code"
           render={props => (
             <ShowCodePage {...props} user={this.state.employeeUser} code={"AN18"}/>
+          )}
+        />
+        <Route 
+          exact
+          path="tip"
+          render={props => (
+            <TipPage {...props} user={this.state.normalUser}/>
           )}
         />
       </Switch>
