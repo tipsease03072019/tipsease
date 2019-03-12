@@ -8,16 +8,44 @@
   flex-flow: column wrap
   margin: 0 0 3rem 0
 
+  @include desktop
+    margin: 3rem 0
+    flex-flow: row-reverse
+    justify-content: space-between
+
   img
-    margin-top: 1rem
-    clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%)
+    background: rgb(19,82,221)
+    background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 70%)
+    width: 100%
+    // margin-top: 1rem
+    //clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%)
     height: 300px
 
+    @include desktop
+      background: none
+      height: 500px
+      width: 75%
+
   .top-content-info
-    color: $dark-text-color
+    box-shadow: 0 6px 10px 0 rgba(40,51,63,0.08)
+    opacity: 0.8
+    color: $light-text-color
     margin-top: 2rem
     background-color: $primary-color
-    border-radius: 11px
+    border-radius: 5px
+    display: flex
+    flex-flow: column
+    justify-content: center
+    align-items: center
+
+    @include desktop
+      width: 25%
+      height: 300px
+
+    @include tablet
+      padding-bottom: 2rem
+
+
     p
       padding: 15px
 
@@ -26,10 +54,21 @@
       margin: 2rem 0 2rem 0
 
 .profile-top
+  background: rgb(19,82,221)
+  background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 55%)
+
+  @include desktop
+    background: none
+    display: flex
+    justify-content: center
+    align-items: center
 
   .profiles-header
-    background-color: lighten($dark-text-color, 1%)
+    //background-color: lighten($dark-text-color, 1%)
     width: 100%
+
+    @include desktop
+      width: 45%
 
 .profile-main-text
   h2
@@ -38,6 +77,9 @@
     background-color: lighten($dark-text-color, 1%)
     text-align: center
     font-size: 2rem
+
+    @include desktop
+      font-size: 5rem
 
 .profiles
   background-color: lighten($dark-text-color, 1%)
@@ -55,6 +97,12 @@
     margin-top: 1rem
     text-align: center
 
+    a
+      color: $primary-color
+
+      &:hover
+        color: $secondary-color
+
   .profile-img
     margin: 4rem 4rem 0 4rem
     border-radius: 50%
@@ -71,19 +119,43 @@
 
 
     .profile-items
+      align-items: center
+      justify-content: center
+      flex-flow: column
       margin-right: -100px
       padding: 2rem
       display: none
       position: fixed
       top: 30%
-      left: 1rem
+      left: 0.3rem
       z-index: 1
-      width: 400px
-      height: 200px
+      width: 80%
+      height: 250px
       background-color: $primary-color
       border-radius: 20px
+      opacity: 0.9
+      animation: popout 1s ease
+      -webkit-animation: popout 1s ease
 
+      .close-tab
 
+        img
+          position: absolute
+          right: 5px
+          top: 5px
+          width: 10%
+
+          @include desktop
+            width: 5%
+
+      @include tablet
+        left: 2.5rem
+
+      @include desktop
+        height: 90%
+        top: 1rem
+        width: 90%
+        left: 3.5rem
 
     .icons
       margin-top: 1rem
@@ -95,4 +167,4 @@
         color: $secondary-color
 
     .content-selected
-      display: block
+      display: flex
