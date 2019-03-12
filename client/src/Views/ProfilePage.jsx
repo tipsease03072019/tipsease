@@ -1,6 +1,7 @@
 // ? Add Instant Username Check
 import React, {Component} from "react";
 import axios from "axios";
+import Skeleton from 'react-loading-skeleton';
 
 class ProfilePage extends Component {
   state = {
@@ -73,7 +74,7 @@ class ProfilePage extends Component {
 
   render() {
     if (this.state.isLoading) {
-      return <div>Loading</div>;
+      return <Skeleton count={4} />;
     }
     return (
       <>
