@@ -18,6 +18,7 @@ import Nav from './Components/Nav';
 
 // CSS imports
 import "axios-progress-bar/dist/nprogress.css";
+import PaymentSuccess from "./Views/CustomerViews/PaymentSuccessPage";
 
 class App extends Component {
   //! Data does not persist on reloads
@@ -74,6 +75,11 @@ class App extends Component {
     });
   };
 
+
+  logoutHandler = () => {
+    console.log('Loggin out now!')
+  };
+
   setTipHelper = tip => {
     this.setState({
       ...this.state,
@@ -113,7 +119,16 @@ class App extends Component {
           exact
           path="/wallet"
           render={props => (
-            <WalletPage {...props} user={this.state.employeeUser} />
+            <>
+              <Nav 
+                logOut={this.logoutHandler}
+                accountType={this.state.accountType} />
+              <WalletPage 
+                {...props} 
+                user={this.state.employeeUser}
+                logOut={this.logoutHandler}
+                />
+            </>
           )}
         />
         {/* <PrivateRoute exact path /> */}
@@ -145,12 +160,32 @@ class App extends Component {
           )}
         />
         <Route
+          exact
+          path="/success"
           render={props => (
+            <>
+              <Nav 
+                logOut={this.logoutHandler} 
+                accountType={this.state.accountType}/>
+              <PaymentSuccess
+                {...props}
+              />
+            </>
+          )}
+        />
+        <Route
+          render={props => (
+            <>
+            <Nav 
+              logOut={this.logoutHandler}
+              accountType={this.state.accountType}/>
             <TipPage
               {...props}
               tip={this.state.payFlow.tip}
               setTipHelper={this.setTipHelper}
+              logOut={this.logoutHandler}
             />
+            </>
           )}
         />
       </Switch>

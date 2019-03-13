@@ -1,7 +1,6 @@
 import React,{ Component } from "react";
 import PropTypes from 'prop-types';
 import * as moment from 'moment';
-import Nav from './../../Components/Nav';
 
 class WalletPage extends Component {
   state = {
@@ -27,7 +26,6 @@ class WalletPage extends Component {
     }]
     return (
       <>
-        <Nav />
         {/* Upper Half, containing balance */}
         <section className="wallet-top">
           <p>Your Current TipTease Balance is:</p>

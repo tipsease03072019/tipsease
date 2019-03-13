@@ -15,13 +15,26 @@ class Nav extends Component {
 
   render() {
     return this.state.showNav ?
-      (<div className="nav">
+      (
+      <div className="nav">
         <button onClick={this.toggleNav}>Profile</button>
+        
         <nav className="card">
-          <Link to="/wallet">My Wallet</Link>
-          <Link to="/profile">Update Profile</Link>
-          {/* Have to add Sign Out Method */}
-          <Link to="/">Sign Out</Link>
+          {this.props.accountType === "employee" ? (
+            <Link to="/wallet">
+              <button className="transparent">
+                My Wallet
+              </button>
+            </Link>
+          ):null}
+
+          <Link to="/profile">
+            <button className="transparent">
+              Update Profile
+            </button>
+          </Link>
+          
+          <button className="transparent" onClick={this.props.logOut}>Sign Out</button>
         </nav>
       </div>)
     :

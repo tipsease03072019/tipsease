@@ -1,10 +1,8 @@
 import React from "react";
-import Nav from './../../Components/Nav';
 
 const PaymentSuccess = () => {
   return (
     <>
-      <Nav />
       {/* ICON */}
       <img src="/" />
       <p>
