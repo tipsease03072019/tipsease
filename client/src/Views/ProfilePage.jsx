@@ -1,7 +1,8 @@
 // ? Add Instant Username Check
 import React, {Component} from "react";
 import axios from "axios";
-import Skeleton from 'react-loading-skeleton';
+import Skeleton from "react-loading-skeleton";
+import {Link} from "react-router-dom";
 
 class ProfilePage extends Component {
   state = {
@@ -17,9 +18,7 @@ class ProfilePage extends Component {
 
   componentDidMount() {
     axios
-      .get(
-        `https://tipsease.herokuapp.com/api/users/${this.props.userId}`
-      )
+      .get(`https://tipsease.herokuapp.com/api/users/${this.props.userId}`)
       .then(res => {
         this.setState({
           ...this.state,
@@ -54,16 +53,19 @@ class ProfilePage extends Component {
         Authorization: localStorage.getItem("token"),
       },
     };
-    //! Yes please help us
     const data = {
       username: this.state.inputs.username,
       password: this.state.inputs.password,
       email: this.state.inputs.email,
-      img_url: this.state.inputs.profileImage
+      img_url: this.state.inputs.profileImage,
     };
     console.log(data);
     axios
-      .put(`https://tipsease.herokuapp.com/api/users/${this.state.userId}`, data, headers)
+      .put(
+        `https://tipsease.herokuapp.com/api/users/${this.state.userId}`,
+        data,
+        headers,
+      )
       .then(res => {
         console.log(res);
       })
@@ -80,6 +82,7 @@ class ProfilePage extends Component {
       <>
         <h2>Update Profile</h2>
         {/* USER DETAILS. To Be Made into forms when 'edit user details is clicked' */}
+        <Link to="/">Back</Link>
         <form onSubmit={this.submitHandler}>
           <input
             type="text"
