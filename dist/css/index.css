@@ -128,15 +128,106 @@ table {
   border-spacing: 0;
 }
 
-.container {
-  background-color: #28333f;
+@keyframes popout {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.hamburger {
+  position: fixed;
+  top: 10px;
+  right: 25px;
+  height: 30px;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 3;
+}
+.hamburger .line {
+  height: 15%;
+  width: 100%;
+  background: #1352DD;
+}
+@media screen and (min-width: 800px) {
+  .hamburger .line {
+    background: #67DA8C;
+  }
 }
 
-.nav {
-  background-color: #67da8c;
+.nav-display {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: white;
+  width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .nav-display {
+    width: 15%;
+    height: 150px;
+  }
+}
+.nav-display .nav-bg {
+  margin: 0 auto;
+  height: 90%;
+  width: 90%;
+  background: url("../img/illustrations/nav-bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media screen and (min-width: 800px) {
+  .nav-display .nav-bg {
+    align-items: flex-end;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .nav-display .nav-bg {
+    align-items: center;
+  }
+}
+.nav-display .nav-bg a {
+  width: 40%;
+  padding: 5px;
+  color: #67DA8C;
+  text-align: center;
+  margin-top: 50px;
+  padding: 5px 0 5px 0;
+}
+@media screen and (min-width: 800px) {
+  .nav-display .nav-bg a {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .nav-display .nav-bg a {
+    width: 100%;
+    margin-top: 18px;
+  }
+}
+.nav-display .nav-bg a:hover {
+  background: #28333F;
+}
+.nav-display.display {
+  visibility: visible;
+  height: 100vh;
+}
+@media screen and (min-width: 1000px) {
+  .nav-display.display {
+    height: 300px;
+    border-radius: 10px;
+    right: 20px;
+    top: 50px;
+  }
 }
 
 .top-content {
@@ -146,36 +237,91 @@ table {
   flex-flow: column wrap;
   margin: 0 0 3rem 0;
 }
+@media screen and (min-width: 1000px) {
+  .top-content {
+    margin: 3rem 0;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+  }
+}
 .top-content img {
-  margin-top: 1rem;
-  clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%);
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 70%);
+  width: 100%;
   height: 300px;
 }
+@media screen and (min-width: 1000px) {
+  .top-content img {
+    background: none;
+    height: 500px;
+    width: 60%;
+  }
+}
 .top-content .top-content-info {
-  color: #28333f;
+  box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
+  opacity: 0.8;
+  color: white;
   margin-top: 2rem;
-  background-color: #67da8c;
-  border-radius: 11px;
+  background-color: #67DA8C;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1000px) {
+  .top-content .top-content-info {
+    margin-top: 9rem;
+    margin-left: 10rem;
+    width: 25%;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .top-content .top-content-info {
+    padding-bottom: 2rem;
+  }
 }
 .top-content .top-content-info p {
-  padding: 15px;
+  padding: 30px;
 }
 .top-content .top-content-info h2 {
   text-align: center;
-  margin: 2rem 0 2rem 0;
+  margin: 2rem 0 0 0;
 }
 
+.profile-top {
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 55%);
+}
+@media screen and (min-width: 1000px) {
+  .profile-top {
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .profile-top .profiles-header {
-  background-color: #2a3642;
   width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .profile-top .profiles-header {
+    width: 45%;
+  }
 }
 
 .profile-main-text h2 {
-  color: #67da8c;
+  color: #67DA8C;
   padding-top: 10px;
   background-color: #2a3642;
   text-align: center;
   font-size: 2rem;
+}
+@media screen and (min-width: 1000px) {
+  .profile-main-text h2 {
+    font-size: 5rem;
+  }
 }
 
 .profiles {
@@ -184,6 +330,7 @@ table {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  padding-bottom: 2rem;
 }
 .profiles .hide-profile {
   display: none;
@@ -194,12 +341,18 @@ table {
   margin-top: 1rem;
   text-align: center;
 }
+.profiles .text a {
+  color: #67DA8C;
+}
+.profiles .text a:hover {
+  color: #1352DD;
+}
 .profiles .profile-img {
   margin: 4rem 4rem 0 4rem;
   border-radius: 50%;
 }
 .profiles .profile-img:hover {
-  border: 1px solid #67da8c;
+  border: 1px solid #67DA8C;
   opacity: 0.8;
 }
 
@@ -209,28 +362,89 @@ table {
   align-items: center;
 }
 .content-holder .profile-content .profile-items {
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
   margin-right: -100px;
   padding: 2rem;
   display: none;
   position: fixed;
   top: 30%;
-  left: 1rem;
+  left: 0.3rem;
   z-index: 1;
-  width: 400px;
-  height: 200px;
-  background-color: #67da8c;
+  width: 80%;
+  height: 250px;
+  background-color: #67DA8C;
   border-radius: 20px;
+  opacity: 0.9;
+  animation: popout 1s ease;
+  -webkit-animation: popout 1s ease;
+}
+.content-holder .profile-content .profile-items .close-tab img {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 10%;
+}
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .profile-items .close-tab img {
+    width: 5%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .content-holder .profile-content .profile-items {
+    left: 2.5rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .profile-items {
+    height: 90%;
+    top: 1rem;
+    width: 90%;
+    left: 3.5rem;
+  }
 }
 .content-holder .profile-content .icons {
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .content-holder .profile-content .icons:hover {
-  color: #1352dd;
+  color: #1352DD;
 }
 .content-holder .profile-content .content-selected {
-  display: block;
+  display: flex;
+}
+
+footer {
+  background-color: #28333F;
+  color: #67DA8C;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+footer a {
+  background-color: unset;
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: semi-bold;
+  text-decoration: underline;
+  margin-right: 20px;
+  color: #67DA8C;
+  padding: 3px;
+}
+footer a:hover {
+  opacity: 0.8;
+}
+
+.container {
+  background-color: #28333F;
+}
+
+html {
+  font-family: proxima-nova, sans-serif;
 }
 
 /*# sourceMappingURL=index.css.map */

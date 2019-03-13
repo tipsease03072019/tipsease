@@ -47,7 +47,7 @@ class Tab {
   }
 }
 
-const tabs = document.querySelectorAll(".profile-items");
+const tabs = document.querySelectorAll(".close-tab");
 
 tabs.forEach(function(tab) {
   return new Tab(tab);

@@ -9,7 +9,6 @@
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
-    "react-cookie": "^3.0.8",
     "react-dom": "^16.8.4",
     "react-loading-skeleton": "^1.0.0",
     "react-router-dom": "^4.3.1",

@@ -19,9 +19,9 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	font-size: 62.5%;
+	font-family: proxima-nova, sans-serif
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	line-height: 1.3;
 }
 ol, ul {
 	list-style: none;
@@ -48,10 +48,29 @@ table {
 }
 
 //Variables
+
+//COLORS
 $background-color: #F9F9F9;
 $primary-color: #67DA8C;
 $secondary-color: #1352dd;
 $dark-text-color: #28333f;
+
+//Padding and margins
+$main-margin: 20px;
+$sm-margin: 10px;
+$normal-margin: 18px;
+$md-margin: 34px;
+$lg-margin: 55px;
+$xl-margin: 89px;
+
+$sm-padding: 10px;
+$normal-padding: 18px;
+$md-padding: 34px;
+$lg-padding: 55px;
+$xl-padding: 89px;
+
+// Text Sizing
+
 
 //Mixins
 
@@ -60,15 +79,15 @@ $dark-text-color: #28333f;
 	box-shadow: 0 8px 25px 0 rgba(40, 51, 63, .11);
 	border-radius: 10px;
 	font-size: 18px;
-	line-height: 18px;
+	padding: 18px;
 	font-weight: semi-bold;
 	color: $dark-text-color;
+
+	&:hover {
+		opacity: .8;
+	}
 }
 
-@mixin btnHover {
-	opacity: .8;
-	box-shadow: 0 6px 10px 0 rgba(40, 51, 63, .11);
-}
 
 @mixin primaryBtn {
 	background-color: #67DA8C;
@@ -86,6 +105,46 @@ $dark-text-color: #28333f;
 	border-radius: 6px;
 }
 
+//Text mixins
+@mixin heroHeading {
+	font-size: 7.5rem;
+	font-weight: bold;
+	margin-bottom: $normal-margin;
+}
+
+@mixin heading {
+	font-size: 5.5rem;
+	font-weight: semi-bold;
+	margin-bottom: $md-margin;
+}
+
+@mixin subHeading {
+	font-size: 2.5rem;
+	font-weight: semi-bold;
+	margin-bottom: $sm-margin;
+}
+
+@mixin bodyText {
+	font-size: 1.6rem;
+	font-weight: regular;
+	line-height: 2.8rem;
+}
+
+@mixin footnoteText {
+	font-size: 1.2rem;
+	font-weight: regular;
+	margin-bottom: $md-margin;
+}
+
+@mixin link {
+	font-size: 1.8rem;
+	font-weight: semi-bold;
+	text-decoration: underline;
+
+	&:hover {
+		opacity: .8;
+	}
+}
 //Media Mixins
 
 @mixin tablet {
