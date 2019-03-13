@@ -3,7 +3,6 @@ import React, {Component} from "react";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import {Link} from "react-router-dom";
-import Auth from "../HOC/Auth";
 
 class ProfilePage extends Component {
   state = {
@@ -18,10 +17,8 @@ class ProfilePage extends Component {
   };
 
   componentDidMount() {
-    const userId = this.props.cookies.userId;
-    axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
     axios
-      .get(`https://tipsease.herokuapp.com/api/users/${userId}`)
+      .get(`https://tipsease.herokuapp.com/api/users/${this.props.userId}`)
       .then(res => {
         this.setState({
           ...this.state,
@@ -51,21 +48,26 @@ class ProfilePage extends Component {
 
   submitHandler = e => {
     e.preventDefault();
+    const headers = {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    };
     const data = {
       username: this.state.inputs.username,
       password: this.state.inputs.password,
       email: this.state.inputs.email,
       img_url: this.state.inputs.profileImage,
     };
-    axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
+    console.log(data);
     axios
       .put(
         `https://tipsease.herokuapp.com/api/users/${this.state.userId}`,
         data,
+        headers,
       )
       .then(res => {
         console.log(res);
-        this.props.history.goBack();
       })
       .catch(err => {
         console.log(err);
@@ -116,4 +118,4 @@ class ProfilePage extends Component {
   }
 }
 
-export default Auth(ProfilePage);
+export default ProfilePage;
