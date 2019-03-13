@@ -1,0 +1,546 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@keyframes popout {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.hamburger {
+  position: fixed;
+  top: 30px;
+  right: 25px;
+  height: 30px;
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 3;
+}
+.hamburger .line {
+  height: 15%;
+  width: 100%;
+  background: #1352DD;
+}
+@media screen and (min-width: 800px) {
+  .hamburger .line {
+    background: #67DA8C;
+  }
+}
+
+.nav-display {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: white;
+  width: 100%;
+  z-index: 2;
+}
+@media screen and (min-width: 1000px) {
+  .nav-display {
+    width: 15%;
+    height: 150px;
+  }
+}
+.nav-display .nav-bg {
+  margin: 0 auto;
+  height: 90%;
+  width: 90%;
+  background: url("../img/illustrations/nav-bg.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media screen and (min-width: 800px) {
+  .nav-display .nav-bg {
+    align-items: flex-end;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .nav-display .nav-bg {
+    align-items: center;
+  }
+}
+.nav-display .nav-bg a {
+  width: 40%;
+  padding: 5px;
+  color: #67DA8C;
+  text-align: center;
+  margin-top: 50px;
+  padding: 5px 0 5px 0;
+}
+@media screen and (min-width: 800px) {
+  .nav-display .nav-bg a {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .nav-display .nav-bg a {
+    width: 100%;
+    margin-top: 18px;
+  }
+}
+.nav-display .nav-bg a:hover {
+  background: #28333F;
+}
+.nav-display.display {
+  visibility: visible;
+  height: 100vh;
+}
+@media screen and (min-width: 1000px) {
+  .nav-display.display {
+    height: 300px;
+    border-radius: 10px;
+    right: 20px;
+    top: 50px;
+  }
+}
+
+.logo {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #67DA8C;
+  font-size: 3rem;
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 35%);
+}
+@media screen and (min-width: 800px) {
+  .logo {
+    padding-bottom: 0;
+    background: none;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .logo {
+    padding-top: 10rem;
+    font-size: 5rem;
+    background: none;
+  }
+}
+
+.top-content {
+  padding-top: 5rem;
+  color: white;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0 0 3rem 0;
+}
+@media screen and (min-width: 1000px) {
+  .top-content {
+    flex-flow: row-reverse;
+    justify-content: space-between;
+  }
+}
+.top-content img {
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 70%);
+  width: 100%;
+  height: 300px;
+}
+@media screen and (min-width: 800px) {
+  .top-content img {
+    background: none;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .top-content img {
+    background: none;
+    height: 500px;
+    width: 60%;
+  }
+}
+.top-content .top-content-info {
+  z-index: 0;
+  opacity: 0.8;
+  color: white;
+  margin-top: 2rem;
+  background-color: #67DA8C;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1000px) {
+  .top-content .top-content-info {
+    margin-top: 9rem;
+    margin-left: 10rem;
+    width: 25%;
+    height: 300px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .top-content .top-content-info {
+    padding-bottom: 2rem;
+  }
+}
+.top-content .top-content-info p {
+  padding: 30px;
+}
+.top-content .top-content-info h2 {
+  text-align: center;
+  margin: 2rem 0 0 0;
+}
+
+.profile-top {
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 55%);
+}
+@media screen and (min-width: 1000px) {
+  .profile-top {
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.profile-top .profiles-header {
+  width: 100%;
+}
+@media screen and (min-width: 1000px) {
+  .profile-top .profiles-header {
+    width: 45%;
+  }
+}
+
+.profile-main-text h2 {
+  color: #67DA8C;
+  padding-top: 10px;
+  background-color: #2a3642;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 1000px) {
+  .profile-main-text h2 {
+    font-size: 5rem;
+  }
+}
+
+.profile-holder {
+  padding: 3rem;
+}
+
+.profiles {
+  background-color: #2a3642;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+.profiles .img-7 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/joseph-rios.jpeg");
+  background-position: center;
+}
+.profiles .img-6 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/jeff-lapp.jpeg");
+  background-position: center;
+}
+.profiles .img-5 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/portrait.jpg");
+  background-position: center;
+}
+.profiles .img-4 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/portrait.jpg");
+  background-position: center;
+}
+.profiles .img-3 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/portrait.jpg");
+  background-position: center;
+}
+.profiles .img-1 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/portrait.jpg");
+  background-position: center;
+}
+.profiles .img-2 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/kanek-perez.jpeg");
+  background-position: center;
+}
+.profiles .hide-profile {
+  display: none;
+}
+.profiles .text {
+  line-height: 2;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.profiles .text a {
+  color: #67DA8C;
+}
+.profiles .text a:hover {
+  color: #1352DD;
+}
+.profiles .profile-img {
+  margin: 4rem 4rem 0 4rem;
+  border-radius: 50%;
+}
+.profiles .profile-img:hover {
+  border: 1px solid #67DA8C;
+  opacity: 0.8;
+}
+
+.content-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-holder .profile-content .profile-items {
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  margin-right: -100px;
+  padding: 2rem;
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 0.3rem;
+  z-index: 1;
+  width: 80%;
+  height: 250px;
+  background-color: #67DA8C;
+  border-radius: 20px;
+  opacity: 0.9;
+  animation: popout 1s ease;
+  -webkit-animation: popout 1s ease;
+}
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .profile-items {
+    padding-top: 5rem;
+    font-size: 1.5rem;
+  }
+}
+.content-holder .profile-content .profile-items .close-tab img {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 10%;
+}
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .profile-items .close-tab img {
+    width: 5%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .content-holder .profile-content .profile-items {
+    left: 2.5rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .profile-items {
+    height: 25%;
+    top: 15rem;
+    width: 25%;
+    left: 41.5rem;
+  }
+}
+.content-holder .profile-content .icons {
+  display: none;
+}
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .icons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content-holder .profile-content .icons:hover {
+    color: #1352DD;
+  }
+}
+.content-holder .profile-content .content-selected {
+  display: flex;
+}
+
+footer {
+  background-color: #28333F;
+  color: #67DA8C;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+footer a {
+  background-color: unset;
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: semi-bold;
+  text-decoration: underline;
+  margin-right: 20px;
+  color: #67DA8C;
+  padding: 3px;
+}
+footer a:hover {
+  opacity: 0.8;
+}
+
+.container {
+  background-color: #28333F;
+}
+
+html {
+  font-family: proxima-nova, sans-serif;
+}
+
+/*# sourceMappingURL=index.css.map */

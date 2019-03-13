@@ -1,0 +1,257 @@
+// logo for TipsEase {placeholder}
+.logo
+  padding-top: 5rem
+  padding-bottom: 5rem
+  display: flex
+  justify-content: center
+  align-items: center
+  color: $primary-color
+  font-size: 3rem
+  background: rgb(19,82,221)
+  background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 35%)
+
+  @include tablet
+    padding-bottom: 0
+    background: none
+
+  @include desktop
+    padding-top: 10rem
+    font-size: 5rem
+    background: none
+// top part of the page including mission Statement and pictures
+.top-content
+  padding-top: 5rem
+  color: $light-text-color
+  display: flex
+  flex-flow: column wrap
+  margin: 0 0 3rem 0
+
+  @include desktop
+    //margin: 3rem 0
+    flex-flow: row-reverse
+    justify-content: space-between
+
+  img
+    background: rgb(19,82,221)
+    background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 70%)
+    width: 100%
+    // margin-top: 1rem
+    //clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%)
+    height: 300px
+
+    @include tablet
+      background: none
+
+    @include desktop
+      background: none
+      height: 500px
+      width: 60%
+
+      // mission Statement
+  .top-content-info
+    z-index: 0
+    opacity: 0.8
+    color: $light-text-color
+    margin-top: 2rem
+    background-color: $primary-color
+    border-radius: 5px
+    display: flex
+    flex-flow: column
+    justify-content: center
+    align-items: center
+
+    @include desktop
+      margin-top: 9rem
+      margin-left: 10rem
+      width: 25%
+      height: 300px
+
+    @include tablet
+      padding-bottom: 2rem
+
+
+    p
+      padding: 30px
+
+    h2
+      text-align: center
+      margin: 2rem 0 0 0
+
+.profile-top
+  background: rgb(19,82,221)
+  background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 55%)
+
+  @include desktop
+    background: none
+    display: flex
+    justify-content: center
+    align-items: center
+
+  .profiles-header
+    //background-color: lighten($dark-text-color, 1%)
+    width: 100%
+
+    @include desktop
+      width: 45%
+
+// our team text above profiles
+.profile-main-text
+  h2
+    color: $primary-color
+    padding-top: 10px
+    background-color: lighten($dark-text-color, 1%)
+    text-align: center
+    font-size: 2rem
+    margin-bottom: 2rem
+
+    @include desktop
+      font-size: 5rem
+
+// profiles
+.profile-holder
+  padding: 3rem
+.profiles
+  background-color: lighten($dark-text-color, 1%)
+  display: flex
+  flex-flow: row wrap
+  justify-content: center
+  align-items: center
+  padding-bottom: 2rem
+  .img-7
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/joseph-rios.jpeg')
+    background-position: center
+
+  .img-6
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/jeff-lapp.jpeg')
+    background-position: center
+
+  .img-5
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/portrait.jpg')
+    background-position: center
+
+  .img-4
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/portrait.jpg')
+    background-position: center
+
+
+  .img-3
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/portrait.jpg')
+    background-position: center
+
+  .img-1
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/portrait.jpg')
+    background-position: center
+
+  .img-2
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/kanek-perez.jpeg')
+    background-position: center
+
+  .hide-profile
+    display: none
+
+  .text
+    line-height: 2
+    color: $light-text-color
+    margin-top: 1rem
+    margin-bottom: 2rem
+    text-align: center
+
+    a
+      color: $primary-color
+
+      &:hover
+        color: $secondary-color
+
+  .profile-img
+    margin: 4rem 4rem 0 4rem
+    border-radius: 50%
+
+    &:hover
+      border: 1px solid $primary-color
+      opacity: 0.8
+.content-holder
+  display: flex
+  justify-content: center
+  align-items: center
+
+  // pop up box after clicking on a profile
+  .profile-content
+
+
+    .profile-items
+      align-items: center
+      justify-content: center
+      flex-flow: column
+      margin-right: -100px
+      padding: 2rem
+      display: none
+      position: fixed
+      top: 30%
+      left: 0.3rem
+      z-index: 1
+      width: 80%
+      height: 250px
+      background-color: $primary-color
+      border-radius: 20px
+      opacity: 0.9
+      animation: popout 1s ease
+      -webkit-animation: popout 1s ease
+      @include desktop
+        padding-top: 5rem
+        font-size: 1.5rem
+
+        .profile-description
+
+      .close-tab
+        img
+          position: absolute
+          right: 5px
+          top: 5px
+          width: 10%
+
+          @include desktop
+            width: 5%
+
+      @include tablet
+        left: 2.5rem
+
+      @include desktop
+        height: 25%
+        top: 15rem
+        width: 25%
+        left: 41.5rem
+
+    .icons
+      display: none
+      @include desktop
+        margin-top: 1rem
+        display: flex
+        justify-content: center
+        align-items: center
+
+        &:hover
+          color: $secondary-color
+
+    .content-selected
+      display: flex

@@ -1,0 +1,113 @@
+//colors
+
+$background-color: #f9f9f9
+$primary-color: #67DA8C
+$secondary-color: #1352DD
+$dark-text-color: #28333F
+$light-text-color: white
+
+//Padding and margins
+$main-margin: 20px
+$sm-margin: 10px
+$normal-margin: 18px
+$md-margin: 34px
+$lg-margin: 55px
+$xl-margin: 89px
+
+$sm-padding: 10px
+$normal-padding: 18px
+$md-padding: 34px
+$lg-padding: 55px
+$xl-padding: 89px
+
+
+//Mixins
+
+@mixin btn
+	background-color: white
+	box-shadow: 0 8px 25px 0 rgba(40, 51, 63, .11)
+	border-radius: 10px
+	font-size: 18px
+	line-height: 18px
+	font-weight: semi-bold
+	color: $dark-text-color
+
+@keyframes popout
+	from
+		transform: scale(0)
+	to
+		transform: scale(1)
+
+@mixin btnHover
+	opacity: .8
+	box-shadow: 0 6px 10px 0 rgba(40, 51, 63, .11)
+
+
+@mixin primaryBtn
+	background-color: #67DA8C
+	color: white
+
+
+@mixin textBtn
+	background-color: unset
+	color: white
+	text-decoration: none
+
+
+@mixin card
+	box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08)
+	border-radius: 6px
+
+
+//Text mixins
+@mixin heroHeading
+	font-size: 7.5rem
+	font-weight: bold
+	margin-bottom: $normal-margin
+
+
+@mixin heading
+	font-size: 5.5rem
+	font-weight: semi-bold
+	margin-bottom: $md-margin
+
+
+@mixin subHeading
+	font-size: 2.5rem
+	font-weight: semi-bold
+	margin-bottom: $sm-margin
+
+
+@mixin bodyText 
+	font-size: 1.6rem
+	font-weight: regular
+	line-height: 2.8rem
+
+
+@mixin footnoteText
+	font-size: 1.2rem
+	font-weight: regular
+	margin-bottom: $md-margin
+
+
+@mixin link
+	font-size: 1.8rem
+	font-weight: semi-bold
+	text-decoration: underline
+
+	&:hover
+		opacity: .8
+
+
+
+//Media Mixins
+
+@mixin tablet
+	@media screen and (min-width: 800px)
+		@content
+
+
+
+@mixin desktop
+	@media screen and (min-width: 1000px)
+		@content

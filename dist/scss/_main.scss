@@ -1,0 +1,148 @@
+main {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 500px;
+
+    #info {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        @include desktop {
+            height: 300px;
+        }
+
+
+
+        .info-card {
+            display: flex;
+            align-items: center;
+            background: $primary-color;
+            color: white;
+            height: 150px;
+            margin-bottom: $normal-margin;
+            padding: 10px;
+
+            @include desktop {
+                height: 100%;
+            }
+
+            div {
+
+                width: 200%;
+                height: 100%;
+                background-image: url('https://svgshare.com/i/Bje.svg');
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                &:nth-child(2) {
+                    background-image: url('https://svgshare.com/i/BkP.svg');
+                }
+
+                @include desktop {
+                    width: 160%;
+                }
+            }
+
+            @include card;
+
+            @include tablet {
+                width: 45%;
+                justify-content: space-around;
+            }
+        }
+    }//info
+
+    .bottom-bg {
+        height: 300px;
+        width: 80%;
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+        margin-top: 20px;
+
+        @include desktop {
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            width: 90%;
+        }
+
+        .white-bg {
+
+
+            .clip {
+                width: 100%;
+            }
+
+            @include desktop {
+                align-self: flex-end;
+                height: 60%;
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $secondary-color;
+                .clip {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    background: $primary-color;
+                    clip-path: polygon(100% 9%, 100% 81%, 0 100%, 0 100%, 0 31%);
+                }
+
+                a {
+                    width: 35%;
+
+                }
+            }
+        }
+        .illustration-div {
+            margin-bottom: 20px;
+            max-height: 100%;
+            width: 100%;
+
+            @include desktop {
+                width: 50%;
+            }
+
+            img {
+                max-height: 90%;
+                max-width: 100%;
+            }
+            // @include desktop {
+            //     clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
+            //     background: $primary-color;
+            //     z-index: -1;
+            // }
+        }
+
+        @include desktop {
+            margin-top: 50px;
+        }
+
+        a {
+            @include btn;
+            background: white;
+            color: $dark-text-color;
+            padding: 15px;
+            margin-bottom: 30px;
+            width: 50%;
+
+            @include tablet {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

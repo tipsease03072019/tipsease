@@ -1,0 +1,22 @@
+@import '_config';
+@import '_nav';
+@import '_header';
+@import '_main';
+@import '_footer';
+
+
+//General Styles
+body {
+    background: $dark-text-color;
+    p {
+        @include bodyText;
+    }
+}
+
+
+a {
+    font-size: 1.7rem;
+    text-decoration: none;
+    @include btn;
+
+}
