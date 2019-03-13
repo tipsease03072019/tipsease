@@ -254,9 +254,9 @@ table {
 }
 @media screen and (min-width: 1000px) {
   .logo {
-    padding-top: 10rem;
+    padding: 8rem 0;
     font-size: 5rem;
-    background: none;
+    background: #eeeeee;
   }
 }
 
@@ -271,6 +271,8 @@ table {
   .top-content {
     flex-flow: row-reverse;
     justify-content: space-between;
+    background: #28333f;
+    background: linear-gradient(0deg, #28333f 75%, #eeeeee 90%);
   }
 }
 .top-content img {
