@@ -2,12 +2,24 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../database/db");
 const bcrypt = require("bcryptjs");
+const admin= require("../../config/admin.js");
 
 const {
   authenticate,
   generateToken,
   jwtSecret
 } = require("../../auth/authenticate");
+function decode(req, res, next) {
+  // console.log("req", req.query.token);
+  const token = req.query.token;
+  admin
+    .auth()
+    .verifyIdToken(token)
+    .then(decodedToken => {
+      req.body.UID = decodedToken.uid;
+      next();
+    });
+}
 
 router.get("/", (req, res) => {
   db("users")
