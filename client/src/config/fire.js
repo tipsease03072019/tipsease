@@ -15,5 +15,4 @@ try {
     }
 }
 
-const fire=firebase;
-export default fire;
+export default firebase;
