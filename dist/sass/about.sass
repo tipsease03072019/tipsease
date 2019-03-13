@@ -1,13 +1,29 @@
 
+.logo
+  padding-top: 5rem
+  padding-bottom: 5rem
+  display: flex
+  justify-content: center
+  align-items: center
+  color: $primary-color
+  font-size: 3rem
+  background: rgb(19,82,221)
+  background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 35%)
+
+  @include desktop
+    padding-top: 10rem
+    font-size: 5rem
+    background: none
+
 .top-content
-  padding: 2rem
+  padding-top: 5rem
   color: $light-text-color
   display: flex
   flex-flow: column wrap
   margin: 0 0 3rem 0
 
   @include desktop
-    margin: 3rem 0
+    //margin: 3rem 0
     flex-flow: row-reverse
     justify-content: space-between
 
@@ -25,7 +41,7 @@
       width: 60%
 
   .top-content-info
-    box-shadow: 0 6px 10px 0 rgba(40,51,63,0.08)
+    z-index: 0
     opacity: 0.8
     color: $light-text-color
     margin-top: 2rem
@@ -137,9 +153,13 @@
       opacity: 0.9
       animation: popout 1s ease
       -webkit-animation: popout 1s ease
+      @include desktop
+        padding-top: 5rem
+        font-size: 1.5rem
+
+        .profile-description
 
       .close-tab
-
         img
           position: absolute
           right: 5px
@@ -153,19 +173,21 @@
         left: 2.5rem
 
       @include desktop
-        height: 90%
-        top: 1rem
-        width: 90%
-        left: 3.5rem
+        height: 25%
+        top: 15rem
+        width: 25%
+        left: 41.5rem
 
     .icons
-      margin-top: 1rem
-      display: flex
-      justify-content: center
-      align-items: center
+      display: none
+      @include desktop
+        margin-top: 1rem
+        display: flex
+        justify-content: center
+        align-items: center
 
-      &:hover
-        color: $secondary-color
+        &:hover
+          color: $secondary-color
 
     .content-selected
       display: flex
