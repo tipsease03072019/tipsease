@@ -9,18 +9,8 @@ let animateMenu = new TimelineMax({paused: true, reversed: true})
 let animateMenuDesktop = new TimelineMax({paused: true, reversed: true})
 let animateLines = new TimelineMax({paused: true, reversed: true})
 
-
-//watches window width to determine which animations get applied to nav content
-function widthWatch(desktop) {
-    if(desktop.matches) {
-        console.log('Desktop and above');
-    } else {
-        console.log('Below desktop')
-    }
-}
-
-widthWatch(desktop);
-desktop.addListener(widthWatch);
+//watches desktop width
+desktop.addListener;
 
 //toggle animations on hamburger icon to morph into an X
 let toggleMenu = function() {
@@ -42,16 +32,13 @@ let toggleDisplay = function () {
         animateMenuDesktop
         .to(navDisplay, .35, {height: 300, border: '1px solid $dark-text-color'})
         .to('.nav-bg', .3, {opacity: 1, visibility: 'visible'})
-
         animateMenuDesktop.reversed() ? animateMenuDesktop.play() : animateMenuDesktop.reverse();
-
     } else {
         animateMenu
         .to(navDisplay, .35, {height: '100vh', visibility: 'visible'})
         .to('.nav-bg', .3, {opacity: 1, visibility: 'visible'})
 
         animateMenu.reversed() ? animateMenu.play() : animateMenu.reverse();
-
     }
 
 
