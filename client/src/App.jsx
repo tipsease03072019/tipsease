@@ -30,6 +30,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    
     if(sessionStorage.getItem('payFlow')){
       this.setState({
         ...this.state,

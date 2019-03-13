@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import axios from "axios";
 import {Link, Redirect} from "react-router-dom";
+import fire from "../config/fire";
+import StyledFirebseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 class SignUpPage extends Component {
   state = {
@@ -11,7 +13,17 @@ class SignUpPage extends Component {
       email: "",
     },
   };
-
+  uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: "popup",
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+      fire.auth.GoogleAuthProvider.PROVIDER_ID,
+      fire.auth.FacebookAuthProvider.PROVIDER_ID,
+      fire.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    signInSuccessUrl: "/"
+  };
   // Handle updating state on typing
   typeHandler = e => {
     this.setState({
@@ -72,30 +84,7 @@ class SignUpPage extends Component {
     return (
       <>
         <form onSubmit={this.submitHandler}>
-          <input
-            type="text"
-            placeholder="Username"
-            required
-            value={this.state.inputs.username}
-            name="username"
-            onChange={this.typeHandler}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            required
-            value={this.state.inputs.password}
-            name="password"
-            onChange={this.typeHandler}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            required
-            value={this.state.inputs.email}
-            name="email"
-            onChange={this.typeHandler}
-          />
+          
           <input
             type="checkbox"
             name="provider"
@@ -106,6 +95,10 @@ class SignUpPage extends Component {
           <button type="submit">Create Account</button>
           <Link to="/login">Login</Link>
         </form>
+        <StyledFirebseAuth
+          uiConfig={this.uiConfig}
+          firebaseAuth={fire.auth()}
+        />
       </>
     );
   }
