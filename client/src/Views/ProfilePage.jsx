@@ -7,16 +7,13 @@ import {Link} from "react-router-dom";
 class ProfilePage extends Component {
   state = {
     isLoading: true,
-    userId: this.props.userId,
     inputs: {
-      username: "",
-      password: "",
-      email: "",
-      profileImage: "",
     },
   };
 
   componentDidMount() {
+    const userId = JSON.parse(this.props.cookies.userId);
+    axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
     axios
       .get(`https://tipsease.herokuapp.com/api/users/${this.props.userId}`)
       .then(res => {
@@ -27,7 +24,7 @@ class ProfilePage extends Component {
             ...this.state.inputs,
             username: res.data.username,
             email: res.data.email,
-            profileImage: res.data.img_url,
+            img_url: res.data.img_url,
           },
         });
       })
@@ -48,23 +45,12 @@ class ProfilePage extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    const headers = {
-      headers: {
-        Authorization: localStorage.getItem("token"),
-      },
-    };
-    const data = {
-      username: this.state.inputs.username,
-      password: this.state.inputs.password,
-      email: this.state.inputs.email,
-      img_url: this.state.inputs.profileImage,
-    };
-    console.log(data);
+    const userId = JSON.parse(this.props.cookies.userId);
+    axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
     axios
       .put(
-        `https://tipsease.herokuapp.com/api/users/${this.state.userId}`,
-        data,
-        headers,
+        `https://tipsease.herokuapp.com/api/users/${userId}`,
+        this.state.inputs,
       )
       .then(res => {
         console.log(res);
@@ -107,8 +93,8 @@ class ProfilePage extends Component {
           <input
             type="url"
             placeholder="Profile Picture"
-            value={this.state.inputs.profileImage}
-            name="profileImage"
+            value={this.state.inputs.img_url}
+            name="img_url"
             onChange={this.changeHandler}
           />
           <button>Updates</button>
