@@ -33,6 +33,7 @@ class SetupAccount extends Component {
       <form onSubmit="">
         <h3>Few More Questions</h3>
         <input type="text" placeholder="Username" />
+        <input type="checkbox" /><p>Are you a service worker?</p>
       </form>
     );
   }

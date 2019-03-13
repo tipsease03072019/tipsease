@@ -94,19 +94,18 @@ class App extends Component {
           exact
           path="/login"
           render={props => (
-            <LoginPage {...props} loginHandler={this.loginHandler} />
+            <LoginPage
+              {...props}
+              loginHandler={this.loginHandler}
+              cookies={this.props.cookies.getAll()}
+            />
           )}
         />
         <Route
           exact
           path="/signup"
           render={props => (
-            <SignUpPage
-              {...props}
-              loginHandler={this.loginHandler}
-              accountType={this.state.accountType}
-              cookies={this.props.cookies.getAll()}
-            />
+            <SignUpPage {...props} cookies={this.props.cookies.getAll()} />
           )}
         />
         <Route
@@ -148,7 +147,7 @@ class App extends Component {
         {/* Default Route */}
         <Route
           exact
-          path="/setup-account"
+          path="/account"
           render={props => (
             <SetupAccount {...props} cookies={this.props.cookies.getAll()} />
           )}

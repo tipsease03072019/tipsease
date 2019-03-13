@@ -14,11 +14,11 @@ class SignUpPage extends Component {
       fire.auth.FacebookAuthProvider.PROVIDER_ID,
       fire.auth.EmailAuthProvider.PROVIDER_ID,
     ],
-    signInSuccessUrl: "/setup-account"
+    signInSuccessUrl: "/account"
   };
 
   render() {
-    const { cookies, accountType } = this.props;
+    const { cookies } = this.props;
     if (cookies._uid && cookies._uat) {
       return <Redirect to="/tip" />;
     }
