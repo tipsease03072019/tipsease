@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { useInput } from '../../Hooks/input'
 
 const TipPage = props => {
+  // console.log(props);
   // Creating new input hooks instance
   const tipAmount = useInput(props.tip, 4);
 
@@ -29,13 +30,13 @@ const TipPage = props => {
   );
 };
 
-TipPage.propTypes = {
-  match: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
-  tip: PropTypes.number.isRequired,
-  setTipHelper: PropTypes.func.isRequired,
-};
+// TipPage.propTypes = {
+//   match: PropTypes.object.isRequired,
+//   location: PropTypes.object.isRequired,
+//   history: PropTypes.object.isRequired,
+//   user: PropTypes.object.isRequired,
+//   tip: PropTypes.number.isRequired,
+//   setTipHelper: PropTypes.func.isRequired,
+// };
 
 export default TipPage;

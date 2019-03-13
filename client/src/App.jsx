@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {Switch, Route} from "react-router-dom";
 import {loadProgressBar} from "axios-progress-bar";
 import axios from "axios";
+import { withCookies } from "react-cookie";
+import moment from "moment";
 
 // HOC Imports
 import PrivateRoute from "./HOC/PrivateRoute";
@@ -19,9 +21,8 @@ import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProvid
 import "axios-progress-bar/dist/nprogress.css";
 
 class App extends Component {
-  //! Data does not pursist on reloads
+  //! Data does not safely pursist on reloads
   state = {
-    loggedIn: false,
     accountType: null,
     userId: null,
     payFlow: {
@@ -30,25 +31,25 @@ class App extends Component {
   };
 
   componentDidMount() {
-    if(sessionStorage.getItem('payFlow')){
-      this.setState({
-        ...this.state,
-        payFlow: {
-          ...sessionStorage.getItem('payFlow')
-        }
-      })
-    }
-    if (localStorage.getItem("userId") && localStorage.getItem("token")) {
-      axios.defaults.headers.common["Authorization"] = localStorage.getItem(
+    // ? Sessions storage for tips ammount
+    // console.log(sessionStorage.getItem("payFlow"));
+    // if (sessionStorage.getItem("payFlow")) {
+    //   this.setState({
+    //     ...this.state,
+    //     payFlow: {},
+    //   });
+    // }
+    if (this.props.cookies.get("userId") && this.props.cookies.get("token")) {
+      axios.defaults.headers.common["Authorization"] = this.props.cookies.get(
         "token",
       );
-      const userId = localStorage.getItem("userId");
+      const userId = this.props.cookies.get("userId");
       axios
         .get(`https://tipsease.herokuapp.com/api/users/${userId}`)
         .then(res => {
+          console.log(res)
           this.setState({
             ...this.state,
-            loggedIn: true,
             accountType: res.data.account_type,
             userId: res.data.id,
           });
@@ -59,21 +60,25 @@ class App extends Component {
     }
   }
 
-  updateSessionFlow = updateValue => {
-    sessionStorage.setItem('payFlow', updateValue)
-  }
+  updateSessionFlow = () => {
+    sessionStorage.setItem("payFlow", JSON.stringify(this.state.payFlow));
+  };
 
   loginHandler = data => {
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("userId", data.id);
+    const tokenOptions = {
+      expire: moment().add(1, 'days'),
+      secure: true,
+    }
+    this.props.cookies.set("token", data.token);
+    this.props.cookies.set("userId", data.id);
     this.setState({
-      loggedIn: true,
       accountType: data.account_type,
       userId: data.id,
     });
   };
 
   setTipHelper = tip => {
+    console.log("ran");
     this.setState({
       ...this.state,
       payFlow: {
@@ -81,8 +86,7 @@ class App extends Component {
         tip,
       },
     });
-    this.updateSessionFlow({...this.state.payFlow, tip});
-    sessionStorage.setItem('payFlow', {...this.state.payFlow, tip})
+    this.updateSessionFlow();
   };
 
   render() {
@@ -156,4 +160,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withCookies(App);
