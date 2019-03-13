@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useInput } from '../../Hooks/input'
+import { useInput } from '../../Hooks/input';
 
 const TipPage = props => {
   // Creating new input hooks instance
@@ -33,8 +33,6 @@ TipPage.propTypes = {
   match: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
-  tip: PropTypes.number.isRequired,
   setTipHelper: PropTypes.func.isRequired,
 };
 

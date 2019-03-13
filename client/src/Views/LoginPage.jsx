@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Link, Redirect} from "react-router-dom";
 import axios from "axios";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import loginIllustrations from "../assets/login.svg";
 
@@ -82,7 +82,7 @@ class LoginPage extends Component {
 }
 
 LoginPage.propTypes = {
-  setTipHelper: PropTypes.func.isRequired,
+  // setTipHelper: PropTypes.func.isRequired,
 };
 
 export default LoginPage;

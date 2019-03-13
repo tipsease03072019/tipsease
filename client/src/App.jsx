@@ -14,12 +14,14 @@ import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
 import TipPage from "./Views/CustomerViews/TipPage";
 import Profile from "./Views/ProfilePage";
 import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProviderPage";
+import Nav from './Components/Nav';
 
 // CSS imports
 import "axios-progress-bar/dist/nprogress.css";
+import PaymentSuccess from "./Views/CustomerViews/PaymentSuccessPage";
 
 class App extends Component {
-  //! Data does not pursist on reloads
+  //! Data does not persist on reloads
   state = {
     loggedIn: false,
     accountType: null,
@@ -73,6 +75,11 @@ class App extends Component {
     });
   };
 
+  // TO BE IMPLEMENTED: CORRECT IMPLEMENTATION OF LOGOUT
+  logoutHandler = () => {
+    console.log('Loggin out now!')
+  };
+
   setTipHelper = tip => {
     this.setState({
       ...this.state,
@@ -111,7 +118,16 @@ class App extends Component {
           exact
           path="/wallet"
           render={props => (
-            <WalletPage {...props} user={this.state.employeeUser} />
+            <>
+              <Nav 
+                logOut={this.logoutHandler}
+                accountType={this.state.accountType} />
+              <WalletPage 
+                {...props} 
+                user={this.state.employeeUser}
+                logOut={this.logoutHandler}
+                />
+            </>
           )}
         />
         {/* <PrivateRoute exact path /> */}
@@ -143,12 +159,32 @@ class App extends Component {
           )}
         />
         <Route
+          exact
+          path="/success"
           render={props => (
+            <>
+              <Nav 
+                logOut={this.logoutHandler} 
+                accountType={this.state.accountType}/>
+              <PaymentSuccess
+                {...props}
+              />
+            </>
+          )}
+        />
+        <Route
+          render={props => (
+            <>
+            <Nav 
+              logOut={this.logoutHandler}
+              accountType={this.state.accountType}/>
             <TipPage
               {...props}
               tip={this.state.payFlow.tip}
               setTipHelper={this.setTipHelper}
+              logOut={this.logoutHandler}
             />
+            </>
           )}
         />
       </Switch>
