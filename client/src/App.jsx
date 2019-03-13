@@ -21,24 +21,17 @@ import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProvid
 import "axios-progress-bar/dist/nprogress.css";
 
 class App extends Component {
-  //! Data does not safely pursist on reloads
   state = {
     accountType: null,
     userId: null,
     payFlow: {
       tip: 5,
+      payToUser: null,
     },
   };
 
   componentDidMount() {
-    // ? Sessions storage for tips ammount
-    // console.log(sessionStorage.getItem("payFlow"));
-    // if (sessionStorage.getItem("payFlow")) {
-    //   this.setState({
-    //     ...this.state,
-    //     payFlow: {},
-    //   });
-    // }
+
     if (this.props.cookies.get("userId") && this.props.cookies.get("token")) {
       axios.defaults.headers.common["Authorization"] = this.props.cookies.get(
         "token",
@@ -58,10 +51,18 @@ class App extends Component {
           console.log(err);
         });
     }
+    if (sessionStorage.getItem("payFlow")) {
+      this.setState({
+        ...this.state,
+        payFlow: {
+          ...JSON.parse(sessionStorage.getItem("payFlow"))
+        },
+      });
+    }
   }
 
-  updateSessionFlow = () => {
-    sessionStorage.setItem("payFlow", JSON.stringify(this.state.payFlow));
+  updateSessionFlow = update => {
+    sessionStorage.setItem("payFlow", JSON.stringify(update));
   };
 
   loginHandler = data => {
@@ -78,7 +79,6 @@ class App extends Component {
   };
 
   setTipHelper = tip => {
-    console.log("ran");
     this.setState({
       ...this.state,
       payFlow: {
@@ -86,7 +86,7 @@ class App extends Component {
         tip,
       },
     });
-    this.updateSessionFlow();
+    this.updateSessionFlow({...this.state.payFlow, tip});
   };
 
   render() {
