@@ -1,39 +1,50 @@
-import React,{ Component } from "react";
-import PropTypes from 'prop-types';
-import * as moment from 'moment';
+import React, {Component} from "react";
+import PropTypes from "prop-types";
+import * as moment from "moment";
+import Auth from "../../HOC/Auth";
+import Skeleton from "react-loading-skeleton";
+import axios from "axios";
+import { Link } from 'react-router-dom';
 
 class WalletPage extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    isLoading: false,
+    balance: null,
+  };
 
-    this.state = {
-
-      
-    }
+  componentDidMount() {
+    const userId = this.props.cookies.userId;
+    axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
+    axios
+      .get(`https://tipsease.herokuapp.com/api/transactions/${userId}`)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   tipHandler = () => {
-    this.props.history.push("/tip")
-  }
+    this.props.history.push("/tip");
+  };
 
   showCodeHandler = () => {
-    this.props.history.push("/wallet/code")
-  }
+    this.props.history.push("/wallet/code");
+  };
 
-  
   render() {
-    // Empty Array, signifying previous transactions. To be used to `map()` below.
-    const transactions = [{
-      receivedOrSent: "received", amount: 69, sender: "Isaac Aszimov", timeStamp: "2019-03-12 01:06:39"
-    }];
-    console.log(this.props)
+    if (this.state.isLoading) {
+      return <div />;
+    }
     return (
       <>
         {/* Upper Half, containing balance */}
+        <Link to='/profile'>To Profile</Link>
         <section className="wallet-top">
-          <p>Your Current TipTease Balance is:</p>
+          <p>Your Current Tipsease Balance is:</p>
           <div className="balance-container">
-            {this.props.user.balance}
+            {/* {this.props.user.balance} */}
           </div>
 
           <button onClick={this.tipHandler}>Tip Someone</button>
@@ -42,12 +53,6 @@ class WalletPage extends Component {
         {/* Lower Half, containing latest transactions and an absolute-positioned button to show the code */}
         <section className="wallet-bottom">
           <p>Latest Transactions:</p>
-          {transactions.map((transaction, idx) => 
-          <div key={idx}>
-            <p className="transaction">{transaction.receivedOrSent} ${transaction.amount} from {transaction.sender}</p>
-            <p className="transaction-timestamp">- {moment().subtract(4912, 'minutes').calendar()}</p>
-          </div>
-          )}
 
           {/* Button positioned absolutely */}
           <button onClick={this.showCodeHandler}>Show Your Code</button>
@@ -57,11 +62,11 @@ class WalletPage extends Component {
   }
 }
 
-WalletPage.propTypes = {
-  match: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
-}
+// WalletPage.propTypes = {
+//   match: PropTypes.object.isRequired,
+//   location: PropTypes.object.isRequired,
+//   history: PropTypes.object.isRequired,
+//   user: PropTypes.object.isRequired,
+// }
 
-export default WalletPage;
+export default Auth(WalletPage);

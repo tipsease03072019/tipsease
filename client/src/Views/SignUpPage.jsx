@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 import {Link, Redirect} from "react-router-dom";
+import { withCookies } from 'react-cookie';
 
 class SignUpPage extends Component {
   state = {
@@ -62,7 +63,7 @@ class SignUpPage extends Component {
 
   render() {
     // Issue with props
-    if (localStorage.getItem("token") && localStorage.getItem("userId")) {
+    if (this.props.cookies.get("userId")&& this.props.cookies.get("token")) {
       if (this.props.accountType === "employee") {
         return <Redirect to="/wallet" />;
       } else {
@@ -111,4 +112,4 @@ class SignUpPage extends Component {
   }
 }
 
-export default SignUpPage;
+export default withCookies(SignUpPage);
