@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Switch, Route} from "react-router-dom";
 import {loadProgressBar} from "axios-progress-bar";
 import axios from "axios";
-import { withCookies } from "react-cookie";
+import {withCookies} from "react-cookie";
 import moment from "moment";
 
 // HOC Imports
@@ -24,14 +24,14 @@ class App extends Component {
   state = {
     accountType: null,
     userId: null,
+    profileImg: null,
     payFlow: {
       tip: 5,
-      payToUser: null,
+      payToUser: "",
     },
   };
 
   componentDidMount() {
-
     if (this.props.cookies.get("userId") && this.props.cookies.get("token")) {
       axios.defaults.headers.common["Authorization"] = this.props.cookies.get(
         "token",
@@ -40,11 +40,11 @@ class App extends Component {
       axios
         .get(`https://tipsease.herokuapp.com/api/users/${userId}`)
         .then(res => {
-          console.log(res)
           this.setState({
             ...this.state,
             accountType: res.data.account_type,
             userId: res.data.id,
+            profileImg: res.data.img_url,
           });
         })
         .catch(err => {
@@ -55,7 +55,7 @@ class App extends Component {
       this.setState({
         ...this.state,
         payFlow: {
-          ...JSON.parse(sessionStorage.getItem("payFlow"))
+          ...JSON.parse(sessionStorage.getItem("payFlow")),
         },
       });
     }
@@ -67,9 +67,9 @@ class App extends Component {
 
   loginHandler = data => {
     const tokenOptions = {
-      expire: moment().add(1, 'days'),
+      expire: moment().add(1, "days"),
       secure: true,
-    }
+    };
     this.props.cookies.set("token", data.token);
     this.props.cookies.set("userId", data.id);
     this.setState({
@@ -115,7 +115,11 @@ class App extends Component {
           exact
           path="/wallet"
           render={props => (
-            <WalletPage {...props} user={this.state.employeeUser} />
+            <WalletPage
+              {...props}
+              user={this.state.employeeUser}
+              cookies={this.props.cookies.getAll()}
+            />
           )}
         />
         {/* <PrivateRoute exact path /> */}
@@ -130,10 +134,17 @@ class App extends Component {
             />
           )}
         />
-        <PrivateRoute
+        {/* <PrivateRoute
           exact
           path="/profile"
           component={props => <Profile {...props} userId={this.state.userId} />}
+        /> */}
+        <Route
+          exact
+          path="/profile"
+          render={props => (
+            <Profile {...props} cookies={this.props.cookies.getAll()} />
+          )}
         />
         <Route
           exact
