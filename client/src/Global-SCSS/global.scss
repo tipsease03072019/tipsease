@@ -229,7 +229,7 @@ figure {
 
 #root {
   height: 100vh;
-  @include flexbox(null, center);
+  @include flexbox(column, center, center);
 }
 
 section.view {
