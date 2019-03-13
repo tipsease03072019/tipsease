@@ -274,6 +274,12 @@ main #info .info-card {
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
 }
+main #info .info-card strong {
+  font-size: 2.5rem;
+  font-weight: semi-bold;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
 @media screen and (min-width: 1000px) {
   main #info .info-card {
     height: 100%;
