@@ -1,46 +1,33 @@
-import React, {Component} from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { useInput } from '../../Hooks/input'
 
-class TipPage extends Component {
-  state = {
-    tipAmount: 5,
+const TipPage = props => {
+  // Creating new input hooks instance
+  const tipAmount = useInput(props.tip, 4);
+
+  const tipHandler = () => {
+    props.setTipHelper(tipAmount.value);
+    props.history.push("./find");
   };
 
-  // Fires when someone clicks 'Next'
-  tipHandler = () => {
-    this.props.setTipHelper(this.state.tipAmount);
-    this.props.history.push("./find");
-  };
-
-  // Fires when someone types in the input
-  changeHandler = event => {
-    this.setState({tipAmount: event.target.value});
-  };
-
-  // Fires when someone selects one of the buttons.
-  selectTipHandler = amount => {
-    this.setState({tipAmount: amount});
-  };
-
-  render() {
-    return (
-      <>
-        <h2>Select Amount</h2>
-        <input
-          type="number"
-          value={this.state.tipAmount}
-          onChange={this.changeHandler}
-        />
-        <button onClick={this.tipHandler}>Next</button>
-        <br />
-        <button onClick={() => this.selectTipHandler(5)}>5</button>
-        <button onClick={() => this.selectTipHandler(10)}>10</button>
-        <button onClick={() => this.selectTipHandler(15)}>15</button>
-        <button onClick={() => this.selectTipHandler(20)}>20</button>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <h2>Select Amount</h2>
+      <input
+        type="number"
+        value={tipAmount.value}
+        onChange={tipAmount.updateValue}
+      />
+      <button onClick={tipHandler}>Next</button>
+      <br />
+      <button onClick={() => tipAmount.setValue(5)}>5</button>
+      <button onClick={() => tipAmount.setValue(10)}>10</button>
+      <button onClick={() => tipAmount.setValue(15)}>15</button>
+      <button onClick={() => tipAmount.setValue(20)}>20</button>
+    </>
+  );
+};
 
 TipPage.propTypes = {
   match: PropTypes.object.isRequired,
