@@ -22,7 +22,7 @@ export default function(Component, requireType) {
     // };
     render() {
       //// this.authLogin(this.props.cookies.token);
-      if (this.props.cookies.token) {
+      if (this.props.cookies.token && this.props.cookies.userId) {
         return <Component {...this.props} />;
       }
       return <Redirect to="/login" />;
