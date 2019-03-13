@@ -1,21 +1,54 @@
 import React, {Component} from "react";
-import axios from "axios";
-import {Link, Redirect} from "react-router-dom";
-import fire from "../config/fire";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import { Redirect} from "react-router-dom";
+import firebase from "../config/fire";
+import LoginSignupHeader from "../Components/LoginSignupHeader.jsx";
+
+const facebook = new firebase.auth.FacebookAuthProvider();
+const google = new firebase.auth.GoogleAuthProvider();
+const email = new firebase.auth.EmailAuthProvider();
 
 class SignUpPage extends Component {
-  uiConfig = {
-    // Popup signin flow rather than redirect flow.
-    signInFlow: "popup",
-    // We will display Google and Facebook as auth providers.
-    signInOptions: [
-      fire.auth.GoogleAuthProvider.PROVIDER_ID,
-      fire.auth.FacebookAuthProvider.PROVIDER_ID,
-      fire.auth.EmailAuthProvider.PROVIDER_ID,
-    ],
-    signInSuccessUrl: "/setup-account"
+  signUpWithFacebook = () => {
+    firebase
+      .auth()
+      .signInWithPopup(facebook)
+      .then(result => {
+        // set user logic here
+      })
+      .catch(err => console.error(err));
+  }
+
+  signUpWithGoogle = () => {
+    firebase
+      .auth()
+      .signInWithPopup(google)
+      .then(res => {
+        // set user logic here
+      })
+      .catch(err => {
+        const errorMessage = err.message;
+        console.error(errorMessage);
+      });
+  }
+
+  signUpWithEmail = (event) => {
+    event.preventDefault();
+    event.persist();
+    console.log();
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(
+        event.target["email"].value,
+        event.target["password"].value
+      )
+      .then(res => {
+        // set user logic here
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
+
 
   render() {
     const { cookies, accountType } = this.props;
@@ -23,13 +56,28 @@ class SignUpPage extends Component {
       return <Redirect to="/tip" />;
     }
     return (
-      <>
-        <StyledFirebaseAuth
-          uiConfig={this.uiConfig}
-          firebaseAuth={fire.auth()}
-        />
-        <Link to="/login">Login</Link>
-      </>
+      <section className="view login-signup">
+        <LoginSignupHeader />
+        <form onSubmit={this.signUpWithEmail} className="full-width">
+          <button className="google full-width">Sign Up With Google</button>
+          <button className="facebook full-width">Sign Up With Facebook</button>
+          <input
+            type="text"
+            required
+            placeholder="Email"
+            name="email"
+            className="full-width"
+            />
+          <input
+            type="password"
+            required
+            placeholder="Password"
+            name="password"
+            className="full-width"
+            />
+          <button className="primary full-width" type="submit">Sign Up With Email</button>
+        </form>
+      </section>
     );
   }
 }
