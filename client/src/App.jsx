@@ -75,7 +75,7 @@ class App extends Component {
     });
   };
 
-
+  // TO BE IMPLEMENTED: CORRECT IMPLEMENTATION OF LOGOUT
   logoutHandler = () => {
     console.log('Loggin out now!')
   };
@@ -96,7 +96,6 @@ class App extends Component {
     loadProgressBar();
     return (
       <Switch>
-        
         <Route
           exact
           path="/login"

@@ -9,6 +9,8 @@ class Nav extends Component {
       showNav: false,
     };
   };
+
+  // Sets showNav to the opposite of it's current state.
   toggleNav = () => {
     this.setState({showNav:!this.state.showNav});
   };
@@ -20,6 +22,7 @@ class Nav extends Component {
         <button onClick={this.toggleNav}>Profile</button>
         
         <nav className="card">
+          {/* Depending on the accountType found in App.js' state, render a Link to wallet. Reason being is that normal users have no need for a link to their non-existent wallet */}
           {this.props.accountType === "employee" ? (
             <Link to="/wallet">
               <button className="transparent">
