@@ -39,7 +39,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    if(sessionStorage.getItem('payFlow')){
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.props.cookies.set("_uat", user._lat);
