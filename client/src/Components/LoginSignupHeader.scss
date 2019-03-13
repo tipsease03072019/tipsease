@@ -1,0 +1,40 @@
+.login-signup header {
+  position: absolute;
+  height: 30%;
+  width: 100%;
+  background-color: $tipsease-secondary;
+  @include flexbox(column, center, center);
+
+  .heading {
+    color: $white;
+  }
+
+  nav {
+    position: absolute;
+    top: calc(100% - (#{$extra-large-space} / 2));
+    padding: 0;
+    height: $extra-large-space - $small-space;
+    max-width: 36rem;
+    width: 70%;
+    border-radius: 10px;
+
+    .active button {
+      background-color: $tipsease-primary;
+      color: $white;
+    }
+
+    button {
+      width: 50%;
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    .login-tab {
+      border-radius: 10px 0 0 10px;
+    }
+
+    .signup-tab {
+      border-radius: 0 10px 10px 0;
+    }
+  }
+}
