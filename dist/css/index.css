@@ -165,6 +165,7 @@ table {
   right: 0;
   background: white;
   width: 100%;
+  z-index: 2;
 }
 @media screen and (min-width: 1000px) {
   .nav-display {
@@ -239,7 +240,6 @@ table {
 }
 @media screen and (min-width: 1000px) {
   .top-content {
-    margin: 3rem 0;
     flex-flow: row-reverse;
     justify-content: space-between;
   }
@@ -258,7 +258,7 @@ table {
   }
 }
 .top-content .top-content-info {
-  box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
+  z-index: 0;
   opacity: 0.8;
   color: white;
   margin-top: 2rem;
@@ -379,6 +379,25 @@ table {
   opacity: 0.9;
   animation: popout 1s ease;
   -webkit-animation: popout 1s ease;
+}
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .profile-items {
+    padding-top: 10rem;
+    font-size: 3rem;
+  }
+  .content-holder .profile-content .profile-items .profile-description .inside-img {
+    display: none;
+  }
+}
+@media screen and (min-width: 1000px) and (min-width: 1000px) {
+  .content-holder .profile-content .profile-items .profile-description .inside-img {
+    margin-left: 25rem;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
 }
 .content-holder .profile-content .profile-items .close-tab img {
   position: absolute;

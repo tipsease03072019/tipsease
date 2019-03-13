@@ -7,7 +7,7 @@
   margin: 0 0 3rem 0
 
   @include desktop
-    margin: 3rem 0
+    //margin: 3rem 0
     flex-flow: row-reverse
     justify-content: space-between
 
@@ -25,7 +25,7 @@
       width: 60%
 
   .top-content-info
-    box-shadow: 0 6px 10px 0 rgba(40,51,63,0.08)
+    z-index: 0
     opacity: 0.8
     color: $light-text-color
     margin-top: 2rem
@@ -137,9 +137,23 @@
       opacity: 0.9
       animation: popout 1s ease
       -webkit-animation: popout 1s ease
+      @include desktop
+        padding-top: 10rem
+        font-size: 3rem
+
+        .profile-description
+          .inside-img
+            display: none
+            @include desktop
+              margin-left: 25rem
+              margin-top: 5rem
+              display: flex
+              justify-content: center
+              align-items: center
+              width: 50%
+
 
       .close-tab
-
         img
           position: absolute
           right: 5px
