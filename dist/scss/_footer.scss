@@ -6,6 +6,10 @@ footer {
     flex-direction: row-reverse;
     justify-content: center;
 
+    @include desktop {
+        margin-top: 150px;
+    }
+
     a {
         @include textBtn;
         @include link;

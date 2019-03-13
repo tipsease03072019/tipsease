@@ -393,6 +393,11 @@ footer {
   flex-direction: row-reverse;
   justify-content: center;
 }
+@media screen and (min-width: 1000px) {
+  footer {
+    margin-top: 150px;
+  }
+}
 footer a {
   background-color: unset;
   color: white;
