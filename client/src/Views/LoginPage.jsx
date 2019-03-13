@@ -54,15 +54,6 @@ class LoginPage extends Component {
     }
     return (
       <>
-        <h1>Hello</h1>
-        <h2>Hello</h2>
-        <h3>Hello</h3>
-        <h4>Hello</h4>
-        <h5>Hello</h5>
-        <br></br>
-        <p className="heading">Testing</p>
-        <p className="subheading">Testing</p>
-
         <form onSubmit={this.submitHandler}>
           {/* //TODO: Style Illustration */}
           {/* <img src={loginIllustrations} alt="" />  */}
@@ -82,7 +73,7 @@ class LoginPage extends Component {
             value={this.state.inputs.password}
             onChange={this.typeHandler}
           />
-        <button className="small" type="submit">Login</button>
+          <button type="submit">Login</button>
           <Link to="/signup">Sign Up</Link>
         </form>
       </>
