@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import {Link, Redirect} from "react-router-dom";
 import axios from "axios";
-import PropTypes from "prop-types";
-import { withCookies } from 'react-cookie';
+// import PropTypes from "prop-types";
 
 import loginIllustrations from "../assets/login.svg";
 
@@ -46,7 +45,7 @@ class LoginPage extends Component {
   };
 
   render() {
-    if (this.props.cookies.get("userId")&& this.props.cookies.get("token")) {
+    if (localStorage.getItem("token") && localStorage.getItem("userId")) {
       if (this.props.accountType === "employee") {
         return <Redirect to="/wallet" />;
       } else {
@@ -83,7 +82,7 @@ class LoginPage extends Component {
 }
 
 LoginPage.propTypes = {
-  setTipHelper: PropTypes.func.isRequired,
+  // setTipHelper: PropTypes.func.isRequired,
 };
 
-export default withCookies(LoginPage);
+export default LoginPage;

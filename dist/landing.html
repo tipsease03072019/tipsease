@@ -9,39 +9,60 @@
 </head>
 <body>
     <div class="container">
+
+        <div class="hamburger">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+            <div class="line line-3"></div>
+        </div>
+
+        <div class="nav-display">
+            <div class="nav-bg">
+                <a href="about.html">About</a>
+                <a href="https://tipseasebuild.netlify.com/login">Login</a>
+            </div>
+        </div>
+
         <div class="bg">
-            <nav>
-                <a href="#" class="about">About</a>
-                <img class='nav-img' src="./img/logo.png" alt="TipsEase logo">
-                <a href="#" class="btn login">Login</a>
-            </nav>
 
             <header>
                 <section class="cta">
-                    <img class = 'logo' src="./img/logo.png">
-                    <h1>TipsEase </h1>
-                    <h3 class="slogan">Lorem slogan dolor sit amet, consectetur slogan elit..</h3>
-                    <p class='cta-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum quisquam doloremque aliquam nihil voluptas iste, ipsam repudiandae enim hic laborum dolores incidunt, eum autem ut distinctio esse aut error id quaerat! Recusandae est facere voluptatum, fugit atque, labore consequatur culpa et consequuntur cumque dolor, quaerat, neque deleniti eos! Ratione, illo.</p>
-
-                    <a href="#" class="btn login">Join</a>
-                    <a href="#info" class="btn">How It Works</a>
-
+                    <h1><strong>TipsEase</strong> </h1>
+                    <h3 class="slogan">Simplifying Your Tips.<br>Simplifying Your Life.</h3>
                 </section>
+                <a href="https://tipseasebuild.netlify.com/login" class="btn login">Sign Up</a>
+                <a href="#info" class="btn info-btn">How It Works</a>
             </header>
 
+            <div class="header-bg">
+                <img src="https://svgur.com/i/BjK.svg" alt="img">
+            </div>
         </div>
 
 
         <main>
 
             <section id="info">
-                <div class="info-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis sed quos earum repellat rerum quas perferendis maiores nihil incidunt vitae?</div>
-                <div class="info-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse quas magnam impedit, omnis illo minus itaque sit odit doloribus quos.</div>
+                <div class="info-card">
+                    <div></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis sed quos earum repellat rerum quas perferendis maiores nihil incidunt vitae?</p>
+                </div>
 
+                <div class="info-card">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse quas magnam impedit, omnis illo minus itaque sit odit doloribus quos.</p>
+                    <div></div>
+                </div>
 
             </section>
 
-            <a href="#" class="btn login">Sign Up Now!</a>
+            <div class="bottom-bg">
+                <div class='info-card'>
+                    <a href="https://tipseasebuild.netlify.com/login" class="btn login">Get Started Now!</a>
+                </div>
+                <div>
+                    <img src="img/illustrations/bottom-bg-2.svg" alt="authetication image">
+                </div>
+            </div>
 
 
 
@@ -50,9 +71,14 @@
     </div>
 
     <footer>
+        <a href="https://tipseasebuild.netlify.com/login">Login</a>
         <p>Copyright&copy TipsEase 2019</p>
     </footer>
 
+
+        <script src='components/nav.js'></script>
+        <!-- Greensocks script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 
 </body>
 </html>
