@@ -75,7 +75,6 @@ class ProfilePage extends Component {
             placeholder="Username"
             value={this.state.inputs.username}
             name="username"
-            readOnly
             onChange={this.changeHandler}
           />
           <input
