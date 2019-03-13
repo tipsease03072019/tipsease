@@ -1,4 +1,4 @@
-
+// logo for TipsEase {placeholder}
 .logo
   padding-top: 5rem
   padding-bottom: 5rem
@@ -10,11 +10,15 @@
   background: rgb(19,82,221)
   background: radial-gradient(circle, rgba(19,82,221,1) 0%, rgba(40,51,63,1) 35%)
 
+  @include tablet
+    padding-bottom: 0
+    background: none
+
   @include desktop
     padding-top: 10rem
     font-size: 5rem
     background: none
-
+// top part of the page including mission Statement and pictures
 .top-content
   padding-top: 5rem
   color: $light-text-color
@@ -35,11 +39,15 @@
     //clip-path: polygon(0 0, 100% 0%, 71% 72%, 0% 100%)
     height: 300px
 
+    @include tablet
+      background: none
+
     @include desktop
       background: none
       height: 500px
       width: 60%
 
+      // mission Statement
   .top-content-info
     z-index: 0
     opacity: 0.8
@@ -86,6 +94,7 @@
     @include desktop
       width: 45%
 
+// our team text above profiles
 .profile-main-text
   h2
     color: $primary-color
@@ -93,10 +102,14 @@
     background-color: lighten($dark-text-color, 1%)
     text-align: center
     font-size: 2rem
+    margin-bottom: 2rem
 
     @include desktop
       font-size: 5rem
 
+// profiles
+.profile-holder
+  padding: 3rem
 .profiles
   background-color: lighten($dark-text-color, 1%)
   display: flex
@@ -104,6 +117,55 @@
   justify-content: center
   align-items: center
   padding-bottom: 2rem
+  .img-7
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/joseph-rios.jpeg')
+    background-position: center
+
+  .img-6
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/jeff-lapp.jpeg')
+    background-position: center
+
+  .img-5
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/portrait.jpg')
+    background-position: center
+
+  .img-4
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/portrait.jpg')
+    background-position: center
+
+
+  .img-3
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/portrait.jpg')
+    background-position: center
+
+  .img-1
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/portrait.jpg')
+    background-position: center
+
+  .img-2
+    width: 225px
+    height: 225px
+    border-radius: 50%
+    background: url('../img/kanek-perez.jpeg')
+    background-position: center
 
   .hide-profile
     display: none
@@ -112,6 +174,7 @@
     line-height: 2
     color: $light-text-color
     margin-top: 1rem
+    margin-bottom: 2rem
     text-align: center
 
     a
@@ -132,6 +195,7 @@
   justify-content: center
   align-items: center
 
+  // pop up box after clicking on a profile
   .profile-content
 
 

@@ -21,7 +21,7 @@ class Profile {
   }
 }
 
-const profiles = document.querySelectorAll(".profile-img");
+const profiles = document.querySelectorAll(".profile");
 
 profiles.forEach(function(profile) {
   return new Profile(profile);

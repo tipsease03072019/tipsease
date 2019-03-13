@@ -138,7 +138,7 @@ table {
 }
 .hamburger {
   position: fixed;
-  top: 10px;
+  top: 30px;
   right: 25px;
   height: 30px;
   width: 40px;
@@ -242,6 +242,12 @@ table {
   background: #1352dd;
   background: radial-gradient(circle, #1352dd 0%, #28333f 35%);
 }
+@media screen and (min-width: 800px) {
+  .logo {
+    padding-bottom: 0;
+    background: none;
+  }
+}
 @media screen and (min-width: 1000px) {
   .logo {
     padding-top: 10rem;
@@ -268,6 +274,11 @@ table {
   background: radial-gradient(circle, #1352dd 0%, #28333f 70%);
   width: 100%;
   height: 300px;
+}
+@media screen and (min-width: 800px) {
+  .top-content img {
+    background: none;
+  }
 }
 @media screen and (min-width: 1000px) {
   .top-content img {
@@ -336,11 +347,16 @@ table {
   background-color: #2a3642;
   text-align: center;
   font-size: 2rem;
+  margin-bottom: 2rem;
 }
 @media screen and (min-width: 1000px) {
   .profile-main-text h2 {
     font-size: 5rem;
   }
+}
+
+.profile-holder {
+  padding: 3rem;
 }
 
 .profiles {
@@ -351,6 +367,55 @@ table {
   align-items: center;
   padding-bottom: 2rem;
 }
+.profiles .img-7 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/joseph-rios.jpeg");
+  background-position: center;
+}
+.profiles .img-6 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/jeff-lapp.jpeg");
+  background-position: center;
+}
+.profiles .img-5 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/portrait.jpg");
+  background-position: center;
+}
+.profiles .img-4 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/portrait.jpg");
+  background-position: center;
+}
+.profiles .img-3 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/portrait.jpg");
+  background-position: center;
+}
+.profiles .img-1 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/portrait.jpg");
+  background-position: center;
+}
+.profiles .img-2 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/kanek-perez.jpeg");
+  background-position: center;
+}
 .profiles .hide-profile {
   display: none;
 }
@@ -358,6 +423,7 @@ table {
   line-height: 2;
   color: white;
   margin-top: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 .profiles .text a {
