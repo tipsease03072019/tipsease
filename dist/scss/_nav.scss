@@ -1,7 +1,6 @@
 
 
 .hamburger {
-
     position: fixed;
     top: 30px;
     right: 25px;
@@ -12,22 +11,6 @@
     justify-content: space-around;
     z-index: 3;
 
-
-    &.close {
-        transform: rotate(180deg);
-
-        :nth-child(1){
-            transform: rotate(45deg) translate(8px , 7px);
-        }
-
-        .line-2 {
-            visibility: hidden;
-        }
-
-        :nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-    }
     &:hover {
         cursor: pointer;
     }
@@ -37,77 +20,60 @@
         width: 100%;
         background: $secondary-color;
 
+
         @include tablet {
             background: $primary-color;
         }
     }
 }
 
-
-
-
 .nav-display {
-    visibility: hidden;
+    background: white;
+    height: 0;
     position: fixed;
     top: 0;
     right: 0;
-    background: white;
     width: 100%;
 
     @include desktop {
-
-        width: 15%;
-        height: 150px;
+        width: 25%;
     }
 
     .nav-bg {
-        margin: 0 auto;
-        height: 90%;
-        width: 90%;
-        background:url('../img/illustrations/nav-bg.svg');
+        background:url('https://svgur.com/i/BkV.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: bottom;
+        visibility: hidden;
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
-        @include tablet {
-            align-items: flex-end;
-        }
-        @include desktop {
-            align-items: center;
-        }
-    }
+        justify-content: center;
+        opacity: 0;
 
-    a {
-        width: 40%;
-        padding: 5px;
-        color: $primary-color;
-        text-align: center;
-        margin-top: 50px;
-        padding: 5px 0 5px 0;
         @include tablet {
-            width: 30%;
-        }
-        @include desktop {
-            width: 100%;
-            margin-top: $normal-margin;
+            width: 90%;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-start;
 
-            &:hover {
-                background: $dark-text-color;
+        }
+        a {
+            width: 50%;
+            margin-bottom: 20px;
+
+            @include tablet {
+                margin-top: 60px;
+                width: 40%;
+            }
+
+            &:nth-child(2) {
+                margin-bottom: 65%;
+
             }
         }
     }
-
-    &.display {
-        visibility: visible;
-        height: 100vh;
-        @include desktop {
-            height: 300px;
-            border-radius: 10px;
-            right: 20px;
-            top: 70px;
-        }
-    }
-}
+}//
