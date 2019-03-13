@@ -1,0 +1,25 @@
+@function roundFloatValue($float, $decimal-places: 1) {
+  $n: 1;
+  // $float must be a number
+  @if type-of($float) != number {
+    @warn '#{ $float } is not a number.';
+    @return $float;
+  }
+
+  // $decimal-places must be a unitless number
+  @if type-of($decimal-places) != number {
+    @warn '#{ $decimal-places } is not a number.';
+    @return $float;
+  } @else if not unitless($decimal-places) {
+    @warn '#{ $decimal-places } has a unit.';
+    @return $float;
+  }
+
+  @if $decimal-places > 0 {
+    @for $i from 1 through $decimal-places {
+      $n: $n * 10;
+    }
+  }
+
+  @return round($float * $n) / $n;
+}

@@ -15,33 +15,33 @@ body {
   background-color: $tipsease-light;
 }
 
+h2, h3, h4, h5, a, .heading, .subheading {
+  font-weight: 600;
+}
+
 h1 {
-  font-size: 7.5rem;
+  font-size: roundFloatValue($base-font-size * 4.17);
   font-weight: bold;
   margin-bottom: $normal-space;
 }
 
 h2 {
-  font-size: 5.5rem;
-  font-weight: 600;
+  font-size: roundFloatValue($base-font-size * 3.05);
   margin-bottom: $normal-space;
 }
 
 h3 {
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: roundFloatValue($base-font-size * 1.89);
   margin-bottom: $normal-space;
 }
 
 h4 {
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: roundFloatValue($base-font-size * 1.39);
   margin-bottom: $normal-space;
 }
 
 h5 {
   font-size: $base-font-size;
-  font-weight: 600;
   margin-bottom: $normal-space;
 }
 
@@ -52,7 +52,6 @@ p {
 }
 
 a {
-  font-weight: 600;
   cursor: pointer;
   color: inherit;
   transition: all 250ms ease-in-out;
@@ -63,10 +62,14 @@ a {
 }
 
 .heading {
-  margin-bottom: $medium-space;
+  font-size: roundFloatValue($base-font-size * 3.05);
+  line-height: unset;
+  margin-bottom: $normal-space;
 }
 
 .subheading {
+  font-size: roundFloatValue($base-font-size * 1.39);
+  line-height: unset;
   margin-bottom: $small-space;
 }
 
@@ -111,7 +114,7 @@ button {
 
   &.small {
     padding: $small-space $medium-space;
-    font-size: 1.4rem;
+    font-size: roundFloatValue($base-font-size * 0.83);
     min-height: unset;
   }
 }
