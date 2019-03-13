@@ -40,9 +40,14 @@ let toggleDisplay = function () {
 
         animateMenu.reversed() ? animateMenu.play() : animateMenu.reverse();
     }
-
-
 }
+
+let smoothScroll = function(target, duration) {
+    const targetItem = document.querySelector(target);
+    console.log(targetItem)
+}
+
+smoothScroll('main', 1000);
 
 //
 icon.addEventListener('click', toggleDisplay)
