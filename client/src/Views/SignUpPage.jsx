@@ -59,8 +59,8 @@ class SignUpPage extends Component {
       <section className="view login-signup">
         <LoginSignupHeader />
         <form onSubmit={this.signUpWithEmail} className="full-width">
-          <button className="google full-width">Sign Up With Google</button>
-          <button className="facebook full-width">Sign Up With Facebook</button>
+          <button type="button" className="google full-width">Sign Up With Google</button>
+          <button type="button" className="facebook full-width">Sign Up With Facebook</button>
           <input
             type="text"
             required
