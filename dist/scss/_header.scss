@@ -1,9 +1,13 @@
 .bg {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     height: 100vh;
 
+    @include tablet{
 
+        background: linear-gradient(180deg, rgba(255,255,255,1) 46%, rgba(40,51,63,1) 100%);
+        margin-bottom: 80px;
+    }
     .header-bg {
         display: none;
     }
@@ -36,8 +40,14 @@ header {
     align-items: center;
     justify-content: space-around;
 
+
     @include desktop {
         width: 45%;
+        margin-left: 50px;
+    }
+
+    @include tablet {
+        margin-left: 7%;
     }
 
     .info-btn {
@@ -57,6 +67,7 @@ header {
         @include btn;
         width: 50%;
         margin-bottom: 40px;
+        background: $primary-color;
 
         @include desktop {
             width: 40%;
@@ -77,7 +88,7 @@ header {
         }
 
         .slogan {
-            color: white;
+            color: $primary-color;
             @include subHeading;
         }
 
