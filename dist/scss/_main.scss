@@ -68,42 +68,64 @@ main {
         display: flex;
         flex-direction: column-reverse;
         text-align: center;
+        margin-top: 20px;
 
         @include desktop {
             flex-direction: row-reverse;
             align-items: center;
-            justify-content: space-around;
-            height: 500px;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            width: 90%;
         }
 
-        .info-card {
-            @include card;
-            height: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 50px;
+        .white-bg {
+
+
+            .clip {
+                width: 100%;
+            }
 
             @include desktop {
-                clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
-                background: $primary-color;
-                z-index: -1;
-            }
-            border-radius: 2%;
-        }
+                align-self: flex-end;
+                height: 60%;
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $secondary-color;
+                .clip {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    background: $primary-color;
+                    clip-path: polygon(100% 9%, 100% 81%, 0 100%, 0 100%, 0 31%);
+                }
 
-        div {
+                a {
+                    width: 35%;
+
+                }
+            }
+        }
+        .illustration-div {
+            margin-bottom: 20px;
             max-height: 100%;
             width: 100%;
 
             @include desktop {
-
+                width: 50%;
             }
 
             img {
-                max-height: 100%;
+                max-height: 90%;
                 max-width: 100%;
             }
+            // @include desktop {
+            //     clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
+            //     background: $primary-color;
+            //     z-index: -1;
+            // }
         }
 
         @include desktop {

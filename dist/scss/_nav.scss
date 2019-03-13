@@ -36,7 +36,10 @@
     width: 100%;
 
     @include desktop {
-        width: 25%;
+        width: 15%;
+        top: 65px;
+        right: 40px;
+        border-radius: 10px;
     }
 
     .nav-bg {
@@ -59,15 +62,29 @@
             flex-direction: row;
             justify-content: space-around;
             align-items: flex-start;
-
         }
+
+        @include desktop {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
         a {
             width: 50%;
             margin-bottom: 20px;
+            text-align: center;
 
             @include tablet {
                 margin-top: 60px;
                 width: 40%;
+            }
+
+            @include desktop {
+                margin: 10px;
+                background: none;
+                box-shadow: none;
+                @include link;
             }
 
             &:nth-child(2) {
