@@ -87,7 +87,10 @@ table {
 }
 @media screen and (min-width: 1000px) {
   .nav-display {
-    width: 25%;
+    width: 15%;
+    top: 65px;
+    right: 40px;
+    border-radius: 10px;
   }
 }
 .nav-display .nav-bg {
@@ -113,14 +116,35 @@ table {
     align-items: flex-start;
   }
 }
+@media screen and (min-width: 1000px) {
+  .nav-display .nav-bg {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .nav-display .nav-bg a {
   width: 50%;
   margin-bottom: 20px;
+  text-align: center;
 }
 @media screen and (min-width: 800px) {
   .nav-display .nav-bg a {
     margin-top: 60px;
     width: 40%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .nav-display .nav-bg a {
+    margin: 10px;
+    background: none;
+    box-shadow: none;
+    font-size: 1.8rem;
+    font-weight: semi-bold;
+    text-decoration: underline;
+  }
+  .nav-display .nav-bg a:hover {
+    opacity: 0.8;
   }
 }
 .nav-display .nav-bg a:nth-child(2) {
@@ -283,38 +307,54 @@ main .bottom-bg {
   display: flex;
   flex-direction: column-reverse;
   text-align: center;
+  margin-top: 20px;
 }
 @media screen and (min-width: 1000px) {
   main .bottom-bg {
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-around;
-    height: 500px;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    width: 90%;
   }
 }
-main .bottom-bg .info-card {
-  box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
-  border-radius: 6px;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 50px;
-  border-radius: 2%;
+main .bottom-bg .white-bg .clip {
+  width: 100%;
 }
 @media screen and (min-width: 1000px) {
-  main .bottom-bg .info-card {
-    clip-path: polygon(8% 31%, 90% 0, 90% 80%, 50% 80%, 8% 80%);
+  main .bottom-bg .white-bg {
+    align-self: flex-end;
+    height: 60%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1352dd;
+  }
+  main .bottom-bg .white-bg .clip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     background: #67DA8C;
-    z-index: -1;
+    clip-path: polygon(100% 9%, 100% 81%, 0 100%, 0 100%, 0 31%);
+  }
+  main .bottom-bg .white-bg a {
+    width: 35%;
   }
 }
-main .bottom-bg div {
+main .bottom-bg .illustration-div {
+  margin-bottom: 20px;
   max-height: 100%;
   width: 100%;
 }
-main .bottom-bg div img {
-  max-height: 100%;
+@media screen and (min-width: 1000px) {
+  main .bottom-bg .illustration-div {
+    width: 50%;
+  }
+}
+main .bottom-bg .illustration-div img {
+  max-height: 90%;
   max-width: 100%;
 }
 @media screen and (min-width: 1000px) {
@@ -350,7 +390,13 @@ footer {
   color: #67DA8C;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+@media screen and (min-width: 1000px) {
+  footer {
+    margin-top: 150px;
+  }
 }
 footer a {
   background-color: unset;
@@ -359,7 +405,7 @@ footer a {
   font-size: 1.8rem;
   font-weight: semi-bold;
   text-decoration: underline;
-  margin-right: 20px;
+  margin: 0 20px;
   color: #67DA8C;
   padding: 3px;
 }
@@ -376,13 +422,9 @@ body p {
   line-height: 2.8rem;
 }
 
-.logo {
-  height: 100px;
-  width: 100px;
-}
-
 a {
   font-size: 1.7rem;
+  text-decoration: none;
   background-color: white;
   box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
   border-radius: 10px;
@@ -393,18 +435,6 @@ a {
 }
 a:hover {
   opacity: 0.8;
-}
-
-h1 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2rem;
-}
-
-a {
-  text-decoration: none;
 }
 
 /*# sourceMappingURL=landing.css.map */

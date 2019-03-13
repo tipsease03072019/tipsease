@@ -6,6 +6,7 @@ const desktop = window.matchMedia( '(min-width: 1000px)' );
 
 
 let animateMenu = new TimelineMax({paused: true, reversed: true})
+let animateMenuDesktop = new TimelineMax({paused: true, reversed: true})
 let animateLines = new TimelineMax({paused: true, reversed: true})
 
 
@@ -38,15 +39,21 @@ let toggleDisplay = function () {
 
     if (desktop.matches) {
         console.log('true')
-        animateMenu
-        .from(navDisplay, .35, {top: 35, height: 150})
+        animateMenuDesktop
+        .to(navDisplay, .35, {height: 300, border: '1px solid $dark-text-color'})
+        .to('.nav-bg', .3, {opacity: 1, visibility: 'visible'})
+
+        animateMenuDesktop.reversed() ? animateMenuDesktop.play() : animateMenuDesktop.reverse();
+
     } else {
         animateMenu
         .to(navDisplay, .35, {height: '100vh', visibility: 'visible'})
         .to('.nav-bg', .3, {opacity: 1, visibility: 'visible'})
 
+        animateMenu.reversed() ? animateMenu.play() : animateMenu.reverse();
+
     }
-    animateMenu.reversed() ? animateMenu.play() : animateMenu.reverse();
+
 
 }
 

@@ -11,29 +11,12 @@ body {
     p {
         @include bodyText;
     }
-
-}
-.container {
-}
-
-.logo {
-    height: 100px;
-    width: 100px;
 }
 
 
 a {
     font-size: 1.7rem;
-    @include btn;
-}
-h1 {
-    font-size: 3rem;
-}
-
-h3 {
-    font-size: 2rem;
-}
-
-a {
     text-decoration: none;
+    @include btn;
+
 }
