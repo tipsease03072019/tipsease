@@ -39,6 +39,10 @@ class App extends Component {
   };
 
   componentDidMount() {
+    this.loginHandler();
+  }
+
+  loginHandler = () => {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.props.cookies.set("_uat", user._lat);
@@ -101,7 +105,7 @@ class App extends Component {
               {...props}
               loginHandler={this.loginHandler}
               accountType={this.state.accountType}
-              cookies={this.props.cookies.cookies}
+              cookies={this.props.cookies.getAll()}
             />
           )}
         />
@@ -142,7 +146,7 @@ class App extends Component {
           render={props => <PaymentSuccess {...props} />}
         /> */}
         {/* Default Route */}
-        <Route exact path="/setup-account" render={props => <SetupAccount />} />
+        <Route exact path="/setup-account" render={props => <SetupAccount {...props} cookies={this.props.cookies.getAll()}  />} />
         <Route
           render={props => (
             <TipPage
