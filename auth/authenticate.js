@@ -7,7 +7,8 @@ const jwtKey =
 // quickly see what this file exports
 module.exports = {
   authenticate,
-  generateToken
+  generateToken,
+  decode
 };
 
 // implementation details
@@ -43,4 +44,16 @@ function generateToken(user) {
   };
 
   return jwt.sign(payload, jwtKey, options);
+}
+
+function decode(req, res, next) {
+  // console.log("req", req.query.token);
+  const token = req.query.token;
+  admin
+    .auth()
+    .verifyIdToken(token)
+    .then(decodedToken => {
+      req.body.UID = decodedToken.uid;
+      next();
+    });
 }

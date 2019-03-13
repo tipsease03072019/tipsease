@@ -2,24 +2,14 @@ const express = require("express");
 const router = express.Router();
 const db = require("../../database/db");
 const bcrypt = require("bcryptjs");
-const admin= require("../../config/admin.js");
+const admin = require("../../config/admin.js");
 
 const {
   authenticate,
   generateToken,
-  jwtSecret
+  jwtSecret,
+  decode
 } = require("../../auth/authenticate");
-function decode(req, res, next) {
-  // console.log("req", req.query.token);
-  const token = req.query.token;
-  admin
-    .auth()
-    .verifyIdToken(token)
-    .then(decodedToken => {
-      req.body.UID = decodedToken.uid;
-      next();
-    });
-}
 
 router.get("/", (req, res) => {
   db("users")
@@ -95,21 +85,23 @@ router.get("/:id", authenticate, (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
-router.put("/:id", authenticate, async (req, res) => {
-  let changes = req.body;
+router.put("/:id", decode, async (req, res) => {
+  if (req.params.id === req.body.uid) {
+    let changes = req.body;
 
-  for (x in changes) {
-    console.log(x);
-    console.log(changes[x]);
-    await db("users")
-      .where({
-        id: req.params.id
-      })
-      .update(`${x}`, `${changes[x]}`);
+    for (x in changes) {
+      console.log(x);
+      console.log(changes[x]);
+      await db("users")
+        .where({
+          id: req.params.id
+        })
+        .update(`${x}`, `${changes[x]}`);
+    }
+    res.status(200).json({
+      message: "Updated."
+    });
   }
-  res.status(200).json({
-    message: "Updated."
-  });
 });
 
 router.delete("/:id", authenticate, (req, res) => {
