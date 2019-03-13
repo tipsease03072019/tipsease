@@ -449,6 +449,10 @@ footer a:hover {
   opacity: 0.8;
 }
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #28333f;
 }
