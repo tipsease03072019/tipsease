@@ -83,27 +83,21 @@ router.get("/:id", authenticate, (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
-router.put("/:id", authenticate, (req, res) => {
+router.put("/:id", authenticate, async (req, res) => {
   let changes = req.body;
-  db("users")
-    .where({
-      id: req.params.id
-    })
-    .update(
-      {
-        username: changes.username,
-        password: changes.password,
-        email: changes.email,
-        img_url: changes.img_url
-      },
-      ["username", "password", "email", "img_url"]
-    )
-    .then(user => {
-      res.status(200).json({
-        user: changes
-      });
-    })
-    .catch(err => res.status(500).json(err));
+
+  for (x in changes) {
+    console.log(x);
+    console.log(changes[x]);
+    await db("users")
+      .where({
+        id: req.params.id
+      })
+      .update(`${x}`, `${changes[x]}`);
+  }
+  res.status(200).json({
+    message: "Updated."
+  });
 });
 
 router.delete("/:id", authenticate, (req, res) => {
