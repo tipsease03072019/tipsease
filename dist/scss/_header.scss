@@ -81,10 +81,15 @@ header {
 
         }
 
+        h1 {
+            margin-bottom: 30px;
+        }
         strong {
             color: $primary-color;
             @include heroHeading;
             font-weight: bold;
+
+            margin-bottom: 50px;
         }
 
         .slogan {

@@ -84,6 +84,7 @@ table {
   top: 0;
   right: 0;
   width: 100%;
+  background: linear-gradient(180deg, white 50%, #67da8c 100%);
 }
 @media screen and (min-width: 1000px) {
   .nav-display {
@@ -239,12 +240,16 @@ header a:hover {
 header .cta {
   margin-top: 50px;
 }
+header .cta h1 {
+  margin-bottom: 30px;
+}
 header .cta strong {
   color: #67DA8C;
   font-size: 7.5rem;
   font-weight: bold;
   margin-bottom: 18px;
   font-weight: bold;
+  margin-bottom: 50px;
 }
 header .cta .slogan {
   color: #67DA8C;
@@ -264,6 +269,7 @@ main #info {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  margin-bottom: 50px;
 }
 @media screen and (min-width: 800px) {
   main #info {
@@ -338,29 +344,36 @@ main .bottom-bg {
     width: 90%;
   }
 }
-main .bottom-bg .white-bg .clip {
-  width: 100%;
-}
 @media screen and (min-width: 1000px) {
   main .bottom-bg .white-bg {
     align-self: flex-end;
-    height: 60%;
-    width: 50%;
+    height: 100%;
+    width: 45%;
     display: flex;
+    border-radius: 10px;
     justify-content: center;
     align-items: center;
-    background: #1352dd;
   }
   main .bottom-bg .white-bg .clip {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: #67DA8C;
-    clip-path: polygon(100% 9%, 100% 81%, 0 100%, 0 100%, 0 31%);
+    width: 100%;
   }
-  main .bottom-bg .white-bg a {
+  main .bottom-bg .white-bg .clip p {
+    font-size: 2.5rem;
+    font-weight: semi-bold;
+    margin-bottom: 10px;
+    font-size: 3rem;
+    color: white;
+    margin: 35px;
+  }
+  main .bottom-bg .white-bg .clip a {
     width: 35%;
+    background: #67DA8C;
+    color: white;
   }
 }
 main .bottom-bg .illustration-div {

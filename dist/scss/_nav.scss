@@ -34,6 +34,8 @@
     top: 0;
     right: 0;
     width: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(103,218,140,1) 100%);
+
 
     @include desktop {
         width: 15%;
