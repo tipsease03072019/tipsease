@@ -8,17 +8,12 @@ import Auth from "../HOC/Auth";
 class ProfilePage extends Component {
   state = {
     isLoading: true,
-    userId: this.props.userId,
     inputs: {
-      username: "",
-      password: "",
-      email: "",
-      profileImage: "",
     },
   };
 
   componentDidMount() {
-    const userId = this.props.cookies.userId;
+    const userId = JSON.parse(this.props.cookies.userId);
     axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
     axios
       .get(`https://tipsease.herokuapp.com/api/users/${userId}`)
@@ -30,7 +25,7 @@ class ProfilePage extends Component {
             ...this.state.inputs,
             username: res.data.username,
             email: res.data.email,
-            profileImage: res.data.img_url,
+            img_url: res.data.img_url,
           },
         });
       })
@@ -51,17 +46,12 @@ class ProfilePage extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    const data = {
-      username: this.state.inputs.username,
-      password: this.state.inputs.password,
-      email: this.state.inputs.email,
-      img_url: this.state.inputs.profileImage,
-    };
+    const userId = JSON.parse(this.props.cookies.userId);
     axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
     axios
       .put(
-        `https://tipsease.herokuapp.com/api/users/${this.state.userId}`,
-        data,
+        `https://tipsease.herokuapp.com/api/users/${userId}`,
+        this.state.inputs,
       )
       .then(res => {
         console.log(res);
@@ -87,6 +77,7 @@ class ProfilePage extends Component {
             placeholder="Username"
             value={this.state.inputs.username}
             name="username"
+            readOnly
             onChange={this.changeHandler}
           />
           <input
@@ -105,8 +96,8 @@ class ProfilePage extends Component {
           <input
             type="url"
             placeholder="Profile Picture"
-            value={this.state.inputs.profileImage}
-            name="profileImage"
+            value={this.state.inputs.img_url}
+            name="img_url"
             onChange={this.changeHandler}
           />
           <button>Updates</button>

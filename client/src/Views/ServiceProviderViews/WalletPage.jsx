@@ -69,4 +69,4 @@ class WalletPage extends Component {
 //   user: PropTypes.object.isRequired,
 // }
 
-export default Auth(WalletPage);
+export default Auth(WalletPage, "employee");

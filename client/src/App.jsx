@@ -25,6 +25,7 @@ class App extends Component {
     accountType: null,
     userId: null,
     profileImg: null,
+    profileCode: null,
     payFlow: {
       tip: 5,
       payToUser: "",
@@ -117,7 +118,6 @@ class App extends Component {
           render={props => (
             <WalletPage
               {...props}
-              user={this.state.employeeUser}
               cookies={this.props.cookies.getAll()}
             />
           )}
@@ -129,8 +129,6 @@ class App extends Component {
           render={props => (
             <ShowCodePage
               {...props}
-              user={this.state.employeeUser}
-              code={"AN18"}
             />
           )}
         />
