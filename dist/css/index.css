@@ -231,8 +231,27 @@ table {
   }
 }
 
+.logo {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #67DA8C;
+  font-size: 3rem;
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 35%);
+}
+@media screen and (min-width: 1000px) {
+  .logo {
+    padding-top: 10rem;
+    font-size: 5rem;
+    background: none;
+  }
+}
+
 .top-content {
-  padding: 2rem;
+  padding-top: 5rem;
   color: white;
   display: flex;
   flex-flow: column wrap;
@@ -382,21 +401,8 @@ table {
 }
 @media screen and (min-width: 1000px) {
   .content-holder .profile-content .profile-items {
-    padding-top: 10rem;
-    font-size: 3rem;
-  }
-  .content-holder .profile-content .profile-items .profile-description .inside-img {
-    display: none;
-  }
-}
-@media screen and (min-width: 1000px) and (min-width: 1000px) {
-  .content-holder .profile-content .profile-items .profile-description .inside-img {
-    margin-left: 25rem;
-    margin-top: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+    padding-top: 5rem;
+    font-size: 1.5rem;
   }
 }
 .content-holder .profile-content .profile-items .close-tab img {
@@ -417,20 +423,25 @@ table {
 }
 @media screen and (min-width: 1000px) {
   .content-holder .profile-content .profile-items {
-    height: 90%;
-    top: 1rem;
-    width: 90%;
-    left: 3.5rem;
+    height: 25%;
+    top: 15rem;
+    width: 25%;
+    left: 41.5rem;
   }
 }
 .content-holder .profile-content .icons {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
-.content-holder .profile-content .icons:hover {
-  color: #1352DD;
+@media screen and (min-width: 1000px) {
+  .content-holder .profile-content .icons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content-holder .profile-content .icons:hover {
+    color: #1352DD;
+  }
 }
 .content-holder .profile-content .content-selected {
   display: flex;
