@@ -3,12 +3,13 @@ footer {
     color: $primary-color;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    flex-direction: row-reverse;
+    justify-content: center;
 
     a {
         @include textBtn;
         @include link;
-        margin-right: 20px;
+        margin: 0 20px;
         color: $primary-color;
         padding: 3px;
     }

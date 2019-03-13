@@ -390,7 +390,8 @@ footer {
   color: #67DA8C;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  flex-direction: row-reverse;
+  justify-content: center;
 }
 footer a {
   background-color: unset;
@@ -399,7 +400,7 @@ footer a {
   font-size: 1.8rem;
   font-weight: semi-bold;
   text-decoration: underline;
-  margin-right: 20px;
+  margin: 0 20px;
   color: #67DA8C;
   padding: 3px;
 }
