@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useInput } from '../../Hooks/input';
+import {useInput} from "../../Hooks/input";
 
 const TipPage = props => {
   // Creating new input hooks instance
@@ -8,7 +8,7 @@ const TipPage = props => {
 
   const tipHandler = () => {
     props.setTipHelper(tipAmount.value);
-    props.history.push("./find");
+    props.history.push("/find");
   };
 
   return (

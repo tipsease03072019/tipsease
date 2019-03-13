@@ -56,7 +56,7 @@ class App extends Component {
         this.props.cookies.remove("_uid");
       }
     });
-  }
+  };
 
   updateSessionFlow = updateValue => {
     sessionStorage.setItem("payFlow", updateValue);
@@ -146,7 +146,13 @@ class App extends Component {
           render={props => <PaymentSuccess {...props} />}
         /> */}
         {/* Default Route */}
-        <Route exact path="/setup-account" render={props => <SetupAccount {...props} cookies={this.props.cookies.getAll()}  />} />
+        <Route
+          exact
+          path="/setup-account"
+          render={props => (
+            <SetupAccount {...props} cookies={this.props.cookies.getAll()} />
+          )}
+        />
         <Route
           render={props => (
             <TipPage
