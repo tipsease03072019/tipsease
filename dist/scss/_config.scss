@@ -74,6 +74,10 @@ $xl-padding: 89px;
 
 //Mixins
 
+@mixin easeOut {
+    transition: all 0.5s ease-out;
+};
+
 @mixin btn {
 	background-color: white;
 	box-shadow: 0 8px 25px 0 rgba(40, 51, 63, .11);
@@ -106,6 +110,7 @@ $xl-padding: 89px;
 }
 
 //Text mixins
+
 @mixin heroHeading {
 	font-size: 7.5rem;
 	font-weight: bold;
