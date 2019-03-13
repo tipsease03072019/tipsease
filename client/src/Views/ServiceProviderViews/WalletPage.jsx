@@ -60,4 +60,4 @@ WalletPage.propTypes = {
   history: PropTypes.object.isRequired,
 }
 
-export default WalletPage;
+export default Auth(WalletPage, "employee");

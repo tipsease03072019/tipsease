@@ -26,6 +26,8 @@ class App extends Component {
     loggedIn: false,
     accountType: null,
     userId: null,
+    profileImg: null,
+    profileCode: null,
     payFlow: {
       tip: 5,
     },
@@ -118,6 +120,10 @@ class App extends Component {
           exact
           path="/wallet"
           render={props => (
+            <WalletPage
+              {...props}
+              cookies={this.props.cookies.getAll()}
+            />
             <>
               <Nav 
                 logOut={this.logoutHandler}
@@ -137,8 +143,6 @@ class App extends Component {
           render={props => (
             <ShowCodePage
               {...props}
-              user={this.state.employeeUser}
-              code={"AN18"}
             />
           )}
         />
