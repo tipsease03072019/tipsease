@@ -101,28 +101,38 @@ router.put("/:id", decode, async (req, res) => {
     res.status(200).json({
       message: "Updated."
     });
+  } else {
+    res.status(401).json({
+      message: "Unauthorized access."
+    });
   }
 });
 
-router.delete("/:id", authenticate, (req, res) => {
-  db("users")
-    .where({
-      id: req.params.id
-    })
-    .del()
-    .then(count => {
-      if (count) {
-        res.status(201).json({
-          "User Deleted": count,
-          message: "User was successfully deleted."
-        });
-      } else {
-        res.status(404).json({
-          error: `User with ID ${req.params.id} not found.`
-        });
-      }
-    })
-    .catch(err => res.status(500).json(err));
+router.delete("/:id", decode, (req, res) => {
+  if (req.params.id === req.body.uid) {
+    db("users")
+      .where({
+        id: req.params.id
+      })
+      .del()
+      .then(count => {
+        if (count) {
+          res.status(201).json({
+            "User Deleted": count,
+            message: "User was successfully deleted."
+          });
+        } else {
+          res.status(404).json({
+            error: `User with ID ${req.params.id} not found.`
+          });
+        }
+      })
+      .catch(err => res.status(500).json(err));
+  } else {
+    res.status(401).json({
+      message: "Unauthorized access."
+    });
+  }
 });
 
 module.exports = router;
