@@ -14,22 +14,28 @@ import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
 import TipPage from "./Views/CustomerViews/TipPage";
 import Profile from "./Views/ProfilePage";
 import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProviderPage";
+import Nav from './Components/Nav';
 
 // CSS imports
 import "axios-progress-bar/dist/nprogress.css";
+import PaymentSuccess from "./Views/CustomerViews/PaymentSuccessPage";
 
 class App extends Component {
-  //! Data does not pursist on reloads
+  //! Data does not persist on reloads
   state = {
     loggedIn: false,
     accountType: null,
     userId: null,
+    profileImg: null,
+    profileCode: null,
     payFlow: {
       tip: 5,
+      sendTipTo: "",
     },
   };
 
   componentDidMount() {
+    
     if(sessionStorage.getItem('payFlow')){
       this.setState({
         ...this.state,
@@ -57,6 +63,17 @@ class App extends Component {
           console.log(err);
         });
     }
+    if (sessionStorage.getItem("payFlow")) {
+      const pastData = JSON.parse(sessionStorage.getItem("payFlow"));
+      if(pastData.tip > 0){
+        this.setState({
+          ...this.state,
+          payFlow: {
+            ...pastData,
+          }
+        })
+      }
+    }
   }
 
   updateSessionFlow = updateValue => {
@@ -71,6 +88,11 @@ class App extends Component {
       accountType: data.account_type,
       userId: data.id,
     });
+  };
+
+  // TO BE IMPLEMENTED: CORRECT IMPLEMENTATION OF LOGOUT
+  logoutHandler = () => {
+    console.log('Loggin out now!')
   };
 
   setTipHelper = tip => {
@@ -111,7 +133,20 @@ class App extends Component {
           exact
           path="/wallet"
           render={props => (
-            <WalletPage {...props} user={this.state.employeeUser} />
+            <WalletPage
+              {...props}
+              cookies={this.props.cookies.getAll()}
+            />
+            <>
+              <Nav 
+                logOut={this.logoutHandler}
+                accountType={this.state.accountType} />
+              <WalletPage 
+                {...props} 
+                user={this.state.employeeUser}
+                logOut={this.logoutHandler}
+                />
+            </>
           )}
         />
         {/* <PrivateRoute exact path /> */}
@@ -121,8 +156,6 @@ class App extends Component {
           render={props => (
             <ShowCodePage
               {...props}
-              user={this.state.employeeUser}
-              code={"AN18"}
             />
           )}
         />
@@ -139,16 +172,37 @@ class App extends Component {
               {...props}
               user={this.state.normalUser}
               selectedTip={this.state.payFlow.tip}
+              sendTipTo={this.state.sendTipTo}
             />
           )}
         />
         <Route
+          exact
+          path="/success"
           render={props => (
+            <>
+              <Nav 
+                logOut={this.logoutHandler} 
+                accountType={this.state.accountType}/>
+              <PaymentSuccess
+                {...props}
+              />
+            </>
+          )}
+        />
+        <Route
+          render={props => (
+            <>
+            <Nav 
+              logOut={this.logoutHandler}
+              accountType={this.state.accountType}/>
             <TipPage
               {...props}
               tip={this.state.payFlow.tip}
               setTipHelper={this.setTipHelper}
+              logOut={this.logoutHandler}
             />
+            </>
           )}
         />
       </Switch>
