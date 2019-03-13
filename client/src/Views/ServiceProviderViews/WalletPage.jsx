@@ -4,6 +4,7 @@ import * as moment from "moment";
 import Auth from "../../HOC/Auth";
 import Skeleton from "react-loading-skeleton";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 class WalletPage extends Component {
   state = {
@@ -39,6 +40,7 @@ class WalletPage extends Component {
     return (
       <>
         {/* Upper Half, containing balance */}
+        <Link to='/profile'>To Profile</Link>
         <section className="wallet-top">
           <p>Your Current Tipsease Balance is:</p>
           <div className="balance-container">
