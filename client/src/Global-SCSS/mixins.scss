@@ -1,0 +1,8 @@
+// Shorthand flexbox mixin
+@mixin flexbox($flex-dir: row, $justify-cont: flex-start, $align-items: stretch, $flex-wrap: nowrap) {
+	display: flex;
+	flex-direction: $flex-dir;
+	justify-content: $justify-cont;
+	align-items: $align-items;
+	flex-wrap: $flex-wrap;
+}
