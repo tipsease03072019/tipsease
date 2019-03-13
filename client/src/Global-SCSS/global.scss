@@ -143,6 +143,17 @@ input {
   }
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+  padding-right: $normal-space;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
 input[type="checkbox"], input[type="radio"] {
   display: inline-block;
   width: 3.1rem;
@@ -215,4 +226,9 @@ figure {
 
 .no-margin {
   margin: 0;
+}
+
+#root {
+  @include flexbox(column, center, center);
+  height: 100vh;
 }
