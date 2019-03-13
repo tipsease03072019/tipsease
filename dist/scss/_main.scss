@@ -27,13 +27,13 @@ main {
             align-items: center;
             background: $primary-color;
             color: white;
-            height: 150px;
+            min-height: 150px;
             margin-bottom: $normal-margin;
             padding: 10px;
 
             strong {
                 @include subHeading;
-                font-weight: bold;
+                font-weight: bold
             }
 
             @include desktop {
@@ -41,9 +41,9 @@ main {
             }
 
             div {
-
-                width: 200%;
-                height: 100%;
+                margin: 0 10px;
+                width: 700px;
+                height: 200px;
                 background-image: url('https://svgshare.com/i/Bje.svg');
                 background-position: center;
                 background-size: contain;
