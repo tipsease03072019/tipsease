@@ -28,7 +28,7 @@ class App extends Component {
     profileCode: null,
     payFlow: {
       tip: 5,
-      payToUser: "",
+      sendTipTo: "",
     },
   };
 
@@ -53,12 +53,15 @@ class App extends Component {
         });
     }
     if (sessionStorage.getItem("payFlow")) {
-      this.setState({
-        ...this.state,
-        payFlow: {
-          ...JSON.parse(sessionStorage.getItem("payFlow")),
-        },
-      });
+      const pastData = JSON.parse(sessionStorage.getItem("payFlow"));
+      if(pastData.tip > 0){
+        this.setState({
+          ...this.state,
+          payFlow: {
+            ...pastData,
+          }
+        })
+      }
     }
   }
 
@@ -152,6 +155,7 @@ class App extends Component {
               {...props}
               user={this.state.normalUser}
               selectedTip={this.state.payFlow.tip}
+              sendTipTo={this.state.sendTipTo}
             />
           )}
         />
