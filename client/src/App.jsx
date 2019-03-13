@@ -14,12 +14,13 @@ import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
 import TipPage from "./Views/CustomerViews/TipPage";
 import Profile from "./Views/ProfilePage";
 import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProviderPage";
+import Nav from './Components/Nav';
 
 // CSS imports
 import "axios-progress-bar/dist/nprogress.css";
 
 class App extends Component {
-  //! Data does not pursist on reloads
+  //! Data does not persist on reloads
   state = {
     loggedIn: false,
     accountType: null,
@@ -89,6 +90,7 @@ class App extends Component {
     loadProgressBar();
     return (
       <Switch>
+        
         <Route
           exact
           path="/login"

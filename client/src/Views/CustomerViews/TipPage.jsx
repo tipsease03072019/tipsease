@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useInput } from '../../Hooks/input'
+import { useInput } from '../../Hooks/input';
+import Nav from './../../Components/Nav';
 
 const TipPage = props => {
   // Creating new input hooks instance
@@ -13,6 +14,7 @@ const TipPage = props => {
 
   return (
     <>
+      <Nav />
       <h2>Select Amount</h2>
       <input
         type="number"
@@ -33,8 +35,6 @@ TipPage.propTypes = {
   match: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
-  tip: PropTypes.number.isRequired,
   setTipHelper: PropTypes.func.isRequired,
 };
 
