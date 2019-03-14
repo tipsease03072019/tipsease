@@ -146,6 +146,29 @@ table {
     transform: scale(1);
   }
 }
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #28333f;
+}
+
+a {
+  text-decoration: none;
+  background-color: white;
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 18px;
+  font-weight: 500;
+  color: #28333f;
+}
+a:hover {
+  opacity: 0.8;
+}
+
 .hamburger {
   position: fixed;
   top: 30px;
@@ -252,8 +275,8 @@ table {
   justify-content: center;
   align-items: center;
   color: #67da8c;
-  background: #1352dd;
-  background: radial-gradient(circle, #1352dd 0%, #28333f 35%);
+  background: white;
+  background: linear-gradient(0deg, #28333f 1%, #eeeeee 99%);
 }
 .logo h1 {
   font-size: 3rem;
@@ -261,14 +284,15 @@ table {
 
 @media screen and (min-width: 800px) {
   .logo {
-    padding-bottom: 0;
-    background: none;
+    padding-bottom: 5rem;
+    background: linear-gradient(0deg, #28333f 0%, #eeeeee 100%);
   }
 }
 @media screen and (min-width: 1000px) {
   .logo {
-    padding: 8rem 0;
+    padding: 9rem 0;
     background: #eeeeee;
+    background: linear-gradient(0deg, #28333f 0%, #eeeeee 100%);
   }
   .logo h1 {
     font-size: 5rem;
@@ -311,8 +335,6 @@ table {
   .top-content {
     flex-flow: row-reverse;
     justify-content: space-between;
-    background: #28333f;
-    background: linear-gradient(0deg, #28333f 75%, #eeeeee 90%);
   }
 }
 @media screen and (min-width: 800px) {
@@ -379,6 +401,7 @@ table {
 }
 
 .profiles {
+  margin-left: 2rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -442,13 +465,15 @@ table {
   color: white;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-align: center;
 }
-.profiles .text a {
+.profiles .text .social-btn {
   color: #67da8c;
+  background: none;
+  margin: 0;
 }
-.profiles .text a:hover {
+.profiles .text .social-btn:hover {
   color: #1352dd;
 }
 .profiles .profile-img {
@@ -570,10 +595,20 @@ table {
   left: 25px;
   transform: translate(0, -50%);
 }
+@media screen and (min-width: 1000px) {
+  .carousel .left-button {
+    left: 22rem;
+  }
+}
 .carousel .right-button {
   top: 50%;
-  right: 25px;
+  right: 0rem;
   transform: translate(0, -50%);
+}
+@media screen and (min-width: 1000px) {
+  .carousel .right-button {
+    right: 22rem;
+  }
 }
 
 footer {
@@ -583,7 +618,7 @@ footer {
   align-items: center;
   flex-direction: row-reverse;
   justify-content: center;
-  font-size: 14px;
+  font-size: 2.6rem;
 }
 @media screen and (min-width: 1000px) {
   footer {
@@ -597,15 +632,6 @@ footer a {
   margin: 0 20px;
   color: #67da8c;
   padding: 3px;
-}
-
-html,
-body {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: #28333f;
 }
 
 /*# sourceMappingURL=index.css.map */
