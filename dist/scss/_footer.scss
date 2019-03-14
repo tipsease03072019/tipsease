@@ -8,7 +8,7 @@ footer {
     font-size: 14px;
 
     @include desktop {
-        margin-top: 150px;
+        margin-top: $lg-margin;
     }
 
     a {

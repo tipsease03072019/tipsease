@@ -315,9 +315,8 @@ main #info .info-card {
   background: #67DA8C;
   color: white;
   min-height: 150px;
-  margin-bottom: 18px;
   padding: 34px;
-  margin: 10px;
+  margin: 34px 10px 0 10px;
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
 }
@@ -326,11 +325,6 @@ main #info .info-card strong {
   font-weight: 500;
   margin-bottom: 10px;
   font-weight: bold;
-}
-@media screen and (min-width: 1000px) {
-  main #info .info-card {
-    height: 100%;
-  }
 }
 main #info .info-card div {
   margin: 0 10px;
@@ -355,6 +349,18 @@ main #info .info-card div:nth-child(2) {
     justify-content: space-around;
   }
 }
+main .bottom {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 1000px) {
+  main .bottom {
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+}
 main .bottom-bg {
   min-height: 300px;
   width: 80%;
@@ -364,11 +370,8 @@ main .bottom-bg {
 }
 @media screen and (min-width: 1000px) {
   main .bottom-bg {
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 50px;
-    width: 90%;
+    width: 45%;
+    align-self: flex-end;
   }
 }
 main .bottom-content {
@@ -393,47 +396,17 @@ main .bottom-content .login {
   background: #67DA8C;
   color: white;
   text-align: center;
+  margin-bottom: 30px;
+  width: 180px;
 }
 main .illustration-div {
   margin-bottom: 20px;
   max-height: 100%;
   width: 100%;
 }
-@media screen and (min-width: 1000px) {
-  main .illustration-div {
-    width: 50%;
-  }
-}
 main .illustration-div img {
   max-height: 90%;
   max-width: 100%;
-}
-@media screen and (min-width: 1000px) {
-  main {
-    margin-top: 50px;
-  }
-}
-main a {
-  background-color: white;
-  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
-  border-radius: 10px;
-  font-size: 18px;
-  padding: 18px;
-  font-weight: 500;
-  color: #28333f;
-  background: white;
-  color: #28333f;
-  padding: 15px;
-  margin-bottom: 30px;
-  width: 180px;
-}
-main a:hover {
-  opacity: 0.8;
-}
-@media screen and (min-width: 800px) {
-  main a {
-    margin-bottom: 0;
-  }
 }
 
 footer {
@@ -447,7 +420,7 @@ footer {
 }
 @media screen and (min-width: 1000px) {
   footer {
-    margin-top: 150px;
+    margin-top: 55px;
   }
 }
 footer a {
