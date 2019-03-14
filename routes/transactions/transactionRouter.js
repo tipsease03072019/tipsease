@@ -27,34 +27,28 @@ router.get("/:id", decode1, (req, res) => {
   }
 });
 
-router.post("/:id", decode1, (req, res) => {
-  if (req.params.id === req.headers.UID) {
-    const pay = req.body;
-    const id = req.params.id;
-    db("transactions")
-      .insert(pay)
-      .where("users_id", "=", id)
-      .select("user_balance")
-      .then(res1 => {
-        console.log(res1.user_balance);
-        let new_balance = res1.user_balance + pay.tip;
-        db("users")
-          .where("id", "=", id)
-          .select("balance")
-          .update({ balance: new_balance })
-          .then(res2 => {
-            res.status(200).json(res2);
-            new_balance;
-            console.log(res2, new_balance, pay.tip);
-          })
-          .catch(err => console.log(err));
-      })
-      .catch(err => console.log(err));
-  } else {
-    res.status(401).json({
-      message: "Unauthorized access."
-    });
-  }
+router.post("/:id", (req, res) => {
+  const pay = req.body;
+  const id = req.params.id;
+  db("transactions")
+    .insert(pay)
+    .where("users_id", "=", id)
+    .select("user_balance")
+    .then(res1 => {
+      console.log(res1.user_balance);
+      let new_balance = res1.user_balance + pay.tip;
+      db("users")
+        .where("id", "=", id)
+        .select("balance")
+        .update({ balance: new_balance })
+        .then(res2 => {
+          res.status(201).json(res2);
+          new_balance;
+          console.log(res2, new_balance, pay.tip);
+        })
+        .catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
 });
 
 // router.put("/:id", (req, res) => {
