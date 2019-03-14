@@ -19,9 +19,8 @@ const {
 
 router.get("/:id", decode1, (req, res) => {
   if (req.params.id === req.headers.UID) {
-    const id = req.body.users_id;
     db("transactions")
-      .where("users_id", "=", id)
+      .where("users_id", "=", req.params.id)
       .then(transactions => {
         res.status(200).send(transactions);
         db("users")

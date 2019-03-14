@@ -43,10 +43,7 @@ axios
 ```
 const newUser = {
     username: "", // (Unique) required
-    password: "", // required
     account_type: "", // required (Customer or Employee)
-    email: "", // (Unique) optional
-    img_url: "" // optional,
 };
 
 axios
@@ -69,7 +66,7 @@ axios
 }
 ```
 
-## // Login
+<!-- ## // Login
 
 ```
 const creds = {
@@ -95,7 +92,7 @@ axios
         token: ""
     }
 ]
-```
+``` -->
 
 ## // Users by ID
 
