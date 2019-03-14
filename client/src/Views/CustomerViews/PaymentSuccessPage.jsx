@@ -8,7 +8,7 @@ class PaymentSuccess extends Component {
     isSuccessful: false,
     hasFailed: false,
     sendData: {
-      users_id: this.props.data.user_id,
+      uid: this.props.data.user_id,
       tip: this.props.data.tip,
     },
   };
@@ -16,11 +16,12 @@ class PaymentSuccess extends Component {
   sendTip = () => {
     this.setState({
       isLoading: true,
-    })
+    });
+    console.log(this.state.sendData);
     axios
       .post(
         `https://tipsease.herokuapp.com/api/transactions/${
-          this.state.sendData.users_id
+          this.state.sendData.uid
         }`,
         this.state.sendData,
       )
@@ -47,9 +48,7 @@ class PaymentSuccess extends Component {
           <section className="view payment">
             <h2>Payment Sent Successfully</h2>
             <Link to="/">
-              <button className="send-again-btn">
-                Send Again
-              </button>
+              <button className="send-again-btn">Send Again</button>
             </Link>
           </section>
         </div>
@@ -60,9 +59,8 @@ class PaymentSuccess extends Component {
         <div className="view-background payment-failure">
           <section className="view payment">
             <h2>Send Failed</h2>
-            <Link to="/">
-              <button>Try Again</button>
-            </Link>
+            <p>Either you are broke or we messed up.</p>
+            <button onClick={this.sendTip}>Try Again</button>
           </section>
         </div>
       );
@@ -70,13 +68,12 @@ class PaymentSuccess extends Component {
     if (username && tip) {
       return (
         <section className="view payment">
-          <h2 className="send-amount">Send <span>${tip}</span></h2>
+          <h2 className="send-amount">
+            Send <span>${tip}</span>
+          </h2>
           <h4>to</h4>
           <h2 className="username">@{username}</h2>
-          <button
-            onClick={this.sendTip}
-            className="secondary"
-          >
+          <button onClick={this.sendTip} className="secondary">
             Confirm
           </button>
           <Link to="/find">

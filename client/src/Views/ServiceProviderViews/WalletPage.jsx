@@ -9,6 +9,8 @@ class WalletPage extends Component {
   state = {
     isLoading: true,
     balance: null,
+    username: "maksim",
+    showUsername: false,
   };
 
   componentDidMount() {
@@ -34,7 +36,10 @@ class WalletPage extends Component {
   };
 
   showCodeHandler = () => {
-    this.props.history.push("/wallet/code");
+    this.setState({
+      ...this.state,
+      showUsername: !this.state.showUsername,
+    });
   };
 
   render() {
@@ -65,7 +70,6 @@ class WalletPage extends Component {
         balance: 50,
       },
     ];
-    console.log(this.props);
     return (
       <section className="view">
         <section className="wallet-top">
@@ -90,9 +94,18 @@ class WalletPage extends Component {
           {/* {!this.state.isLoading && transactions.map((transaction, idx) => (
             <WalletHistory senderImg />
           ))} */}
-          <button className="secondary" onClick={this.showCodeHandler}>
-            Show Your Code
-          </button>
+          {this.state.isLoading && (
+            <button className="secondary" >
+              <Skeleton />
+            </button>
+          )}
+          {!this.state.isLoading && (
+            <button className="secondary" onClick={this.showCodeHandler}>
+              {this.state.showUsername
+                ? `@${this.state.username}`
+                : "Show Code"}
+            </button>
+          )}
         </section>
       </section>
     );
