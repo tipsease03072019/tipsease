@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const admin = require("../config/admin");
 
 const jwtKey =
   process.env.JWT_SECRET ||
@@ -8,7 +9,8 @@ const jwtKey =
 module.exports = {
   authenticate,
   generateToken,
-  decode
+  decode,
+  decode1
 };
 
 // implementation details
@@ -48,7 +50,8 @@ function generateToken(user) {
 
 function decode(req, res, next) {
   // console.log("req", req.query.token);
-  const token = req.query.token;
+  const token = req.body.token;
+  console.log(token)
   admin
     .auth()
     .verifyIdToken(token)
@@ -56,4 +59,12 @@ function decode(req, res, next) {
       req.body.UID = decodedToken.uid;
       next();
     });
+}
+function decode1(req, res, next) {
+  const token = req.headers.token;
+  console.log(token)
+  admin.auth().verifyIdToken(token).then(decodedToken => {
+    req.headers.UID = decodedToken.uid;
+    next();
+  })
 }
