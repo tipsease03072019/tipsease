@@ -84,7 +84,6 @@ table {
 }
 
 .nav-display {
-  background: white;
   height: 0;
   position: fixed;
   top: 0;
@@ -106,7 +105,6 @@ table {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;
-  visibility: hidden;
   width: 90%;
   height: 100%;
   margin: 0 auto;
@@ -114,7 +112,6 @@ table {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  opacity: 0;
 }
 @media screen and (min-width: 800px) {
   .nav-display .nav-bg {
@@ -270,7 +267,6 @@ header .cta strong {
   font-size: 7.5rem;
   font-weight: bold;
   margin-bottom: 18px;
-  font-weight: bold;
   margin-bottom: 50px;
 }
 header .cta .slogan {
@@ -337,11 +333,6 @@ main #info .info-card div {
 }
 main #info .info-card div:nth-child(2) {
   background-image: url("https://svgshare.com/i/BkP.svg");
-}
-@media screen and (min-width: 1000px) {
-  main #info .info-card div {
-    width: 160%;
-  }
 }
 @media screen and (min-width: 800px) {
   main #info .info-card {
