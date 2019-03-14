@@ -2,6 +2,11 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -67,9 +72,10 @@ table {
   cursor: pointer;
 }
 .hamburger .line {
-  height: 15%;
+  height: 10%;
   width: 100%;
-  background: #1352dd;
+  background: white;
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.2);
 }
 @media screen and (min-width: 800px) {
   .hamburger .line {
@@ -84,6 +90,8 @@ table {
   top: 0;
   right: 0;
   width: 100%;
+  background: linear-gradient(180deg, white 50%, #67da8c 100%);
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.2);
 }
 @media screen and (min-width: 1000px) {
   .nav-display {
@@ -139,22 +147,27 @@ table {
     margin: 10px;
     background: none;
     box-shadow: none;
-    font-size: 1.8rem;
-    font-weight: semi-bold;
-    text-decoration: underline;
-  }
-  .nav-display .nav-bg a:hover {
-    opacity: 0.8;
+    text-decoration: none;
+    font-weight: 500;
   }
 }
 .nav-display .nav-bg a:nth-child(2) {
-  margin-bottom: 65%;
+  margin-bottom: 75%;
 }
 
 .bg {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 800px) {
+  .bg {
+    background: linear-gradient(180deg, white 46%, #28333f 100%);
+    margin-bottom: 80px;
+  }
 }
 .bg .header-bg {
   display: none;
@@ -187,9 +200,30 @@ header {
   align-items: center;
   justify-content: space-around;
 }
+header .tip-now {
+  background-color: #67DA8C;
+  color: white;
+}
 @media screen and (min-width: 1000px) {
   header {
     width: 45%;
+    margin-left: 50px;
+  }
+  header .link-container {
+    height: 40%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header .link-container a {
+    margin: 18px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 800px) {
+  header {
+    margin-left: 7%;
   }
 }
 header .info-btn {
@@ -198,6 +232,7 @@ header .info-btn {
 @media screen and (min-width: 1000px) {
   header .info-btn {
     display: block;
+    background: white;
   }
 }
 header .header-bg {
@@ -209,10 +244,11 @@ header a {
   border-radius: 10px;
   font-size: 18px;
   padding: 18px;
-  font-weight: semi-bold;
+  font-weight: 500;
   color: #28333f;
   width: 50%;
   margin-bottom: 40px;
+  background: #67DA8C;
 }
 header a:hover {
   opacity: 0.8;
@@ -226,17 +262,21 @@ header a:hover {
 header .cta {
   margin-top: 50px;
 }
+header .cta h1 {
+  margin-bottom: 30px;
+}
 header .cta strong {
   color: #67DA8C;
   font-size: 7.5rem;
   font-weight: bold;
   margin-bottom: 18px;
   font-weight: bold;
+  margin-bottom: 50px;
 }
 header .cta .slogan {
-  color: white;
+  color: #67DA8C;
   font-size: 2.5rem;
-  font-weight: semi-bold;
+  font-weight: 500;
   margin-bottom: 10px;
 }
 
@@ -246,11 +286,17 @@ main {
   align-items: center;
   min-height: 500px;
 }
+@media screen and (min-width: 1000px) {
+  main {
+    padding-top: 50px;
+  }
+}
 main #info {
   width: 90%;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  margin-bottom: 50px;
 }
 @media screen and (min-width: 800px) {
   main #info {
@@ -268,11 +314,18 @@ main #info .info-card {
   align-items: center;
   background: #67DA8C;
   color: white;
-  height: 150px;
+  min-height: 150px;
   margin-bottom: 18px;
-  padding: 10px;
+  padding: 34px;
+  margin: 10px;
   box-shadow: 0 6px 10px 0 rgba(40, 51, 63, 0.08);
   border-radius: 6px;
+}
+main #info .info-card strong {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 @media screen and (min-width: 1000px) {
   main #info .info-card {
@@ -280,8 +333,9 @@ main #info .info-card {
   }
 }
 main #info .info-card div {
-  width: 200%;
-  height: 100%;
+  margin: 0 10px;
+  width: 700px;
+  height: 200px;
   background-image: url("https://svgshare.com/i/Bje.svg");
   background-position: center;
   background-size: contain;
@@ -318,29 +372,36 @@ main .bottom-bg {
     width: 90%;
   }
 }
-main .bottom-bg .white-bg .clip {
-  width: 100%;
-}
 @media screen and (min-width: 1000px) {
   main .bottom-bg .white-bg {
     align-self: flex-end;
-    height: 60%;
-    width: 50%;
+    height: 100%;
+    width: 45%;
     display: flex;
+    border-radius: 10px;
     justify-content: center;
     align-items: center;
-    background: #1352dd;
   }
   main .bottom-bg .white-bg .clip {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: #67DA8C;
-    clip-path: polygon(100% 9%, 100% 81%, 0 100%, 0 100%, 0 31%);
+    width: 100%;
   }
-  main .bottom-bg .white-bg a {
-    width: 35%;
+  main .bottom-bg .white-bg .clip p {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 3rem;
+    color: white;
+    margin: 35px;
+    width: 50%;
+  }
+  main .bottom-bg .white-bg .clip .login {
+    background: #67DA8C;
+    color: white;
   }
 }
 main .bottom-bg .illustration-div {
@@ -368,13 +429,13 @@ main .bottom-bg a {
   border-radius: 10px;
   font-size: 18px;
   padding: 18px;
-  font-weight: semi-bold;
+  font-weight: 500;
   color: #28333f;
   background: white;
   color: #28333f;
   padding: 15px;
   margin-bottom: 30px;
-  width: 50%;
+  width: 180px;
 }
 main .bottom-bg a:hover {
   opacity: 0.8;
@@ -403,7 +464,7 @@ footer a {
   color: white;
   text-decoration: none;
   font-size: 1.8rem;
-  font-weight: semi-bold;
+  font-weight: 500;
   text-decoration: underline;
   margin: 0 20px;
   color: #67DA8C;
@@ -413,12 +474,15 @@ footer a:hover {
   opacity: 0.8;
 }
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #28333f;
 }
 body p {
   font-size: 1.6rem;
-  font-weight: regular;
   line-height: 2.8rem;
 }
 
@@ -430,7 +494,7 @@ a {
   border-radius: 10px;
   font-size: 18px;
   padding: 18px;
-  font-weight: semi-bold;
+  font-weight: 500;
   color: #28333f;
 }
 a:hover {

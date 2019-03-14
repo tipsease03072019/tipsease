@@ -6,6 +6,9 @@
 
 
 //General Styles
+html, body {
+    scroll-behavior: smooth;
+}
 body {
     background: $dark-text-color;
     p {
