@@ -236,13 +236,17 @@ figure {
 #root {
   min-height: 100vh;
   @include flexbox(column, center, center);
-}
 
-section.view {
-  width: 100%;
-  min-height: 100vh;
-  max-width: $desktop-width;
-  @include flexbox(column, null, center);
-  padding: 0 $normal-space;
-  margin-bottom: $extra-large-space;
+  .view-background {
+    @include flexbox(column, center, center);
+  }
+
+  section.view {
+    width: 100%;
+    min-height: 100vh;
+    max-width: $desktop-width;
+    @include flexbox(column, null, center);
+    padding: 0 $normal-space;
+    padding-bottom: $extra-large-space;
+  }
 }

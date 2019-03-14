@@ -1,0 +1,53 @@
+.tip.view-background {
+  position: absolute;
+  height: 100%;
+  background-color: $tipsease-primary;
+
+  section.view.tip {
+    @include flexbox(inherit, inherit, center);
+
+
+    .tip-input {
+      font-size: roundFloatValue($base-font-size * 3.05);
+      border: unset;
+      text-align: center;
+      box-shadow: unset;
+
+      &::before {
+        content: '$';
+      }
+    }
+
+    .next-btn {
+      color: $tipsease-secondary;
+    }
+
+    .tip-shortcuts-container {
+      @include flexbox(null, center, center, wrap);
+      position: fixed;
+      bottom: $medium-space;
+      width: 90%;
+
+      @media #{$desktop} {
+        position: unset;
+      }
+
+      button {
+        margin: 0;
+        margin-right: $medium-space;
+        margin-bottom: $normal-space;
+
+        @media #{$desktop} {
+          min-height: 5rem;
+          padding: $normal-space $large-space;
+          font-size: $base-font-size;
+        }
+
+        &:last-child {
+          margin: 0;
+          margin-bottom: $normal-space;
+        }
+      }
+    }
+  }
+}

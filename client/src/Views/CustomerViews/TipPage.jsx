@@ -12,20 +12,44 @@ const TipPage = props => {
   };
 
   return (
-    <>
-      <h2>Select Amount</h2>
-      <input
-        type="number"
-        value={tipAmount.value}
-        onChange={tipAmount.updateValue}
-      />
-      <button onClick={tipHandler}>Next</button>
-      <br />
-      <button onClick={() => tipAmount.setValue(5)}>5</button>
-      <button onClick={() => tipAmount.setValue(10)}>10</button>
-      <button onClick={() => tipAmount.setValue(15)}>15</button>
-      <button onClick={() => tipAmount.setValue(20)}>20</button>
-    </>
+    <div className="tip view-background full-width">
+      <section className="view tip">
+        <h4>Select Amount</h4>
+        <input
+          type="number"
+          value={tipAmount.value}
+          onChange={tipAmount.updateValue}
+          className="tip-input"
+        />
+      <button className="transparent next-btn" onClick={tipHandler}>Next</button>
+        <div className="tip-shortcuts-container full-width">
+          <button
+            className="small"
+            onClick={() => tipAmount.setValue(5)}
+          >
+            $5
+          </button>
+          <button
+            className="small"
+            onClick={() => tipAmount.setValue(10)}
+          >
+            $10
+          </button>
+          <button
+            className="small"
+            onClick={() => tipAmount.setValue(15)}
+          >
+            $15
+          </button>
+          <button
+            className="small"
+            onClick={() => tipAmount.setValue(20)}
+          >
+            $20
+          </button>
+        </div>
+      </section>
+    </div>
   );
 };
 
