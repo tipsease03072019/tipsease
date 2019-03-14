@@ -1,0 +1,26 @@
+.search-provider.view-background {
+  background-color: $tipsease-primary;
+
+  section.view.search-provider {
+    @include flexbox(inherit, inherit, center);
+
+    .balance-container {
+      @include flexbox(null, center);
+      $balance-h2-line-height: 4.8rem;
+      height: calc(#{$balance-h2-line-height} - #{$small-space});
+      margin-bottom: $medium-space;
+
+      h2 {
+        line-height: $balance-h2-line-height;
+      }
+    }
+
+    h4 {
+      margin-bottom: $medium-space;
+    }
+
+    .next-btn {
+      color: $tipsease-secondary;
+    }
+  }
+}

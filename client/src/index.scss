@@ -4,3 +4,13 @@
 @import 'Global-SCSS/functions.scss';
 @import 'Global-SCSS/mixins.scss';
 @import 'Global-SCSS/global.scss';
+
+//====== Components ======//
+@import 'Components/LoginSignupHeader.scss';
+
+//====== Views ======//
+@import 'Views/LoginPage.scss';
+@import 'Views/SignUpPage.scss';
+@import 'Views/ServiceProviderViews/WalletPage.scss';
+@import 'Views/CustomerViews/SearchServiceProviderPage.scss';
+@import 'Views/CustomerViews/TipPage.scss';

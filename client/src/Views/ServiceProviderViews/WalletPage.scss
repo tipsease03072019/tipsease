@@ -1,0 +1,106 @@
+.wallet-top, .wallet-bottom {
+  text-align: center;
+}
+
+.wallet-top {
+  width: calc(100vw - 14px);
+  padding: $large-space 0;
+  padding-bottom: $medium-space;
+  margin-bottom: $medium-space;
+  background-color: $tipsease-primary;
+  @include flexbox(column, center, center);
+
+  h2 {
+    margin-bottom: $medium-space;
+  }
+
+  button {
+    width: 90%;
+    max-width: 25rem;
+  }
+
+  .card {
+    @include flexbox(column, center);
+    padding: $extra-large-space $normal-space;
+    margin-bottom: $medium-space;
+    max-width: $desktop-width - ($normal-space * 2);
+    width: calc(100% - (#{$normal-space} * 2));
+
+    p {
+      margin-bottom: $medium-space;
+    }
+
+    .balance-container {
+      $balance-h1-line-height: 10.3rem;
+      @include flexbox(null, center);
+      height: calc(#{$balance-h1-line-height} - #{$small-space});
+
+      span {
+        font-size: $medium-space;
+      }
+
+      h1 {
+        font-size: 13rem;
+        line-height: $balance-h1-line-height;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.wallet-bottom {
+  @include flexbox(column, null, center);
+  
+  h4 {
+    margin-bottom: $medium-space;
+  }
+
+  .transaction-container {
+    @include flexbox(null, space-between);
+    max-width: 40rem;
+    width: 90%;
+    margin-bottom: $medium-space;
+
+    p, h4 {
+      margin: 0;
+      text-align: left;
+    }
+
+    .avatar {
+      width: 5.6rem;
+      height: 5.6rem;
+      border-radius: 100%;
+      @include flexbox(null, center, center);
+      font-weight: 600;
+      margin-right: $medium-space;
+      background-color: $tipsease-light;
+    }
+
+    .left-container {
+      flex: 1;
+
+      .transaction-person {
+        font-weight: 600;
+      }
+    }
+
+    .right-container {
+      @include flexbox(column, center);
+
+      .transaction-amount {
+        line-height: 100%;
+      }
+
+    }
+  }
+
+  button.secondary {
+    position: fixed;
+    width: 90%;
+    max-width: 25rem;
+    bottom: $normal-space;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+}

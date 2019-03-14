@@ -1,98 +1,90 @@
+// Account types
+// Employee => f5c3522b165b1589a6cb5a2aee1da7f7
+// Customer => 1c5bc292728db250bf56c216870babab
+
 import React, {Component} from "react";
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route, Redirect} from "react-router-dom";
 import {loadProgressBar} from "axios-progress-bar";
 import axios from "axios";
+import firebase from "./config/fire";
+import {withCookies} from "react-cookie";
 
 // HOC Imports
 import PrivateRoute from "./HOC/PrivateRoute";
 
 // View imports
-import LoginPage from "./Views/LoginPage";
 import SignUpPage from "./Views/SignUpPage";
 import WalletPage from "./Views/ServiceProviderViews/WalletPage";
 import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
 import TipPage from "./Views/CustomerViews/TipPage";
 import Profile from "./Views/ProfilePage";
+import Payment from "./Views/CustomerViews/PaymentSuccessPage";
 import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProviderPage";
-import Nav from './Components/Nav';
 
 // CSS imports
 import "axios-progress-bar/dist/nprogress.css";
 import PaymentSuccess from "./Views/CustomerViews/PaymentSuccessPage";
 
 class App extends Component {
-  //! Data does not persist on reloads
   state = {
     loggedIn: false,
     accountType: null,
     userId: null,
     profileImg: null,
-    profileCode: null,
     payFlow: {
       tip: 5,
-      sendTipTo: "",
+      users_id: "",
+      username: '',
     },
   };
 
   componentDidMount() {
-    
-    if(sessionStorage.getItem('payFlow')){
-      this.setState({
-        ...this.state,
-        payFlow: {
-          ...sessionStorage.getItem('payFlow')
-        }
-      })
-    }
-    if (localStorage.getItem("userId") && localStorage.getItem("token")) {
-      axios.defaults.headers.common["Authorization"] = localStorage.getItem(
-        "token",
-      );
-      const userId = localStorage.getItem("userId");
-      axios
-        .get(`https://tipsease.herokuapp.com/api/users/${userId}`)
-        .then(res => {
-          this.setState({
-            ...this.state,
-            loggedIn: true,
-            accountType: res.data.account_type,
-            userId: res.data.id,
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-    if (sessionStorage.getItem("payFlow")) {
-      const pastData = JSON.parse(sessionStorage.getItem("payFlow"));
-      if(pastData.tip > 0){
+    this.loginHandler();
+  }
+
+  loginHandler = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.cookies.set("_uat", user._lat);
+        this.props.cookies.set("_uid", user.uid);
         this.setState({
-          ...this.state,
-          payFlow: {
-            ...pastData,
-          }
-        })
+          profileImg: user.photoURL,
+        });
+        // TODO: Get request to pull account type and profile code
+      } else {
+        this.props.cookies.remove("_uat");
+        this.props.cookies.remove("_uid");
       }
-    }
-  }
-
-  updateSessionFlow = updateValue => {
-    sessionStorage.setItem('payFlow', updateValue)
-  }
-
-  loginHandler = data => {
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("userId", data.id);
-    this.setState({
-      loggedIn: true,
-      accountType: data.account_type,
-      userId: data.id,
     });
   };
 
-  // TO BE IMPLEMENTED: CORRECT IMPLEMENTATION OF LOGOUT
+  updateSessionFlow = updateValue => {
+    sessionStorage.setItem("payFlow", updateValue);
+  };
+
+  setLogin = ({uid, profileImg, token}) => {
+    this.setState({
+      ...this.state,
+      loggedIn: true,
+      userId: uid,
+      profileImg: profileImg,
+    });
+    this.props.cookies.set("_uat", token);
+    this.props.cookies.set("_uid", uid);
+  };
+
   logoutHandler = () => {
-    console.log('Loggin out now!')
+    firebase.auth().signOut();
+    console.log("you are logged out");
+    this.props.cookies.remove("_uat");
+    this.props.cookies.remove("_uid");
+    this.setState({
+      ...this.state,
+      accountType: null,
+      userId: null,
+      profileImg: null,
+      profileCode: null,
+    });
   };
 
   setTipHelper = tip => {
@@ -103,8 +95,19 @@ class App extends Component {
         tip,
       },
     });
-    this.updateSessionFlow({...this.state.payFlow, tip});
-    sessionStorage.setItem('payFlow', {...this.state.payFlow, tip})
+    sessionStorage.setItem("payFlow", {...this.state.payFlow, tip});
+  };
+
+  setUserHelper = (uid, username) => {
+    this.setState({
+      ...this.state,
+      payFlow: {
+        ...this.state.payFlow,
+        user_id: uid,
+        username: username,
+      },
+    });
+    sessionStorage.setItem("payFlow", {...this.state.payFlow, user_id: uid, username: username});
   };
 
   render() {
@@ -115,17 +118,12 @@ class App extends Component {
           exact
           path="/login"
           render={props => (
-            <LoginPage {...props} loginHandler={this.loginHandler} />
-          )}
-        />
-        <Route
-          exact
-          path="/signup"
-          render={props => (
             <SignUpPage
               {...props}
               loginHandler={this.loginHandler}
               accountType={this.state.accountType}
+              cookies={this.props.cookies.getAll()}
+              setLogin={this.setLogin}
             />
           )}
         />
@@ -133,76 +131,46 @@ class App extends Component {
           exact
           path="/wallet"
           render={props => (
-            <WalletPage
-              {...props}
-              cookies={this.props.cookies.getAll()}
-            />
-            <>
-              <Nav 
-                logOut={this.logoutHandler}
-                accountType={this.state.accountType} />
-              <WalletPage 
-                {...props} 
-                user={this.state.employeeUser}
-                logOut={this.logoutHandler}
-                />
-            </>
+            <WalletPage {...props} cookies={this.props.cookies.getAll()} />
           )}
         />
-        {/* <PrivateRoute exact path /> */}
         <Route
           exact
           path="/wallet/code"
-          render={props => (
-            <ShowCodePage
-              {...props}
-            />
-          )}
+          render={props => <ShowCodePage {...props} />}
         />
+        <Route
+          exact
+          path="/payment"
+          render={props => <Payment data={this.state.payFlow} />}
+        />
+        {/*
+        //! Needs to be done with other hoc
         <PrivateRoute
           exact
           path="/profile"
           component={props => <Profile {...props} userId={this.state.userId} />}
-        />
+        /> */}
         <Route
           exact
           path="/find"
           render={props => (
             <SearchServiceProviderPage
               {...props}
-              user={this.state.normalUser}
               selectedTip={this.state.payFlow.tip}
-              sendTipTo={this.state.sendTipTo}
+              setUserHelper={this.setUserHelper}
             />
           )}
         />
-        <Route
-          exact
-          path="/success"
-          render={props => (
-            <>
-              <Nav 
-                logOut={this.logoutHandler} 
-                accountType={this.state.accountType}/>
-              <PaymentSuccess
-                {...props}
-              />
-            </>
-          )}
-        />
+        {/* Default Route */}
         <Route
           render={props => (
-            <>
-            <Nav 
-              logOut={this.logoutHandler}
-              accountType={this.state.accountType}/>
             <TipPage
               {...props}
               tip={this.state.payFlow.tip}
               setTipHelper={this.setTipHelper}
               logOut={this.logoutHandler}
             />
-            </>
           )}
         />
       </Switch>
@@ -210,4 +178,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withCookies(App);

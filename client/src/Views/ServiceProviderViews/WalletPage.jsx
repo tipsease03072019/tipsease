@@ -1,11 +1,11 @@
-import React,{ Component } from "react";
-import PropTypes from 'prop-types';
-import * as moment from 'moment';
+import React, {Component} from "react";
+import * as moment from "moment";
 
 class WalletPage extends Component {
   state = {
     balance: 50
   }
+
   tipHandler = () => {
     this.props.history.push("/tip")
   }
@@ -14,50 +14,86 @@ class WalletPage extends Component {
     this.props.history.push("/wallet/code")
   }
 
-  
   render() {
     // Empty Array, signifying previous transactions. To be used to `map()` below.
-    const transactions = [{
-      receivedOrSent: "received", amount: 69, sender: "Isaac Aszimov", timeStamp: "2019-03-12 01:06:39"
-    }];
-    const testUser = [{
-      name: "John",
-      balance: 50
-    }]
+    const transactions = [
+      {
+        receivedOrSent: "received",
+        amount: 69,
+        sender: "Isaac Aszimov",
+        timeStamp: "2019-03-12 01:06:39"
+      },
+      {
+        receivedOrSent: "received",
+        amount: 52,
+        sender: "William Jones",
+        timeStamp: "2019-03-12 01:06:39"
+      },
+      {
+        receivedOrSent: "received",
+        amount: 46,
+        sender: "Isaac Henry",
+        timeStamp: "2019-03-12 01:06:39"
+      }
+    ];
+    const testUser = [
+      {
+        name: "John",
+        balance: 50
+      }
+    ]
     return (
-      <>
-        {/* Upper Half, containing balance */}
+      <section className="view">
         <section className="wallet-top">
-          <p>Your Current TipTease Balance is:</p>
-          <div className="balance-container">
-            $ {this.state.balance}
+          <h2>Welcome</h2>
+          <div className="card full-width">
+            <p>Your Current Tipsease Balance is:</p>
+            <div className="balance-container">
+              <span>$</span>
+              <h1>{this.state.balance}</h1>
+            </div>
           </div>
 
           <button onClick={this.tipHandler}>Tip Someone</button>
         </section>
 
-        {/* Lower Half, containing latest transactions and an absolute-positioned button to show the code */}
-        <section className="wallet-bottom">
-          <p>Latest Transactions:</p>
-          {transactions.map((transaction, idx) => 
-          <div key={idx}>
-            <p className="transaction">{transaction.receivedOrSent} ${transaction.amount} from {transaction.sender}</p>
-            <p className="transaction-timestamp">- {moment().subtract(4912, 'minutes').calendar()}</p>
-          </div>
-          )}
-
-          {/* Button positioned absolutely */}
-          <button onClick={this.showCodeHandler}>Show Your Code</button>
+        <section className="card wallet-bottom full-width">
+          <h4>Latest Transactions:</h4>
+          {
+            transactions.map((transaction, idx) =>
+            <div className="transaction-container" key={idx}>
+              <div className="avatar">
+                { transaction.sender[0] }
+              </div>
+              <div className="left-container">
+                <p className="transaction-person">{transaction.sender}</p>
+                <p className="transaction-time small-text">
+                  Completed&nbsp;
+                  {
+                    moment(transaction.timeStamp).format('DD MMM')
+                  }
+                </p>
+              </div>
+              <div className="right-container">
+                <h4 className="transaction-amount">
+                  {
+                    transaction.receivedOrSent === "received"
+                    ? "+"
+                    : "-"
+                  }
+                  ${transaction.amount}
+                </h4>
+              </div>
+            </div>
+          )
+          }
+          <button className="secondary" onClick={this.showCodeHandler}>
+            Show Your Code
+          </button>
         </section>
-      </>
+      </section>
     );
   }
 }
 
-WalletPage.propTypes = {
-  match: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-}
-
-export default Auth(WalletPage, "employee");
+export default WalletPage;

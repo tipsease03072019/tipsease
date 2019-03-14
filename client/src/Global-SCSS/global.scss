@@ -9,10 +9,11 @@ html {
 }
 
 body {
-  font-family: 'Proxima Nova', sans-serif;
   font-size: $base-font-size;
+  font-family: 'Proxima Nova', sans-serif;
   color: $tipsease-dark;
   background-color: $tipsease-light;
+  overflow-x: hidden;
 }
 
 h2, h3, h4, h5, a, .heading, .subheading {
@@ -74,7 +75,7 @@ a {
 }
 
 .small-text {
-  font-size: 1rem;
+  font-size: roundFloatValue($base-font-size * 0.67);
   margin-bottom: $normal-space;
 }
 
@@ -97,7 +98,12 @@ button {
   }
 
   &.primary {
-    background-color: #67DA8C;
+    background-color: $tipsease-primary;
+    color: $white;
+  }
+
+  &.secondary {
+    background-color: $tipsease-secondary;
     color: $white;
   }
 
@@ -123,7 +129,6 @@ input {
   appearance: none;
   display: block;
   padding: $normal-space;
-  padding-right: $extra-large-space;
   margin-bottom: $normal-space;
   border-radius: 10px;
   font-weight: 600;
@@ -138,9 +143,20 @@ input {
   }
 
   &:focus, &:checked {
-    border: 2px solid #1352DD;
+    border: 2px solid $tipsease-secondary;
     box-shadow: 0 0 6px 0 rgba(19,82,221,0.37);
   }
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  padding-right: $normal-space;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
 }
 
 input[type="checkbox"], input[type="radio"] {
@@ -213,6 +229,30 @@ figure {
   width: 100%;
 }
 
+.text-centered {
+  text-align: center;
+}
+
 .no-margin {
   margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  @include flexbox(column, center, center);
+
+  .view-background {
+    position: absolute;
+    height: 100%;
+    @include flexbox(column, center, center);
+  }
+
+  section.view {
+    width: 100%;
+    min-height: 100vh;
+    max-width: $desktop-width;
+    @include flexbox(column, null, center);
+    padding: 0 $normal-space;
+    padding-bottom: $extra-large-space;
+  }
 }

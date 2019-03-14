@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const admin = require("../config/admin");
 
 const jwtKey =
   process.env.JWT_SECRET ||
@@ -7,7 +8,9 @@ const jwtKey =
 // quickly see what this file exports
 module.exports = {
   authenticate,
-  generateToken
+  generateToken,
+  decode,
+  decode1
 };
 
 // implementation details
@@ -43,4 +46,25 @@ function generateToken(user) {
   };
 
   return jwt.sign(payload, jwtKey, options);
+}
+
+function decode(req, res, next) {
+  // console.log("req", req.query.token);
+  const token = req.body.token;
+  console.log(token)
+  admin
+    .auth()
+    .verifyIdToken(token)
+    .then(decodedToken => {
+      req.body.UID = decodedToken.uid;
+      next();
+    });
+}
+function decode1(req, res, next) {
+  const token = req.headers.token;
+  console.log(token)
+  admin.auth().verifyIdToken(token).then(decodedToken => {
+    req.headers.UID = decodedToken.uid;
+    next();
+  })
 }

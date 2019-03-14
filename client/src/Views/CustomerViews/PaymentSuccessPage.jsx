@@ -1,18 +1,25 @@
-import React from "react";
+import React, {Component} from "react";
+import {Link} from 'react-router-dom'
 
-const PaymentSuccess = () => {
-  return (
-    <>
-      {/* ICON */}
-      <img src="/" />
-      <p>
-        Thank you for being awesome! Lorem ipsum dolor sit amet, consectetuer
-        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-        sociis natoque penatibus Lorem ipsum dolor sit amet, consectetuer
-        adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-      </p>
-    </>
-  );
-};
+class PaymentSuccess extends Component {
+  state = {
+    isLoading: true,
+    isSuccessful: false,
+    hasFailed: false,
+  };
+  render() {
+    console.log(this.props);
+    return (
+      <>
+        <h2>${this.props.data.tip}</h2>
+        <h2>{this.props.data.username}</h2>
+        <Link to="/find">
+          <button>Back</button>
+        </Link>
+        <button>Correct</button>
+      </>
+    );
+  }
+}
 
 export default PaymentSuccess;
