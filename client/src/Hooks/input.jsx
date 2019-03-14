@@ -15,3 +15,12 @@ export const useInput = (tipInit, limit) => {
     updateValue
   };
 };
+
+export const useTrueFalse = () => {
+  const [value, setValue] = useState(false);
+
+  return {
+    value,
+    setValue
+  };
+};

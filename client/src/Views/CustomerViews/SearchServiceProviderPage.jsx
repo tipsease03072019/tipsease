@@ -33,7 +33,7 @@ class SearchServiceProviderPage extends Component {
 
   selectUser = (uid, username) => {
     this.props.setUserHelper(uid, username);
-    this.props.history.push("/payment");
+    this.props.history.push("/select-payment");
   };
 
   changeHandler = e => {

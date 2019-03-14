@@ -12,7 +12,6 @@ import {withCookies} from "react-cookie";
 // View imports
 import SignUpPage from "./Views/SignUpPage";
 import WalletPage from "./Views/ServiceProviderViews/WalletPage";
-import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
 import TipPage from "./Views/CustomerViews/TipPage";
 import Profile from "./Views/ProfilePage";
 import Payment from "./Views/CustomerViews/PaymentSuccessPage";
@@ -152,6 +151,7 @@ class App extends Component {
             <Profile {...props} cookies={this.props.cookies.getAll()} />
           )}
         />
+        <Route exact path="/select-payment" render={props => <SelectPaymentMethod {...props} />} />
         <Route
           exact
           path="/find"

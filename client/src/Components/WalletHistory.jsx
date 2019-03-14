@@ -11,7 +11,8 @@ export default (props) => {
         <p className="transaction-person"><Skeleton height={30} /></p>
         <p className="transaction-time small-text">
           Completed&nbsp;
-          {moment(props.time).format("DD MMM ")}
+          {props.data}
+          {moment(props.data).format("hh:mm Do MMM")}
         </p>
       </div>
       <div className="right-container">
