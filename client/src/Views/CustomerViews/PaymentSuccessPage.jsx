@@ -14,7 +14,6 @@ class PaymentSuccess extends Component {
   };
 
   sendTip = () => {
-    console.log(this.state.sendData);
     this.setState({
       isLoading: true,
     })
@@ -26,7 +25,6 @@ class PaymentSuccess extends Component {
         this.state.sendData,
       )
       .then(res => {
-        console.log(res);
         this.setState({
           ...this.state,
           isSuccessful: true,

@@ -15,7 +15,6 @@ class WalletPage extends Component {
     const headers = {
       token: this.props.cookies._uat,
     };
-    console.log(headers);
     axios
       .get(
         `https://tipsease.herokuapp.com/api/transactions/${
