@@ -147,6 +147,9 @@ table {
   justify-content: space-around;
   z-index: 3;
 }
+.hamburger:hover {
+  cursor: pointer;
+}
 .hamburger .line {
   height: 15%;
   width: 100%;
@@ -159,76 +162,77 @@ table {
 }
 
 .nav-display {
-  visibility: hidden;
+  background: white;
+  height: 0;
   position: fixed;
   top: 0;
   right: 0;
-  background: white;
   width: 100%;
-  z-index: 2;
 }
 @media screen and (min-width: 1000px) {
   .nav-display {
     width: 15%;
-    height: 150px;
+    top: 65px;
+    right: 40px;
+    border-radius: 10px;
   }
 }
 .nav-display .nav-bg {
-  margin: 0 auto;
-  height: 90%;
-  width: 90%;
-  background: url("../img/illustrations/nav-bg.svg");
+  background: url("https://svgur.com/i/BkV.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;
+  visibility: hidden;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: center;
+  opacity: 0;
 }
 @media screen and (min-width: 800px) {
   .nav-display .nav-bg {
-    align-items: flex-end;
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
   }
 }
 @media screen and (min-width: 1000px) {
   .nav-display .nav-bg {
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 }
 .nav-display .nav-bg a {
-  width: 40%;
-  padding: 5px;
-  color: #67DA8C;
+  width: 50%;
+  margin-bottom: 20px;
   text-align: center;
-  margin-top: 50px;
-  padding: 5px 0 5px 0;
 }
 @media screen and (min-width: 800px) {
   .nav-display .nav-bg a {
-    width: 30%;
+    margin-top: 60px;
+    width: 40%;
   }
 }
 @media screen and (min-width: 1000px) {
   .nav-display .nav-bg a {
-    width: 100%;
-    margin-top: 18px;
+    margin: 10px;
+    background: none;
+    box-shadow: none;
+    font-size: 1.8rem;
+    font-weight: semi-bold;
+    text-decoration: underline;
+  }
+  .nav-display .nav-bg a:hover {
+    opacity: 0.8;
   }
 }
-.nav-display .nav-bg a:hover {
-  background: #28333F;
-}
-.nav-display.display {
-  visibility: visible;
-  height: 100vh;
-}
-@media screen and (min-width: 1000px) {
-  .nav-display.display {
-    height: 300px;
-    border-radius: 10px;
-    right: 20px;
-    top: 50px;
-  }
+.nav-display .nav-bg a:nth-child(2) {
+  margin-bottom: 65%;
 }
 
 .logo {
@@ -250,9 +254,9 @@ table {
 }
 @media screen and (min-width: 1000px) {
   .logo {
-    padding-top: 10rem;
+    padding: 8rem 0;
     font-size: 5rem;
-    background: none;
+    background: #eeeeee;
   }
 }
 
@@ -267,6 +271,8 @@ table {
   .top-content {
     flex-flow: row-reverse;
     justify-content: space-between;
+    background: #28333f;
+    background: linear-gradient(0deg, #28333f 75%, #eeeeee 90%);
   }
 }
 .top-content img {
@@ -367,6 +373,13 @@ table {
   align-items: center;
   padding-bottom: 2rem;
 }
+.profiles .img-1 {
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  background: url("../img/quan-nguyen.jpeg");
+  background-position: center;
+}
 .profiles .img-7 {
   width: 225px;
   height: 225px;
@@ -393,16 +406,9 @@ table {
   height: 225px;
   border-radius: 50%;
   background: url("../img/portrait.jpg");
-  background-position: center;
+  background-position: top;
 }
 .profiles .img-3 {
-  width: 225px;
-  height: 225px;
-  border-radius: 50%;
-  background: url("../img/portrait.jpg");
-  background-position: center;
-}
-.profiles .img-1 {
   width: 225px;
   height: 225px;
   border-radius: 50%;
