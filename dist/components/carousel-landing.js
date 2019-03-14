@@ -1,3 +1,4 @@
+//Variables
 const track = document.querySelector('.carousel_track');
 const slides = Array.from(track.children);
 const nextButton = document.querySelector('.carousel__btn--right');
@@ -56,6 +57,7 @@ prevButton.addEventListener('click', function(e) {
         return slide === prevSlide;
     })
 
+    //move to previous slide
     hideNavIcons(slides, prevButton, nextButton, prevIndex)
     moveToSlide(track, currentSlide, prevSlide)
 })

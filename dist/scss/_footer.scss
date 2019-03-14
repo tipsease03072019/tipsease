@@ -5,6 +5,14 @@ footer {
   align-items: center;
   flex-direction: column-reverse;
   justify-content: center;
+  font-size: 1.4rem;
+
+  a {
+      @include textBtn;
+      margin: 0 20px;
+      color: $primary-color;
+      padding: 3px;
+  }
 
   div {
       width: 50%;
@@ -17,19 +25,8 @@ footer {
           color: white;
       }
   }
-  a {
-      @include textBtn;
-      margin: 0 20px;
-      font-size: 1.5rem;
-      color: $primary-color;
-      padding: 3px;
-  }
 
-  p {
-      font-size: 1.4rem;
-  }
   @include desktop {
     margin-top: $lg-margin;
   }
-
 }

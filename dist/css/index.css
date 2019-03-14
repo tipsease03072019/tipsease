@@ -618,6 +618,15 @@ footer {
   align-items: center;
   flex-direction: column-reverse;
   justify-content: center;
+  font-size: 1.4rem;
+}
+footer a {
+  background-color: unset;
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  color: #67da8c;
+  padding: 3px;
 }
 footer div {
   width: 50%;
@@ -628,18 +637,6 @@ footer div {
 }
 footer div a {
   color: white;
-}
-footer a {
-  background-color: unset;
-  color: white;
-  text-decoration: none;
-  margin: 0 20px;
-  font-size: 1.5rem;
-  color: #67da8c;
-  padding: 3px;
-}
-footer p {
-  font-size: 1.4rem;
 }
 @media screen and (min-width: 1000px) {
   footer {

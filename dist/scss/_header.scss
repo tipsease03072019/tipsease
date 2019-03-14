@@ -28,7 +28,6 @@
                 max-width: 100%;
             }
         }
-
     }
 }
 
@@ -43,6 +42,7 @@ header {
     .tip-now {
         @include primaryBtn;
     }
+
     @include desktop {
         width: 45%;
         margin-left: 50px;
@@ -89,6 +89,7 @@ header {
             margin-bottom: 0;
         }
     }
+
     .cta {
         margin-top: 50px;
         min-height: 200px;
@@ -109,17 +110,11 @@ header {
             @include tablet {
                 background-image: url('../img/tipsease-logo-dark.png');
             }
-
-        }
-
-        @include desktop {
-
         }
 
         strong {
             color: $primary-color;
             @include heroHeading;
-
             margin-bottom: 50px;
         }
 
@@ -127,6 +122,5 @@ header {
             color: $primary-color;
             @include subHeading;
         }
-
     }
 }
