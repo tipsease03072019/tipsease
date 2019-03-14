@@ -14,9 +14,9 @@ const {
 
 router.get("/", (req, res) => {
   db("users")
-    .select("id", "username", "img_url", "account_type", "created_at","uid")
+    .select("id", "username", "img_url", "account_type", "created_at", "uid")
     .where({
-      account_type: "employee"
+      account_type: "f5c3522b165b1589a6cb5a2aee1da7f7"
     })
     .then(users => res.status(200).send(users))
     .catch(err => console.log(err));
@@ -30,7 +30,7 @@ router.post("/register", (req, res) => {
       res.status(201).json({
         id: id[0],
         message: "Registered",
-        account_type: req.body.account_type,
+        account_type: req.body.account_type
       });
     })
     .catch(err => {
@@ -66,39 +66,37 @@ router.post("/register", (req, res) => {
 // });
 
 router.get("/:id", decode1, (req, res) => {
-  if(req.params.id==req.headers.UID)
-  db("users")
-    .where({
-      uid: req.params.id
-    })
-    .then(user => {
-      res.status(200).json(user[0]);
-    })
-    .catch(err => res.status(500).json(err));
+  if (req.params.id == req.headers.UID)
+    db("users")
+      .where({
+        uid: req.params.id
+      })
+      .then(user => {
+        res.status(200).json(user[0]);
+      })
+      .catch(err => res.status(500).json(err));
 });
 
 router.put("/:id", decode1, async (req, res) => {
-  console.log("params id ",req.params.id )
-  console.log("body.uid ", req.body.UID)
+  console.log("params id ", req.params.id);
+  console.log("body.uid ", req.body.UID);
   if (req.params.id === req.headers.UID) {
     let changes = req.body;
 
     for (x in changes) {
       // try {
-        if(x != "token"){
+      if (x != "token") {
         await db("users")
-        .where({
-          uid: req.params.id
-        })
-        .update(`${x}`, `${changes[x]}`);
+          .where({
+            uid: req.params.id
+          })
+          .update(`${x}`, `${changes[x]}`);
       }
       // } catch (error) {
       //   console.log(error)
       //   res.status(500).json(error);
       //   break;
       // }
-      
-      
     }
     res.status(200).json({
       message: "Updated."
