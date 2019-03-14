@@ -5,9 +5,12 @@
   justify-content: center;
   align-items: center;
   color: #67da8c;
-  font-size: 3rem;
   background: #1352dd;
   background: radial-gradient(circle, #1352dd 0%, #28333f 35%);
+
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 @include tablet {
@@ -20,8 +23,11 @@
 @include desktop {
   .logo {
     padding: 8rem 0;
-    font-size: 5rem;
     background: #eeeeee;
+
+    h1 {
+      font-size: 5rem;
+    }
   }
 }
 
@@ -38,8 +44,6 @@
     height: 300px;
   }
   .top-content-info {
-    z-index: 0;
-    opacity: 0.8;
     color: white;
     margin-top: 2rem;
     background-color: #67da8c;
@@ -50,10 +54,12 @@
     align-items: center;
     p {
       padding: 30px;
+      font-size: 1.5rem;
     }
     h2 {
       text-align: center;
       margin: 2rem 0 0 0;
+      font-size: 1.5rem;
     }
   }
 }
@@ -124,7 +130,7 @@
   padding-top: 10px;
   background-color: #2a3642;
   text-align: center;
-  font-size: 2rem;
+  font-size: 3.5rem;
   margin-bottom: 2rem;
 }
 
@@ -202,6 +208,7 @@
     color: white;
     margin-top: 1rem;
     margin-bottom: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     a {
       color: #67da8c;
@@ -249,6 +256,9 @@
         top: 5px;
         width: 10%;
       }
+      .profile-description {
+        font-size: 1.8rem;
+      }
     }
     .icons {
       display: none;
@@ -263,6 +273,10 @@
   .content-holder .profile-content .profile-items {
     padding-top: 5rem;
     font-size: 1.5rem;
+
+    .profile-description {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -283,7 +297,7 @@
     height: 25%;
     top: 15rem;
     width: 25%;
-    left: 41.5rem;
+    left: 55rem;
   }
 }
 
@@ -296,5 +310,41 @@
     &:hover {
       color: #1352dd;
     }
+  }
+}
+
+// carousel
+.carousel {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 16px;
+
+  .carousel-holder {
+    margin-top: 3rem;
+  }
+
+  .left-button,
+  .right-button {
+    font-size: 40px;
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    &:hover {
+      color: grey;
+      border: 1px solid red;
+    }
+  }
+  .left-button {
+    top: 50%;
+    left: 25px;
+    transform: translate(0, -50%);
+  }
+  .right-button {
+    top: 50%;
+    right: 25px;
+    transform: translate(0, -50%);
   }
 }

@@ -7,19 +7,87 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -29,8 +97,17 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -38,16 +115,20 @@ body {
   line-height: 1.3;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: "";
   content: none;
 }
@@ -80,7 +161,7 @@ table {
   cursor: pointer;
 }
 .hamburger .color-change.line {
-  background-color: #67DA8C;
+  background-color: #67da8c;
 }
 .hamburger .line {
   height: 10%;
@@ -90,7 +171,7 @@ table {
 }
 @media screen and (min-width: 800px) {
   .hamburger .line {
-    background: #67DA8C;
+    background: #67da8c;
   }
 }
 
@@ -171,9 +252,11 @@ table {
   justify-content: center;
   align-items: center;
   color: #67da8c;
-  font-size: 3rem;
   background: #1352dd;
   background: radial-gradient(circle, #1352dd 0%, #28333f 35%);
+}
+.logo h1 {
+  font-size: 3rem;
 }
 
 @media screen and (min-width: 800px) {
@@ -185,8 +268,10 @@ table {
 @media screen and (min-width: 1000px) {
   .logo {
     padding: 8rem 0;
-    font-size: 5rem;
     background: #eeeeee;
+  }
+  .logo h1 {
+    font-size: 5rem;
   }
 }
 .top-content {
@@ -203,8 +288,6 @@ table {
   height: 300px;
 }
 .top-content .top-content-info {
-  z-index: 0;
-  opacity: 0.8;
   color: white;
   margin-top: 2rem;
   background-color: #67da8c;
@@ -216,10 +299,12 @@ table {
 }
 .top-content .top-content-info p {
   padding: 30px;
+  font-size: 1.5rem;
 }
 .top-content .top-content-info h2 {
   text-align: center;
   margin: 2rem 0 0 0;
+  font-size: 1.5rem;
 }
 
 @media screen and (min-width: 1000px) {
@@ -281,7 +366,7 @@ table {
   padding-top: 10px;
   background-color: #2a3642;
   text-align: center;
-  font-size: 2rem;
+  font-size: 3.5rem;
   margin-bottom: 2rem;
 }
 
@@ -359,6 +444,7 @@ table {
   color: white;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 .profiles .text a {
@@ -406,6 +492,9 @@ table {
   top: 5px;
   width: 10%;
 }
+.content-holder .profile-content .profile-items .profile-description {
+  font-size: 1.8rem;
+}
 .content-holder .profile-content .icons {
   display: none;
 }
@@ -417,6 +506,9 @@ table {
   .content-holder .profile-content .profile-items {
     padding-top: 5rem;
     font-size: 1.5rem;
+  }
+  .content-holder .profile-content .profile-items .profile-description {
+    font-size: 2rem;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -434,7 +526,7 @@ table {
     height: 25%;
     top: 15rem;
     width: 25%;
-    left: 41.5rem;
+    left: 55rem;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -448,9 +540,43 @@ table {
     color: #1352dd;
   }
 }
+.carousel {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 16px;
+}
+.carousel .carousel-holder {
+  margin-top: 3rem;
+}
+.carousel .left-button,
+.carousel .right-button {
+  font-size: 40px;
+  border-radius: 50%;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.carousel .left-button:hover,
+.carousel .right-button:hover {
+  color: grey;
+  border: 1px solid red;
+}
+.carousel .left-button {
+  top: 50%;
+  left: 25px;
+  transform: translate(0, -50%);
+}
+.carousel .right-button {
+  top: 50%;
+  right: 25px;
+  transform: translate(0, -50%);
+}
+
 footer {
   margin: 30px 0 20px 0;
-  color: #67DA8C;
+  color: #67da8c;
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
@@ -467,7 +593,7 @@ footer a {
   color: white;
   text-decoration: none;
   margin: 0 20px;
-  color: #67DA8C;
+  color: #67da8c;
   padding: 3px;
 }
 

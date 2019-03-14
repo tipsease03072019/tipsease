@@ -33,7 +33,7 @@ class App extends Component {
     profileImg: null,
     payFlow: {
       tip: 5,
-      users_id: "",
+      user_id: "",
       username: '',
     },
   };
