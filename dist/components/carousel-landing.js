@@ -20,7 +20,8 @@ nextButton.addEventListener('click', function(e) {
     const nextSlide = currentSlide.nextElementSibling;
     const amountToMove = nextSlide.style.left;
     //move to the next slide
-    console.log(currentSlide)
     track.style.transform = `translateX(-${amountToMove})`;
+    currentSlide.classList.remove('current-slide');
+    nextSlide.classList.add('current-slide');
 
 })

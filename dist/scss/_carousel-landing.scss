@@ -5,8 +5,6 @@
         width: 80%;
         margin: $lg-margin 0;
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
         align-items: center;
 
         .info-card {
@@ -19,15 +17,22 @@
             padding: $sm-padding;
             position: relative;
             height: 100%;
-            width: 75%;
+            // overflow: hidden;
+            width: 100%;
         }
 
         .carousel_track {
             padding: 0;
             margin: 0;
             position: relative;
+            display: flex;
             height: 90%;
             transition: transform 250ms ease-in
+
+            li {
+                color: red;
+            }
+
         }
 
         .carousel__slide {
@@ -37,6 +42,7 @@
             top: 30%;
             bottom: 0;
             width: 100%;
+            // margin: 0 30px;
         }
 
         .carousel__btn {
