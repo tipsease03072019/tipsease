@@ -13,14 +13,12 @@ import {withCookies} from "react-cookie";
 import PrivateRoute from "./HOC/PrivateRoute";
 
 // View imports
-import LoginPage from "./Views/LoginPage";
 import SignUpPage from "./Views/SignUpPage";
 import WalletPage from "./Views/ServiceProviderViews/WalletPage";
 import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
 import TipPage from "./Views/CustomerViews/TipPage";
 import Profile from "./Views/ProfilePage";
 import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProviderPage";
-import SetupAccount from "./Views/SetupAccount";
 
 // CSS imports
 import "axios-progress-bar/dist/nprogress.css";
@@ -151,13 +149,6 @@ class App extends Component {
           render={props => <PaymentSuccess {...props} />}
         /> */}
         {/* Default Route */}
-        <Route
-          exact
-          path="/setup-account"
-          render={props => (
-            <SetupAccount {...props} cookies={this.props.cookies.getAll()} />
-          )}
-        />
         <Route
           render={props => (
             <TipPage
