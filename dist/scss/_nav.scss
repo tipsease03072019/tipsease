@@ -16,6 +16,10 @@
         cursor: pointer;
     }
 
+    .color-change.line {
+        background-color: $primary-color;
+    }
+
     .line {
         height: 10%;
         width: 100%;
@@ -23,13 +27,11 @@
         box-shadow: 0 8px 25px 0 rgba(40, 51, 63, .2);
 
 
+
         @include tablet {
             background: $primary-color;
         }
 
-        .change-color {
-            background: red;
-        }
     }
 }
 

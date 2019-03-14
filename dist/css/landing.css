@@ -71,6 +71,9 @@ table {
 .hamburger:hover {
   cursor: pointer;
 }
+.hamburger .color-change.line {
+  background-color: #67DA8C;
+}
 .hamburger .line {
   height: 10%;
   width: 100%;
@@ -81,9 +84,6 @@ table {
   .hamburger .line {
     background: #67DA8C;
   }
-}
-.hamburger .line .change-color {
-  background: red;
 }
 
 .nav-display {
