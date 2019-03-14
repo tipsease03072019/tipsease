@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {useInput} from "../../Hooks/input";
+import { useInput } from "../../Hooks/input";
+import Nav from '../../Components/Nav'
 
 const TipPage = props => {
   // Creating new input hooks instance
@@ -11,7 +12,7 @@ const TipPage = props => {
     props.history.push("/find");
   };
 
-  return (
+return (
     <div className="tip view-background full-width">
       <section className="view tip">
         <h4>Select Amount</h4>

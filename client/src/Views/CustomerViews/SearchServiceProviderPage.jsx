@@ -1,11 +1,49 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useInput } from "../../Hooks/input";
+import axios from 'axios';
+import Card from '../../Components/Card';
 
-const SearchServiceProviderPage = props => {
-  const sendTipTo = useInput(props.sendTipTo, 4);
+class SearchServiceProviderPage extends Component {
+  state = {
+    search: "",
+    servers: [],
+    filtered: null,
+  };
+    
+componentDidMount() {
+  this.getEmployees();
+}
 
-  return (
+getEmployees = () => {
+  axios
+    .get("https://tipsease.herokuapp.com/api/users")
+    .then(res => {
+      console.log(res);
+      this.setState({
+        ...this.state,
+        servers: res.data,
+      })
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+
+changeHandler = e => {
+  this.setState({
+    ...this.state,
+    search: e.target.value
+  })
+}
+
+selectUser = uid => {
+  console.log(uid);
+}
+
+render() {
+    return (
     <div className="search-provider view-background full-width">
       <section className="view search-provider">
         <div className="balance-container">

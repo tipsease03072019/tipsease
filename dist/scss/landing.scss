@@ -6,6 +6,10 @@
 
 
 //General Styles
+html, body {
+    scroll-behavior: smooth;
+}
+
 body {
     background: $dark-text-color;
     p {
@@ -13,9 +17,7 @@ body {
     }
 }
 
-
 a {
-    font-size: 1.7rem;
     text-decoration: none;
     @include btn;
 
