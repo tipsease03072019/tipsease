@@ -43,10 +43,25 @@ header {
     align-items: center;
     justify-content: space-around;
 
-
+    .tip-now {
+        @include primaryBtn;
+    }
     @include desktop {
         width: 45%;
         margin-left: 50px;
+
+        .link-container {
+            height: 40%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            a {
+                margin: $normal-margin;
+                width: 100%;
+            }
+        }
     }
 
     @include tablet {
@@ -58,7 +73,7 @@ header {
 
         @include desktop {
             display: block;
-
+            background: white;
         }
     }
 

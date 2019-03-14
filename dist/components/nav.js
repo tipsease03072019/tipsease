@@ -30,7 +30,7 @@ let toggleDisplay = function () {
     if (desktop.matches) {
         console.log('true')
         animateMenuDesktop
-        .to(navDisplay, .35, {height: 300, border: '1px solid $dark-text-color'})
+        .to(navDisplay, .35, {height: 300})
         .to('.nav-bg', .3, {opacity: 1, visibility: 'visible'})
         animateMenuDesktop.reversed() ? animateMenuDesktop.play() : animateMenuDesktop.reverse();
     } else {

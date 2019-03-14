@@ -11,14 +11,16 @@
     justify-content: space-around;
     z-index: 3;
 
+
     &:hover {
         cursor: pointer;
     }
 
     .line {
-        height: 15%;
+        height: 10%;
         width: 100%;
-        background: $secondary-color;
+        background: white;
+        box-shadow: 0 8px 25px 0 rgba(40, 51, 63, .2);
 
 
         @include tablet {
@@ -35,13 +37,14 @@
     right: 0;
     width: 100%;
     background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(103,218,140,1) 100%);
-
+    box-shadow: 0 8px 25px 0 rgba(40, 51, 63, .2);
 
     @include desktop {
         width: 15%;
         top: 65px;
         right: 40px;
         border-radius: 10px;
+
     }
 
     .nav-bg {
@@ -86,11 +89,13 @@
                 margin: 10px;
                 background: none;
                 box-shadow: none;
-                @include link;
+                text-decoration: none;
+                font-weight: 500;
+
             }
 
             &:nth-child(2) {
-                margin-bottom: 65%;
+                margin-bottom: 75%;
 
             }
         }
