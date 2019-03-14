@@ -1,19 +1,34 @@
+.carousel {
+    display: none;
+}
+
+.carousel__nav {
+    display: none;
+}
+
 @include desktop {
 
     .carousel {
-        height: 200px;
+        min-height: 200px;
         width: 80%;
-        margin: $lg-margin 0;
         display: flex;
         align-items: center;
+        justify-content: center;
 
+        p {
+            @include bodyText;
+        }
 
+        .is-hidden {
+            display: none;
+        }
 
         .carousel__track-container{
             padding: $sm-padding;
             position: relative;
             height: 100%;
-            width: 100%;
+            width: 50%;
+
 
         }
 
@@ -22,25 +37,29 @@
             margin: 0;
             position: relative;
             display: flex;
-            height: 90%;
-            transition: transform 250ms ease-in;
+            height: 100%;
+            transition: transform 300ms ease-out;
+
 
             .info-card {
-                height: 90%;
-
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 10px;
+                @include card;
+                color: white;
             }
 
         }
 
         .carousel__slide {
             position: absolute;
-            background: $primary-color;
             border-radius: 10px;
             top: 30%;
             bottom: 0;
             width: 100%;
             display: none;
-            // margin: 0 30px;
         }
 
         .current-slide {
@@ -48,28 +67,30 @@
         }
 
         .carousel__btn {
-            color: red;
+            width: 20px;
+            height: 20px;
             cursor: pointer;
-            z-index: 1;
-        }
-
-        .carousel__nav {
-            display: flex;
-            height: 50%;
-            width: 10%;
-            justify-content: space-around;
-            align-items: center;
-            align-self: flex-end;
-            background: pink;
-        }
-
-        .carousel__indicator {
-            border: 0;
-            border-radius: 50%;
-            width: 15px;
-            height: 25%;
             background: $primary-color;
-            text-align: center;
+            border-radius: 50%;
         }
+
+    }
+
+    .carousel__nav {
+        display: flex;
+        height: 50px;
+        width: 30%;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+    }
+
+    .carousel__indicator {
+        cursor: pointer;
+        margin: 10px 5px 0 5px;
+        padding: 5px;
+        text-align: center;
+        background: $primary-color;
     }
 }
