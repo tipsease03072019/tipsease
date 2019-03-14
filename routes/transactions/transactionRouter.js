@@ -25,7 +25,7 @@ router.get("/:id", decode1, (req, res) => {
         res.status(200).send(transactions);
         db("users")
           .where("uid", "=", req.params.id)
-          .select("balance")
+          .select("balance", "username")
           .then(res => {
             res.status(201).json(res);
           });
@@ -36,16 +36,19 @@ router.get("/:id", decode1, (req, res) => {
 
 router.post("/:id", (req, res) => {
   const pay = req.body;
-  const id = req.params.id;
+  console.log(req.body);
   db("transactions")
     .insert(pay)
     .then(res1 => {
       db("users")
-        .where("id", "=", id)
+        .where("uid", "=", req.params.id)
         .select("balance")
         .increment("balance", pay.tip)
         .then(res2 => {
-          res.status(201).json(res2);
+          console.log(req.params.id);
+          res.status(201).json({
+            message: `Tipped $${pay.tip}.`
+          });
         })
         .catch(err => console.log(err));
     })

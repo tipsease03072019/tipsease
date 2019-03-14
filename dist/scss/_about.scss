@@ -88,7 +88,7 @@
 
 @include desktop {
   .top-content .top-content-info {
-    margin-top: 9rem;
+    margin-top: 15rem;
     margin-left: 10rem;
     width: 25%;
     height: 300px;
@@ -181,7 +181,7 @@
     width: 225px;
     height: 225px;
     border-radius: 50%;
-    background: url("../img/portrait.jpg");
+    background: url("../img/anthony-campbell.jpeg");
     background-position: top;
   }
   .img-3 {
@@ -261,7 +261,7 @@
       }
     }
     .icons {
-      display: none;
+      background: $primary-color;
     }
     .content-selected {
       display: flex;
@@ -328,6 +328,7 @@
 
   .carousel-holder {
     margin-top: 3rem;
+    animation-delay: 1s;
   }
 
   .left-button,

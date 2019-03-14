@@ -2,10 +2,10 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable("transactions", table => {
     table.increments();
     table
-      .integer("users_id")
+      .string("uid")
       .unsigned()
       .notNullable()
-      .references("id")
+      .references("uid")
       .inTable("users")
       .onDelete("CASCADE");
     table.integer("tip").defaultTo(0);

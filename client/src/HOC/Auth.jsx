@@ -15,9 +15,9 @@ axios.interceptors.request.use(
 );
 
 const Auth = (Component) => {
+  console.log(props)
   return class Authenticated extends React.Component {
     render() {
-      const token = localStorage.getItem("jwt");
       const notLoggedIn = (
         <div>
           <h1>To see the jokes, please log in or register.</h1>

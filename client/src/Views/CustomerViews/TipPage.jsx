@@ -13,8 +13,9 @@ const TipPage = props => {
   };
 
 return (
-    <div className="tip view-background full-width">
+    <div className="tip view-background full-width">  
       <section className="view tip">
+      <Nav />
         <h4>Select Amount</h4>
         <input
           type="number"
