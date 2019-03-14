@@ -27,7 +27,7 @@ Successful Return
 ```
 const newUser = {
     username: "", //(Unique) required
-    password: "", // required
+    uid:"", (unique) required
     account_type: "", // required (Customer or Employee)
     email: "", // (Unique) optional
     img_url: "" // optional,
@@ -47,11 +47,10 @@ Successful Return
 {
     id: 1,
     message: "Registered",
-    token: "TOKEN"
 }
 ```
----
-#### Login
+---Obsolete because of firebase
+<!-- #### Login
 ```
 const creds = {
     username: "USERNAME",
@@ -74,18 +73,18 @@ Successful Return
     id: "USER ID",
     token: "TOKEN"
 }
-```
+``` --> Obsolete because of firebase
 ---
 #### Users by ID
 ```
 const headersObj = {
   headers: {
-    authorization: token
+    token: firebase idtoken
   }
 };
 
 axios
-  .get("https://tipsease.herokuapp.com/users/:id", headersObj)
+  .get("https://tipsease.herokuapp.com/users/:uid", headersObj)
   .then(res => {
     console.log(res.data)
   })
@@ -107,7 +106,7 @@ Successful Return
 ```
 const headersObj = {
   headers: {
-    Authorization: token
+    token: firebase idtoken
   },
   changes: {
     username: "USERNAME",
@@ -118,7 +117,7 @@ const headersObj = {
 }
 
 axios
-  .put("https://tipsease.herokuapp.com/users/:id", headersObj)
+  .put("https://tipsease.herokuapp.com/users/:uid", headersObj)
   .then(response => {
     console.log(response.data)
   })
