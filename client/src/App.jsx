@@ -145,13 +145,7 @@ class App extends Component {
           path="/payment"
           render={props => <Payment data={this.state.payFlow} />}
         />
-        {/*
-        //! Needs to be done with other hoc
-        <PrivateRoute
-          exact
-          path="/profile"
-          component={props => <Profile {...props} userId={this.state.userId} />}
-        /> */}
+        <Route exact path="/profile" render={<Profile />} />
         <Route
           exact
           path="/find"
