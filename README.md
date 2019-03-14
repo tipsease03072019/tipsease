@@ -43,10 +43,7 @@ axios
 ```
 const newUser = {
     username: "", // (Unique) required
-    password: "", // required
     account_type: "", // required (Customer or Employee)
-    email: "", // (Unique) optional
-    img_url: "" // optional,
 };
 
 axios
@@ -69,7 +66,7 @@ axios
 }
 ```
 
-## // Login
+<!-- ## // Login
 
 ```
 const creds = {
@@ -95,19 +92,17 @@ axios
         token: ""
     }
 ]
-```
+``` -->
 
 ## // Users by ID
 
 ```
-const headersObj = {
-    headers: {
-        authorization: token
-    }
+const headers = {
+    Token: ""
 };
 
 axios
-    .get("https://tipsease.herokuapp.com/api/users/:id", headersObj)
+    .get(`https://tipsease.herokuapp.com/api/users/${uid}`, headers)
     .then(res => {
         console.log(res.data)
     })
@@ -132,9 +127,9 @@ axios
 ```
 const headersObj = {
     headers: {
-        Authorization: token
+        Token: ""
     },
-    changes: {
+    data: {
         username: "",
         password: "",
         email: "",
@@ -143,7 +138,7 @@ const headersObj = {
 }
 
 axios
-    .put("https://tipsease.herokuapp.com/api/users/:id", headersObj)
+    .put(`https://tipsease.herokuapp.com/api/users/${uid}`, headersObj)
     .then(response => {
         console.log(response.data)
     })
@@ -164,12 +159,12 @@ axios
 ## Delete User by ID
 
 ```
-const headersObj = {
-    Authorization: token
+const headers = {
+    Token: "",
 }
 
 axios
-    .delete("https://tipsease.herokuapp.com/api/users/:id", headersObj)
+    .delete(`https://tipsease.herokuapp.com/api/users/${uid}`, headers)
     .then(response => {
         console.log(response.data)
     })
@@ -195,12 +190,12 @@ axios
 ```
 # Get Transactions by ID
 
-const headersObj = {
-    Authorization: token
+const headers = {
+    token: ""
 }
 
 axios
-    .get("https://tipsease.herokuapp.com/api/transactions/:id", headersObj)
+    .get(`https://tipsease.herokuapp.com/api/transactions/${uid}`, headers)
     .then(response => {
         console.log(response.data)
     })
@@ -222,13 +217,13 @@ axios
 # Create Transaction / Update Employee Balance
 
 ```
-const pay = {
+const data = {
     "users_id": 5,
 	"tip": 10
 }
 
 axios
-    .post("https://tipsease.herokuapp.com/api/transactions/:id", headersObj)
+    .post(`https://tipsease.herokuapp.com/api/transactions/${uid}`, data)
     .then(response => {
         console.log(response.data)
     })

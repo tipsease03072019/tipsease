@@ -146,6 +146,29 @@ table {
     transform: scale(1);
   }
 }
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #28333f;
+}
+
+a {
+  text-decoration: none;
+  background-color: white;
+  box-shadow: 0 8px 25px 0 rgba(40, 51, 63, 0.11);
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 18px;
+  font-weight: 500;
+  color: #28333f;
+}
+a:hover {
+  opacity: 0.8;
+}
+
 .hamburger {
   position: fixed;
   top: 30px;
@@ -500,7 +523,7 @@ footer {
   align-items: center;
   flex-direction: row-reverse;
   justify-content: center;
-  font-size: 14px;
+  font-size: 2.6rem;
 }
 @media screen and (min-width: 1000px) {
   footer {

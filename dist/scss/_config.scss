@@ -139,6 +139,7 @@ $background-color: #f9f9f9;
 $primary-color: #67da8c;
 $secondary-color: #1352dd;
 $dark-text-color: #28333f;
+$light-text-color: white;
 
 //Padding and margins
 $main-margin: 20px;
@@ -246,4 +247,18 @@ $xl-padding: 89px;
   @media screen and (min-width: 1000px) {
     @content;
   }
+}
+
+//General Styles
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $dark-text-color;
+}
+a {
+  text-decoration: none;
+  @include btn;
 }

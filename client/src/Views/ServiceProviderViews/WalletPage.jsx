@@ -1,25 +1,33 @@
 import React, {Component} from "react";
 import * as moment from "moment";
 import axios from "axios";
+import Skeleton from "react-loading-skeleton";
+import WalletHistoryLoad from '../../Components/WalletHistoryLoad';
+import WalletHistory from '../../Components/WalletHistory';
 
 class WalletPage extends Component {
   state = {
+    isLoading: true,
     balance: null,
   };
 
   componentDidMount() {
     const headers = {
       token: this.props.cookies._uat,
-    }
-    console.log(headers);
+    };
     axios
-      .get(`https://tipsease.herokuapp.com/api/transactions/${ this.props.cookies._uid }`, headers)
+      .get(
+        `https://tipsease.herokuapp.com/api/transactions/${
+          this.props.cookies._uid
+        }`,
+        headers,
+      )
       .then(res => {
-        console.log(res)
+        console.log(res);
       })
       .catch(err => {
         console.log(err);
-      })
+      });
   }
 
   tipHandler = () => {
@@ -58,14 +66,14 @@ class WalletPage extends Component {
         balance: 50,
       },
     ];
-    console.log(this.props)
+    console.log(this.props);
     return (
       <section className="view">
         <section className="wallet-top">
           <h2>Welcome</h2>
           <div className="card full-width">
             <p>Your Current Tipsease Balance is:</p>
-
+            {this.state.isLoading && <Skeleton width={100} height={70} />}
             {this.state.balance && (
               <div className="balance-container">
                 <span>$</span>
@@ -79,24 +87,12 @@ class WalletPage extends Component {
 
         <section className="card wallet-bottom full-width">
           <h4>Latest Transactions:</h4>
-          {transactions.map((transaction, idx) => (
-            <div className="transaction-container" key={idx}>
-              <div className="avatar">{transaction.sender[0]}</div>
-              <div className="left-container">
-                <p className="transaction-person">{transaction.sender}</p>
-                <p className="transaction-time small-text">
-                  Completed&nbsp;
-                  {moment(transaction.timeStamp).format("DD MMM")}
-                </p>
-              </div>
-              <div className="right-container">
-                <h4 className="transaction-amount">
-                  {transaction.receivedOrSent === "received" ? "+" : "-"}$
-                  {transaction.amount}
-                </h4>
-              </div>
-            </div>
-          ))}
+          {this.state.isLoading && (
+            <WalletHistoryLoad/>
+          )}
+          {/* {!this.state.isLoading && transactions.map((transaction, idx) => (
+            <WalletHistory senderImg />
+          ))} */}
           <button className="secondary" onClick={this.showCodeHandler}>
             Show Your Code
           </button>

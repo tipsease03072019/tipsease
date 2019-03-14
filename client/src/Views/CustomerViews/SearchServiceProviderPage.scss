@@ -15,12 +15,25 @@
       }
     }
 
+    input {
+      width: 90%;
+      max-width: 40rem;
+    }
+
     h4 {
+      width: 90%;
+      max-width: 40rem;
       margin-bottom: $medium-space;
     }
 
     .next-btn {
       color: $tipsease-secondary;
+    }
+
+    .username-btn {
+      width: 90%;
+      max-width: 40rem;
+      border-radius: 6px;
     }
   }
 }
