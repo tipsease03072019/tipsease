@@ -36,7 +36,7 @@ class Carousel {
     if (this.currentIndex < 0) {
       this.currentIndex = 3;
     }
-    if (this.currentIndex > this.profiles.length) {
+    if (this.currentIndex > this.profiles.length - 1) {
       this.currentIndex = 0;
     }
     this.profiles[this.currentIndex].style.display = "block";
