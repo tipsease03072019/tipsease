@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
-import ServerLoading from '../../Components/FindServerLoading'
-import Nav from '../../Components/Nav'
+import ServerLoading from "../../Components/FindServerLoading";
+import Nav from "../../Components/Nav";
 
 class SearchServiceProviderPage extends Component {
   state = {
@@ -69,20 +69,19 @@ class SearchServiceProviderPage extends Component {
               <button className="transparent">Back</button>
             </Link>
           </div>
-          {this.state.isLoading && (
-            <ServerLoading />
-          )}
-          {(this.state.filtered && ! this.state.isLoading ? this.state.filtered : this.state.servers).map(
-            server => (
-              <button
-                key={server.uid}
-                onClick={() => this.selectUser(server.uid, server.username)}
-                className="username-btn"
-              >
-                @{server.username}
-              </button>
-            ),
-          )}
+          {this.state.isLoading && <ServerLoading />}
+          {(this.state.filtered && !this.state.isLoading
+            ? this.state.filtered
+            : this.state.servers
+          ).map(server => (
+            <button
+              key={server.uid}
+              onClick={() => this.selectUser(server.uid, server.username)}
+              className="username-btn"
+            >
+              @{server.username}
+            </button>
+          ))}
         </section>
       </div>
     );
