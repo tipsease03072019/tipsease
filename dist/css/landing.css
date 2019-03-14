@@ -82,6 +82,9 @@ table {
     background: #67DA8C;
   }
 }
+.hamburger .line .change-color {
+  background: red;
+}
 
 .nav-display {
   height: 0;
@@ -112,6 +115,7 @@ table {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 0;
 }
 @media screen and (min-width: 800px) {
   .nav-display .nav-bg {

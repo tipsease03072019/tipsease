@@ -3,6 +3,7 @@ const iconLines = document.querySelectorAll('.line')
 const navDisplay = document.querySelector('.nav-display');
 const desktop = window.matchMedia( '(min-width: 1000px)' );
 
+console.log(iconLines)
 
 
 let animateMenu = new TimelineMax({paused: true, reversed: true})
@@ -15,12 +16,23 @@ desktop.addListener;
 //toggle animations on hamburger icon to morph into an X
 let toggleMenu = function() {
 
-    animateLines.to(icon, .3, {rotation: 180})
-    .to(iconLines[1], .3, {width: 0})
-    .to(iconLines[0], .1, { rotation: 45, x: '7px', y: '12px'})
-    .to(iconLines[2], .1, { rotation: -45, x: '7px', y: '-8px'})
+    if(!desktop.matches) {
+        animateLines.to(icon, .3, {rotation: 180})
+        .to(iconLines, .1, {background: '#67DA8C'})
+        .to(iconLines[1], .3, {width: 0})
+        .to(iconLines[0], .1, { rotation: 45, x: '7px', y: '12px'})
+        .to(iconLines[2], .1, { rotation: -45, x: '7px', y: '-8px'})
 
-    animateLines.reversed() ? animateLines.play() : animateLines.reverse();
+        animateLines.reversed() ? animateLines.play() : animateLines.reverse();
+    } else {
+
+        animateLines.to(icon, .3, {rotation: 180})
+        .to(iconLines[1], .3, {width: 0})
+        .to(iconLines[0], .1, { rotation: 45, x: '7px', y: '12px'})
+        .to(iconLines[2], .1, { rotation: -45, x: '7px', y: '-8px'})
+
+        animateLines.reversed() ? animateLines.play() : animateLines.reverse();
+    }
 
 }
 
@@ -28,7 +40,6 @@ let toggleMenu = function() {
 let toggleDisplay = function () {
 
     if (desktop.matches) {
-        console.log('true')
         animateMenuDesktop
         .to(navDisplay, .35, {height: 300})
         .to('.nav-bg', .3, {opacity: 1, visibility: 'visible'})
