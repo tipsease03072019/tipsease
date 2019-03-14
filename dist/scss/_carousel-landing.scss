@@ -7,18 +7,14 @@
         display: flex;
         align-items: center;
 
-        .info-card {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+
 
         .carousel__track-container{
             padding: $sm-padding;
             position: relative;
             height: 100%;
-            // overflow: hidden;
             width: 100%;
+
         }
 
         .carousel_track {
@@ -27,10 +23,11 @@
             position: relative;
             display: flex;
             height: 90%;
-            transition: transform 250ms ease-in
+            transition: transform 250ms ease-in;
 
-            li {
-                color: red;
+            .info-card {
+                height: 90%;
+
             }
 
         }
@@ -42,7 +39,12 @@
             top: 30%;
             bottom: 0;
             width: 100%;
+            display: none;
             // margin: 0 30px;
+        }
+
+        .current-slide {
+            display: block;
         }
 
         .carousel__btn {

@@ -547,11 +547,6 @@ footer a {
     display: flex;
     align-items: center;
   }
-  .carousel .info-card {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   .carousel .carousel__track-container {
     padding: 10px;
     position: relative;
@@ -564,8 +559,10 @@ footer a {
     position: relative;
     display: flex;
     height: 90%;
-    transition: transform 250ms ease-in li;
-    transition-color: red;
+    transition: transform 250ms ease-in;
+  }
+  .carousel .carousel_track .info-card {
+    height: 90%;
   }
   .carousel .carousel__slide {
     position: absolute;
@@ -574,6 +571,10 @@ footer a {
     top: 30%;
     bottom: 0;
     width: 100%;
+    display: none;
+  }
+  .carousel .current-slide {
+    display: block;
   }
   .carousel .carousel__btn {
     color: red;
