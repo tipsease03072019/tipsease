@@ -19,7 +19,7 @@ const TipPage = props => {
           type="number"
           value={tipAmount.value}
           onChange={tipAmount.updateValue}
-          className="tip-input"
+          className="tip-input text-centered"
         />
       <button className="transparent next-btn" onClick={tipHandler}>Next</button>
         <div className="tip-shortcuts-container full-width">

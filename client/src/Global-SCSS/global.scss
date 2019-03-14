@@ -229,6 +229,10 @@ figure {
   width: 100%;
 }
 
+.text-centered {
+  text-align: center;
+}
+
 .no-margin {
   margin: 0;
 }
@@ -238,6 +242,8 @@ figure {
   @include flexbox(column, center, center);
 
   .view-background {
+    position: absolute;
+    height: 100%;
     @include flexbox(column, center, center);
   }
 
