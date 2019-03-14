@@ -377,6 +377,11 @@ main .bottom-content {
   flex-direction: column;
   align-items: center;
 }
+@media screen and (min-width: 800px) {
+  main .bottom-content {
+    margin-bottom: 50px;
+  }
+}
 main .bottom-content p {
   font-size: 2.5rem;
   font-weight: 500;

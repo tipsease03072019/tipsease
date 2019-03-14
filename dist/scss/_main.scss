@@ -92,6 +92,10 @@ main {
             display: flex;
             flex-direction: column;
             align-items: center;
+
+            @include tablet {
+                margin-bottom: 50px;
+            }
             p {
                 @include subHeading;
                 color: white;
