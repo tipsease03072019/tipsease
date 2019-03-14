@@ -1,27 +1,51 @@
 class Carousel {
-  constructor(item) {
-    this.item = item;
-    this.carousel = document.querySelectorAll(".carousel-holder");
-    this.data = this.item.dataset.tab;
-    this.itemElement = document.querySelector(
-      `.carousel-holder[data-tab='${this.data}']`
-    );
-    console.log(this.itemElement);
-
+  constructor(carousel) {
+    this.currentIndex = 0;
+    this.carousel = carousel;
+    this.leftBtn = document.querySelector(".left-button");
     this.rightBtn = document.querySelector(".right-button");
+    this.profiles = document.querySelectorAll(".carousel-holder");
+    this.currentProfile = this.profiles[this.currentIndex];
+    this.currentProfile.style.display = "block";
 
-    this.rightBtn.addEventListener("click", () => this.slide());
+    this.leftBtn.addEventListener("click", () => this.previous());
+    this.rightBtn.addEventListener("click", () => this.next());
   }
-  slide() {
-    this.carousel.forEach(function(item) {
-      item.classList.remove("hide-profile");
+  previous() {
+    const profiles = document.querySelectorAll(".carousel-holder");
+    profiles.forEach(function(profile) {
+      return (profile.style.display = "none");
     });
-    this.itemElement.classList.add("hide-profile");
+
+    this.currentIndex -= 1;
+
+    if (this.currentIndex < 0) {
+      this.currentIndex = 6;
+    }
+
+    if (this.currentIndex > this.profiles.length) {
+      this.currentIndex = 0;
+    }
+
+    this.profiles[this.currentIndex].style.display = "block";
+  }
+  next() {
+    const profiles = document.querySelectorAll(".carousel-holder");
+
+    profiles.forEach(function(profile) {
+      return (profile.style.display = "none");
+    });
+
+    this.currentIndex += 1;
+    if (this.currentIndex > this.profiles.length - 1) {
+      this.currentIndex = 0;
+    }
+    this.profiles[this.currentIndex].style.display = "block";
   }
 }
 
-const carouselItems = document.querySelectorAll(".carousel-holder");
+let carousel = document.querySelectorAll(".carousel");
 
-carouselItems.forEach(function(item) {
-  return new Carousel(item);
+carousel.forEach(function(carousel) {
+  return new Carousel(carousel);
 });

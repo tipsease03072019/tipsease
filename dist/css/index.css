@@ -364,7 +364,6 @@ table {
 .profile-main-text h2 {
   color: #67da8c;
   padding-top: 10px;
-  background-color: #2a3642;
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: 2rem;
@@ -380,7 +379,6 @@ table {
 }
 
 .profiles {
-  background-color: #2a3642;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -476,7 +474,7 @@ table {
   display: none;
   position: fixed;
   top: 30%;
-  left: 0.3rem;
+  left: 2rem;
   z-index: 1;
   width: 80%;
   height: 250px;
@@ -517,16 +515,21 @@ table {
   }
 }
 @media screen and (min-width: 800px) {
+  .content-holder .profile-content .profile-items .close-tab img {
+    width: 5%;
+  }
+}
+@media screen and (min-width: 800px) {
   .content-holder .profile-content .profile-items {
-    left: 2.5rem;
+    left: 5.5rem;
   }
 }
 @media screen and (min-width: 1000px) {
   .content-holder .profile-content .profile-items {
     height: 25%;
-    top: 15rem;
+    top: 25rem;
     width: 25%;
-    left: 55rem;
+    left: 68rem;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -560,8 +563,7 @@ table {
 }
 .carousel .left-button:hover,
 .carousel .right-button:hover {
-  color: grey;
-  border: 1px solid red;
+  color: #67da8c;
 }
 .carousel .left-button {
   top: 50%;
