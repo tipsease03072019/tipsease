@@ -33,7 +33,7 @@ class App extends Component {
     profileImg: null,
     payFlow: {
       tip: 5,
-      users_id: "",
+      user_id: "",
       username: '',
     },
   };
@@ -49,6 +49,7 @@ class App extends Component {
         this.props.cookies.set("_uid", user.uid);
         this.setState({
           profileImg: user.photoURL,
+          userId: user.uid,
         });
         // TODO: Get request to pull account type and profile code
       } else {
@@ -131,7 +132,7 @@ class App extends Component {
           exact
           path="/wallet"
           render={props => (
-            <WalletPage {...props} cookies={this.props.cookies.getAll()} />
+            <WalletPage {...props} uid={this.state.userId} cookies={this.props.cookies.getAll()} />
           )}
         />
         <Route
