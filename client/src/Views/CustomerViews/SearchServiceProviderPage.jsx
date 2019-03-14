@@ -52,7 +52,7 @@ class SearchServiceProviderPage extends Component {
             <span>$</span>
             <h2>{this.props.selectedTip}</h2>
           </div>
-          <h4>Search for a servers username</h4>
+          <h4 className="text-centered">Search for a servers username</h4>
           <input
             type="text"
             placeholder="⨉⨉⨉⨉⨉⨉⨉"
@@ -60,19 +60,17 @@ class SearchServiceProviderPage extends Component {
             onChange={this.changeHandler}
             className="text-centered"
           />
-          <div className="">
+          <div>
             <Link to="/">
-              <button className="transparent">Prev</button>
+              <button className="transparent">Back</button>
             </Link>
-            {/* <Link to="/">
-              <button className="transparent next-btn">Next</button>
-            </Link> */}
           </div>
           {(this.state.filtered ? this.state.filtered : this.state.servers).map(
             server => (
               <button
                 key={server.uid}
                 onClick={() => this.selectUser(server.id, server.username)}
+                className="username-btn"
               >
                 @{server.username}
               </button>

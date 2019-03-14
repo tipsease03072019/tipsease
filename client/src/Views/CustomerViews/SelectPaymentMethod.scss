@@ -1,0 +1,27 @@
+.select-pay-method.view-background {
+  background-color: $tipsease-primary;
+
+  section.view.select-pay-method {
+    @include flexbox(inherit, inherit, center);
+
+    h3 {
+      margin-bottom: $medium-space;
+    }
+
+    .button-grid {
+      width: 90%;
+      max-width: 40rem;
+
+      button {
+        width: calc(50% - #{$small-space * 2});
+        min-height: unset;
+        height: 18rem;
+        margin: $small-space;
+        padding: $normal-space;
+        text-align: center;
+        word-wrap: break-word;
+        // overflow-x: hidden;
+      }
+    }
+  }
+}
