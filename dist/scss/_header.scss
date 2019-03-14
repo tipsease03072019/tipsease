@@ -6,21 +6,18 @@
     align-items: center;
     justify-content: center;
 
-    @include tablet{
-
-        background: linear-gradient(180deg, rgba(255,255,255,1) 46%, rgba(40,51,63,1) 100%);
-        margin-bottom: 80px;
-    }
     .header-bg {
         display: none;
     }
+
     @include tablet {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         height: 100vh;
-
+        background: linear-gradient(180deg, rgba(255,255,255,1) 46%, rgba(40,51,63,1) 100%);
+        margin-bottom: 80px;
         .header-bg {
             width: 50%;
             height: 100%;
@@ -94,14 +91,31 @@ header {
     }
     .cta {
         margin-top: 50px;
+        min-height: 200px;
+        min-width: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+
+        .logo-container {
+            margin: 40px 0;
+            height: 50px;
+            width: 100%;
+            background-image: url('../img/tipsease-logo-white.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            @include tablet {
+                background-image: url('../img/tipsease-logo-dark.png');
+            }
+
+        }
 
         @include desktop {
 
         }
 
-        h1 {
-            margin-bottom: 30px;
-        }
         strong {
             color: $primary-color;
             @include heroHeading;
