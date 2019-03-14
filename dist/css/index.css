@@ -171,9 +171,11 @@ table {
   justify-content: center;
   align-items: center;
   color: #67da8c;
-  font-size: 3rem;
   background: #1352dd;
   background: radial-gradient(circle, #1352dd 0%, #28333f 35%);
+}
+.logo h1 {
+  font-size: 3rem;
 }
 
 @media screen and (min-width: 800px) {
@@ -185,8 +187,10 @@ table {
 @media screen and (min-width: 1000px) {
   .logo {
     padding: 8rem 0;
-    font-size: 5rem;
     background: #eeeeee;
+  }
+  .logo h1 {
+    font-size: 5rem;
   }
 }
 .top-content {
@@ -203,8 +207,6 @@ table {
   height: 300px;
 }
 .top-content .top-content-info {
-  z-index: 0;
-  opacity: 0.8;
   color: white;
   margin-top: 2rem;
   background-color: #67da8c;
@@ -216,10 +218,12 @@ table {
 }
 .top-content .top-content-info p {
   padding: 30px;
+  font-size: 1.5rem;
 }
 .top-content .top-content-info h2 {
   text-align: center;
   margin: 2rem 0 0 0;
+  font-size: 1.5rem;
 }
 
 @media screen and (min-width: 1000px) {
@@ -281,7 +285,7 @@ table {
   padding-top: 10px;
   background-color: #2a3642;
   text-align: center;
-  font-size: 2rem;
+  font-size: 3.5rem;
   margin-bottom: 2rem;
 }
 
@@ -359,6 +363,7 @@ table {
   color: white;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 .profiles .text a {
@@ -406,6 +411,9 @@ table {
   top: 5px;
   width: 10%;
 }
+.content-holder .profile-content .profile-items .profile-description {
+  font-size: 1.8rem;
+}
 .content-holder .profile-content .icons {
   display: none;
 }
@@ -417,6 +425,9 @@ table {
   .content-holder .profile-content .profile-items {
     padding-top: 5rem;
     font-size: 1.5rem;
+  }
+  .content-holder .profile-content .profile-items .profile-description {
+    font-size: 2rem;
   }
 }
 @media screen and (min-width: 1000px) {
@@ -434,7 +445,7 @@ table {
     height: 25%;
     top: 15rem;
     width: 25%;
-    left: 41.5rem;
+    left: 55rem;
   }
 }
 @media screen and (min-width: 1000px) {
