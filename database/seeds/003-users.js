@@ -7,28 +7,25 @@ exports.seed = function(knex, Promise) {
       return knex("users").insert([
         {
           id: 1,
+          uid: "f467StrA0ZZ8MAPoe2zcDQk53hO1",
           username: "employee",
-          password: "pass",
-          email: "employee@email.com",
           img_url: "https://www.fillmurray.com/640/360",
-          account_type: "employee",
+          account_type: "f5c3522b165b1589a6cb5a2aee1da7f7",
           balance: 100
         },
         {
           id: 2,
+          uid: "f467StrA0ZZ8MAPoe2zcDQk53hO2",
           username: "cherry",
-          password: "pie",
-          email: "cherrypie@email.com",
           img_url: "https://loremflickr.com/640/360",
-          account_type: "costumer"
+          account_type: "1c5bc292728db250bf56c216870babab"
         },
         {
           id: 3,
+          uid: "f467StrA0ZZ8MAPoe2zcDQk53hO3",
           username: "full",
-          password: "user",
-          email: "fulluser@email.com",
           img_url: "http://via.placeholder.com/640x360",
-          account_type: "employee",
+          account_type: "f5c3522b165b1589a6cb5a2aee1da7f7",
           balance: 50
         }
       ]);
