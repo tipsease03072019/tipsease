@@ -1,9 +1,8 @@
 import React, {Component} from "react";
-import {Link, Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import axios from "axios";
 // import PropTypes from "prop-types";
-
-import loginIllustrations from "../assets/login.svg";
+import LoginSignupHeader from "../Components/LoginSignupHeader";
 
 class LoginPage extends Component {
   state = {
@@ -53,10 +52,9 @@ class LoginPage extends Component {
       }
     }
     return (
-      <>
-        <form onSubmit={this.submitHandler}>
-          {/* //TODO: Style Illustration */}
-          {/* <img src={loginIllustrations} alt="" />  */}
+      <section className="view login-signup">
+        <LoginSignupHeader />
+        <form onSubmit={this.submitHandler} className="full-width">
           <input
             type="text"
             required
@@ -64,7 +62,8 @@ class LoginPage extends Component {
             name="username"
             value={this.state.inputs.username}
             onChange={this.typeHandler}
-          />
+            className="full-width"
+            />
           <input
             type="password"
             required
@@ -72,11 +71,11 @@ class LoginPage extends Component {
             name="password"
             value={this.state.inputs.password}
             onChange={this.typeHandler}
-          />
-          <button type="submit">Login</button>
-          <Link to="/signup">Sign Up</Link>
+            className="full-width"
+            />
+          <button className="primary full-width" type="submit">Login</button>
         </form>
-      </>
+      </section>
     );
   }
 }
