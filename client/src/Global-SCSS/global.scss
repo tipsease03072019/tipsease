@@ -243,16 +243,17 @@ figure {
 
   .view-background {
     position: absolute;
+    width: 100%;
     height: 100%;
     @include flexbox(column, center, center);
   }
+}
 
-  section.view {
-    width: 100%;
-    min-height: 100vh;
-    max-width: $desktop-width;
-    @include flexbox(column, null, center);
-    padding: 0 $normal-space;
-    padding-bottom: $extra-large-space;
-  }
+section.view {
+  width: 100%;
+  min-height: 100vh;
+  max-width: $desktop-width;
+  @include flexbox(column, null, center);
+  padding: 0 $normal-space;
+  padding-bottom: $extra-large-space;
 }

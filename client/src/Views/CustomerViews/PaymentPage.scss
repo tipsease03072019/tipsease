@@ -1,0 +1,32 @@
+section.view.payment {
+  @include flexbox(inherit, center, inherit);
+  padding-bottom: 0;
+
+  .send-amount span {
+    color: $tipsease-secondary;
+  }
+
+  .username {
+    margin-bottom: $large-space;
+  }
+}
+
+.view-background.payment-success {
+  background-color: $tipsease-primary;
+
+}
+
+.view-background.payment-failure {
+  background-color: $tipsease-warning;
+
+  h2 {
+    color: $white;
+  }
+}
+
+.view-background.payment-success,
+.view-background.payment-failure {
+  h2 {
+    margin-bottom: $medium-space;
+  }
+}
