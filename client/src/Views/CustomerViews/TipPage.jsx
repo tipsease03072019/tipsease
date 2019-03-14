@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {useInput} from "../../Hooks/input";
+import Nav from '../../Components/Nav'
 
 const TipPage = props => {
   // Creating new input hooks instance
@@ -13,11 +14,13 @@ const TipPage = props => {
 
   return (
     <>
+      <Nav />
       <h2>Select Amount</h2>
       <input
         type="number"
         value={tipAmount.value}
         onChange={tipAmount.updateValue}
+        placeholder="Tip Amount"
       />
       <button onClick={tipHandler}>Next</button>
       <br />

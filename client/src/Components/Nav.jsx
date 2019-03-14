@@ -1,5 +1,6 @@
 import React,{ Component } from "react";
 import {Link} from "react-router-dom";
+import { withCookies } from 'react-cookie';
 
 class Nav extends Component {
   constructor() {
@@ -20,7 +21,7 @@ class Nav extends Component {
       (
       <div className="nav">
         <button onClick={this.toggleNav}>Profile</button>
-        
+        <img />
         <nav className="card">
           {/* Depending on the accountType found in App.js' state, render a Link to wallet. Reason being is that normal users have no need for a link to their non-existent wallet */}
           {this.props.accountType === "employee" ? (
@@ -49,4 +50,4 @@ class Nav extends Component {
   };
 }
 
-export default Nav;
+export default withCookies(Nav);
