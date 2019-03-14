@@ -1,6 +1,7 @@
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
-import axios from "axios";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useInput } from "../../Hooks/input";
+import axios from 'axios';
 import Card from '../../Components/Card';
 
 class SearchServiceProviderPage extends Component {
@@ -9,33 +10,25 @@ class SearchServiceProviderPage extends Component {
     servers: [],
     filtered: null,
   };
+    
+componentDidMount() {
+  this.getEmployees();
+}
 
-  componentDidMount() {
-    this.getEmployees();
-  }
-
-  getEmployees = () => {
-    axios
-      .get("https://tipsease.herokuapp.com/api/users")
-      .then(res => {
-        console.log(res);
-        this.setState({
-          ...this.state,
-          servers: res.data,
-        })
+getEmployees = () => {
+  axios
+    .get("https://tipsease.herokuapp.com/api/users")
+    .then(res => {
+      console.log(res);
+      this.setState({
+        ...this.state,
+        servers: res.data,
       })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-  
-
-  changeHandler = e => {
-    this.setState({
-      ...this.state,
-      search: e.target.value
     })
-  }
+    .catch(err => {
+      console.log(err);
+    });
+}
 
   selectUser = uid => {
     console.log(uid);
@@ -43,24 +36,46 @@ class SearchServiceProviderPage extends Component {
     this.props.history.push("/payment");
   }
 
-  render() {
+changeHandler = e => {
+  this.setState({
+    ...this.state,
+    search: e.target.value
+  })
+}
+
+selectUser = uid => {
+  console.log(uid);
+}
+
+render() {
     return (
-      <>
-        <h2>${this.props.selectedTip}</h2>
-        <p>Type in the worker's username</p>
+    <div className="search-provider view-background full-width">
+      <section className="view search-provider">
+        <div className="balance-container">
+          <span>$</span>
+          <h2>{props.selectedTip}</h2>
+        </div>
+        <h4>Enter a service provider's TipsEase ID</h4>
         <input
           type="text"
-          placeholder="Servers Username"
-          value={this.state.search}
-          onChange={this.changeHandler}
+          placeholder="⨉⨉⨉⨉⨉⨉⨉"
+          value={sendTipTo.value}
+          onChange={sendTipTo.updateValue}
+          className="text-centered"
         />
-        <Link to="/">
-          <button>Back</button>
-        </Link>
         {(this.state.filtered ? this.state.filtered : this.state.servers).map(server => (
           <Card username={server.username} key={server.uid} uid={server.uid} selectUser={this.selectUser} />
         ))}
-      </>
+       <div className="">
+          <Link to="/">
+            <button className="transparent">Prev</button>
+          </Link>
+          <Link to="/">
+            <button className="transparent next-btn">Next</button>
+          </Link>
+        </div>
+      </section>
+    </div>
     );
   }
 }
