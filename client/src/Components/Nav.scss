@@ -1,0 +1,33 @@
+.nav, .nav .menu-card, .popover-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.nav, .nav .menu-card {
+  margin-top: $medium-space;
+  margin-right: $medium-space;
+}
+
+.nav {
+  &.active {
+    width: 100%;
+  }
+
+  button {
+    border-radius: 6px;
+  }
+
+  .menu-card {
+    @include flexbox(column, center, center);
+    z-index: 100;
+    width: 75%;
+    max-width: 40rem;
+  }
+}
+
+.popover-background {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(40, 51, 63, .3);
+}
