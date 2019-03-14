@@ -7,23 +7,19 @@ class PaymentSuccess extends Component {
     isLoading: false,
     isSuccessful: false,
     hasFailed: false,
-    sendData: {
-      uid: this.props.data.user_id,
-      tip: this.props.data.tip,
-    },
   };
 
   sendTip = () => {
     this.setState({
       isLoading: true,
     });
-    console.log(this.state.sendData);
+    console.log(this.props.data.user_id);
     axios
       .post(
         `https://tipsease.herokuapp.com/api/transactions/${
-          this.state.sendData.uid
+          this.props.data.user_id
         }`,
-        this.state.sendData,
+        this.props.data.tip,
       )
       .then(res => {
         this.setState({
@@ -47,6 +43,7 @@ class PaymentSuccess extends Component {
         <div className="view-background payment-success">
           <section className="view payment">
             <h2>Payment Sent Successfully</h2>
+            <p>@{this.props.data.username} is very grateful... We think.</p>
             <Link to="/">
               <button className="send-again-btn">Send Again</button>
             </Link>
@@ -64,6 +61,17 @@ class PaymentSuccess extends Component {
           </section>
         </div>
       );
+    }
+    if(this.state.isLoading){
+      return(
+        <section className="view payment">
+          <h2 className="send-amount">
+            Sending <span>${tip}</span>
+          </h2>
+          <h4>to</h4>
+          <h2 className="username">@{username}</h2>
+        </section>
+      )
     }
     if (username && tip) {
       return (
