@@ -22,7 +22,15 @@ router.get("/:id", decode1, (req, res) => {
     const id = req.params.id;
     db("transactions")
       .where("users_id", "=", id)
-      .then(transactions => res.status(200).send(transactions))
+      .then(transactions => {
+        res.status(200).send(transactions);
+        db("users")
+          .where("id", "=", id)
+          .select("balance")
+          .then(res1 => {
+            res.status(201).json(res2);
+          });
+      })
       .catch(err => console.log(err));
   }
 });
@@ -32,19 +40,13 @@ router.post("/:id", (req, res) => {
   const id = req.params.id;
   db("transactions")
     .insert(pay)
-    .where("users_id", "=", id)
-    .select("user_balance")
     .then(res1 => {
-      console.log(res1.user_balance);
-      let new_balance = res1.user_balance + pay.tip;
       db("users")
         .where("id", "=", id)
         .select("balance")
-        .update({ balance: new_balance })
+        .increment("balance", pay.tip)
         .then(res2 => {
           res.status(201).json(res2);
-          new_balance;
-          console.log(res2, new_balance, pay.tip);
         })
         .catch(err => console.log(err));
     })
