@@ -13,7 +13,7 @@ class WalletPage extends Component {
     }
     console.log(headers);
     axios
-      .get(`http://localhost:3300/api/transactions/${ this.props.cookies._uid }`, headers)
+      .get(`https://tipsease.herokuapp.com/api/transactions/${ this.props.cookies._uid }`, headers)
       .then(res => {
         console.log(res)
       })
