@@ -7,15 +7,16 @@ import {Link} from "react-router-dom";
 class ProfilePage extends Component {
   state = {
     isLoading: true,
-    inputs: {
-    },
+    inputs: {},
   };
 
   componentDidMount() {
-    const userId = JSON.parse(this.props.cookies.userId);
-    axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
     axios
-      .get(`https://tipsease.herokuapp.com/api/users/${this.props.userId}`)
+      .get(`https://tipsease.herokuapp.com/api/users/${this.props.cookies._uid}`,{
+        headers: {
+          token: this.props.cookies._uat,
+        },
+      },)
       .then(res => {
         this.setState({
           ...this.state,
@@ -49,7 +50,7 @@ class ProfilePage extends Component {
     axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
     axios
       .put(
-        `https://tipsease.herokuapp.com/api/users/${userId}`,
+        `https://tipsease.herokuapp.com/api/users/${this.props.cookies._uid}`,
         this.state.inputs,
       )
       .then(res => {

@@ -31,7 +31,7 @@ class App extends Component {
     payFlow: {
       tip: 5,
       user_id: "",
-      username: '',
+      username: "",
     },
   };
 
@@ -105,7 +105,11 @@ class App extends Component {
         username: username,
       },
     });
-    sessionStorage.setItem("payFlow", {...this.state.payFlow, user_id: uid, username: username});
+    sessionStorage.setItem("payFlow", {
+      ...this.state.payFlow,
+      user_id: uid,
+      username: username,
+    });
   };
 
   render() {
@@ -129,25 +133,25 @@ class App extends Component {
           exact
           path="/wallet"
           render={props => (
-            <WalletPage {...props} uid={this.state.userId} cookies={this.props.cookies.getAll()} />
+            <WalletPage
+              {...props}
+              uid={this.state.userId}
+              cookies={this.props.cookies.getAll()}
+            />
           )}
-        />
-        <Route
-          exact
-          path="/wallet/code"
-          render={props => <ShowCodePage {...props} />}
-        />
-        <Route
-          exact
-          path="/payment-method"
-          render={props => <SelectPaymentMethod {...props} />}
         />
         <Route
           exact
           path="/payment"
           render={props => <Payment data={this.state.payFlow} />}
         />
-        <Route exact path="/profile" render={<Profile />} />
+        <Route
+          exact
+          path="/profile"
+          render={props => (
+            <Profile {...props} cookies={this.props.cookies.getAll()} />
+          )}
+        />
         <Route
           exact
           path="/find"

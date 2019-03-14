@@ -9,8 +9,9 @@ class WalletPage extends Component {
   state = {
     isLoading: true,
     balance: null,
-    username: "maksim",
+    username: null,
     showUsername: false,
+    transactions: [],
   };
 
   componentDidMount() {
@@ -20,11 +21,19 @@ class WalletPage extends Component {
           this.props.cookies._uid
         }`,
         {
-          token: this.props.cookies._uat,
+          headers: {
+            token: this.props.cookies._uat,
+          },
         },
       )
       .then(res => {
         console.log(res);
+        this.setState({
+          ...this.state,
+          isLoading: false,
+          balance: 0,
+          transactions: [],
+        });
       })
       .catch(err => {
         console.log(err);
@@ -95,7 +104,7 @@ class WalletPage extends Component {
             <WalletHistory senderImg />
           ))} */}
           {this.state.isLoading && (
-            <button className="secondary" >
+            <button className="secondary">
               <Skeleton />
             </button>
           )}
