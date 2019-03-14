@@ -66,6 +66,7 @@ router.post("/register", (req, res) => {
 // });
 
 router.get("/:id", decode1, (req, res) => {
+  if(req.params.id==req.headers.UID)
   db("users")
     .where({
       uid: req.params.id
@@ -76,10 +77,10 @@ router.get("/:id", decode1, (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
-router.put("/:id", decode, async (req, res) => {
+router.put("/:id", decode1, async (req, res) => {
   console.log("params id ",req.params.id )
   console.log("body.uid ", req.body.UID)
-  if (req.params.id === req.body.UID) {
+  if (req.params.id === req.headers.UID) {
     let changes = req.body;
 
     for (x in changes) {
@@ -109,8 +110,8 @@ router.put("/:id", decode, async (req, res) => {
   }
 });
 
-router.delete("/:id", decode, (req, res) => {
-  if (req.params.id === req.body.uid) {
+router.delete("/:id", decode1, (req, res) => {
+  if (req.params.id === req.headers.UID) {
     db("users")
       .where({
         uid: req.params.id
