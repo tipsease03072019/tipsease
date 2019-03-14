@@ -57,6 +57,14 @@ table {
   border-spacing: 0;
 }
 
+@keyframes popout {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 .hamburger {
   position: fixed;
   top: 30px;
