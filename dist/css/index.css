@@ -561,7 +561,6 @@ table {
 .carousel .left-button:hover,
 .carousel .right-button:hover {
   color: grey;
-  border: 1px solid red;
 }
 .carousel .left-button {
   top: 50%;
