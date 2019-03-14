@@ -218,7 +218,7 @@ axios
 
 ```
 const data = {
-    "users_id": 5,
+    "uid": 5,
 	"tip": 10
 }
 

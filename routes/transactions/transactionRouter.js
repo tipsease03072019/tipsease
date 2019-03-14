@@ -41,7 +41,7 @@ router.post("/:id", (req, res) => {
     .insert(pay)
     .then(res1 => {
       db("users")
-        .where("id", "=", id)
+        .where("uid", "=", uid)
         .select("balance")
         .increment("balance", pay.tip)
         .then(res2 => {
