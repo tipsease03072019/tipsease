@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import * as moment from "moment";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
-import WalletHistoryLoad from '../../Components/WalletHistoryLoad';
-import WalletHistory from '../../Components/WalletHistory';
+import WalletHistoryLoad from "../../Components/WalletHistoryLoad";
+import WalletHistory from "../../Components/WalletHistory";
 
 class WalletPage extends Component {
   state = {
@@ -12,15 +12,14 @@ class WalletPage extends Component {
   };
 
   componentDidMount() {
-    const headers = {
-      token: this.props.cookies._uat,
-    };
     axios
       .get(
         `https://tipsease.herokuapp.com/api/transactions/${
           this.props.cookies._uid
         }`,
-        headers,
+        {
+          token: this.props.cookies._uat,
+        },
       )
       .then(res => {
         console.log(res);
@@ -87,9 +86,7 @@ class WalletPage extends Component {
 
         <section className="card wallet-bottom full-width">
           <h4>Latest Transactions:</h4>
-          {this.state.isLoading && (
-            <WalletHistoryLoad/>
-          )}
+          {this.state.isLoading && <WalletHistoryLoad />}
           {/* {!this.state.isLoading && transactions.map((transaction, idx) => (
             <WalletHistory senderImg />
           ))} */}

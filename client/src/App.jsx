@@ -3,14 +3,11 @@
 // Customer => 1c5bc292728db250bf56c216870babab
 
 import React, {Component} from "react";
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import {loadProgressBar} from "axios-progress-bar";
 import axios from "axios";
 import firebase from "./config/fire";
 import {withCookies} from "react-cookie";
-
-// HOC Imports
-import PrivateRoute from "./HOC/PrivateRoute";
 
 // View imports
 import SignUpPage from "./Views/SignUpPage";
@@ -24,7 +21,6 @@ import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProvid
 
 // CSS imports
 import "axios-progress-bar/dist/nprogress.css";
-import PaymentSuccess from "./Views/CustomerViews/PaymentSuccessPage";
 
 class App extends Component {
   state = {
