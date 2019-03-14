@@ -19,16 +19,15 @@ const {
 
 router.get("/:id", decode1, (req, res) => {
   if (req.params.id === req.headers.UID) {
-    const id = req.params.id;
     db("transactions")
-      .where("users_id", "=", id)
+      .where("uid", "=", req.params.id)
       .then(transactions => {
         res.status(200).send(transactions);
         db("users")
-          .where("id", "=", id)
+          .where("uid", "=", req.params.id)
           .select("balance")
-          .then(res1 => {
-            res.status(201).json(res2);
+          .then(res => {
+            res.status(201).json(res);
           });
       })
       .catch(err => console.log(err));
