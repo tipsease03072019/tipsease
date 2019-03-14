@@ -45,7 +45,6 @@ class App extends Component {
   loginHandler = () => {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log(user._lat)
         this.props.cookies.set("_uat", user._lat);
         this.props.cookies.set("_uid", user.uid);
         this.setState({
@@ -95,7 +94,7 @@ class App extends Component {
           exact
           path="/login"
           render={props => (
-            <LoginPage {...props} loginHandler={this.loginHandler} />
+            <LoginPage {...props} logout={this.logoutHandler} loginHandler={this.loginHandler} />
           )}
         />
         <Route

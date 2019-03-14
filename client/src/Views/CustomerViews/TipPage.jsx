@@ -14,7 +14,7 @@ const TipPage = props => {
 
   return (
     <>
-      <Nav />
+      <Nav logoutHandler={props.logoutHandler} />
       <h2>Select Amount</h2>
       <input
         type="number"

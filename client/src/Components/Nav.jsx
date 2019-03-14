@@ -37,8 +37,7 @@ class Nav extends Component {
               Update Profile
             </button>
           </Link>
-          
-          <button className="transparent" onClick={this.props.logOut}>Sign Out</button>
+          <button className="transparent" onClick={this.props.logoutHandler}>Sign Out</button>
         </nav>
       </div>)
     :
