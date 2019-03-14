@@ -1,20 +1,20 @@
 footer {
-    margin: 30px 0 20px 0;
+  margin: 30px 0 20px 0;
+  color: $primary-color;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: center;
+  font-size: 2.6rem;
+
+  @include desktop {
+    margin-top: $lg-margin;
+  }
+
+  a {
+    @include textBtn;
+    margin: 0 20px;
     color: $primary-color;
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    justify-content: center;
-    font-size: 14px;
-
-    @include desktop {
-        margin-top: $lg-margin;
-    }
-
-    a {
-        @include textBtn;
-        margin: 0 20px;
-        color: $primary-color;
-        padding: 3px;
-    }
+    padding: 3px;
+  }
 }

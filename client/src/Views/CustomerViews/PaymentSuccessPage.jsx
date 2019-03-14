@@ -45,30 +45,46 @@ class PaymentSuccess extends Component {
     const {tip, username} = this.props.data;
     if (this.state.isSuccessful) {
       return (
-        <>
-          <h2>Send Successfully</h2>
-          <Link to="/">Send Again</Link>
-        </>
+        <div className="view-background payment-success">
+          <section className="view payment">
+            <h2>Payment Sent Successfully</h2>
+            <Link to="/">
+              <button className="send-again-btn">
+                Send Again
+              </button>
+            </Link>
+          </section>
+        </div>
       );
     }
     if (this.state.hasFailed) {
       return (
-        <>
-          <h2>Send Failed</h2>
-          <Link to="/"><button>Try Again</button></Link>
-        </>
+        <div className="view-background payment-failure">
+          <section className="view payment">
+            <h2>Send Failed</h2>
+            <Link to="/">
+              <button>Try Again</button>
+            </Link>
+          </section>
+        </div>
       );
     }
     if (username && tip) {
       return (
-        <>
-          <h2>${tip}</h2>
-          <h2>@{username}</h2>
+        <section className="view payment">
+          <h2 className="send-amount">Send <span>${tip}</span></h2>
+          <h4>to</h4>
+          <h2 className="username">@{username}</h2>
+          <button
+            onClick={this.sendTip}
+            className="secondary"
+          >
+            Confirm
+          </button>
           <Link to="/find">
-            <button>Back</button>
+            <button className="transparent">Cancel</button>
           </Link>
-          <button onClick={this.sendTip}>Correct</button>
-        </>
+        </section>
       );
     }
     return <Redirect to="/" />;
