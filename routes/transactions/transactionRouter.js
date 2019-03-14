@@ -6,7 +6,9 @@ const bcrypt = require("bcryptjs");
 const {
   authenticate,
   generateToken,
-  jwtSecret
+  jwtSecret,
+  decode,
+  decode1
 } = require("../../auth/authenticate");
 
 // router.get("/", (req, res) => {
