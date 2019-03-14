@@ -19,6 +19,7 @@ import ShowCodePage from "./Views/ServiceProviderViews/ShowCodePage";
 import TipPage from "./Views/CustomerViews/TipPage";
 import Profile from "./Views/ProfilePage";
 import Payment from "./Views/CustomerViews/PaymentSuccessPage";
+import SelectPaymentMethod from "./Views/CustomerViews/SelectPaymentMethod";
 import SearchServiceProviderPage from "./Views/CustomerViews/SearchServiceProviderPage";
 
 // CSS imports
@@ -138,6 +139,11 @@ class App extends Component {
           exact
           path="/wallet/code"
           render={props => <ShowCodePage {...props} />}
+        />
+        <Route
+          exact
+          path="/payment-method"
+          render={props => <SelectPaymentMethod {...props} />}
         />
         <Route
           exact

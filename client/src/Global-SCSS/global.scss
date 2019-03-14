@@ -92,6 +92,17 @@ button {
   box-shadow: 0 .8rem 2.5rem 0 rgba(40, 51, 63, .11);
   transition: all 100ms ease-in-out;
 
+  &[disabled] {
+    opacity: .5;
+    cursor: default;
+    box-shadow: unset;
+
+    &:active {
+      opacity: .5;
+      box-shadow: unset;
+    }
+  }
+
   &:active {
     opacity: .8;
     box-shadow: 0 6px 10px 0 rgba(40, 51, 63, .11);
