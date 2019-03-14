@@ -98,7 +98,7 @@ axios
 
 ```
 const headers = {
-    Token: ""
+    token: ""
 };
 
 axios
@@ -160,7 +160,7 @@ axios
 
 ```
 const headers = {
-    Token: "",
+    token: "",
 }
 
 axios
