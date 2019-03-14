@@ -5,7 +5,7 @@ import Nav from '../../Components/Nav'
 
 const TipPage = props => {
   // Creating new input hooks instance
-  const tipAmount = useInput(props.tip, 4);
+  const tipAmount = useInput(props.tip, 3);
 
   const tipHandler = () => {
     props.setTipHelper(tipAmount.value);
