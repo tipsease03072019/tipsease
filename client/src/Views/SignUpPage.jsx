@@ -21,6 +21,7 @@ class SignUpPage extends Component {
       profileImg: null,
     },
   };
+
   signUpWithFacebook = () => {
     firebase
       .auth()
@@ -131,7 +132,7 @@ class SignUpPage extends Component {
       uid: this.state.userInfo.uid,
     };
     axios
-      .post("http://localhost:3300/api/users/register/", data)
+      .post("http://localhost:3300/api/users/register", data)
       .then(res => {
         this.saveAndRoute(this.state.userInfo);
       })

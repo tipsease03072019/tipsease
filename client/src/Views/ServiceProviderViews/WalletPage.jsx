@@ -1,58 +1,109 @@
-// import React,{ Component } from "react";
-// import PropTypes from 'prop-types';
-// import * as moment from 'moment';
+import React, {Component} from "react";
+import * as moment from "moment";
+import axios from "axios";
 
-// class WalletPage extends Component {
-//   state = {
-//     balance: 50
-//   }
+class WalletPage extends Component {
+  state = {
+    balance: null,
+  };
 
-//   tipHandler = () => {
-//     this.props.history.push("/tip")
-//   }
+  componentDidMount() {
+    const headers = {
+      token: this.props.cookies._uat,
+    }
+    console.log(headers);
+    axios
+      .get(`http://localhost:3300/api/transactions/${ this.props.cookies._uid }`, headers)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 
-//   showCodeHandler = () => {
-//     this.props.history.push("/wallet/code")
-//   }
+  tipHandler = () => {
+    this.props.history.push("/tip");
+  };
 
-  
-//   render() {
-//     // Empty Array, signifying previous transactions. To be used to `map()` below.
-//     const transactions = [{
-//       receivedOrSent: "received", amount: 69, sender: "Isaac Aszimov", timeStamp: "2019-03-12 01:06:39"
-//     }];
-//     const testUser = [{
-//       name: "John",
-//       balance: 50
-//     }]
-//     return (
-//       <>
-//         {/* Upper Half, containing balance */}
-//         <section className="wallet-top">
-//           <p>Your Current TipTease Balance is:</p>
-//           <div className="balance-container">
-//             $ {this.state.balance}
-//           </div>
+  showCodeHandler = () => {
+    this.props.history.push("/wallet/code");
+  };
 
-//           <button onClick={this.tipHandler}>Tip Someone</button>
-//         </section>
+  render() {
+    // Empty Array, signifying previous transactions. To be used to `map()` below.
+    const transactions = [
+      {
+        receivedOrSent: "received",
+        amount: 69,
+        sender: "Isaac Aszimov",
+        timeStamp: "2019-03-12 01:06:39",
+      },
+      {
+        receivedOrSent: "received",
+        amount: 52,
+        sender: "William Jones",
+        timeStamp: "2019-03-12 01:06:39",
+      },
+      {
+        receivedOrSent: "received",
+        amount: 46,
+        sender: "Isaac Henry",
+        timeStamp: "2019-03-12 01:06:39",
+      },
+    ];
+    const testUser = [
+      {
+        name: "John",
+        balance: 50,
+      },
+    ];
+    console.log(this.props)
+    return (
+      <section className="view">
+        <section className="wallet-top">
+          <h2>Welcome</h2>
+          <div className="card full-width">
+            <p>Your Current Tipsease Balance is:</p>
 
-//         {/* Lower Half, containing latest transactions and an absolute-positioned button to show the code */}
-//         <section className="wallet-bottom">
-//           <p>Latest Transactions:</p>
-//           {transactions.map((transaction, idx) => 
-//           <div key={idx}>
-//             <p className="transaction">{transaction.receivedOrSent} ${transaction.amount} from {transaction.sender}</p>
-//             <p className="transaction-timestamp">- {moment().subtract(4912, 'minutes').calendar()}</p>
-//           </div>
-//           )}
+            {this.state.balance && (
+              <div className="balance-container">
+                <span>$</span>
+                <h1>{this.state.balance}</h1>
+              </div>
+            )}
+          </div>
 
-//           {/* Button positioned absolutely */}
-//           <button onClick={this.showCodeHandler}>Show Your Code</button>
-//         </section>
-//       </>
-//     );
-//   }
-// }
+          <button onClick={this.tipHandler}>Tip Someone</button>
+        </section>
 
-// export default Auth(WalletPage, "employee");
+        <section className="card wallet-bottom full-width">
+          <h4>Latest Transactions:</h4>
+          {transactions.map((transaction, idx) => (
+            <div className="transaction-container" key={idx}>
+              <div className="avatar">{transaction.sender[0]}</div>
+              <div className="left-container">
+                <p className="transaction-person">{transaction.sender}</p>
+                <p className="transaction-time small-text">
+                  Completed&nbsp;
+                  {moment(transaction.timeStamp).format("DD MMM")}
+                </p>
+              </div>
+              <div className="right-container">
+                <h4 className="transaction-amount">
+                  {transaction.receivedOrSent === "received" ? "+" : "-"}$
+                  {transaction.amount}
+                </h4>
+              </div>
+            </div>
+          ))}
+          <button className="secondary" onClick={this.showCodeHandler}>
+            Show Your Code
+          </button>
+        </section>
+      </section>
+    );
+  }
+}
+
+export default WalletPage;

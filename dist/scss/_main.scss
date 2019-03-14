@@ -54,9 +54,6 @@ main {
                     background-image: url('https://svgshare.com/i/BkP.svg');
                 }
 
-                @include desktop {
-                    width: 160%;
-                }
             }
 
             @include card;

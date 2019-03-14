@@ -1,0 +1,350 @@
+.logo {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #67da8c;
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 35%);
+
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@include tablet {
+  .logo {
+    padding-bottom: 0;
+    background: none;
+  }
+}
+
+@include desktop {
+  .logo {
+    padding: 8rem 0;
+    background: #eeeeee;
+
+    h1 {
+      font-size: 5rem;
+    }
+  }
+}
+
+.top-content {
+  padding-top: 5rem;
+  color: white;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0 0 3rem 0;
+  img {
+    background: #1352dd;
+    background: radial-gradient(circle, #1352dd 0%, #28333f 70%);
+    width: 100%;
+    height: 300px;
+  }
+  .top-content-info {
+    color: white;
+    margin-top: 2rem;
+    background-color: #67da8c;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      padding: 30px;
+      font-size: 1.5rem;
+    }
+    h2 {
+      text-align: center;
+      margin: 2rem 0 0 0;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@include desktop {
+  .top-content {
+    flex-flow: row-reverse;
+    justify-content: space-between;
+    background: #28333f;
+    background: linear-gradient(0deg, #28333f 75%, #eeeeee 90%);
+  }
+}
+
+@include tablet {
+  .top-content img {
+    background: none;
+  }
+}
+
+@include desktop {
+  .top-content img {
+    background: none;
+    height: 500px;
+    width: 60%;
+  }
+}
+
+@include desktop {
+  .top-content .top-content-info {
+    margin-top: 9rem;
+    margin-left: 10rem;
+    width: 25%;
+    height: 300px;
+  }
+}
+
+@include tablet {
+  .top-content .top-content-info {
+    padding-bottom: 2rem;
+  }
+}
+
+.profile-top {
+  background: #1352dd;
+  background: radial-gradient(circle, #1352dd 0%, #28333f 55%);
+  .profiles-header {
+    width: 100%;
+  }
+}
+
+@include desktop {
+  .profile-top {
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@include desktop {
+  .profile-top .profiles-header {
+    width: 45%;
+  }
+}
+
+.profile-main-text h2 {
+  color: #67da8c;
+  padding-top: 10px;
+  background-color: #2a3642;
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+@include desktop {
+  .profile-main-text h2 {
+    font-size: 5rem;
+  }
+}
+
+.profile-holder {
+  padding: 3rem;
+}
+
+.profiles {
+  background-color: #2a3642;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+  .img-1 {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    background: url("../img/quan-nguyen.jpeg");
+    background-position: center;
+  }
+  .img-7 {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    background: url("../img/joseph-rios.jpeg");
+    background-position: center;
+  }
+  .img-6 {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    background: url("../img/jeff-lapp.jpeg");
+    background-position: center;
+  }
+  .img-5 {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    background: url("../img/portrait.jpg");
+    background-position: center;
+  }
+  .img-4 {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    background: url("../img/portrait.jpg");
+    background-position: top;
+  }
+  .img-3 {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    background: url("../img/portrait.jpg");
+    background-position: center;
+  }
+  .img-2 {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    background: url("../img/kanek-perez.jpeg");
+    background-position: center;
+  }
+  .hide-profile {
+    display: none;
+  }
+  .text {
+    line-height: 2;
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+    a {
+      color: #67da8c;
+      &:hover {
+        color: #1352dd;
+      }
+    }
+  }
+  .profile-img {
+    margin: 4rem 4rem 0 4rem;
+    border-radius: 50%;
+    &:hover {
+      border: 1px solid #67da8c;
+      opacity: 0.8;
+    }
+  }
+}
+
+.content-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .profile-content {
+    .profile-items {
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+      margin-right: -100px;
+      padding: 2rem;
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 0.3rem;
+      z-index: 1;
+      width: 80%;
+      height: 250px;
+      background-color: #67da8c;
+      border-radius: 20px;
+      opacity: 0.9;
+      animation: popout 1s ease;
+      -webkit-animation: popout 1s ease;
+      .close-tab img {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 10%;
+      }
+      .profile-description {
+        font-size: 1.8rem;
+      }
+    }
+    .icons {
+      display: none;
+    }
+    .content-selected {
+      display: flex;
+    }
+  }
+}
+
+@include desktop {
+  .content-holder .profile-content .profile-items {
+    padding-top: 5rem;
+    font-size: 1.5rem;
+
+    .profile-description {
+      font-size: 2rem;
+    }
+  }
+}
+
+@include desktop {
+  .content-holder .profile-content .profile-items .close-tab img {
+    width: 5%;
+  }
+}
+
+@include tablet {
+  .content-holder .profile-content .profile-items {
+    left: 2.5rem;
+  }
+}
+
+@include desktop {
+  .content-holder .profile-content .profile-items {
+    height: 25%;
+    top: 15rem;
+    width: 25%;
+    left: 55rem;
+  }
+}
+
+@include desktop {
+  .content-holder .profile-content .icons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      color: #1352dd;
+    }
+  }
+}
+
+// carousel
+.carousel {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 16px;
+
+  .carousel-holder {
+    margin-top: 3rem;
+  }
+
+  .left-button,
+  .right-button {
+    font-size: 40px;
+    border-radius: 50%;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    &:hover {
+      color: grey;
+      border: 1px solid red;
+    }
+  }
+  .left-button {
+    top: 50%;
+    left: 25px;
+    transform: translate(0, -50%);
+  }
+  .right-button {
+    top: 50%;
+    right: 25px;
+    transform: translate(0, -50%);
+  }
+}
