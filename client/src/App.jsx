@@ -3,7 +3,7 @@
 // Customer => 1c5bc292728db250bf56c216870babab
 
 import React, {Component} from "react";
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route, Redirect} from "react-router-dom";
 import {loadProgressBar} from "axios-progress-bar";
 import axios from "axios";
 import firebase from "./config/fire";
@@ -28,10 +28,10 @@ import PaymentSuccess from "./Views/CustomerViews/PaymentSuccessPage";
 
 class App extends Component {
   state = {
+    loggedIn: false,
     accountType: null,
     userId: null,
     profileImg: null,
-    profileCode: null,
     payFlow: {
       tip: 5,
       sendTipTo: "",
@@ -61,6 +61,17 @@ class App extends Component {
   updateSessionFlow = updateValue => {
     sessionStorage.setItem("payFlow", updateValue);
   };
+
+  setLogin = ({ uid, profileImg, token}) => {
+    this.setState({
+      ...this.state,
+      loggedIn: true,
+      userId: uid,
+      profileImg: profileImg
+    })
+    this.props.cookies.set("_uat", token);
+    this.props.cookies.set("_uid", uid);
+  }
 
   logoutHandler = () => {
     firebase.auth().signOut();
@@ -94,18 +105,12 @@ class App extends Component {
           exact
           path="/login"
           render={props => (
-            <LoginPage {...props} logout={this.logoutHandler} loginHandler={this.loginHandler} />
-          )}
-        />
-        <Route
-          exact
-          path="/signup"
-          render={props => (
             <SignUpPage
               {...props}
               loginHandler={this.loginHandler}
               accountType={this.state.accountType}
               cookies={this.props.cookies.getAll()}
+              setLogin={this.setLogin}
             />
           )}
         />

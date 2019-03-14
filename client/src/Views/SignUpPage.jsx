@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import {Redirect} from "react-router-dom";
 import firebase from "../config/fire";
-import LoginSignupHeader from "../Components/LoginSignupHeader.jsx";
-import axios from 'axios';
+import axios from "axios";
 
 const facebook = new firebase.auth.FacebookAuthProvider();
 const google = new firebase.auth.GoogleAuthProvider();
@@ -19,6 +18,7 @@ class SignUpPage extends Component {
     userInfo: {
       uid: null,
       token: null,
+      profileImg: null,
     },
   };
   signUpWithFacebook = () => {
@@ -33,11 +33,16 @@ class SignUpPage extends Component {
             newUser: true,
             userInfo: {
               uid: res.user.uid,
-              token: res.credential.accessToken,
+              token: res.user._lat,
+              profileImg: res.user.photoURL,
             },
           });
         } else {
-          this.props.history.push("/");
+          this.saveAndRoute({
+            uid: res.user.uid,
+            token: res.user._lat,
+            profileImg: res.user.photoURL,
+          });
         }
       })
       .catch(err => console.error(err));
@@ -57,10 +62,15 @@ class SignUpPage extends Component {
             userInfo: {
               uid: res.user.uid,
               token: res.user._lat,
+              profileImg: res.user.photoURL,
             },
           });
         } else {
-          this.props.history.push("/");
+          this.saveAndRoute({
+            uid: res.user.uid,
+            token: res.user._lat,
+            profileImg: res.user.photoURL,
+          });
         }
       })
       .catch(err => {
@@ -87,10 +97,15 @@ class SignUpPage extends Component {
             userInfo: {
               uid: res.user.uid,
               token: res.user._lat,
+              profileImg: null,
             },
           });
         } else {
-          this.props.history.push("/");
+          this.saveAndRoute({
+            uid: res.user.uid,
+            token: res.user._lat,
+            profileImg: null,
+          });
         }
       })
       .catch(error => {
@@ -115,28 +130,52 @@ class SignUpPage extends Component {
       account_type: this.state.newUserInputs.accountType,
       uid: this.state.userInfo.uid,
     };
-    console.log(data);
     axios
-      .post('https://tipsease.herokuapp.com/api/users/register/', data)
+      .post("http://localhost:3300/api/users/register/", data)
       .then(res => {
-        console.log(res)
+        this.saveAndRoute(this.state.userInfo);
       })
       .catch(err => {
-        console.log(err)
-      })
+        console.log(err);
+      });
+  };
+
+  saveAndRoute = data => {
+    this.props.setLogin(data);
+    this.props.history.push("/");
   };
 
   render() {
-    const {cookies, accountType} = this.props;
-    // if (cookies._uid && cookies._uat) {
-    //   return <Redirect to="/tip" />;
-    // }
+    if (this.props.loggedIn) {
+      return <Redirect to="/tip" />;
+    }
     return (
       <section className="view login-signup">
-        <LoginSignupHeader />
+        <header>
+          {this.state.showLogin && (
+            <>
+              <p className="heading">Tipsease</p>
+              <nav className="card full-width">
+                <button
+                  className="transparent login-tab"
+                  onClick={this.signUpWithGoogle}
+                >
+                  Google
+                </button>
+                <button
+                  className="transparent signup-tab"
+                  onClick={this.signUpWithFacebook}
+                >
+                  Facebook
+                </button>
+              </nav>
+            </>
+          )}
+          {this.state.newUser && <p className="heading">Let's Get Started</p>}
+        </header>
         {this.state.showLogin && (
           <form onSubmit={this.signUpWithEmail} className="full-width">
-            <button
+            {/* <button
               className="google full-width"
               onClick={this.signUpWithGoogle}
             >
@@ -147,7 +186,7 @@ class SignUpPage extends Component {
               onClick={this.signUpWithFacebook}
             >
               Login Or Sign Up With Facebook
-            </button>
+            </button> */}
             <input
               type="text"
               required
@@ -169,7 +208,6 @@ class SignUpPage extends Component {
         )}
         {this.state.newUser && (
           <form onSubmit={this.createAccount}>
-            <h3>Lets Get Started</h3>
             <input
               type="text"
               className="full-width"
