@@ -19,7 +19,7 @@ const {
 
 router.get("/:id", decode1, (req, res) => {
   if (req.params.id === req.headers.UID) {
-    const id = req.params.id;
+    const id = req.body.users_id;
     db("transactions")
       .where("users_id", "=", id)
       .then(transactions => {
