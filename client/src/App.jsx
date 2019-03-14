@@ -45,6 +45,7 @@ class App extends Component {
   loginHandler = () => {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        console.log(user._lat)
         this.props.cookies.set("_uat", user._lat);
         this.props.cookies.set("_uid", user.uid);
         this.setState({
