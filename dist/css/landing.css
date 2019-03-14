@@ -435,6 +435,11 @@ footer a {
   padding: 3px;
 }
 
+.carousel {
+  height: 200px;
+  width: 75%;
+}
+
 html, body {
   scroll-behavior: smooth;
 }
