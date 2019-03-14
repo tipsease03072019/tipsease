@@ -20,7 +20,7 @@ const {
 router.get("/:id", decode1, (req, res) => {
   if (req.params.id === req.headers.UID) {
     db("transactions")
-      .where("users_id", "=", req.params.id)
+      .where("uid", "=", req.params.UID)
       .then(transactions => {
         res.status(200).send(transactions);
         db("users")
