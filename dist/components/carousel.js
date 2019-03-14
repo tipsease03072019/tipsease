@@ -2,18 +2,20 @@ class Carousel {
   constructor(carousel) {
     this.currentIndex = 0;
     this.carousel = carousel;
-    this.left = document.querySelector(".left-button");
-    this.right = document.querySelector(".right-button");
+    this.leftBtn = document.querySelector(".left-button");
+    this.rightBtn = document.querySelector(".right-button");
     this.profiles = document.querySelectorAll(".carousel-holder");
     this.currentProfile = this.profiles[this.currentIndex];
     this.currentProfile.style.display = "block";
 
-    this.left.addEventListener("click", () => this.previous());
-    this.right.addEventListener("click", () => this.next());
+    this.leftBtn.addEventListener("click", () => this.previous());
+    this.rightBtn.addEventListener("click", () => this.next());
   }
   previous() {
     const profiles = document.querySelectorAll(".carousel-holder");
-    profiles.forEach(profile => (profile.style.display = "none"));
+    profiles.forEach(function(profile) {
+      return (profile.style.display = "none");
+    });
 
     this.currentIndex -= 1;
 
@@ -30,12 +32,11 @@ class Carousel {
   next() {
     const profiles = document.querySelectorAll(".carousel-holder");
 
-    profiles.forEach(profile => (profile.style.display = "none"));
+    profiles.forEach(function(profile) {
+      return (profile.style.display = "none");
+    });
 
     this.currentIndex += 1;
-    if (this.currentIndex < 0) {
-      this.currentIndex = 3;
-    }
     if (this.currentIndex > this.profiles.length - 1) {
       this.currentIndex = 0;
     }
@@ -43,6 +44,8 @@ class Carousel {
   }
 }
 
-let carousel = document
-  .querySelectorAll(".carousel")
-  .forEach(carousel => new Carousel(carousel));
+let carousel = document.querySelectorAll(".carousel");
+
+carousel.forEach(function(carousel) {
+  return new Carousel(carousel);
+});
