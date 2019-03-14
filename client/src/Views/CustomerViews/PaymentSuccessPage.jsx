@@ -45,7 +45,7 @@ class PaymentSuccess extends Component {
             <h2>Payment Sent Successfully</h2>
             <p>@{this.props.data.username} is very grateful... We think.</p>
             <Link to="/">
-              <button className="send-again-btn">Send Again</button>
+              <button className="send-again-btn">Home</button>
             </Link>
           </section>
         </div>

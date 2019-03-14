@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import ServerLoading from '../../Components/FindServerLoading'
+import Nav from '../../Components/Nav'
 
 class SearchServiceProviderPage extends Component {
   state = {
@@ -50,6 +51,7 @@ class SearchServiceProviderPage extends Component {
     return (
       <div className="search-provider view-background full-width">
         <section className="view search-provider">
+          <Nav />
           <div className="balance-container">
             <span>$</span>
             <h2>{this.props.selectedTip}</h2>

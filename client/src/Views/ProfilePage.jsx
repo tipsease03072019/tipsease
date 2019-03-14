@@ -46,13 +46,12 @@ class ProfilePage extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    const userId = JSON.parse(this.props.cookies.userId);
-    axios.defaults.headers.common["Authorization"] = this.props.cookies.token;
     axios
-      .put(
-        `https://tipsease.herokuapp.com/api/users/${this.props.cookies._uid}`,
-        this.state.inputs,
-      )
+      .put(`https://tipsease.herokuapp.com/api/users/${this.props.cookies._uid}`,this.state.inputs,{
+        headers: {
+          token: this.props.cookies._uat,
+        },
+      },)
       .then(res => {
         console.log(res);
       })
@@ -78,19 +77,7 @@ class ProfilePage extends Component {
             name="username"
             onChange={this.changeHandler}
           />
-          <input
-            type="text"
-            placeholder="Password"
-            name="password"
-            onChange={this.changeHandler}
-          />
-          <input
-            type="text"
-            placeholder="Email"
-            value={this.state.inputs.email}
-            name="email"
-            onChange={this.changeHandler}
-          />
+          <button>Reset Password</button>
           <input
             type="url"
             placeholder="Profile Picture"
@@ -98,7 +85,7 @@ class ProfilePage extends Component {
             name="img_url"
             onChange={this.changeHandler}
           />
-          <button>Updates</button>
+          <button type="submit">Update</button>
         </form>
       </>
     );

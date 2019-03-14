@@ -8,6 +8,7 @@ import WalletHistory from "../../Components/WalletHistory";
 class WalletPage extends Component {
   state = {
     isLoading: true,
+    isLoadingHistory: true,
     balance: null,
     username: null,
     showUsername: false,
@@ -15,6 +16,26 @@ class WalletPage extends Component {
   };
 
   componentDidMount() {
+    axios
+      .get(`https://tipsease.herokuapp.com/api/users/${
+        this.props.cookies._uid
+      }`,
+      {
+        headers: {
+          token: this.props.cookies._uat,
+        },
+      },)
+      .then(res => {
+        this.setState({
+          ...this.state,
+          username: res.data.username,
+          balance: res.data.balance,
+          isLoading: false,
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      })
     axios
       .get(
         `https://tipsease.herokuapp.com/api/transactions/${
@@ -27,12 +48,10 @@ class WalletPage extends Component {
         },
       )
       .then(res => {
-        console.log(res);
         this.setState({
           ...this.state,
-          isLoading: false,
-          balance: 0,
-          transactions: [],
+          transactions: res.data,
+          isLoadingHistory: false,
         });
       })
       .catch(err => {
@@ -52,33 +71,6 @@ class WalletPage extends Component {
   };
 
   render() {
-    // Empty Array, signifying previous transactions. To be used to `map()` below.
-    const transactions = [
-      {
-        receivedOrSent: "received",
-        amount: 69,
-        sender: "Isaac Aszimov",
-        timeStamp: "2019-03-12 01:06:39",
-      },
-      {
-        receivedOrSent: "received",
-        amount: 52,
-        sender: "William Jones",
-        timeStamp: "2019-03-12 01:06:39",
-      },
-      {
-        receivedOrSent: "received",
-        amount: 46,
-        sender: "Isaac Henry",
-        timeStamp: "2019-03-12 01:06:39",
-      },
-    ];
-    const testUser = [
-      {
-        name: "John",
-        balance: 50,
-      },
-    ];
     return (
       <section className="view">
         <section className="wallet-top">
@@ -99,10 +91,10 @@ class WalletPage extends Component {
 
         <section className="card wallet-bottom full-width">
           <h4>Latest Transactions:</h4>
-          {this.state.isLoading && <WalletHistoryLoad />}
-          {/* {!this.state.isLoading && transactions.map((transaction, idx) => (
-            <WalletHistory senderImg />
-          ))} */}
+          {this.state.isLoadingHistory && <WalletHistoryLoad />}
+          {this.state.transactions.map(el => (
+            <WalletHistory tip={el.tip} date={el.created_at} />
+          ))}
           {this.state.isLoading && (
             <button className="secondary">
               <Skeleton />
