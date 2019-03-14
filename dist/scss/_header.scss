@@ -105,7 +105,6 @@ header {
         strong {
             color: $primary-color;
             @include heroHeading;
-            font-weight: bold;
 
             margin-bottom: 50px;
         }
