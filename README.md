@@ -191,8 +191,7 @@ axios
 # Get Transactions by ID
 
 const headers = {
-    Token: "",
-    users_id: ""
+    token: ""
 }
 
 axios
