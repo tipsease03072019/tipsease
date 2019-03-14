@@ -39,6 +39,8 @@ class SearchServiceProviderPage extends Component {
 
   selectUser = uid => {
     console.log(uid);
+    this.props.setUserHelper(uid);
+    this.props.history.push("/payment");
   }
 
   render() {
@@ -54,9 +56,6 @@ class SearchServiceProviderPage extends Component {
         />
         <Link to="/">
           <button>Back</button>
-        </Link>
-        <Link to="/">
-          <button>Next</button>
         </Link>
         {(this.state.filtered ? this.state.filtered : this.state.servers).map(server => (
           <Card username={server.username} key={server.uid} uid={server.uid} selectUser={this.selectUser} />
