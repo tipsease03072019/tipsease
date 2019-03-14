@@ -17,6 +17,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"
     ></script>
     <script defer="defer" src="./components/nav.js"></script>
+    <script defer="defer" src="./components/carousel.js"></script>
     <title>Tipsease | About</title>
   </head>
   <body>
@@ -227,7 +228,24 @@
       <!-- carousel -->
       <div class="carousel">
         <div class="left-button"><</div>
-        <img class="carousel-item" src="#" />
+        <section class="profiles">
+          <div data-tab="1" class="profile-holder carousel-holder">
+            <div data-tab="1" class="profile img-1"></div>
+            <div class="text">
+              Quan Nguyen <br />
+              Fearless Leader
+              <a href="#"><i class="fab fa-github fa-2x"></i></a>
+            </div>
+          </div>
+          <div data-tab="2" class="profile-holder carousel-holder hide-profile">
+            <div data-tab="2" class="profile img-3"></div>
+            <div class="text">
+              Alex E. <br />
+              Front-End Developer
+              <a href="#"><i class="fab fa-github fa-2x"></i></a>
+            </div>
+          </div>
+        </section>
 
         <div class="right-button">></div>
       </div>
