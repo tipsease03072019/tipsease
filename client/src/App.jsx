@@ -70,13 +70,7 @@ class App extends Component {
     sessionStorage.setItem("payFlow", updateValue);
   };
 
-  setLogin = ({uid, profileImg, token}) => {
-    this.setState({
-      ...this.state,
-      loggedIn: true,
-      userId: uid,
-      profileImg: profileImg,
-    });
+  setLogin = ({uid, token}) => {
     this.props.cookies.set("_uat", token);
     this.props.cookies.set("_uid", uid);
     this.props.cookies.set("_uli", "573c9f471261114c1ccb0daba919cdd9");

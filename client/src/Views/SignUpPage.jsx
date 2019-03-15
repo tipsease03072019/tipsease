@@ -141,8 +141,8 @@ class SignUpPage extends Component {
       });
   };
 
-  saveAndRoute = data => {
-    this.props.setLogin(data);
+  saveAndRoute = () => {
+    this.props.loginHandler();
     this.props.history.push("/");
   };
 
