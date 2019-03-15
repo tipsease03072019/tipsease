@@ -10,25 +10,22 @@ To get the frontend running locally:
 
 ### Making requests to the backend API
 
-For convenience, we have a live API server running at https://-api.herokuapp.com for the application to make requests against. You can view [the API spec here](https://github.com/blob/master/backend/README.md) which contains all routes & responses for the server.
-
-The source code for the backend server can be found in the [main repo](https://github.com/).
+For convenience, we have a live API server running at https://tipsease.herokuapp.com/api/for the application to make requests against. You can view [the API spec here](https://github.com/tipsease03072019/tipsease/blob/master/EndPoint.md) which contains all routes & responses for the server.
 
 ## Functionality overview
 
-The application is a social portfolio site (i.e. Instagram for photographers) called “The Lookbook”. It uses a custom API for all requests, including authentication. User can visit the site and see artists photos laid out in a grid , artist can create, update, delete photos.
+The application is a site to send tips to servers without employeer interaction called Tipsease. It uses a custom API for all requests. User can visit the site and send some money over to maksthedev to show how much you like our app.
 
 **General functionality:**
 
-- Authenticate users via JWT (login/signup + logout button on navigation bar)
-- CR** users (sign up & info page - no deleting or updating)
-- CRUD Posts
+- Authenticate users via Firebase with Email and Google Options
+- CRUD Users
+- CR** Transactions
 
 **The general page breakdown looks like this:**
 
 - Sign in/Sign up page (URL: /login )
-   - Use JWT (store the token in localStorage)
-- Editor dashboard to create/edit/delete posts (URL: / )
-- Profile page (URL: /myaccount )
-   - Show basic user info
-   - List of posts populated from artist’s created posts
+   - Use Firebase and Cookies
+- Send a tip (URL: / )
+- Wallet Page and Transaction History (URL: /wallet )
+   - See recent Transactions
