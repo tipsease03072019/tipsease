@@ -5,8 +5,13 @@
 }
 
 .nav, .nav .menu-card {
-  margin-top: $medium-space;
-  margin-right: $medium-space;
+  margin-top: $normal-space;
+  margin-right: $normal-space;
+
+  @media #{$desktop} {
+    margin-top: $medium-space;
+    margin-right: $medium-space;
+  }
 }
 
 .nav {
