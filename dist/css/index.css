@@ -433,7 +433,8 @@ a:hover {
   width: 225px;
   height: 225px;
   border-radius: 50%;
-  background: url("../img/portrait.jpg");
+  background: url("../img/maks.jfif");
+  background-size: contain;
   background-position: center;
 }
 .profiles .img-4 {
