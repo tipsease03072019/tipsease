@@ -1,8 +1,9 @@
 // ? Add Instant Username Check
 import React, {Component} from "react";
 import axios from "axios";
-import Skeleton from "react-loading-skeleton";
 import {Link} from "react-router-dom";
+import {Redirect} from "react-router-dom";
+import Nav from "../Components/Nav";
 
 class ProfilePage extends Component {
   state = {
@@ -12,11 +13,14 @@ class ProfilePage extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://tipsease.herokuapp.com/api/users/${this.props.cookies._uid}`,{
-        headers: {
-          token: this.props.cookies._uat,
+      .get(
+        `https://tipsease.herokuapp.com/api/users/${this.props.cookies._uid}`,
+        {
+          headers: {
+            token: this.props.cookies._uat,
+          },
         },
-      },)
+      )
       .then(res => {
         this.setState({
           ...this.state,
@@ -47,13 +51,17 @@ class ProfilePage extends Component {
   submitHandler = e => {
     e.preventDefault();
     axios
-      .put(`https://tipsease.herokuapp.com/api/users/${this.props.cookies._uid}`,this.state.inputs,{
-        headers: {
-          token: this.props.cookies._uat,
+      .put(
+        `https://tipsease.herokuapp.com/api/users/${this.props.cookies._uid}`,
+        this.state.inputs,
+        {
+          headers: {
+            token: this.props.cookies._uat,
+          },
         },
-      },)
+      )
       .then(res => {
-        console.log(res);
+        this.props.history.push("/");
       })
       .catch(err => {
         console.log(err);
@@ -61,13 +69,21 @@ class ProfilePage extends Component {
   };
 
   render() {
+    if (this.props.cookies._uli !== "573c9f471261114c1ccb0daba919cdd9") {
+      return <Redirect to="/" />;
+    }
     if (this.state.isLoading) {
-      return <Skeleton count={4} />;
+      return (
+        <>
+          <Nav />
+          <h2>Loading...</h2>
+        </>
+      );
     }
     return (
       <>
+        <Nav />
         <h2>Update Profile</h2>
-        {/* USER DETAILS. To Be Made into forms when 'edit user details is clicked' */}
         <Link to="/">Back</Link>
         <form onSubmit={this.submitHandler}>
           <input

@@ -3,6 +3,8 @@ import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import WalletHistoryLoad from "../../Components/WalletHistoryLoad";
 import WalletHistory from "../../Components/WalletHistory";
+import { Redirect } from 'react-router-dom';
+import Nav from '../../Components/Nav'
 
 class WalletPage extends Component {
   state = {
@@ -70,8 +72,12 @@ class WalletPage extends Component {
   };
 
   render() {
+    if(this.props.cookies._uli !== '573c9f471261114c1ccb0daba919cdd9' || this.props.cookies._ula !== "f5c3522b165b1589a6cb5a2aee1da7f7" ){
+      return <Redirect to='/' />
+    }
     return (
       <section className="view">
+        <Nav />
         <section className="wallet-top">
           <h2>Welcome</h2>
           <div className="card full-width">
@@ -92,7 +98,7 @@ class WalletPage extends Component {
           <h4>Latest Transactions:</h4>
           {this.state.isLoadingHistory && <WalletHistoryLoad />}
           {this.state.transactions.map(el => (
-            <WalletHistory tip={el.tip} date={el.created_at} />
+            <WalletHistory tip={el.tip} key={el.id} date={el.created_at} />
           ))}
           {this.state.isLoading && (
             <button className="secondary">

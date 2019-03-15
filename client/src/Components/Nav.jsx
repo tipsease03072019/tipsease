@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {withCookies} from "react-cookie";
-import firebase from '../config/fire'
+import firebase from "../config/fire";
 
 class Nav extends Component {
   state = {
@@ -15,22 +15,20 @@ class Nav extends Component {
 
   logoutHandler = () => {
     firebase.auth().signOut();
-    console.log("you are logged out");
     this.props.cookies.remove("_uat");
     this.props.cookies.remove("_uid");
-    this.props.cookies.remove('_uli');
-    this.props.cookies.remove('_lat');
+    this.props.cookies.remove("_uli");
+    this.props.cookies.remove("_lat");
   };
 
   render() {
-    const {_uli} = this.props.cookies.cookies;
+    const {_uli, _ula} = this.props.cookies.cookies;
     if (_uli === "573c9f471261114c1ccb0daba919cdd9") {
       return this.state.showNav ? (
         <div className="nav active">
-          <img />
           <nav className="card menu-card">
             {/* Depending on the accountType found in App.js' state, render a Link to wallet. Reason being is that normal users have no need for a link to their non-existent wallet */}
-            {this.props.accountType === "employee" ? (
+            {_ula === "f5c3522b165b1589a6cb5a2aee1da7f7" ? (
               <Link to="/wallet">
                 <button className="transparent">My Wallet</button>
               </Link>

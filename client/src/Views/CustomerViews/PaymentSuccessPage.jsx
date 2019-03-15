@@ -13,7 +13,6 @@ class PaymentSuccess extends Component {
     this.setState({
       isLoading: true,
     });
-    console.log({tip:this.props.data.tip});
     axios
       .post(
         `https://tipsease.herokuapp.com/api/transactions/${
