@@ -35,45 +35,33 @@ class App extends Component {
   }
 
   loginHandler = () => {
+    this.props.cookies.remove("_uat");
+    this.props.cookies.remove("_uid");
+    this.props.cookies.remove("_uli");
+    this.props.cookies.remove("_ula");
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.props.cookies.set("_uat", user._lat);
         this.props.cookies.set("_uid", user.uid);
         this.props.cookies.set("_uli", "573c9f471261114c1ccb0daba919cdd9");
         axios
-          .get(
-            `https://tipsease.herokuapp.com/api/users/${
-              user.uid
-            }`,
-            {
-              headers: {
-                token: user._lat,
-              },
+          .get(`https://tipsease.herokuapp.com/api/users/${user.uid}`, {
+            headers: {
+              token: user._lat,
             },
-          )
+          })
           .then(res => {
             this.props.cookies.set("_ula", res.data.account_type);
           })
           .catch(err => {
             console.log(err);
           });
-      } else {
-        this.props.cookies.remove("_uat");
-        this.props.cookies.remove("_uid");
-        this.props.cookies.remove("_uli");
-        this.props.cookies.remove("_ula");
       }
     });
   };
 
   updateSessionFlow = updateValue => {
     sessionStorage.setItem("payFlow", updateValue);
-  };
-
-  setLogin = ({uid, token}) => {
-    this.props.cookies.set("_uat", token);
-    this.props.cookies.set("_uid", uid);
-    this.props.cookies.set("_uli", "573c9f471261114c1ccb0daba919cdd9");
   };
 
   setTipHelper = tip => {
@@ -139,7 +127,9 @@ class App extends Component {
         <Route
           exact
           path="/profile"
-          render={props => <Profile {...props} cookies={this.props.cookies.getAll()} />}
+          render={props => (
+            <Profile {...props} cookies={this.props.cookies.getAll()} />
+          )}
         />
         <Route
           exact
