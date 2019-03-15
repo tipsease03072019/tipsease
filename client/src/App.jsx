@@ -23,10 +23,6 @@ import "axios-progress-bar/dist/nprogress.css";
 
 class App extends Component {
   state = {
-    loggedIn: false,
-    accountType: null,
-    userId: null,
-    profileImg: null,
     payFlow: {
       tip: 5,
       user_id: "",
@@ -43,14 +39,13 @@ class App extends Component {
       if (user) {
         this.props.cookies.set("_uat", user._lat);
         this.props.cookies.set("_uid", user.uid);
-        this.setState({
-          profileImg: user.photoURL,
-          userId: user.uid,
-        });
+        this.props.cookies.set('_uli', '573c9f471261114c1ccb0daba919cdd9');
+        this.props.cookies.set('_ula', '573c9f471261114c1ccb0daba919cdd9');
         // TODO: Get request to pull account type and profile code
       } else {
         this.props.cookies.remove("_uat");
         this.props.cookies.remove("_uid");
+        this.props.cookies.remove('_uli');
       }
     });
   };
@@ -68,20 +63,7 @@ class App extends Component {
     });
     this.props.cookies.set("_uat", token);
     this.props.cookies.set("_uid", uid);
-  };
-
-  logoutHandler = () => {
-    firebase.auth().signOut();
-    console.log("you are logged out");
-    this.props.cookies.remove("_uat");
-    this.props.cookies.remove("_uid");
-    this.setState({
-      ...this.state,
-      accountType: null,
-      userId: null,
-      profileImg: null,
-      profileCode: null,
-    });
+    this.props.cookies.set('_uli', '573c9f471261114c1ccb0daba919cdd9');
   };
 
   setTipHelper = tip => {

@@ -1,30 +1,21 @@
 import React from "react";
-import axios from "axios";
 import {withCookies} from "react-cookie";
 
-axios.defaults.baseURL = "http://localhost:3300/api";
-axios.interceptors.request.use(
-  function(options) {
-    options.headers.authorization = localStorage.getItem("jwt");
-
-    return options;
-  },
-  function(error) {
-    return Promise.reject(error);
-  }
-);
-
-const Auth = (Component) => {
-  console.log(props)
+const Auth = ({Component, cookies}) => {
+ 
   return class Authenticated extends React.Component {
     render() {
+      console.log(cookies)
+      if(true){
+        
+      }
       const notLoggedIn = (
         <div>
           <h1>To see the jokes, please log in or register.</h1>
         </div>
       );
 
-      return <> {token ? <Component {...this.props} /> : notLoggedIn} </>;
+      return <Component {...this.props} />
     }
   };
 }

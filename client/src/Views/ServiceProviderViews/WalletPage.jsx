@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import * as moment from "moment";
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import WalletHistoryLoad from "../../Components/WalletHistoryLoad";
