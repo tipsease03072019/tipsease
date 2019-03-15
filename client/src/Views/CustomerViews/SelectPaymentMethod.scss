@@ -23,4 +23,20 @@
       }
     }
   }
+
+  section.view.add-pay-method {
+    form {
+      width: 90%;
+      max-width: 40rem;
+      @include flexbox(column, center, center);
+
+      input {
+        width: 100%;
+      }
+
+      a {
+        width: 100%;
+      }
+    }
+  }
 }
