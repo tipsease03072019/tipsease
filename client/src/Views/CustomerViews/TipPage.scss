@@ -23,7 +23,6 @@
       @include flexbox(null, center, center, wrap);
       position: fixed;
       bottom: $medium-space;
-      width: 90%;
 
       @media #{$desktop} {
         position: unset;
@@ -31,18 +30,29 @@
 
       button {
         margin: 0;
-        margin-right: $medium-space;
-        margin-bottom: $normal-space;
+        margin-right: 2.5%;
+        margin-bottom: 2.5%;
+        padding: 2.5% 8%;
 
         @media #{$desktop} {
           min-height: 5rem;
+          margin-right: $medium-space;
+          margin-bottom: $normal-space;
           padding: $normal-space $large-space;
           font-size: $base-font-size;
+
+          &:last-child {
+            margin: 0;
+          }
         }
 
         &:last-child {
           margin: 0;
-          margin-bottom: $normal-space;
+          margin-bottom: 2.5%;
+
+          @media #{$desktop} {
+            margin-bottom: $normal-space;
+          }
         }
       }
     }

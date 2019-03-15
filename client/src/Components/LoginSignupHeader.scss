@@ -5,7 +5,7 @@
   background-color: $tipsease-secondary;
   @include flexbox(column, center, center);
 
-  .heading {
+  .heading, .subheading {
     color: $white;
   }
 

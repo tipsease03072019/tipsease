@@ -10,15 +10,15 @@ const SelectPaymentMethod = () => {
   const useTrue = useTrueFalse();
   if (useTrue.value) {
     return (
-      <div className="view-background select-pay-method">
-        <section className="view select-pay-method">
-          <h3 className="text-centered">Select a Payment Method</h3>
+      <div className="view-background select-pay-method add-pay-method">
+        <section className="view select-pay-method add-pay-method">
+          <h4 className="text-centered">Enter Your Payment Details</h4>
           <form>
-            <button onClick={() => useTrue.setValue(false)}>Back</button>
+            <button className="transparent" onClick={() => useTrue.setValue(false)}>Back</button>
             <input type="number" placeholder="Card Number" value={CardNumber.value} onChange={CardNumber.updateValue} />
             <input type="number" placeholder="Expire Date" value={ExpireData.value} onChange={ExpireData.updateValue} />
             <input type="number" placeholder="CSV" value={csv.value} onChange={csv.updateValue} />
-            <Link to="/payment"><button>Add Method</button></Link>
+            <Link to="/payment"><button className="secondary full-width">Add Method</button></Link>
           </form>
         </section>
       </div>
