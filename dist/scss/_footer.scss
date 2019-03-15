@@ -24,9 +24,6 @@ footer {
       a {
           color: white;
       }
-  }
 
-  @include desktop {
-    margin-top: $lg-margin;
-  }
+    }
 }

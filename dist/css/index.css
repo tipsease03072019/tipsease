@@ -641,10 +641,5 @@ footer div {
 footer div a {
   color: white;
 }
-@media screen and (min-width: 1000px) {
-  footer {
-    margin-top: 55px;
-  }
-}
 
 /*# sourceMappingURL=index.css.map */
