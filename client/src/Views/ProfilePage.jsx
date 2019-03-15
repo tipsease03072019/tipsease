@@ -81,10 +81,14 @@ class ProfilePage extends Component {
       );
     }
     return (
-      <>
+      <section className="view profile">
         <Nav />
-        <h2>Update Profile</h2>
-        <Link to="/">Back</Link>
+        <h3>Update Profile</h3>
+        <Link to="/">
+          <button className="transparent">
+            Back
+          </button>
+        </Link>
         <form onSubmit={this.submitHandler}>
           <input
             type="text"
@@ -93,7 +97,7 @@ class ProfilePage extends Component {
             name="username"
             onChange={this.changeHandler}
           />
-          <button>Reset Password</button>
+        <button type="button">Reset Password</button>
           <input
             type="url"
             placeholder="Profile Picture"
@@ -101,9 +105,9 @@ class ProfilePage extends Component {
             name="img_url"
             onChange={this.changeHandler}
           />
-          <button type="submit">Update</button>
+        <button className="secondary" type="submit">Update</button>
         </form>
-      </>
+      </section>
     );
   }
 }

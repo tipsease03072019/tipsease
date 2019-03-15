@@ -1,0 +1,12 @@
+section.view.profile {
+  @include flexbox(inherit, inherit, centered);
+
+  form {
+    width: 90%;
+    max-width: 40rem;
+
+    input, button {
+      width: 100%;
+    }
+  }
+}
