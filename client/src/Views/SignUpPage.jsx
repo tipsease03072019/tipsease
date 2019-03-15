@@ -172,7 +172,7 @@ class SignUpPage extends Component {
               </nav>
             </>
           )}
-          {this.state.newUser && <p className="heading">Let's Get Started</p>}
+          {this.state.newUser && <p className="subheading">Let's Get Started</p>}
         </header>
         {this.state.showLogin && (
           <form onSubmit={this.signUpWithEmail} className="full-width">
@@ -217,18 +217,20 @@ class SignUpPage extends Component {
               value={this.state.newUserInputs.username}
               onChange={this.changeHandler}
             />
-            <select
-              className="full-width"
-              name="accountType"
-              onChange={this.changeHandler}
-            >
-              <option value="1c5bc292728db250bf56c216870babab">
-                I am a Customer
-              </option>
-              <option value="f5c3522b165b1589a6cb5a2aee1da7f7">
-                I am a Server
-              </option>
-            </select>
+            <label className="select">
+              <select
+                className="full-width"
+                name="accountType"
+                onChange={this.changeHandler}
+              >
+                <option value="1c5bc292728db250bf56c216870babab">
+                  I am a Customer
+                </option>
+                <option value="f5c3522b165b1589a6cb5a2aee1da7f7">
+                  I am a Service Provider
+                </option>
+              </select>
+            </label>
             <button className="primary full-width">Finish</button>
           </form>
         )}
