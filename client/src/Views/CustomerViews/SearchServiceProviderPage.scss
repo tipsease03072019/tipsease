@@ -3,6 +3,7 @@
 
   section.view.search-provider {
     @include flexbox(inherit, inherit, center);
+    padding-top: 10rem;
 
     .balance-container {
       @include flexbox(null, center);
